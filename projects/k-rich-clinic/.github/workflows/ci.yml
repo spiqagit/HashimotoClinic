@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  php-lint:
+    name: PHP Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer
+      
+      - name: Run PHP Lint
+        run: |
+          find . -name "*.php" -not -path "./wp-admin/*" -not -path "./wp-includes/*" -not -path "./wp-content/plugins/*" -not -path "./wp-content/themes/*" -exec php -l {} \;
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Check for sensitive data
+        run: |
+          echo "Checking for sensitive files..."
+          if [ -f "wp-config.php" ]; then
+            echo "⚠️ Warning: wp-config.php contains sensitive data"
+            echo "Consider using environment variables or secrets management"
+          fi
+
+  file-permissions:
+    name: Check File Permissions
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Check sensitive files
+        run: |
+          if [ -f "wp-config.php" ]; then
+            echo "⚠️ wp-config.php is tracked in git. Consider adding it to .gitignore"
+          fi
+

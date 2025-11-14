@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Deploy to server
+        run: |
+          echo "🚀 Deployment steps would go here"
+          echo "Example: rsync, FTP, SSH deployment, etc."
+          # Add your deployment commands here
+          # Example:
+          # rsync -avz --exclude='.git' ./ user@server:/path/to/wordpress/
+
