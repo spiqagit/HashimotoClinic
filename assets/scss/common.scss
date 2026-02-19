@@ -1,0 +1,13 @@
+@charset "UTF-8";
+//foundation
+@use "foundation/function/index" as *;
+@use "foundation/base/index" as *;
+
+//layout
+@use "layout/index" as *;
+
+//object / component
+@use "object/component/index" as *;
+
+//object / page
+@use 'object/page/index' as *;

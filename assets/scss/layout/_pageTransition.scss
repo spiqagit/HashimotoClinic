@@ -1,0 +1,11 @@
+// ページ遷移用オーバーレイ（初回訪問時・遷移後にふわっと消す）
+.bl_pageTransitionOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none; // アニメーション後はクリック透過
+    background-color: #E5E1DC; // 必要に応じて変更
+}
