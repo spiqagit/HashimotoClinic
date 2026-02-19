@@ -1,0 +1,394 @@
+@use '../../foundation/function/index' as *;
+
+
+.bl_menuArticle_header {
+    display: grid;
+    grid-template-columns: 1fr fluid(527, 'pc');
+    gap: rem(30);
+    align-items: center;
+    padding-inline: fluid(120, 'pc');
+    padding-block: rem(40);
+
+    @include underSP {
+        grid-template-columns: 1fr;
+        gap: rem(20);
+        padding-inline: rem(20);
+        padding-top: rem(30);
+        padding-bottom: rem(60);
+    }
+
+
+    .bl_menuArticle_header_ttlContainer {
+
+        @include underSP {
+            grid-row: 2;
+        }
+
+        .bl_menuArticle_header_ttlContainer_upper {
+            display: flex;
+            flex-direction: column;
+            gap: rem(16);
+            margin-bottom: rem(34);
+
+            .el_menuArticle_header_ttlContainer_ttl {
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(32);
+                font-weight: 600;
+                line-height: 1.2;
+                letter-spacing: calc(2.56 / 32 * 1em);
+
+                @include underSP {
+                    font-size: rem(30);
+                }
+            }
+
+            .el_menuArticle_header_ttlContainer_subTxt {
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(18);
+                font-weight: 400;
+                line-height: 1.4;
+                letter-spacing: calc(1.44 / 18 * 1em);
+
+                @include underSP {
+                    font-size: rem(16);
+                }
+            }
+        }
+    }
+
+
+    .bl_menuArticle_header_imgContainer {
+
+        @include underSP {
+            grid-row: 1;
+        }
+
+        .el_menuArticle_header_imgContainer_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 527/333;
+        }
+    }
+
+}
+
+
+.bl_menuArticle_contents {
+    padding-top: fluid(100, 'pc');
+    padding-inline: fluid(120, 'pc');
+
+    @include underSP {
+        padding-top: rem(60);
+        padding-inline: rem(20);
+        overflow-x: hidden;
+    }
+
+    .bl_menuArticle_contents_inner {
+        display: grid;
+        grid-template-columns: fluid(250, 'pc') 1fr;
+        gap: fluid(100, 'pc');
+
+        @include underSP {
+            display: flex;
+            flex-direction: column;
+            gap: rem(40);
+        }
+
+
+        .bl_menuArticle_navContainer {
+            height: 100%;
+
+            .bl_commonIndexNav {
+                display: block;
+                position: sticky;
+                top: rem(100);
+                padding: rem(20);
+                border-radius: rem(4);
+                background-color: #F6F6F6;
+
+                .el_commonIndexNav_ttl {
+                    width: fit-content;
+                    margin-inline: auto;
+                    color: var(--black);
+                    font-family: var(--subFontEn);
+                    font-size: rem(22);
+                    font-weight: 400;
+                    line-height: 1.2;
+                    letter-spacing: calc(2.2 / 22 * 1em);
+                    margin-bottom: rem(22);
+                }
+
+                .bl_commonIndexNav_list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(16);
+
+                    .bl_commonIndexNav_list_item {
+                        display: grid;
+                        grid-template-columns: 4px auto;
+                        gap: rem(8);
+                        align-items: flex-start;
+
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 4px;
+                            height: auto;
+                            aspect-ratio: 1/1;
+                            background-color: var(--black);
+                            border-radius: 100%;
+                            margin-top: rem(6);
+                        }
+
+                        .el_commonIndexNav_list_item_link {
+                            display: block;
+                            width: fit-content;
+                            color: var(--black);
+                            font-family: var(--mainFont);
+                            font-size: rem(14);
+                            font-weight: 400;
+                            line-height: 1.2;
+                            letter-spacing: calc(1.12 / 14 * 1em);
+                            width: fit-content;
+
+
+                            .el_commonIndexNav_list_item_link_txt {
+                                background-image: linear-gradient(var(--black), var(--black));
+                                background-repeat: no-repeat;
+                                background-size: 0 1px;
+                                background-position: bottom right;
+                                transition: background-size 0.5s ease;
+                            }
+
+                            @media (any-hover: hover) {
+                                &:hover {
+                                    .el_commonIndexNav_list_item_link_txt {
+                                        background-size: 100% 1px;
+                                        background-repeat: no-repeat;
+                                        background-position: bottom left;
+                                        transition: background-size 0.5s ease;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .bl_menuArticle_navContainer_pc {
+            display: block;
+
+            @include underSP {
+                display: none;
+            }
+        }
+    }
+}
+
+// SP用 目次アコーディオン（開閉は JS で .is_open をトグル）
+.bl_menuArticle_navContainer_sp {
+    display: none;
+
+    @include underSP {
+        display: block;
+        border-radius: rem(4);
+        background: var(--gray);
+        padding: rem(20);
+    }
+
+    // トリガーボタン
+    .bl_menuArticle_navContainer_sp_btn {
+        display: grid;
+        grid-template-columns: rem(17) 1fr rem(17);
+        align-items: center;
+        gap: rem(8);
+        width: 100%;
+        min-height: 0;
+        border: none;
+        cursor: pointer;
+        background: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-align: left;
+
+        &::before {
+            content: '';
+            display: block;
+            grid-row: 1;
+        }
+
+        .bl_menuArticle_navContainer_sp_btn_txt {
+            color: var(--black);
+            text-align: center;
+            font-family: var(--subFontEn);
+            font-size: rem(20);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 0.1em;
+        }
+
+        .bl_menuArticle_navContainer_sp_btn_arrow {
+            display: block;
+            width: rem(17);
+            height: auto;
+            transform: rotate(180deg); // 初期: 下向き
+            transition: transform 0.3s ease;
+        }
+    }
+
+    // 開いているとき: 矢印を上向き
+    &.is_open .bl_menuArticle_navContainer_sp_btn_arrow {
+        transform: rotate(0deg);
+    }
+
+    // アコーディオン本体（開閉は JS で height: 0 を制御）
+    .bl_menuArticle_navContainer_sp_body {
+        @include underSP {
+            height: 0;
+            overflow: hidden;
+        }
+    }
+
+    &.is_open .bl_menuArticle_navContainer_sp_body {
+        @include underSP {
+            height: auto;
+            overflow: visible;
+        }
+    }
+
+    // 目次リスト
+    .bl_commonIndexNav_list_sp {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, rem(220)), 1fr));
+        gap: rem(16);
+        padding-top: rem(20);
+
+        .bl_commonIndexNav_list_item {
+            display: grid;
+            grid-template-columns: 4px 1fr;
+            gap: rem(8);
+            align-items: flex-start;
+            border-radius: rem(4);
+            background-color: var(--gray);
+            color: var(--black);
+            font-family: var(--mainFont);
+            font-size: rem(14);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: calc(1.12 / 14 * 1em);
+
+            &::before {
+                content: '';
+                display: block;
+                width: 4px;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                background-color: var(--black);
+                border-radius: 100%;
+                margin-top: rem(8);
+            }
+        }
+    }
+}
+
+
+.bl_menuCaseSwiperContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: rem(40) 1fr rem(40);
+    align-items: center;
+    gap: rem(20);
+    margin-bottom: rem(30);
+
+    @include underSP {
+        display: block;
+    }
+
+    &:not(:first-child) {
+        margin-top: rem(30);
+    }
+
+
+    .bl_menuCaseSwiper_prev,
+    .bl_menuCaseSwiper_next {
+        display: grid;
+        grid-template-columns: rem(8);
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+        background-color: var(--black);
+        border-radius: 100%;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.5s ease;
+        z-index: 1;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        @include underSP {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: rem(40);
+            height: rem(40);
+        } 
+    }
+
+    .bl_menuCaseSwiper_next {
+        @include underSP {
+            right: 0;
+            left: auto;
+        }
+    }  
+
+    .bl_menuCaseSwiper {
+
+        @include underSP {
+            overflow: visible;
+            z-index: 0;
+        }
+
+        .swiper-slide {
+            max-width: rem(216);
+            width: 100%;
+        }
+
+    }
+}
+
+
+.bl_relatedPriceBlock {
+    &:not(:first-child) {
+        margin-top: rem(30);
+    }
+}
+
+
+.bl_menuFaqContainer {
+    &:not(:first-child) {
+        margin-top: rem(30);
+    }
+}
+
+.bl_menuBlogSwiperContainer {
+    &:not(:first-child) {
+        margin-top: rem(30);
+    }
+}

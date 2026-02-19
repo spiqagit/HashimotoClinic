@@ -1,0 +1,17 @@
+{
+  "name": "blog-block",
+  "title": "院長ブログ",
+  "description": "院長ブログが表示されます。",
+  "category": "menu-block",  
+  "icon": "admin-comments",
+  "keywords": ["院長ブログ"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "blog-block.php"
+  },
+  "supports": {
+    "html": false,
+    "align": true,
+    "jsx": true
+  }
+}

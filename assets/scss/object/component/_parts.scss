@@ -14,11 +14,11 @@
             padding-top: rem(100);
         }
 
-        .bl_commonlowerPage_contents{
+        .bl_commonlowerPage_contents {
             padding-top: rem(100);
             background-color: #fff;
-            border-radius: rem(60) rem(60) 0 0;  
-          
+            border-radius: rem(60) rem(60) 0 0;
+
         }
     }
 }
@@ -209,10 +209,596 @@
 
 
 /* ------------------------------------------------------------------------------------------
-#メニュー
+#下層記事
 ------------------------------------------------------------------------------------------ */
-.bl_menuList {
-    display: flex;
-    flex-direction: column;
-    gap: rem(24);
+.bl_commonArticlePage {
+    padding-top: rem(188);
+
+    @include underSP {
+        padding-top: rem(78);
+    }
+}
+
+
+.bl_commonArticle_content {
+
+    >h2 {
+        scroll-margin-top: 100px;
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(28);
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: calc(2.24 / 28 * 1em);
+        padding-bottom: rem(10);
+
+        &:not(:first-child) {
+            margin-top: rem(60);
+        }
+    }
+
+
+    >h3 {
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(24);
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: calc(1.92 / 24 * 1em);
+        padding-block: rem(24);
+        padding-inline: rem(20);
+        border-top: 2px solid var(--black);
+        background-color: var(--gray);
+
+        &:not(:first-child) {
+            margin-top: rem(60);
+        }
+    }
+
+    >h4 {
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(20);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: calc(1.6 / 20 * 1em);
+        padding-block: rem(5);
+        padding-left: rem(20);
+        border-left: 5px solid var(--black);
+
+        &:not(:first-child) {
+            margin-top: rem(30);
+        }
+    }
+
+    >p {
+        color: var(--black);
+        font-family: var(--mainFont);
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.8;
+        letter-spacing: calc(1.28 / 16 * 1em);
+
+        &:not(:first-child) {
+            margin-top: rem(24);
+        }
+
+
+        a {
+            color: #0F8DA9;
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.7;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+    }
+
+    >mark {
+        background-color: transparent !important;
+        background-image: linear-gradient(var(--black), var(--black));
+        background-repeat: no-repeat;
+        background-size: 0 4px;
+    }
+
+
+    >ul {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        &:not(:first-child) {
+            margin-top: rem(24);
+        }
+
+        li {
+            display: grid;
+            grid-template-columns: rem(6) 1fr;
+            gap: rem(10);
+            align-items: flex-start;
+            color: var(--black);
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-weight: 400;
+            line-height: 1.8;
+            letter-spacing: calc(1.28 / 16 * 1em);
+
+            &::before {
+                content: '';
+                display: block;
+                width: rem(6);
+                height: rem(6);
+                background-color: var(--black);
+                border-radius: 100%;
+                margin-top: rem(12);
+            }
+        }
+    }
+
+
+    table {
+        th {
+            font-family: var(--subFontJa);
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: calc(1.28 / 16 * 1em);
+        }
+    }
+}
+
+
+
+/* 症例カード
+------------------------------------------------------------------------------------------ */
+
+.bl_commonCaseCard {
+
+    .bl_commonCaseCard_link {
+
+        .el_commonCaseCard_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 240/325;
+            margin-bottom: rem(20);
+        }
+
+
+        .bl_commonCaseCard_tagList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(10);
+            margin-bottom: rem(14);
+
+            .el_commonCaseCard_tagList_item {
+                color: var(--black);
+                font-family: var(--mainFont);
+                font-size: rem(12);
+                font-weight: 400;
+                line-height: 1.2;
+                letter-spacing: calc(0.96 / 12 * 1em);
+                padding-inline: rem(8);
+                padding-block: rem(6);
+                border-radius: rem(4);
+                border: 1px solid var(--black);
+            }
+        }
+
+
+        .el_commonCaseCard_ttl {
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(18);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: calc(1.44 / 18 * 1em);
+        }
+    }
+}
+
+
+//共通ボタン
+.bl_commonAllBtnContainer {
+
+    .bl_commonAllBtn {
+        width: fit-content;
+        display: grid;
+        grid-template-columns: auto rem(14);
+        align-items: center;
+        gap: rem(10);
+        padding-block: rem(16);
+        padding-inline: rem(20);
+        border-radius: rem(4);
+        background-color: var(--black);
+        color: #fff;
+        font-family: var(--subFontJa);
+        font-size: rem(18);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.44 / 18 * 1em);
+        margin-inline: auto;
+        transition: opacity 0.5s ease;
+
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+    }
+}
+
+
+
+/* ------------------------------------------------------------------------------------------
+#よくある質問
+------------------------------------------------------------------------------------------ */
+.bl_commonFaqList {
+
+    .bl_commonFaqList_details {
+        border-top: 1px dashed rgba(52, 49, 44, 0.30);
+        border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+
+        &:not(:first-child) {
+            border-top: none;
+        }
+
+        .bl_commonFaqList_details_summary {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr rem(34);
+            align-items: center;
+            gap: rem(20);
+            padding-inline: rem(20);
+            padding-block: rem(20);
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: .6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+
+
+            .bl_commonFaqList_details_summary_txt {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: rem(12);
+                align-items: center;
+
+                .el_commonFaqList_details_summary_txt_en {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(20);
+                    font-weight: 500;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.6 / 20 * 1em);
+                }
+
+                .el_commonFaqList_details_summary_txt_ttl {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(20);
+                    font-weight: 500;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.6 / 20 * 1em);
+                }
+            }
+
+            .el_commonFaqList_details_summary_icon {
+                position: relative;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1/1;
+                background-color: var(--black);
+                border-radius: rem(4);
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                    width: rem(17);
+                    height: rem(1);
+                    background-color: #fff;
+                    border-radius: rem(4);
+                    transform-origin: center center;
+                    transition: rotate 0.3s ease;
+                }
+
+                &::before {
+                    rotate: 90deg;
+                }
+            }
+        }
+
+
+        /* 閉じているときは高さ0（開閉アニメはJSのWeb Animations APIで制御） */
+        .bl_commonFaqList_details_content {
+            overflow: hidden;
+        }
+
+        &:not([open]) .bl_commonFaqList_details_content {
+            height: 0;
+        }
+
+        &[open] .el_commonFaqList_details_summary_icon::before {
+            rotate: 0deg;
+        }
+
+        .bl_commonFaqList_details_content {
+
+            .bl_commonFaqList_details_content_inner {
+                padding-top: rem(4);
+                padding-bottom: rem(24);
+                padding-left: rem(55);
+
+                .el_commonFaqList_details_content_inner_txt {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(16);
+                    font-weight: 400;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                }
+            }
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------
+#院長ブログスライド
+------------------------------------------------------------------------------------------ */
+
+.bl_commonBlogSwiperContainer {
+
+    .bl_commonBlogSwiperContainer_inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: rem(40) 1fr rem(40);
+        align-items: center;
+        gap: rem(20);
+        margin-bottom: rem(30);
+
+        @include underSP {
+            display: block;
+        }
+
+        &:not(:first-child) {
+            margin-top: rem(30);
+        }
+
+
+        .bl_commonBlogSwiper_prev,
+        .bl_commonBlogSwiper_next {
+            display: grid;
+            grid-template-columns: rem(8);
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            background-color: var(--black);
+            border-radius: 100%;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+
+            @include underSP {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: rem(40);
+                height: rem(40);
+            }
+        }
+
+        .bl_commonBlogSwiper_next {
+            @include underSP {
+                right: 0;
+                left: auto;
+            }
+        }
+
+        .bl_commonBlogSwiper {
+
+            @include underSP {
+                overflow: visible;
+                z-index: 0;
+            }
+
+            .swiper-slide {
+                max-width: rem(222);
+                width: 100%;
+            }
+        }
+    }
+
+    .bl_commonBlogSwiper_pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: rem(4);
+        margin-top: rem(20);
+
+        .swiper-pagination-bullet {
+            max-width: rem(18);
+            width: 100%;
+            height: rem(3);
+            background-color: #D9D9D9;
+            border-radius: rem(100);
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--black);
+            opacity: 1;
+        }
+    }
+}
+
+.bl_commonBlogSlideBtn {
+    max-width: rem(222);
+    width: 100%;
+    padding-bottom: rem(24);
+    border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+
+
+    .bl_commonBlogSlideBtn_imgContainer {
+        display: block;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        margin-bottom: rem(30);
+        transition: opacity 0.5s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        .el_commonBlogSlideBtn_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: rem(4);
+        }
+
+
+    }
+
+    .bl_commonBlogSlideBtn_lower {
+
+        .el_commonBlogSlideBtn_lower_time {
+            display: block;
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(14);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: calc(0.28 / 14 * 1em);
+            margin-bottom: rem(12);
+        }
+
+        .bl_commonBlogSlideBtn_lower_categoryList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(10);
+            margin-bottom: rem(24);
+
+            .el_commonBlogSlideBtn_lower_categoryList_item {
+                display: block;
+                color: #fff;
+                font-family: var(--mainFont);
+                font-size: rem(12);
+                font-weight: 400;
+                line-height: 1.2;
+                letter-spacing: calc(0.96 / 12 * 1em);
+                padding-block: rem(6);
+                padding-inline: rem(8);
+                border-radius: rem(4);
+                background-color: var(--black);
+                transition: opacity 0.5s ease;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        opacity: 0.6;
+                        transition: opacity 0.5s ease;
+                    }
+                }
+            }
+        }
+
+        .el_commonBlogSlideBtn_lower_ttl {
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(18);
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: calc(1.44 / 18 * 1em);
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------
+#一覧へ戻るボタン
+------------------------------------------------------------------------------------------ */
+.bl_commonArticle_content_allBtnContainer {
+    width: 100%;
+    max-width: rem(200);
+    margin-inline: auto;
+    margin-top: rem(100);
+
+
+    .bl_commonArticle_content_allBtn {
+        display: block;
+        text-align: center;
+        width: 100%;
+        background-color: var(--black);
+        color: #fff;
+        border-radius: rem(4);
+        padding-block: rem(16);
+        padding-inline: rem(20);
+        border: 1px solid var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(18);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.44 / 18 * 1em);
+        transition: opacity 0.5s ease;
+        margin-inline: auto;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+    }
 }

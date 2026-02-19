@@ -1,0 +1,17 @@
+{
+  "name": "related-case-block",
+  "title": "関連する症例",
+  "description": "関連する症例が表示されます。",
+  "category": "menu-block",
+  "icon": "id",
+  "keywords": ["関連する症例"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "case-block.php"
+  },
+  "supports": {
+    "html": false,
+    "align": true,
+    "jsx": true
+  }
+}

@@ -15,7 +15,26 @@ add_filter('automatic_updater_disabled', '__return_true');
 
 
 /* ---------- 投稿関連 ---------- */
-// single生成制御
+// 投稿（post）のURLを /blog/スラッグ にする
+function renewal2026_post_blog_rewrite_rules() {
+	add_rewrite_rule( '^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top' );
+}
+add_action( 'init', 'renewal2026_post_blog_rewrite_rules' );
+
+function renewal2026_post_link_blog_prefix( $permalink, $post ) {
+	if ( $post->post_type !== 'post' ) {
+		return $permalink;
+	}
+	return home_url( '/blog/' . $post->post_name . '/' );
+}
+add_filter( 'post_link', 'renewal2026_post_link_blog_prefix', 10, 2 );
+
+// テーマ有効化時にリライトルールをフラッシュ（/blog/ 対応を反映）
+function renewal2026_flush_rewrite_on_activation() {
+	renewal2026_post_blog_rewrite_rules();
+	flush_rewrite_rules();
+}
+add_action( 'after_switch_theme', 'renewal2026_flush_rewrite_on_activation' );
 
 // アーカイブの表示条件
 function change_posts_per_page($query)
@@ -134,3 +153,53 @@ function my_custom_search($search, $wp_query)
 }
 add_filter('posts_search', 'my_custom_search', 10, 2);
 if (isset($_GET['s'])) $_GET['s'] = mb_convert_kana($_GET['s'], 's', 'UTF-8');
+
+
+/* ---------- ACF ブロック ---------- */
+/**
+ * カスタムブロックカテゴリーを登録する
+ * block.json の "category" で指定した slug と一致させる
+ */
+function renewal2026_register_block_categories($block_categories, $editor_context)
+{
+    return array_merge(
+        array(
+            array(
+                'slug'  => 'menu-block',
+                'title' => '施術メニュー用',
+                'icon'  => null,
+            ),
+        ),
+        $block_categories
+    );
+}
+add_filter('block_categories_all', 'renewal2026_register_block_categories', 10, 2);
+
+/**
+ * ACF ブロックを登録する
+ * block.json に "acf" キーがあると ACF がブロックとして認識する
+ * テーマ側では register_block_type() でブロックディレクトリを登録する
+ */
+function renewal2026_register_acf_blocks()
+{
+    if (!function_exists('acf_register_block_type')) {
+        return;
+    }
+
+    $block_dirs = array(
+        'case-block',
+        'price-block',
+        'faq-block',
+        'blog-block',
+        // 新しい ACF ブロックを追加する場合はここにディレクトリ名を追加
+    );
+
+    foreach ($block_dirs as $dir) {
+        $path = get_template_directory() . '/blocks/' . $dir;
+        if (file_exists($path . '/block.json')) {
+            register_block_type($path);
+        }
+    }
+}
+add_action('init', 'renewal2026_register_acf_blocks');
+

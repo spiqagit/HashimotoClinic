@@ -1,0 +1,17 @@
+{
+  "name": "related-price-block",
+  "title": "関連する料金表",
+  "description": "関連する料金表が表示されます。",
+  "category": "menu-block",
+  "icon": "money-alt",
+  "keywords": ["関連する料金表"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "price-block.php"
+  },
+  "supports": {
+    "html": false,
+    "align": true,
+    "jsx": true
+  }
+}

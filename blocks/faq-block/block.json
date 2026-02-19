@@ -1,0 +1,17 @@
+{
+  "name": "faq-block",
+  "title": "よくある質問",
+  "description": "よくある質問が表示されます。",
+  "category": "menu-block",  
+  "icon": "editor-help",
+  "keywords": ["よくある質問"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "faq-block.php"
+  },
+  "supports": {
+    "html": false,
+    "align": true,
+    "jsx": true
+  }
+}

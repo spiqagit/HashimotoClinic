@@ -72,7 +72,7 @@
                                                     <select class="el_commonNavWrapper_selectWrapper_select js_priceNavSelect" name="<?php echo $price_category->slug; ?>" id="nav-<?php echo $price_category->slug; ?>">
                                                         <option value="">施術を選ぶ</option>
                                                         <?php foreach ($price_posts as $post_id): ?>
-                                                            <option value="<?php echo esc_url(get_permalink($post_id)); ?>"<?php selected(get_the_ID(), $post_id); ?>><?php echo esc_html(get_the_title($post_id)); ?></option>
+                                                            <option value="<?php echo esc_url(get_permalink($post_id)); ?>"><?php echo esc_html(get_the_title($post_id)); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>

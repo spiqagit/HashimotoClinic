@@ -125,13 +125,68 @@
                                                 ),
                                             ));
                                             ?>
-                                            <?php foreach ($price_posts as $post_id): ?>
-                                                <?php get_template_part('inc/price-table-content', null, array('post_id' => $post_id)); ?>
-                                            <?php endforeach; ?>
+                                            <?php if (!empty($price_posts)): ?>
+                                                <?php foreach ($price_posts as $price_post): ?>
+                                                    <div class="bl_priceCatChildList_item">
+                                                        <h4 class="el_priceCatChildList_item_ttl"><?php echo esc_html(get_the_title($price_post)); ?></h4>
+
+                                                        <?php if (have_rows('price_wrap', $price_post)): ?>
+                                                            <?php while (have_rows('price_wrap', $price_post)): the_row(); ?>
+                                                                <div class="bl_priceWrapper">
+                                                                    <div class="bl_priceWrapper_item">
+                                                                        <?php if (get_sub_field('left')): ?>
+                                                                            <p class="el_priceWrapper_item_ttl"><?php echo esc_html(get_sub_field('left')); ?></p>
+                                                                        <?php endif; ?>
+
+                                                                        <?php if (have_rows('price_table')): ?>
+                                                                            <div class="bl_priceTableWrapper">
+                                                                                <div class="bl_priceTable">
+                                                                                    <?php while (have_rows('price_table')): the_row(); ?>
+                                                                                        <div class="bl_priceTable_item">
+                                                                                            <div class="bl_priceTable_item_upper">
+                                                                                                <p class="el_priceTable_item_upper_ttl"><?php echo esc_html(get_sub_field('price_table-ttl')); ?></p>
+
+                                                                                                <?php if (have_rows('amount-table')): ?>
+                                                                                                    <div class="bl_amountTable">
+                                                                                                        <?php while (have_rows('amount-table')): the_row(); ?>
+                                                                                                            <?php if (get_sub_field('amount-table_txt')): ?>
+                                                                                                                <p class="el_amountTable_pricetxt el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_txt')); ?></p>
+                                                                                                            <?php endif; ?>
+                                                                                                            <?php if (get_sub_field('amount-table_view')): ?>
+                                                                                                                <p class="el_amountTable_view el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_view')); ?></p>
+                                                                                                            <?php endif; ?>
+                                                                                                            <?php if (get_sub_field('amount-table_num')): ?>
+                                                                                                                <p class="el_amountTable_num el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_num')); ?></p>
+                                                                                                            <?php endif; ?>
+                                                                                                        <?php endwhile; ?>
+                                                                                                    </div>
+                                                                                                <?php endif; ?>
+                                                                                            </div>
+
+                                                                                            <?php if (get_sub_field('price_table-txt')): ?>
+                                                                                                <p class="el_priceTable_item_lower_txt"><?php echo esc_html(get_sub_field('price_table-txt')); ?></p>
+                                                                                            <?php endif; ?>
+                                                                                        </div>
+                                                                                    <?php endwhile; ?>
+                                                                                </div>
+                                                                                <p class="el_priceTableWrapper_lower_txt"><?php echo esc_html(get_sub_field('price-caption')); ?></p>
+                                                                            </div>
+                                                                        <?php endif; ?>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endwhile; ?>
+                                                        <?php endif; ?>
+
+                                                        <p>料金は全て税込価格です。</p>
+
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
                                         </div>
                                     <?php endforeach; ?>
 
                                 <?php else: ?>
+
                                     <?php // 子タームなし：親タームに紐づく投稿を直接表示 
                                     ?>
                                     <div class="bl_priceCatChildList">
@@ -151,73 +206,67 @@
                                             ),
                                         ));
                                         ?>
-                                        <?php foreach ($price_posts as $post_id): ?>
-                                            <?php
-                                            /**
-                                             * 料金テーブル表示（1投稿分）
-                                             * get_template_part( 'inc/price-table-content', null, array( 'post_id' => $post_id ) ) で呼び出し
-                                             *
-                                             * @var int $args['post_id'] 表示する price 投稿の ID
-                                             */
-                                            $post_id = isset($args['post_id']) ? (int) $args['post_id'] : get_the_ID();
-                                            if (!$post_id) {
-                                                return;
-                                            }
-                                            ?>
-                                            <div class="bl_priceCatChildList_item">
-                                                <h4 class="el_priceCatChildList_item_ttl"><?php echo esc_html(get_the_title($post_id)); ?></h4>
+                                        <?php if (!empty($price_posts)): ?>
+                                            <?php foreach ($price_posts as $price_post): ?>
+                                                <div class="bl_priceCatChildList_item">
+                                                    <h4 class="el_priceCatChildList_item_ttl"><?php echo esc_html(get_the_title($price_post)); ?></h4>
 
-                                                <?php if (have_rows('price_wrap', $post_id)): ?>
-                                                    <?php while (have_rows('price_wrap', $post_id)): the_row(); ?>
-                                                        <div class="bl_priceWrapper">
-                                                            <div class="bl_priceWrapper_item">
-                                                                <?php if (get_sub_field('left')): ?>
-                                                                    <p class="el_priceWrapper_item_ttl"><?php echo esc_html(get_sub_field('left')); ?></p>
-                                                                <?php endif; ?>
+                                                    <?php if (have_rows('price_wrap', $price_post)): ?>
+                                                        <?php while (have_rows('price_wrap', $price_post)): the_row(); ?>
+                                                            <div class="bl_priceWrapper">
+                                                                <div class="bl_priceWrapper_item">
+                                                                    <?php if (get_sub_field('left')): ?>
+                                                                        <p class="el_priceWrapper_item_ttl"><?php echo esc_html(get_sub_field('left')); ?></p>
+                                                                    <?php endif; ?>
 
-                                                                <?php if (have_rows('price_table')): ?>
-                                                                    <div class="bl_priceTableWrapper">
-                                                                        <div class="bl_priceTable">
-                                                                            <?php while (have_rows('price_table')): the_row(); ?>
-                                                                                <div class="bl_priceTable_item">
-                                                                                    <div class="bl_priceTable_item_upper">
-                                                                                        <p class="el_priceTable_item_upper_ttl"><?php echo esc_html(get_sub_field('price_table-ttl')); ?></p>
+                                                                    <?php if (have_rows('price_table')): ?>
+                                                                        <div class="bl_priceTableWrapper">
+                                                                            <div class="bl_priceTable">
+                                                                                <?php while (have_rows('price_table')): the_row(); ?>
+                                                                                    <div class="bl_priceTable_item">
+                                                                                        <div class="bl_priceTable_item_upper">
+                                                                                            <p class="el_priceTable_item_upper_ttl"><?php echo esc_html(get_sub_field('price_table-ttl')); ?></p>
 
-                                                                                        <?php if (have_rows('amount-table')): ?>
-                                                                                            <div class="bl_amountTable">
-                                                                                                <?php while (have_rows('amount-table')): the_row(); ?>
-                                                                                                    <?php if (get_sub_field('amount-table_txt')): ?>
-                                                                                                        <p class="el_amountTable_pricetxt el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_txt')); ?></p>
-                                                                                                    <?php endif; ?>
-                                                                                                    <?php if (get_sub_field('amount-table_view')): ?>
-                                                                                                        <p class="el_amountTable_view el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_view')); ?></p>
-                                                                                                    <?php endif; ?>
-                                                                                                    <?php if (get_sub_field('amount-table_num')): ?>
-                                                                                                        <p class="el_amountTable_num el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_num')); ?></p>
-                                                                                                    <?php endif; ?>
-                                                                                                <?php endwhile; ?>
-                                                                                            </div>
+                                                                                            <?php if (have_rows('amount-table')): ?>
+                                                                                                <div class="bl_amountTable">
+                                                                                                    <?php while (have_rows('amount-table')): the_row(); ?>
+                                                                                                        <?php if (get_sub_field('amount-table_txt')): ?>
+                                                                                                            <p class="el_amountTable_pricetxt el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_txt')); ?></p>
+                                                                                                        <?php endif; ?>
+                                                                                                        <?php if (get_sub_field('amount-table_view')): ?>
+                                                                                                            <p class="el_amountTable_view el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_view')); ?></p>
+                                                                                                        <?php endif; ?>
+                                                                                                        <?php if (get_sub_field('amount-table_num')): ?>
+                                                                                                            <p class="el_amountTable_num el_amountTable_txt"><?php echo esc_html(get_sub_field('amount-table_num')); ?></p>
+                                                                                                        <?php endif; ?>
+                                                                                                    <?php endwhile; ?>
+                                                                                                </div>
+                                                                                            <?php endif; ?>
+                                                                                        </div>
+
+                                                                                        <?php if (get_sub_field('price_table-txt')): ?>
+                                                                                            <p class="el_priceTable_item_lower_txt"><?php echo esc_html(get_sub_field('price_table-txt')); ?></p>
                                                                                         <?php endif; ?>
                                                                                     </div>
-
-                                                                                    <?php if (get_sub_field('price_table-txt')): ?>
-                                                                                        <p class="el_priceTable_item_lower_txt"><?php echo esc_html(get_sub_field('price_table-txt')); ?></p>
-                                                                                    <?php endif; ?>
-                                                                                </div>
-                                                                            <?php endwhile; ?>
+                                                                                <?php endwhile; ?>
+                                                                            </div>
+                                                                            <p class="el_priceTableWrapper_lower_txt"><?php echo esc_html(get_sub_field('price-caption')); ?></p>
                                                                         </div>
-                                                                        <p class="el_priceTableWrapper_lower_txt"><?php echo esc_html(get_sub_field('price-caption')); ?></p>
-                                                                    </div>
-                                                                <?php endif; ?>
+                                                                    <?php endif; ?>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    <?php endwhile; ?>
-                                                <?php endif; ?>
-                                            </div>
+                                                        <?php endwhile; ?>
+                                                    <?php endif; ?>
 
-                                        <?php endforeach; ?>
+                                                    <p class="el_priceCatChildList_item_lower_txt">料金は全て税込価格です。</p>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
+
+
+
                             </div>
                         <?php endforeach; ?>
                     </div>
