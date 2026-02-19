@@ -1,0 +1,25 @@
+// @mixin mobile/tablet/pc
+// ==================================================
+@mixin underSP_s {
+  @media screen and (width <=375px) {
+    @content;
+  }
+}
+
+@mixin underSP_m {
+  @media screen and (width <=480px) {
+    @content;
+  }
+}
+
+@mixin underSP {
+  @media screen and (width <=1024px) {
+    @content;
+  }
+}
+
+@mixin hover() {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}

@@ -1,0 +1,14 @@
+:root {
+    --mainFont: "Noto Sans JP", sans-serif;
+    --subFontJa: "Noto Serif JP", serif;
+    --subFontEn: "Marcellus", sans-serif;
+    --black: #34312C;
+    --gray: #F6F6F6;
+
+}
+
+@supports (height: 1lh) {
+    :root {
+        --leading-trim: calc((1em - 1lh) / 2);
+    }
+}

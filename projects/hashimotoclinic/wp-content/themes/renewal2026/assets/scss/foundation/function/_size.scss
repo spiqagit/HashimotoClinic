@@ -1,0 +1,58 @@
+@use 'sass:math';
+
+/* ========================================================================================
+  📐 Size Utilities - 70点版（実用的バランス型）
+  
+  rem()   : 固定サイズ変換
+  fluid() : 流動的サイズ（上下限保護）
+======================================================================================== */
+
+$base: 16;
+
+/* -------------------------
+  rem() - 固定サイズ変換
+  
+  使用例:
+    padding: rem(20);
+    border-radius: rem(8);
+    width: rem(300);
+------------------------- */
+@function rem($px) {
+  @return math.div($px, $base) * 1rem;
+}
+
+/* -------------------------
+  fluid() - 流動的サイズ
+  
+  引数:
+    $size: 基準サイズ(px)
+    $device: デバイス ('pc', 'tb', 'sp') または 数値
+    $min-scale: 最小倍率（デフォルト 0.7）
+    $max-scale: 最大倍率（デフォルト 1.5）
+  
+  使用例:
+    font-size: fluid(20);           // PC基準、14px〜30px
+    padding: fluid(40, 'sp');       // スマホ基準
+    margin: fluid(30, 768);         // カスタム基準幅
+    gap: fluid(24, 'tb', 0.8, 1.2); // タブレット、倍率カスタム
+------------------------- */
+@function fluid($size, $device: 'pc', $min-scale: 0.7, $max-scale: 1.5) {
+  // デバイス別の基準幅
+  $base-width: 1440;
+  
+  @if $device == 'pc' {
+    $base-width: 1440;
+  } @else if $device == 'tb' or $device == 'tablet' {
+    $base-width: 768;
+  } @else if $device == 'sp' or $device == 'mobile' {
+    $base-width: 375;
+  } @else if type-of($device) == 'number' {
+    $base-width: $device;
+  }
+  
+  $min: rem($size * $min-scale);
+  $max: rem($size * $max-scale);
+  $vw: math.div($size, $base-width) * 100vw;
+  
+  @return clamp(#{$min}, #{$vw}, #{$max});
+}

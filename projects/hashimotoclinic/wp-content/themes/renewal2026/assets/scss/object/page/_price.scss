@@ -1,0 +1,190 @@
+@use '../../foundation/function/index' as *;
+
+
+.bl_priceOuterList {
+    display: flex;
+    flex-direction: column;
+    gap: rem(140);
+
+    @include underSP {
+        gap: rem(100);
+    }
+
+    .bl_priceOuterList_item {
+        display: flex;
+        flex-direction: column;
+        gap: rem(50);
+
+        .el_priceOuterList_ttl {
+            color: #fff;
+            font-family: var(--subFontJa);
+            font-size: rem(28);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: calc(2.24 / 28 * 1em);
+            border-radius: rem(50);
+            background-color: var(--black);
+            padding: rem(20);
+            text-align: center;
+
+            @include underSP {
+                font-size: rem(26);
+            }
+        }
+    }
+}
+
+
+.bl_priceCatChildList {
+    display: flex;
+    flex-direction: column;
+    gap: rem(46);
+
+
+    .el_priceCatChildList_ttl {
+        color: var(--black-black, #34312C);
+        font-family: "Noto Serif JP";
+        font-size: rem(26);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(2.08 / 26 * 1em);
+
+        @include underSP {
+            font-size: rem(24);
+        }
+    }
+
+    .bl_priceCatChildList_item {
+        display: flex;
+        flex-direction: column;
+        gap: rem(38);
+    }
+}
+
+.el_priceCatChildList_item_ttl {
+    color: var(--black);
+    font-family: var(--subFontJa);
+    font-size: rem(22);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: calc(1.76 / 22 * 1em);
+    border-bottom: 2px solid var(--black);
+    padding-bottom: rem(6);
+    padding-left: rem(10);
+
+    @include underSP {
+        font-size: rem(24);
+    }
+}
+
+.bl_priceWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: rem(38);
+
+    .bl_priceWrapper_item {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30);
+
+        .el_priceWrapper_item_ttl {
+            border-left: 5px solid var(--black);
+            padding-left: rem(15);
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(18);
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: calc(1.44 / 18 * 1em);
+        }
+    }
+}
+
+
+.bl_priceTableWrapper {
+
+    .bl_priceTable {
+        display: flex;
+        flex-direction: column;
+        gap: rem(20);
+        padding: rem(20);
+        background-color: var(--gray);
+
+        .bl_priceTable_item {
+
+            .bl_priceTable_item_upper {
+                display: grid;
+                grid-template-columns: .8fr 1fr;
+                gap: rem(30);
+                padding-bottom: rem(12);
+                border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+
+                @include underSP {
+                    grid-template-columns: 1fr;
+                    row-gap: rem(8);
+                    column-gap: rem(20);
+                }
+
+                .el_priceTable_item_upper_ttl {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(16);
+                    font-weight: 400;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                }
+            }
+
+
+            .el_priceTable_item_lower_txt {
+                padding-top: rem(12);
+                color: rgba(52, 49, 44, 0.60);
+                font-family: var(--mainFont);
+                font-size: rem(14);
+                font-weight: 400;
+                line-height: 1.8;
+                letter-spacing: calc(1.12 / 14 * 1em);
+            }
+        }
+    }
+
+
+    .el_priceTableWrapper_lower_txt {
+        color: rgba(52, 49, 44, 0.60);
+        font-family: var(--mainFont);
+        font-size: rem(14);
+        font-weight: 400;
+        line-height: 1.8;
+        letter-spacing: calc(1.12 / 14 * 1em);
+    }
+}
+
+
+.bl_amountTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: rem(20);
+    row-gap: rem(8);
+
+    .el_amountTable_txt {
+        color: var(--black);
+        text-align: right;
+        font-family: var(--mainFont);
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: calc(1.28 / 16 * 1em);
+    }
+
+    .el_amountTable_pricetxt {
+        grid-column: 1;
+    }
+
+    .el_amountTable_view {
+        grid-column: 2;
+    }
+
+    .el_amountTable_num {
+        grid-column: 3;
+    }
+}
