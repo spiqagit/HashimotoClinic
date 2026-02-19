@@ -1347,12 +1347,16 @@ html {
 }
 
 .bl_commonNavWrapper {
+  position: sticky;
+  top: 6.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 @media screen and (width <= 1024px) {
   .bl_commonNavWrapper {
+    position: relative;
+    top: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(0.875rem, 1.3888888889vw, 1.875rem);
@@ -1401,6 +1405,15 @@ html {
   padding-block: 0.8125rem;
   border-radius: 0.25rem;
   border: 1px solid rgba(52, 49, 44, 0.3);
+}
+
+/* ------------------------------------------------------------------------------------------
+#メニュー
+------------------------------------------------------------------------------------------ */
+.bl_menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .bl_priceOuterList {

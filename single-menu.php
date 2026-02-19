@@ -7,9 +7,9 @@
     <?php get_header(); ?>
 
     <main class="">
-
-        
-
+        <article class="bl_menuArticle">
+            
+        </article>
     </main>
 
     <?php get_footer(); ?>

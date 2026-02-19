@@ -141,11 +141,15 @@
 }
 
 .bl_commonNavWrapper {
+    position: sticky;
+    top: rem(100);
     display: flex;
     flex-direction: column;
     gap: rem(24);
 
     @include underSP {
+        position: relative;
+        top: auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: fluid(20, 'pc');
@@ -201,4 +205,14 @@
         }
     }
 
+}
+
+
+/* ------------------------------------------------------------------------------------------
+#メニュー
+------------------------------------------------------------------------------------------ */
+.bl_menuList {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
 }
