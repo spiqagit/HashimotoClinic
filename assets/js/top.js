@@ -1,0 +1,65 @@
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    const fvSwiper = new Swiper('.bl_fvSlideSwiper', {
+        slidesPerView: 3,
+        loop: true,
+        spaceBetween: 90,
+        loopAdditionalSlides: 2,
+        centeredSlides: true,
+        speed: 1000,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: document.querySelector('.bl_fvSlideSwiper_pagination'),
+            clickable: true,
+        },
+        navigation: {
+            nextEl: document.querySelector('.bl_fvSlideSwiper_next'),
+            prevEl: document.querySelector('.bl_fvSlideSwiper_prev'),
+        },
+    });
+
+    //一時停止
+    document.querySelector('.bl_fvSlideSwiper_playBtn').addEventListener('click', function () {
+
+        if (document.querySelector('.bl_fvSlideSwiper_playBtn').classList.contains('is-stop')) {
+
+            document.querySelector('.bl_fvSlideSwiper_playBtn').classList.remove('is-stop');
+            fvSwiper.autoplay.start(); //再生
+
+        } else {
+
+            document.querySelector('.bl_fvSlideSwiper_playBtn').classList.add('is-stop');
+            fvSwiper.autoplay.stop(); //一時停止
+        }
+
+    });
+
+
+    //症例
+    const topCaseContainer = document.querySelector('.bl_topCaseSwiper');
+    const topCaseSwiper = new Swiper(topCaseContainer, {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        centeredSlides: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+                centeredSlides: false,
+
+            },
+        },
+        navigation: {
+            nextEl: document.querySelector('.bl_topCaseSwiper_next'),
+            prevEl: document.querySelector('.bl_topCaseSwiper_prev'),
+        },
+    });
+
+});

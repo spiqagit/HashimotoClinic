@@ -2411,6 +2411,10 @@ CTAボタン
   height: auto;
   object-fit: cover;
 }
+.bl_frontCaseSection .bl_commonAllBtnContainer {
+  max-width: 14.5625rem;
+  margin-inline: auto;
+}
 
 .bl_priceOuterList {
   display: flex;
