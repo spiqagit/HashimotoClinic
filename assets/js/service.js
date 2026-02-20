@@ -103,8 +103,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.bl_menuCaseSwiper').forEach(function (swiper) {
         new Swiper(swiper, {
-            slidesPerView: 'auto',
-            spaceBetween: 40,
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+            centeredSlides: true,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                    centeredSlides: false,
+                },
+            },
             navigation: {
                 nextEl: document.querySelector('.bl_menuCaseSwiper_next'),
                 prevEl: document.querySelector('.bl_menuCaseSwiper_prev'),
@@ -117,8 +125,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const blogSwiper = blogSContainer.querySelector('.bl_commonBlogSwiper');
         const blogSwiperPagination = blogSContainer.querySelector('.bl_commonBlogSwiper_pagination');
         new Swiper(blogSwiper, {
-            slidesPerView: 'auto',
-            spaceBetween: 40,
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+            centeredSlides: true,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                    centeredSlides: false,
+                },
+            },
             navigation: {
                 nextEl: blogSContainer.querySelector('.bl_commonBlogSwiper_next'),
                 prevEl: blogSContainer.querySelector('.bl_commonBlogSwiper_prev'),
@@ -129,8 +145,5 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         });
     });
-
-
-
 
 });

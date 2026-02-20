@@ -24,5 +24,10 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/common.css?<?php echo date_i18n("YmdHis"); ?>" type="text/css" />
 
     <!-- js -->
-    <script type="module" src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>
-    <script type="module" src="<?php echo get_template_directory_uri(); ?>/assets/js/service.js"></script>
+    <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>
+    <?php if (is_front_page()): ?>
+        <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/top.js"></script>
+    <?php endif; ?>
+    <?php if (is_post_type_archive('menu') || is_singular('menu')): ?>
+        <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/service.js"></script>
+    <?php endif; ?>

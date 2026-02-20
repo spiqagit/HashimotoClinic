@@ -20,7 +20,7 @@
                     <?php foreach ($relatedBlogPosts as $relatedBlogPost): ?>
 
                         <div class="swiper-slide">
-                            <div class="bl_commonBlogSlideBtn">
+                            <article class="bl_commonBlogSlideBtn">
 
                                 <a href="<?php the_permalink($relatedBlogPost->ID); ?>" class="bl_commonBlogSlideBtn_imgContainer">
                                     <?php if (has_post_thumbnail($relatedBlogPost->ID)): ?>
@@ -44,9 +44,13 @@
                                         </div>
                                     <?php endif; ?>
 
-                                    <a class="el_commonBlogSlideBtn_lower_ttl" href="<?php the_permalink($relatedBlogPost->ID); ?>"><?php echo get_the_title($relatedBlogPost->ID); ?></a>
+                                    <h1 class="el_commonBlogSlideBtn_lower_ttl">
+                                        <a class="el_commonBlogSlideBtn_lower_ttl_link" href="<?php the_permalink($relatedBlogPost->ID); ?>">
+                                            <?php echo get_the_title($relatedBlogPost->ID); ?>
+                                        </a>
+                                    </h1>
                                 </div>
-                            </div>
+                            </article>
                         </div>
 
                     <?php endforeach; ?>

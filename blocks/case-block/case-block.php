@@ -24,7 +24,7 @@
 
                 <?php foreach ($relatedCasePosts as $relatedCasePost): ?>
                     <div class="swiper-slide">
-                        <div class="bl_commonCaseCard">
+                        <article class="bl_commonCaseCard">
                             <a href="<?php the_permalink($relatedCasePost->ID); ?>" class="bl_commonCaseCard_link">
                                 <?php if (have_rows('slide', $relatedCasePost->ID)): ?>
                                     <?php while (have_rows('slide', $relatedCasePost->ID)): the_row(); ?>
@@ -38,7 +38,7 @@
                                 <?php if ($menuSelect): ?>
                                     <div class="bl_commonCaseCard_tagList">
                                         <?php foreach ($menuSelect as $menuSelectPost): ?>
-                                            <p class="el_commonCaseCard_tagList_item"><?php echo get_the_title($menuSelectPost); ?></p>
+                                            <h1 class="el_commonCaseCard_tagList_item"><?php echo get_the_title($menuSelectPost); ?></h1>
                                         <?php endforeach; ?>
                                     </div>
                                 <?php endif; ?>
@@ -52,17 +52,66 @@
 
                             <div>
                                 <div>
-                                    <dl>
-                                        <dt>施術名</dt>
-                                    </dl>
+                                    <?php if (get_field('case-menu', $relatedCasePost->ID)): ?>
+                                        <dl>
+                                            <dt>施術名</dt>
+                                            <dd><?php echo get_field('case-menu', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
+
+                                    <?php if (get_field('case-price', $relatedCasePost->ID)): ?>
+                                        <dl>
+                                            <dt>施術参考料金</dt>
+                                            <dd>
+                                                <?php echo get_field('case-price', $relatedCasePost->ID); ?>
+                                                <?php if (get_field('case-price_sub', $relatedCasePost->ID)): ?>
+                                                    <span><?php echo get_field('case-price_sub', $relatedCasePost->ID); ?></span>
+                                                <?php endif; ?>
+                                            </dd>
+                                        </dl>
+                                    <?php endif; ?>
+
+                                    <?php if (get_field('case-time', $relatedCasePost->ID)): ?>
+                                        <dl>
+                                            <dt>施術時間</dt>
+                                            <dd><?php echo get_field('case-time', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
+
+                                    <?php if (get_field('case-downtime', $relatedCasePost->ID)): ?>
+                                        <dl>
+                                            <dt>ダウンタイム</dt>
+                                            <dd><?php echo get_field('case-downtime', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
+
+                                    <?php if (get_field('case-makeup', $relatedCasePost->ID)): ?>
+                                        <dl>
+                                            <dt>メイク</dt>
+                                            <dd><?php echo get_field('case-makeup', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
+
+                                    <?php if (get_field('case-risk', $relatedCasePost->ID)): ?>
+                                        <dl>
+                                            <dt>リスク</dt>
+                                            <dd>
+                                                <?php echo get_field('case-risk', $relatedCasePost->ID); ?>
+                                                <?php if (get_field('case-risk_sub', $relatedCasePost->ID)): ?>
+                                                    <span><?php echo get_field('case-risk_sub', $relatedCasePost->ID); ?></span>
+                                                <?php endif; ?>
+                                            </dd>
+                                        </dl>
+                                    <?php endif; ?>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
 
                 <?php endforeach; ?>
             </div>
         </div>
+
         <button class="bl_menuCaseSwiper_next" type="button">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow-next.svg" alt="">
         </button>
