@@ -452,7 +452,23 @@
             }
         }
     }
+
+
+    .bl_commonSnsBtn{
+        display: grid;
+        grid-template-columns:  rem(24) auto;
+        align-items: center;
+        gap: rem(10);
+    
+        .el_commonSnsBtn_icon{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+        }
+    }
 }
+
 
 
 
@@ -951,5 +967,57 @@ CTAボタン
                 transition: opacity 0.5s ease;
             }
         }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------
+#電話番号
+------------------------------------------------------------------------------------------ */
+
+.bl_common_telWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    margin-bottom: rem(24);
+
+    .el_common_telLink {
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(26);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.04 / 26 * 1em);
+        pointer-events: none;
+        width: fit-content;
+        margin-inline: auto;
+
+        @include underSP {
+            pointer-events: auto;
+        }
+    }
+
+    .el_common_telHour {
+        width: fit-content;
+        margin-inline: auto;
+        color: var(--black);
+        font-family: var(--mainFont);
+        font-size: rem(14);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: calc(1.12 / 14 * 1em);
+
+        span{
+            @include underSP {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        .el_common_telHour_separator {
+            @include underSP {
+                display: none;
+            }
+        }
+        
     }
 }

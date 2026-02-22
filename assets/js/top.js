@@ -4,12 +4,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     const fvSwiper = new Swiper('.bl_fvSlideSwiper', {
-        slidesPerView: 3,
+        slidesPerView: 1,
         loop: true,
         spaceBetween: 90,
         loopAdditionalSlides: 2,
         centeredSlides: true,
         speed: 1000,
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 90,
+                loopAdditionalSlides: 2,
+                centeredSlides: true,
+            },
+        },
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
@@ -61,5 +69,30 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: document.querySelector('.bl_topCaseSwiper_prev'),
         },
     });
+
+
+    //ブログ
+    const blogSwiperItem = document.querySelector('.bl_frontBlogSwiper');
+    
+    const blogSwiper = new Swiper(blogSwiperItem, {
+        init: false,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: document.querySelector('.bl_frontBlogSwiper_next'),
+            prevEl: document.querySelector('.bl_frontBlogSwiper_prev'),
+        },
+        pagination: {
+            el: document.querySelector('.bl_frontBlogSwiper_pagination'),
+            clickable: true,
+        },
+    });
+
+
+    if (window.innerWidth <= 1024) {
+        blogSwiper.init();
+    } else {
+        blogSwiper.destroy();
+    }
 
 });

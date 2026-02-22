@@ -1,0 +1,91 @@
+@use '../../foundation/function/index' as *;
+
+
+.bl_blogArchiveList {
+    display: flex;
+    flex-direction: column;
+    gap: rem(60);
+
+
+    .bl_blogArchiveList_item {
+        border-bottom: 1px dashed var(--black-30, #34312C30);
+        display: grid;
+        grid-template-columns: rem(130) 1fr;
+        gap: rem(30);
+        align-items: flex-start;
+        padding-bottom: rem(24);
+
+        .bl_blogArchiveList_item_link {
+            display: block;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+
+        .el_blogArchiveList_item_img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .bl_blogArchiveList_item_txtContainer {
+
+            .bl_blogArchiveList_item_infoWrapper {
+                margin-bottom: rem(24);
+
+                .el_blogArchiveList_item_infoWrapper_time {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(14);
+                    font-weight: 400;
+                    line-height: 1;
+                    letter-spacing: calc(0.28 / 14 * 1em);
+                    margin-bottom: rem(12);
+                }
+
+
+                .bl_blogArchiveList_item_infoWrapper_categoryList {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: rem(10);
+
+                    .el_blogArchiveList_item_infoWrapper_categoryList_item {
+                        border-radius: rem(4);
+                        background: var(--black);
+                        color: #fff;
+                        font-family: var(--mainFont);
+                        font-size: rem(12);
+                        font-weight: 400;
+                        line-height: 1.2;
+                        letter-spacing: calc(0.96 / 12 * 1em);
+                        padding-block: rem(6);
+                        padding-inline: rem(8);
+                        transition: opacity 0.5s ease;
+
+                        @media (any-hover: hover) {
+                            &:hover {
+                                opacity: 0.6;
+                                transition: opacity 0.5s ease;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bl_blogArchiveList_item_ttl {
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(18);
+                font-weight: 500;
+                line-height: 1.6;
+                letter-spacing: calc(1.44 / 18 * 1em);
+            }
+        }
+    }
+}

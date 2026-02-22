@@ -203,3 +203,28 @@ function renewal2026_register_acf_blocks()
 }
 add_action('init', 'renewal2026_register_acf_blocks');
 
+
+
+/* ---------- doctor 投稿タイプ ---------- */
+// doctor 投稿タイプでは本文エディターを表示しない（クラシック用）
+function renewal2026_disable_doctor_editor_support()
+{
+    remove_post_type_support('doctor', 'editor');
+    remove_post_type_support('clinic', 'editor');
+}
+add_action('init', 'renewal2026_disable_doctor_editor_support', 20);
+
+// doctor 投稿タイプではブロックエディター自体を無効化
+function renewal2026_disable_doctor_block_editor($use_block_editor, $post_type)
+{
+    if ($post_type === 'doctor') {
+        return false;
+    }
+
+    if ($post_type === 'clinic') {
+        return false;
+    }
+
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post_type', 'renewal2026_disable_doctor_block_editor', 10, 2);

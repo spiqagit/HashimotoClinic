@@ -1,0 +1,40 @@
+@use '../../foundation/function/index' as *;
+
+.bl_newsArchiveList {
+    display: flex;
+    flex-direction: column;
+    gap: rem(60);
+
+    .bl_commonNewsPost {
+        padding-bottom: rem(24);
+        border-bottom: 1px dashed var(--black);
+        transition: opacity 0.5s ease;
+        
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        .el_commonNewsPost_time {
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(14);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: calc(0.28 / 14 * 1em);
+            margin-bottom: rem(24);
+        }
+
+
+        .el_commonNewsPost_ttl {
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(16);
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: calc(1.28 / 16 * 1em);
+        }
+    }
+}

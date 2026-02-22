@@ -407,7 +407,7 @@
         }
 
         @include underSP_m {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 
@@ -455,54 +455,6 @@
             padding-block: rem(30);
             padding-inline: rem(5);
             border-radius: rem(4);
-
-            .bl_commonToggleNav_infoWrapper_telWrapper {
-                display: flex;
-                flex-direction: column;
-                gap: rem(16);
-                margin-bottom: rem(24);
-
-                .el_commonToggleNav_infoWrapper_telLink {
-                    color: var(--black);
-                    font-family: var(--subFontJa);
-                    font-size: rem(26);
-                    font-weight: 500;
-                    line-height: 1.2;
-                    letter-spacing: calc(1.04 / 26 * 1em);
-                    pointer-events: none;
-                    width: fit-content;
-                    margin-inline: auto;
-
-                    @include underSP {
-                        pointer-events: auto;
-                    }
-                }
-
-                .el_commonToggleNav_infoWrapper_telHour {
-                    width: fit-content;
-                    margin-inline: auto;
-                    color: var(--black);
-                    font-family: var(--mainFont);
-                    font-size: rem(14);
-                    font-weight: 400;
-                    line-height: 1.5;
-                    letter-spacing: calc(1.12 / 14 * 1em);
-
-                    span{
-                        @include underSP {
-                            display: block;
-                            text-align: center;
-                        }
-                    }
-
-                    .el_commonToggleNav_infoWrapper_telHour_separator {
-                        @include underSP {
-                            display: none;
-                        }
-                    }
-                    
-                }
-            }
 
             .bl_commonToggleNav_infoWrapper_ctaWrapper {
                 display: grid;

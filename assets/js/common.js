@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (toggleBtn) {
         toggleBtn.addEventListener('click', function() {
 
+            document.body.style.overflow = 'hidden';
+
             gsap.fromTo(toggleNavOuter, {
                 display: 'none',
                 opacity: 0,
@@ -85,6 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (toggleCloseBtn) {
         toggleCloseBtn.addEventListener('click', function() {
+
+            document.body.style.overflow = '';
 
             gsap.fromTo(toggleNavOuter, {
                 opacity: 1,
@@ -150,4 +154,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+
+    /* スケジュール */
+    document.querySelectorAll('.bl_scheduleContainer').forEach(function(scheduleContainer) {
+        const scheduleSwiper = scheduleContainer.querySelector('.bl_scheduleSwiper');
+        new Swiper(scheduleSwiper, {
+            slidesPerView: 'auto',
+            navigation: {
+                nextEl: scheduleContainer.querySelector('.bl_scheduleContainer_upper_next'),
+                prevEl: scheduleContainer.querySelector('.bl_scheduleContainer_upper_prev'),
+            },
+            pagination: {
+                el: scheduleContainer.querySelector('.bl_scheduleContainer_paginationWrapper'),
+                clickable: true,
+            },
+        });
+    });
 });

@@ -1,0 +1,89 @@
+@use '../../foundation/function/index' as *;
+
+.bl_doctorContainer {
+
+    .bl_doctorContainer_upperContainer {
+        display: grid;
+        grid-template-columns: rem(520) 1fr;
+        gap: rem(80);
+
+        @include underSP {
+            grid-template-columns: 1fr;
+            gap: rem(40);
+        }
+
+        .bl_doctorUpperContainer_imgWrapper {
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border-radius: rem(60);
+            aspect-ratio: 1/1;
+
+            .el_doctorUpperContainer_imgWrapper_img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: 1/1;
+            }
+        }
+
+
+        .bl_doctorUpperContainer_rightWrapper {
+
+            .bl_doctorUpperContainer_nameContainer {
+                margin-bottom: rem(38);
+
+
+                .el_doctorUpperContainer_nameContainer_job {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(16);
+                    font-weight: 500;
+                    line-height: 1.2;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                    margin-bottom: rem(20);
+                }
+
+
+                .bl_doctorUpperContainer_nameContainer_nameWrapper {
+                    display: flex;
+                    align-items: flex-end;
+                    gap: rem(10);
+                    padding-bottom: rem(14);
+                    border-bottom: 1px solid var(--black);
+
+
+
+                    .el_doctorUpperContainer_nameContainer_nameWrapper_name {
+                        font-family: var(--subFontJa);
+                        font-size: rem(28);
+                        font-weight: 500;
+                        line-height: 1.2;
+                        letter-spacing: calc(2.24 / 28 * 1em);
+                    }
+
+                    .el_doctorUpperContainer_nameContainer_nameWrapper_nameEn {
+                        font-family: var(--subFontEn);
+                        font-size: rem(14);
+                        font-weight: 400;
+                        line-height: 100%;
+                        letter-spacing: calc(0.28 / 14 * 1em);
+                    }
+                }
+
+            }
+
+            .bl_doctorUpperContainer_txtWrapper_txtWrapper {
+                .el_doctorUpperContainer_txtWrapper_txtWrapper_txt {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(16);
+                    font-weight: 400;
+                    line-height: 1.8;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                }
+            }
+        }
+    }
+}

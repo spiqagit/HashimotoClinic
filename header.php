@@ -167,13 +167,13 @@
 
             <div class="bl_commonToggleNav_infoWrapper">
                 <?php if (get_field('tel', 'option')): ?>
-                    <div class="bl_commonToggleNav_infoWrapper_telWrapper">
-                        <a class="el_commonToggleNav_infoWrapper_telLink" href="tel:<?php echo get_field('tel', 'option'); ?>">Tel.<?php echo get_field('tel', 'option'); ?></a>
+                    <div class="bl_common_telWrapper">
+                        <a class="el_common_telLink" href="tel:<?php echo get_field('tel', 'option'); ?>">Tel.<?php echo get_field('tel', 'option'); ?></a>
 
                         <?php if (get_field('hour', 'option') && get_field('consultation-time', 'option') !== ''): ?>
-                            <p class="el_commonToggleNav_infoWrapper_telHour">
+                            <p class="el_common_telHour">
                                 <span>診察時間<?php echo get_field('consultation-time', 'option'); ?></span>
-                                <span class="el_commonToggleNav_infoWrapper_telHour_separator">/</span>
+                                <span class="el_common_telHour_separator">/</span>
                                 <span>受付<?php echo get_field('hour', 'option'); ?></span>
                             </p>
                         <?php endif; ?>
