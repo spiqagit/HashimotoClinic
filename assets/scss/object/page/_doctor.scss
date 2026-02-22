@@ -86,4 +86,22 @@
             }
         }
     }
+
+
+    .bl_doctorContainer_lowerContainer{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(rem(400), 1fr));
+        gap: rem(60);
+        justify-content: space-between;
+
+
+    }
 }
+
+
+.bl_doctorArchiveContainer{
+    max-width: rem(1200);
+    width: 100%;
+    margin-inline: auto;
+
+} 

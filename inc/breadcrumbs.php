@@ -42,5 +42,16 @@
                 <p class="bl_breadcrumbs_list_item_text"><?php the_title(); ?></p>
             </li>
         <?php endif; ?>
+
+
+        <?php
+        /* ドクター */
+        ?>
+        <?php if (is_post_type_archive('doctor')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">ドクター紹介</p>
+            </li>
+        <?php endif; ?>
+        
     </ul>
 </div>
