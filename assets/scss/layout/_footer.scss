@@ -468,6 +468,14 @@
                 line-height: 1.5;
                 letter-spacing: calc(1.28 / 16 * 1em);
                 max-width: rem(195);
+                transition: opacity 0.5s ease;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        opacity: 0.6;
+                        transition: opacity 0.5s ease;
+                    }
+                }
 
                 img {
                     display: block;

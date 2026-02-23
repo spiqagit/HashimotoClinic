@@ -30,10 +30,10 @@
                     </div>
                     <div class="bl_fvSlideSwiper_btnContainer">
                         <button class="bl_fvSlideSwiper_prev" type="button">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow-prev.svg" alt="prev">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow-prev.svg" alt="">
                         </button>
                         <button class="bl_fvSlideSwiper_next" type="button">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow-next.svg" alt="next">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow-next.svg" alt="">
                         </button>
                     </div>
 

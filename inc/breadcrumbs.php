@@ -43,13 +43,22 @@
             </li>
         <?php endif; ?>
 
-
         <?php
         /* ドクター */
         ?>
         <?php if (is_post_type_archive('doctor')): ?>
             <li class="bl_breadcrumbs_list_item">
                 <p class="bl_breadcrumbs_list_item_text">ドクター紹介</p>
+            </li>
+        <?php endif; ?>
+
+
+        <?php
+        /* クリニックについて */
+        ?>
+        <?php if (is_page('information')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">クリニックについて</p>
             </li>
         <?php endif; ?>
         

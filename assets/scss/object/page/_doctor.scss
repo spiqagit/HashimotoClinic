@@ -1,6 +1,13 @@
 @use '../../foundation/function/index' as *;
 
 .bl_doctorContainer {
+    display: flex;
+    flex-direction: column;
+    gap: rem(60);
+
+    @include underSP {
+        gap: rem(50);
+    }
 
     .bl_doctorContainer_upperContainer {
         display: grid;
@@ -20,9 +27,16 @@
             border-radius: rem(60);
             aspect-ratio: 1/1;
 
+            @include underSP {
+                aspect-ratio: 1/1;
+                max-width: rem(400);
+                height: auto;
+                margin-inline: auto;
+            }
+
             .el_doctorUpperContainer_imgWrapper_img {
                 width: 100%;
-                height: 100%;
+                height: auto;
                 object-fit: cover;
                 aspect-ratio: 1/1;
             }
@@ -43,6 +57,21 @@
                     line-height: 1.2;
                     letter-spacing: calc(1.28 / 16 * 1em);
                     margin-bottom: rem(20);
+                }
+
+                .el_doctorUpperContainer_nameContainer_job_director{
+                    width: fit-content;
+                    padding: rem(8);
+                    border-radius: rem(2);
+                    background-color: var(--black);
+                    color: #fff;
+                }
+
+                .el_doctorUpperContainer_nameContainer_job_box{
+                    width: fit-content;
+                    padding: rem(8);
+                    border-radius: rem(2);
+                    background-color: var(--gray);
                 }
 
 
@@ -84,24 +113,105 @@
                     letter-spacing: calc(1.28 / 16 * 1em);
                 }
             }
+
+
+            .bl_doctorContainer_profileListContainer {
+                margin-top: rem(40);
+            }
         }
     }
 
 
-    .bl_doctorContainer_lowerContainer{
+    .bl_doctorContainer_lowerContainer {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(rem(400), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(rem(400) ,100%), 1fr));
         gap: rem(60);
         justify-content: space-between;
 
-
+        @include underSP {
+            grid-template-columns: 1fr;
+            gap: rem(30);
+        }
     }
 }
 
 
-.bl_doctorArchiveContainer{
-    max-width: rem(1200);
-    width: 100%;
-    margin-inline: auto;
+.bl_doctorContainer_profileListContainer {
+    padding: rem(30);
+    border-radius: rem(8);
+    background: var(--gray);
 
-} 
+    .el_doctorContainer_profileList_ttl {
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(20);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.6 / 20 * 1em);
+        padding-left: rem(20);
+        padding-block: rem(2);
+        border-left: 4px solid var(--black);
+        margin-bottom: rem(24);
+    }
+
+    .bl_doctorContainer_profileList {
+        display: flex;
+        flex-direction: column;
+        gap: rem(6);
+
+
+        .bl_doctorContainer_profileList_item {
+            display: grid;
+            grid-template-columns: rem(80) auto;
+            gap: rem(40);
+            align-items: flex-start;
+
+    
+            .el_doctorContainer_profileList_item_year {
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.5;
+                letter-spacing: calc(1.28 / 16 * 1em);
+            }
+
+            .el_doctorContainer_profileList_item_txt {
+                color: var(--black);
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.5;
+                letter-spacing: calc(1.28 / 16 * 1em);
+            }
+        }
+    }
+
+    .bl_doctorContainer_profileList_license {
+
+        .bl_doctorContainer_profileList_item {
+            display: block;
+        }
+    }
+}
+
+.bl_doctorArchiveContainer {
+    padding-inline: rem(20);
+
+    .bl_doctorArchiveContainer_inner {
+        display: flex;
+        flex-direction: column;
+        gap: rem(100);
+        max-width: rem(1200);
+        width: 100%;
+        margin-inline: auto;
+
+        @include underSP {
+            gap: rem(80);
+        }
+
+        .bl_doctorContainer {
+            &:not(:last-child) {
+                padding-bottom: rem(80);
+                border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+            }
+        }
+    }
+}
