@@ -173,4 +173,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    document.querySelectorAll('.bl_accessRoutelistContainer').forEach(function (routeListContainer) {
+        const routeSwiper = routeListContainer.querySelector('.bl_accessRoutelistSwiper');
+        const routeSwiperPagination = routeListContainer.querySelector('.bl_accessRoutelistSwiper_pagination');
+        if (!routeSwiper) return;
+
+        new Swiper(routeSwiper, {
+            slidesPerView: 'auto',
+            spaceBetween: 33,
+            pagination: {
+                el: routeSwiperPagination,
+                clickable: true,
+            },
+        });
+    });
+
 });

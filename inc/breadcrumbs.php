@@ -53,12 +53,15 @@
         <?php endif; ?>
 
 
-        <?php
-        /* クリニックについて */
-        ?>
         <?php if (is_page('information')): ?>
             <li class="bl_breadcrumbs_list_item">
                 <p class="bl_breadcrumbs_list_item_text">クリニックについて</p>
+            </li>
+        <?php endif; ?>
+        
+        <?php if (is_page('access')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">アクセス</p>
             </li>
         <?php endif; ?>
         

@@ -1049,3 +1049,38 @@ CTAボタン
 
     }
 }
+
+
+.bl_commonDownBtnContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(50);
+    margin-bottom: rem(100);
+    margin-inline: auto;
+    max-width: rem(710);
+    width: 100%;
+    
+    @include underSP {
+        grid-template-columns: 1fr;
+        gap: rem(20);
+        margin-bottom: rem(60);
+    }
+
+    .bl_commonDownBtnContainer_item {
+        display: grid;
+        grid-template-columns: auto rem(10);
+        align-items: center;
+        gap: rem(10);
+        padding-block: rem(16);
+        padding-inline: rem(24);
+        border-radius: rem(4);
+        background-color: var(--gray);
+        box-shadow: 0 2px 5px 0 rgba(52, 49, 44, 0.20);
+        color: var(--black-black, #34312C);
+        font-family: var(--subFontJa);
+        font-size: rem(22);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.76 / 22 * 1em);
+    }
+}

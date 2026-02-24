@@ -36,3 +36,7 @@
     <?php if (is_page('information')): ?>
         <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/info.js"></script>
     <?php endif; ?>
+
+    <?php if (is_page('access')): ?>
+        <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/access.js"></script>
+    <?php endif; ?>

@@ -42,8 +42,6 @@ function change_posts_per_page($query)
     if (is_admin() || !$query->is_main_query())
         return;
 
-    // ページネーションのクエリ変数を適切に処理
-    
 }
 add_action('pre_get_posts', 'change_posts_per_page');
 
@@ -73,6 +71,38 @@ add_filter('get_the_archive_title', function ($title) {
 function disable_faq_pages()
 {
     if (is_singular('faq')  || is_tax('faq-cat')) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        get_template_part(404);
+        exit;
+    }
+
+    if (is_singular('clinic')) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        get_template_part(404);
+        exit;
+    }
+
+    if (is_tax('parts-cat')) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        get_template_part(404);
+        exit;
+    }
+
+    if (is_tax('menu-cat')) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        get_template_part(404);
+        exit;
+    }
+
+    if (is_singular('doctor')) {
         global $wp_query;
         $wp_query->set_404();
         status_header(404);
