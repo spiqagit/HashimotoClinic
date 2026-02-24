@@ -9,7 +9,7 @@
         padding-bottom: rem(24);
         border-bottom: 1px dashed var(--black);
         transition: opacity 0.5s ease;
-        
+
         @media (any-hover: hover) {
             &:hover {
                 opacity: 0.6;
@@ -37,4 +37,41 @@
             letter-spacing: calc(1.28 / 16 * 1em);
         }
     }
+}
+
+
+.bl_newsArchiveListContainer {
+    padding-inline: rem(20);
+
+    .bl_newsArchiveListContainer_inner {
+        max-width: rem(900);
+        width: 100%;
+        margin-inline: auto;
+    }
+}
+
+
+.bl_newsArticle_contents {
+    padding-inline: rem(20);
+
+    .bl_newsArticle_contents_inner {
+        max-width: rem(900);
+        width: 100%;
+        margin-inline: auto;
+
+
+        .bl_commonPagination {
+
+            .bl_commonArticle_content_allBtnContainer {
+                margin-top: 0;
+                grid-column: 2;
+
+                @include underSP {
+                    grid-column: span 2;
+                    grid-row: 1;
+                }
+            }
+        }
+    }
+
 }

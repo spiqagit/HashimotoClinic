@@ -42,6 +42,11 @@ function change_posts_per_page($query)
     if (is_admin() || !$query->is_main_query())
         return;
 
+    if ($query->is_post_type_archive('news')) {
+        $query->set('posts_per_page', 10);
+        $query->set('orderby', 'date');
+        $query->set('order', 'DESC');
+    }
 }
 add_action('pre_get_posts', 'change_posts_per_page');
 
@@ -103,6 +108,14 @@ function disable_faq_pages()
     }
 
     if (is_singular('doctor')) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        get_template_part(404);
+        exit;
+    }
+
+    if (is_singular('doctor') || is_tax('faq-cat')) {
         global $wp_query;
         $wp_query->set_404();
         status_header(404);
@@ -241,6 +254,7 @@ function renewal2026_disable_doctor_editor_support()
 {
     remove_post_type_support('doctor', 'editor');
     remove_post_type_support('clinic', 'editor');
+    remove_post_type_support('faq', 'editor');
 }
 add_action('init', 'renewal2026_disable_doctor_editor_support', 20);
 
@@ -251,9 +265,13 @@ function renewal2026_disable_doctor_block_editor($use_block_editor, $post_type)
         return false;
     }
 
-    if ($post_type === 'clinic') {
-        return false;
-    }
+        if ($post_type === 'clinic') {
+            return false;
+        }
+
+        if ($post_type === 'faq') {
+            return false;
+        }
 
     return $use_block_editor;
 }

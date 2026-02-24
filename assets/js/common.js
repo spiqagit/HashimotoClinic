@@ -170,4 +170,82 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         });
     });
+
+
+
+
+    /* よくある質問 */
+    const faqSpNav = document.querySelector('.bl_faqArchive_nav.is-sp');
+    if (faqSpNav) {
+        const faqNavBtn = faqSpNav.querySelector('.bl_faqArchive_nav_btn');
+        const faqNavListContainer = faqSpNav.querySelector('.bl_faqArchive_nav_listContainer');
+        const faqNavArrow = faqSpNav.querySelector('.el_faqArchive_nav_btn_arrow');
+        let isFaqNavOpen = false;
+
+        if (faqNavBtn && faqNavListContainer) {
+            faqNavBtn.addEventListener('click', function() {
+                gsap.killTweensOf(faqNavListContainer);
+                if (faqNavArrow) gsap.killTweensOf(faqNavArrow);
+
+                if (isFaqNavOpen) {
+                    gsap.to(faqNavListContainer, {
+                        height: 0,
+                        duration: 0.4,
+                        ease: 'power2.out',
+                    });
+                    if (faqNavArrow) {
+                        gsap.to(faqNavArrow, {
+                            rotate: 90,
+                            duration: 0.4,
+                            ease: 'power2.out',
+                        });
+                    }
+                } else {
+                    gsap.fromTo(
+                        faqNavListContainer,
+                        { height: faqNavListContainer.offsetHeight },
+                        {
+                            height: faqNavListContainer.scrollHeight,
+                            duration: 0.4,
+                            ease: 'power2.out',
+                            onComplete: function() {
+                                gsap.set(faqNavListContainer, { height: 'auto' });
+                            },
+                        },
+                    );
+                    if (faqNavArrow) {
+                        gsap.to(faqNavArrow, {
+                            rotate: -90,
+                            duration: 0.4,
+                            ease: 'power2.out',
+                        });
+                    }
+                }
+
+                isFaqNavOpen = !isFaqNavOpen;
+            });
+
+            faqSpNav.querySelectorAll('.el_faqArchive_nav_list_item_link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (!isFaqNavOpen) return;
+                    gsap.killTweensOf(faqNavListContainer);
+                    if (faqNavArrow) gsap.killTweensOf(faqNavArrow);
+
+                    gsap.to(faqNavListContainer, {
+                        height: 0,
+                        duration: 0.4,
+                        ease: 'power2.out',
+                    });
+                    if (faqNavArrow) {
+                        gsap.to(faqNavArrow, {
+                            rotate: 90,
+                            duration: 0.4,
+                            ease: 'power2.out',
+                        });
+                    }
+                    isFaqNavOpen = false;
+                });
+            });
+        }
+    }
 });

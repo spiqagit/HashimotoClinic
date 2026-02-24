@@ -19,278 +19,106 @@ template name: About
             ?>
             <div class="bl_commonlowerPage_ttlContainer">
                 <hgroup class="bl_commonlowerPage_ttl">
-                    <p class="bl_commonlowerPage_ttl_enTtl">Menu</p>
-                    <h1 class="bl_commonlowerPage_ttl_jaTtl">施術メニュー</h1>
+                    <p class="bl_commonlowerPage_ttl_enTtl">FAQ</p>
+                    <h1 class="bl_commonlowerPage_ttl_jaTtl">よくある質問</h1>
                 </hgroup>
                 <?php get_template_part('inc/breadcrumbs'); ?>
             </div>
 
 
+            <?php
+            $faq_terms = get_terms('faq-cat', array(
+                'orderby' => 'term_id',
+                'order' => 'menu_order',
+                'hide_empty' => true,
+                'parent' => 0,
+            ));
+            ?>
             <div class="bl_commonlowerPage_contents">
-                <?php
-                $partsParentCats = get_terms('parts-cat', array(
-                    'orderby' => 'term_id',
-                    'order' => 'menu_order',
-                    'hide_empty' => true,
-                    'parent' => 0,
-                ));
-                ?>
+                <section class="bl_faqArchive">
+                    <div class="bl_faqArchive_inner">
+                        <div class="bl_faqArchive_navContainer">
+                            <nav class="bl_faqArchive_nav is-pc">
+                                <p class="bl_faqArchive_nav_ttl">カテゴリー</p>
 
-                <?php
-                $menu_post_ids = get_posts(array(
-                    'post_type'      => 'menu',
-                    'posts_per_page' => -1,
-                    'fields'         => 'ids',
-                ));
-                $menu_categories = array();
-                if (!empty($menu_post_ids)) {
-                    $menu_categories = get_terms(array(
-                        'taxonomy'   => 'menu-cat',
-                        'hide_empty' => false,
-                        'object_ids' => $menu_post_ids,
-                    ));
-                    if (is_wp_error($menu_categories)) {
-                        $menu_categories = array();
-                    }
-                }
+                                <?php if (!empty($faq_terms)): ?>
+                                    <ul class="bl_faqArchive_nav_list">
+                                        <?php foreach ($faq_terms as $faq_term): ?>
+                                            <li class="bl_faqArchive_nav_list_item">
+                                                <a href="#<?php echo $faq_term->slug; ?>" class="el_faqArchive_nav_list_item_link">
+                                                    <span class="el_faqArchive_nav_list_item_link_txt"><?php echo $faq_term->name; ?></span>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+                            </nav>
 
-                $menuParentCatList = get_terms('menu-cat', array(
-                    'orderby' => 'term_id',
-                    'order' => 'menu_order',
-                    'hide_empty' => true,
-                    'parent' => 0,
-                    'object_ids' => $menu_post_ids,
-                ));
-                ?>
+                            <nav class="bl_faqArchive_nav is-sp">
+                                <button class="bl_faqArchive_nav_btn" type="button">
+                                    <span class="el_faqArchive_nav_btn_txt">カテゴリー</span>
+                                    <img class="el_faqArchive_nav_btn_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
+                                </button>
 
-                <div class="bl_menuArchiveContainer">
-                    <div class="bl_menuArchiveContainer_inner">
-
-                        <div class="bl_commonDownBtnContainer">
-                            <?php if (!empty($partsParentCats)): ?>
-                                <a href="#parts-cat" class="bl_commonDownBtnContainer_item">
-                                    <span>気になる部位から探す</span>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/down-arrow.svg" alt="">
-                                </a>
-                            <?php endif; ?>
-                            <?php if (!empty($menuParentCatList)): ?>
-                                <a href="#menu-cat" class="bl_commonDownBtnContainer_item">
-                                    <span>カテゴリから探す</span>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/down-arrow.svg" alt="">
-                                </a>
-                            <?php endif; ?>
+                                <div class="bl_faqArchive_nav_listContainer">
+                                    <?php if (!empty($faq_terms)): ?>
+                                        <ul class="bl_faqArchive_nav_list">
+                                            <?php foreach ($faq_terms as $faq_term): ?>
+                                                <li class="bl_faqArchive_nav_list_item">
+                                                    <a href="#<?php echo $faq_term->slug; ?>" class="el_faqArchive_nav_list_item_link">
+                                                        <span class="el_faqArchive_nav_list_item_link_txt"><?php echo $faq_term->name; ?></span>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
+                                </div>
+                            </nav>
                         </div>
 
-
-                        <?php if (!empty($partsParentCats)): ?>
-                            <div class="bl_menuPartsCatContainer" id="parts-cat">
-                                <h2 class="el_menuPartsCatContainer_ttl">気になる部位から探す</h2>
-
-
-                                <div class="bl_menuPartsCatContainer_btnContainer">
-                                    <?php
-                                    $i = 0;
-                                    foreach ($partsParentCats as $partsParentCat): ?>
-                                        <?php if ($i == 0): ?>
-                                            <button type="button" class="el_menuPartsCatContainer_btn is_active" id="cat-<?php echo $partsParentCat->term_id; ?>"><?php echo $partsParentCat->name; ?></button>
-                                        <?php else: ?>
-                                            <button type="button" class="el_menuPartsCatContainer_btn " id="cat-<?php echo $partsParentCat->term_id; ?>"><?php echo $partsParentCat->name; ?></button>
-                                        <?php endif; ?>
-                                    <?php $i++;
-                                    endforeach; ?>
-                                </div>
-
-                                <div class="bl_menuPartsCatContainer_tabContents">
-
-                                    <?php
-                                    $j = 0;
-                                    foreach ($partsParentCats as $partsParentCat): ?>
-                                        <?php if ($j == 0) {
-                                            $isActive = 'is_active';
-                                        } else {
-                                            $isActive = '';
-                                        } ?>
-
-                                        <div class="bl_menuPartsCatContainer_tabContents_item <?php echo $isActive; ?>" data-id="cat-<?php echo $partsParentCat->term_id; ?>">
-                                            <div class="bl_menuPartsCatContainer_tabContents_item_inner">
-                                                <?
-                                                $partsChildCats = get_terms('parts-cat', array(
-                                                    'orderby' => 'term_id',
-                                                    'order' => 'menu_order',
-                                                    'hide_empty' => true,
-                                                    'parent' => $partsParentCat->term_id,
-                                                ));
-                                                ?>
-                                                <?php if (!empty($partsChildCats)): ?>
-                                                    <?php foreach ($partsChildCats as $partsChildCat): ?>
-                                                        <details class="bl_menuPartChildDetails js-details">
-                                                            <summary class="bl_menuPartChildDetails_summary is-summary">
-                                                                <span class="bl_menuPartChildDetails_summary_nameWrapper">
-                                                                    <?php if (get_field('parts-cat-icon', "term_" . $partsChildCat->term_id)): ?>
-                                                                        <span class="el_menuPartChildDetails_summary_nameWrapper_iconWrapper">
-                                                                            <img class="el_menuPartChildDetails_summary_nameWrapper_icon" src="<?php echo get_field('parts-cat-icon', "term_" . $partsChildCat->term_id); ?>" alt="<?php echo $partsChildCat->name; ?>">
-                                                                        </span>
-                                                                    <?php endif; ?>
-                                                                    <span class="el_menuPartChildDetails_summary_nameWrapper_name"><?php echo $partsChildCat->name; ?></span>
-                                                                </span>
-
-                                                                <img class="el_menuPartChildDetails_summary_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/lang-arrow.svg" alt="">
-                                                            </summary>
-
-                                                            <div class="bl_menuPartChildDetails_contents is-details-content">
-                                                                <div class="bl_menuPartChildDetails_contents_inner">
-                                                                    <?php
-
-                                                                    $partsCatPosts = get_posts(array(
-                                                                        'post_type' => 'menu',
-                                                                        'posts_per_page' => -1,
-                                                                        'fields' => 'ids',
-                                                                        'tax_query' => array(
-                                                                            array(
-                                                                                'taxonomy' => 'parts-cat',
-                                                                                'terms' => $partsChildCat->term_id,
-                                                                            ),
-                                                                        ),
-                                                                    ));
-                                                                    ?>
-                                                                    <?php if (!empty($partsCatPosts)): ?>
-                                                                        <?php foreach ($partsCatPosts as $partsCatPost): ?>
-                                                                            <a href="<?php echo get_the_permalink($partsCatPost); ?>" class="bl_menuPartChildDetails_contents_link">
-                                                                                <p><?php echo get_the_title($partsCatPost); ?></p>
-                                                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                            </a>
-                                                                        <?php endforeach; ?>
-                                                                    <?php endif; ?>
-                                                                </div>
+                        <div class="bl_faqArchive_contents">
+                            <?php if (!empty($faq_terms)): ?>
+                                <?php foreach ($faq_terms as $faq_term): ?>
+                                    <div class="bl_faqArchive_contents_item">
+                                        <h2 class="el_faqArchive_contents_item_ttl"><?php echo $faq_term->name; ?></h2>
+                                        <?php $faq_posts = get_posts(array(
+                                            'post_type' => 'faq',
+                                            'posts_per_page' => -1,
+                                            'fields' => 'ids',
+                                            'tax_query' => array(
+                                                array(
+                                                    'taxonomy' => 'faq-cat',
+                                                    'field' => 'term_id',
+                                                    'terms' => $faq_term->term_id,
+                                                ),
+                                            ),
+                                        )); ?>
+                                        <?php if (!empty($faq_posts)): ?>
+                                            <?php foreach ($faq_posts as $faq_post): ?>
+                                                <div class="bl_commonFaqList">
+                                                    <details class="bl_commonFaqList_details js-details">
+                                                        <summary class="bl_commonFaqList_details_summary is-summary">
+                                                            <span class="bl_commonFaqList_details_summary_txt">
+                                                                <span class="el_commonFaqList_details_summary_txt_en">Q.</span>
+                                                                <span class="el_commonFaqList_details_summary_txt_ttl"><?php echo get_the_title($faq_post); ?></span>
+                                                            </span>
+                                                            <span class="el_commonFaqList_details_summary_icon"></span>
+                                                        </summary>
+                                                        <div class="bl_commonFaqList_details_content is-details-content">
+                                                            <div class="bl_commonFaqList_details_content_inner">
+                                                                <p class="el_commonFaqList_details_content_inner_txt"><?php echo get_field('faq-txt', $faq_post); ?></p>
                                                             </div>
-                                                        </details>
-                                                    <?php endforeach; ?>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                    <?php $j++;
-                                    endforeach; ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-
-
-                        <?php if (!empty($menuParentCatList)): ?>
-                            <div class="bl_menuCatContainer" id="menu-cat">
-                                <h2 class="el_menuCatContainer_ttl">カテゴリから探す</h2>
-
-                                <div class="bl_menuCatContainer_contentsWrapper">
-                                    <?php foreach ($menuParentCatList as $menuParentCat): ?>
-                                        <?php
-                                        $childrenMenuCategories = get_terms(array(
-                                            'taxonomy'   => 'menu-cat',
-                                            'hide_empty' => true,
-                                            'object_ids' => $menu_post_ids,
-                                            'parent' => $menuParentCat->term_id,
-                                        ));
-                                        ?>
-                                        <?php if ($childrenMenuCategories): ?>
-                                            <div class="bl_menuCatContainer_parentItem">
-                                                <h3 class="el_menuCatContainer_catTtl"><?php echo $menuParentCat->name; ?></h3>
-
-                                                <div class="bl_menuCatContainer_parentItem_childList">
-                                                    <?php foreach ($childrenMenuCategories as $childrenMenuCategory): ?>
-
-                                                        <details class="bl_menuPartChildDetails js-details">
-                                                            <summary class="bl_menuPartChildDetails_summary is-summary">
-                                                                <span class="bl_menuPartChildDetails_summary_nameWrapper">
-                                                                    <?php if (get_field('parts-cat-icon', "term_" . $childrenMenuCategory->term_id)): ?>
-                                                                        <span class="el_menuPartChildDetails_summary_nameWrapper_iconWrapper">
-                                                                            <img class="el_menuPartChildDetails_summary_nameWrapper_icon" src="<?php the_field('parts-cat-icon', "term_" . $childrenMenuCategory->term_id); ?>" alt="<?php echo $childrenMenuCategory->name; ?>">
-                                                                        </span>
-                                                                    <?php endif; ?>
-                                                                    <span class="el_menuPartChildDetails_summary_nameWrapper_name"><?php echo $childrenMenuCategory->name; ?></span>
-                                                                </span>
-
-                                                                <img class="el_menuPartChildDetails_summary_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/lang-arrow.svg" alt="">
-                                                            </summary>
-
-                                                            <div class="bl_menuPartChildDetails_contents is-details-content">
-                                                                <div class="bl_menuPartChildDetails_contents_inner">
-                                                                    <?php
-
-                                                                    $childrenMenuPosts = get_posts(array(
-                                                                        'post_type' => 'menu',
-                                                                        'posts_per_page' => -1,
-                                                                        'fields' => 'ids',
-                                                                        'tax_query' => array(
-                                                                            array(
-                                                                                'taxonomy' => 'menu-cat',
-                                                                                'terms' => $childrenMenuCategory->term_id,
-                                                                            ),
-                                                                        ),
-                                                                    ));
-                                                                    ?>
-                                                                    <?php if (!empty($partsCatPosts)): ?>
-                                                                        <?php foreach ($partsCatPosts as $partsCatPost): ?>
-                                                                            <a href="<?php echo get_the_permalink($partsCatPost); ?>" class="bl_menuPartChildDetails_contents_link">
-                                                                                <p><?php echo get_the_title($partsCatPost); ?></p>
-                                                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                            </a>
-                                                                        <?php endforeach; ?>
-                                                                    <?php endif; ?>
-                                                                </div>
-                                                            </div>
-                                                        </details>
-                                                    <?php endforeach; ?>
+                                                        </div>
+                                                    </details>
                                                 </div>
-                                            </div>
+                                            <?php endforeach; ?>
                                         <?php endif; ?>
-                                    <?php endforeach; ?>
-
-
-                                    <div class="bl_menuCatContainer_lowerContainer">
-                                        <?php foreach ($menuParentCatList as $menuParentCat): ?>
-                                            <?php
-                                            $childrenMenuCategories = get_terms(array(
-                                                'taxonomy'   => 'menu-cat',
-                                                'hide_empty' => true,
-                                                'object_ids' => $menu_post_ids,
-                                                'parent' => $menuParentCat->term_id,
-                                            ));
-                                            ?>
-                                            <?php if (empty($childrenMenuCategories)): ?>
-                                                <div class="bl_menuCatContainer_lowerItem">
-                                                    <h3 class="el_menuCatContainer_catTtl"><?php echo $menuParentCat->name; ?></h3>
-
-                                                    <div class="bl_menuCatContainer_lowerItem_postList">
-                                                        <?php
-                                                        $menuPosts = get_posts(array(
-                                                            'post_type' => 'menu',
-                                                            'posts_per_page' => -1,
-                                                            'fields' => 'ids',
-                                                            'tax_query' => array(
-                                                                array(
-                                                                    'taxonomy' => 'menu-cat',
-                                                                    'terms' => $menuParentCat->term_id,
-                                                                ),
-                                                            ),
-                                                        ));
-                                                        ?>
-                                                        <?php if (!empty($menuPosts)): ?>
-                                                            <?php foreach ($menuPosts as $menuPost): ?>
-                                                                <a href="<?php echo get_the_permalink($menuPost); ?>" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                                    <p><?php echo get_the_title($menuPost); ?></p>
-                                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                </a>
-                                                            <?php endforeach; ?>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
                                     </div>
-
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </main>
