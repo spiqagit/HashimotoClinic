@@ -14,12 +14,13 @@
 
         <div class="ly_header_contentsWrapper">
             <div class="bl_header_contentsWrapper_upper">
-                <div class="bl_header_searchWrapper">
-                    <input class="el_header_searchWrapper_input" type="text" name="search" placeholder="サイト内検索">
+                <form action="<?php echo home_url(); ?>/" class="bl_header_searchWrapper">
+                    <input class="el_header_searchWrapper_input" type="text" name="s" placeholder="サイト内検索">
+                    <input type="hidden" name="type" value="site">
                     <button class="el_header_searchWrapper_button" type="submit">
                         <img class="el_header_searchWrapper_button_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/search.svg" alt="">
                     </button>
-                </div>
+                </form>
 
                 <div class="bl_header_langWrapper">
                     <?php echo do_shortcode('[gtranslate]'); ?>

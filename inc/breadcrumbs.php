@@ -79,6 +79,58 @@
                 <p class="bl_breadcrumbs_list_item_text"><?php the_title(); ?></p>
             </li>
         <?php endif; ?>
+
+        <?php
+        /* 院長ブログ */
+        ?>
+        <?php if (is_home()): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">院長ブログ</p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_search() && get_query_var('type') == 'post'): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/blog/">院長ブログ</a>
+            </li>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">検索結果</p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_category()): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/blog/">院長ブログ</a>
+            </li>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text"><?php single_cat_title(); ?></p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_date()): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/blog/">院長ブログ</a>
+            </li>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text"><?php echo get_the_date('Y.m.d'); ?></p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_singular('post')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/blog/">院長ブログ</a>
+            </li>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text"><?php the_title(); ?></p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_search() && get_query_var('type') == 'site'): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">「<?php echo esc_html(get_query_var('s')); ?>」の検索結果</p>
+            </li>
+        <?php endif; ?>
+
         <?php
         /* ドクター */
         ?>

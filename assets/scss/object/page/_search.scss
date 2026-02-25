@@ -1,0 +1,75 @@
+@use '../../foundation/function/index' as *;
+
+
+.bl_siteSearch {
+    padding-inline: rem(20);
+
+    .bl_siteSearch_inner {
+        max-width: rem(900);
+        width: 100%;
+        margin-inline: auto;
+
+        .bl_siteSearch_sectionContainer {
+            display: flex;
+            flex-direction: column;
+            gap: rem(100);
+
+            .bl_siteSearch_section {
+
+                .el_siteSearch_section_ttl {
+                    font-family: var(--subFontJa);
+                    font-size: rem(32);
+                    font-weight: 600;
+                    line-height: 1.2;
+                    letter-spacing: calc(2 / 20 * 1em);
+                    color: var(--black);
+                    border-bottom: 1px solid var(--black);
+                    padding-bottom: rem(20);
+                    margin-bottom: rem(20);
+
+                    .el_siteSearch_section_count{
+                        font-size: rem(14);
+                        font-weight: 400;
+                        line-height: 1.2;
+                        letter-spacing: calc(1.4 / 14 * 1em);
+                        color: var(--black);
+                    }
+                }
+
+                .bl_siteSearch_list_items{
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(20);
+
+                    .bl_siteSearch_list_item{
+
+                        .bl_siteSearch_list_item_link{
+                            display: block;
+                            padding-bottom: rem(16);
+                            border-bottom: 1px dashed var(--black-30, #34312C30);
+                            transition: opacity 0.5s ease;
+
+                            .el_siteSearch_list_item_date{
+                                color: var(--black);
+                                font-size: rem(12);
+                                font-weight: 400;
+                                line-height: 1;
+                                letter-spacing: calc(0.24 / 12 * 1em);
+                                margin-bottom: rem(4);
+                                display: block;
+                            }
+
+
+                            @media (hover: hover) {
+                                &:hover {
+                                    opacity: 0.6;
+                                    transition: opacity 0.5s ease;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

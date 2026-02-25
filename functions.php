@@ -16,25 +16,30 @@ add_filter('automatic_updater_disabled', '__return_true');
 
 /* ---------- 投稿関連 ---------- */
 // 投稿（post）のURLを /blog/スラッグ にする
-function renewal2026_post_blog_rewrite_rules() {
-	add_rewrite_rule( '^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top' );
+function renewal2026_post_blog_rewrite_rules()
+{
+    add_rewrite_rule('^blog/?$', 'index.php', 'top'); // /blog/ → 投稿一覧（home）
+    add_rewrite_rule('^blog/page/([0-9]+)/?$', 'index.php?paged=$matches[1]', 'top'); // /blog/page/2/ → 投稿一覧2ページ目
+    add_rewrite_rule('^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top'); // /blog/スラッグ/ → 単体記事
 }
-add_action( 'init', 'renewal2026_post_blog_rewrite_rules' );
+add_action('init', 'renewal2026_post_blog_rewrite_rules');
 
-function renewal2026_post_link_blog_prefix( $permalink, $post ) {
-	if ( $post->post_type !== 'post' ) {
-		return $permalink;
-	}
-	return home_url( '/blog/' . $post->post_name . '/' );
+function renewal2026_post_link_blog_prefix($permalink, $post)
+{
+    if ($post->post_type !== 'post') {
+        return $permalink;
+    }
+    return home_url('/blog/' . $post->post_name . '/');
 }
-add_filter( 'post_link', 'renewal2026_post_link_blog_prefix', 10, 2 );
+add_filter('post_link', 'renewal2026_post_link_blog_prefix', 10, 2);
 
 // テーマ有効化時にリライトルールをフラッシュ（/blog/ 対応を反映）
-function renewal2026_flush_rewrite_on_activation() {
-	renewal2026_post_blog_rewrite_rules();
-	flush_rewrite_rules();
+function renewal2026_flush_rewrite_on_activation()
+{
+    renewal2026_post_blog_rewrite_rules();
+    flush_rewrite_rules();
 }
-add_action( 'after_switch_theme', 'renewal2026_flush_rewrite_on_activation' );
+add_action('after_switch_theme', 'renewal2026_flush_rewrite_on_activation');
 
 // アーカイブの表示条件
 function change_posts_per_page($query)
@@ -265,14 +270,40 @@ function renewal2026_disable_doctor_block_editor($use_block_editor, $post_type)
         return false;
     }
 
-        if ($post_type === 'clinic') {
-            return false;
-        }
+    if ($post_type === 'clinic') {
+        return false;
+    }
 
-        if ($post_type === 'faq') {
-            return false;
-        }
+    if ($post_type === 'faq') {
+        return false;
+    }
 
     return $use_block_editor;
 }
 add_filter('use_block_editor_for_post_type', 'renewal2026_disable_doctor_block_editor', 10, 2);
+
+
+// タイトルのみ検索
+add_filter('posts_where', function ($where, $query) {
+    global $wpdb;
+
+    // 管理画面では適用しない
+    if (is_admin()) return $where;
+
+    // タイトル検索のみのフラグがあるときに適用
+    if ($query->get('search_title_only')) {
+        $search = esc_sql($query->get('s'));
+        if ($search !== '') {
+            $where .= " AND {$wpdb->posts}.post_title LIKE '%{$search}%'";
+        }
+    }
+
+    return $where;
+}, 10, 2);
+
+
+// functions.phpに追加
+add_filter('query_vars', function ($vars) {
+    $vars[] = 'type';
+    return $vars;
+});

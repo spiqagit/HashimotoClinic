@@ -1158,6 +1158,17 @@ CTAボタン
         }
     }
 
+    .bl_commonPagination_item_prev{
+            grid-column: 1;
+    }
+
+    .bl_commonPagination_item_next{
+        grid-column: 3;
+        @include underSP {
+            grid-column: 2;
+        }
+    }
+
     .bl_commonNumberList {
         display: flex;
         align-items: center;
@@ -1252,4 +1263,18 @@ CTAボタン
     
         }
     }
+}
+
+
+.bl_common_noResults{
+    text-align: center;
+    color: var(--black);
+    font-family: var(--mainFont);
+    font-size: rem(24);
+    font-weight: 500;
+    line-height: 1.8;
+    margin-top: rem(40);
+    margin-bottom: rem(40);
+    letter-spacing: calc(1.92 / 24 * 1em);
+    font-feature-settings: 'palt' on;
 }

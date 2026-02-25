@@ -69,7 +69,7 @@
                                 <nav class="bl_commonPagination">
 
                                     <?php if ($currentPage > 1): ?>
-                                        <div class="bl_commonPagination_item">
+                                        <div class="bl_commonPagination_item bl_commonPagination_item_prev">
                                             <a href="<?php echo esc_url(get_pagenum_link($currentPage - 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_prev">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/pagination-prev.svg" alt="">
                                                 <p class="el_commonPagination_item_link_txt">前のページへ</p>
@@ -97,14 +97,13 @@
                                     </ul>
 
                                     <?php if ($currentPage < $totalPages): ?>
-                                        <div class="bl_commonPagination_item">
+                                        <div class="bl_commonPagination_item bl_commonPagination_item_next">
                                             <a href="<?php echo esc_url(get_pagenum_link($currentPage + 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_next">
                                                 <p class="el_commonPagination_item_link_txt">次のページへ</p>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/pagination-next.svg" alt="">
                                             </a>
                                         </div>
                                     <?php endif; ?>
-
                                 </nav>
                             <?php endif; ?>
                         <?php endif; ?>

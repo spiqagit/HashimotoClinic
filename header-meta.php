@@ -25,6 +25,7 @@
 
     <!-- js -->
     <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>
+
     <?php if (is_front_page()): ?>
         <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/top.js"></script>
     <?php endif; ?>
