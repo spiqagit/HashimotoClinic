@@ -30,7 +30,7 @@
         <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/top.js"></script>
     <?php endif; ?>
     
-    <?php if (is_post_type_archive('menu') || is_singular('menu')): ?>
+    <?php if (is_post_type_archive('menu') || is_singular('menu') || is_single()): ?>
         <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/service.js"></script>
     <?php endif; ?>
 
@@ -40,4 +40,8 @@
 
     <?php if (is_page('access')): ?>
         <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/access.js"></script>
+    <?php endif; ?>
+
+    <?php if (is_single() && !is_singular('menu')): ?>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/blog.js"></script>
     <?php endif; ?>
