@@ -544,7 +544,11 @@
                                 <?php foreach ($relatedBlogPosts as $relatedBlogPost): ?>
                                     <article class="bl_blogArchiveList_item swiper-slide">
                                         <a href="<?php the_permalink($relatedBlogPost->ID); ?>" class="bl_blogArchiveList_item_link">
-                                            <img class="el_blogArchiveList_item_img" src="<?php echo get_the_post_thumbnail_url($relatedBlogPost->ID); ?>" alt="<?php echo get_the_title($relatedBlogPost->ID); ?>">
+                                            <?php if (get_the_post_thumbnail($relatedBlogPost->ID)): ?>
+                                                <img class="el_blogArchiveList_item_img" src="<?php echo get_the_post_thumbnail_url($relatedBlogPost->ID); ?>" alt="<?php echo get_the_title($relatedBlogPost->ID); ?>">
+                                            <?php else: ?>
+                                                <img class="el_blogArchiveList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="<?php echo get_the_title($relatedBlogPost->ID); ?>">
+                                            <?php endif; ?>
                                         </a>
 
                                         <div class="bl_blogArchiveList_item_txtContainer">

@@ -10,6 +10,19 @@ add_theme_support('post-thumbnails');
 //自動更新を無効化
 add_filter('automatic_updater_disabled', '__return_true');
 
+/* ---------- 固定ページテンプレート（管理画面の「テンプレート」欄に表示） ---------- */
+function renewal2026_ensure_page_templates($templates)
+{
+    $custom = [
+        'page-about.php'  => 'About',
+        'page-access.php' => 'Access',
+        'page-blog.php'   => 'Blog',
+        'front-page.php'  => 'front-page',
+    ];
+    return array_merge($custom, (array) $templates);
+}
+add_filter('theme_page_templates', 'renewal2026_ensure_page_templates');
+
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示
 
@@ -18,9 +31,8 @@ add_filter('automatic_updater_disabled', '__return_true');
 // 投稿（post）のURLを /blog/スラッグ にする
 function renewal2026_post_blog_rewrite_rules()
 {
-    add_rewrite_rule('^blog/?$', 'index.php', 'top'); // /blog/ → 投稿一覧（home）
-    add_rewrite_rule('^blog/page/([0-9]+)/?$', 'index.php?paged=$matches[1]', 'top'); // /blog/page/2/ → 投稿一覧2ページ目
-    add_rewrite_rule('^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top'); // /blog/スラッグ/ → 単体記事
+    add_rewrite_rule('^blog/page/([0-9]+)/?$', 'index.php?pagename=blog&paged=$matches[1]', 'top');
+    add_rewrite_rule('^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top');
 }
 add_action('init', 'renewal2026_post_blog_rewrite_rules');
 
@@ -33,7 +45,15 @@ function renewal2026_post_link_blog_prefix($permalink, $post)
 }
 add_filter('post_link', 'renewal2026_post_link_blog_prefix', 10, 2);
 
-// テーマ有効化時にリライトルールをフラッシュ（/blog/ 対応を反映）
+function get_blog_pagenum_link($page)
+{
+    if ($page <= 1) {
+        return home_url('/blog/');
+    }
+    return home_url('/blog/page/' . $page . '/');
+}
+
+// テーマ有効化時・リライト変更後にフラッシュ（管理画面「設定」→「パーマリンク」で「変更を保存」でも可）
 function renewal2026_flush_rewrite_on_activation()
 {
     renewal2026_post_blog_rewrite_rules();

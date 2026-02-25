@@ -1559,6 +1559,20 @@ html {
   }
 }
 
+.bl_commonArticle_content .bl_commonArticle_content_thumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  max-width: 23.75rem;
+  margin-inline: auto;
+  margin-bottom: 3.75rem;
+}
+.bl_commonArticle_content .bl_commonArticle_content_thumbnail .el_commonArticle_content_thumbnail_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .bl_commonArticle_content > h2 {
   scroll-margin-top: 13.75rem;
   color: var(--black);
@@ -1655,25 +1669,29 @@ html {
   margin-top: 1.5rem;
 }
 .bl_commonArticle_content > ul li {
-  display: grid;
-  grid-template-columns: 0.375rem 1fr;
-  gap: 0.625rem;
-  align-items: flex-start;
+  position: relative;
   color: var(--black);
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0.08em;
+  padding-left: 1.25rem;
 }
 .bl_commonArticle_content > ul li::before {
   content: "";
+  position: absolute;
   display: block;
   width: 0.375rem;
   height: 0.375rem;
   background-color: var(--black);
   border-radius: 100%;
-  margin-top: 0.75rem;
+  top: 0.75rem;
+  left: 0;
+}
+.bl_commonArticle_content > ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
 }
 .bl_commonArticle_content table th {
   font-family: var(--subFontJa);
@@ -4215,6 +4233,7 @@ CTAボタン
   margin-bottom: 1.5rem;
 }
 .bl_blogArchiveList .bl_blogArchiveList_item .bl_blogArchiveList_item_txtContainer .bl_blogArchiveList_item_infoWrapper .el_blogArchiveList_item_infoWrapper_time {
+  display: block;
   color: var(--black);
   font-family: var(--subFontJa);
   font-size: 0.875rem;
@@ -4292,6 +4311,8 @@ CTAボタン
 }
 .bl_blogArchiveListContainer .bl_blogArchiveListContainer_inner .bl_blogArchiveListContainer_navContainer .bl_blogArchiveListContainer_nav .bl_blogArchiveListContainer_nav_searchContainer .bl_blogArchiveListContainer_nav_searchContainer_form .el_blogArchiveListContainer_nav_searchContainer_form_input {
   display: block;
+  width: 100%;
+  min-width: 0; /* グリッド内で入力欄が潰れないように */
   padding-inline: 0.625rem;
   padding-block: 0.25rem;
   border: 1px solid rgba(52, 49, 44, 0.3);

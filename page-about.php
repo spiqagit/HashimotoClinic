@@ -1,9 +1,8 @@
-<!--
-
-template name: About
-
--->
-
+<?php
+/*
+ * Template Name: About
+ */
+?>
 <?php get_header('meta'); ?>
 <?php wp_head(); ?>
 </head>

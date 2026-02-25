@@ -1,11 +1,10 @@
-<!--
-
-template name: Access
-
--->
-
-<?php get_header('meta'); ?>
+<?php
+/*
+ * Template Name: Access
+ */
+?>
 <?php wp_head(); ?>
+<?php get_header('meta'); ?>
 </head>
 
 <body class="">

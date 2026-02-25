@@ -40,6 +40,7 @@
                 margin-bottom: rem(24);
 
                 .el_blogArchiveList_item_infoWrapper_time {
+                    display: block;
                     color: var(--black);
                     font-family: var(--subFontJa);
                     font-size: rem(14);
@@ -129,6 +130,8 @@
 
                         .el_blogArchiveListContainer_nav_searchContainer_form_input {
                             display: block;
+                            width: 100%;
+                            min-width: 0; /* グリッド内で入力欄が潰れないように */
                             padding-inline: rem(10);
                             padding-block: rem(4);
                             border: 1px solid rgba(52, 49, 44, 0.30);

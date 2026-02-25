@@ -1,5 +1,5 @@
-<?php get_header('meta'); ?>
 <?php wp_head(); ?>
+<?php get_header('meta'); ?>
 </head>
 
 <body class="">
@@ -152,7 +152,7 @@
 
                                         <?php if ($currentPage > 1): ?>
                                             <div class="bl_commonPagination_item bl_commonPagination_item_prev">
-                                                <a href="<?php echo esc_url(get_pagenum_link($currentPage - 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_prev">
+                                                <a href="<?php echo esc_url(get_blog_pagenum_link($currentPage - 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_prev">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/pagination-prev.svg" alt="">
                                                     <p class="el_commonPagination_item_link_txt">前のページへ</p>
                                                 </a>
@@ -171,7 +171,7 @@
                                                         <?php if ((int) $paginationItem['number'] === $currentPage): ?>
                                                             <span class="el_commonNumberList_item_number el_commonNumberList_item_number_current"><?php echo esc_html($paginationItem['number']); ?></span>
                                                         <?php else: ?>
-                                                            <a href="<?php echo esc_url(get_pagenum_link($paginationItem['number'])); ?>" class="el_commonNumberList_item_number"><?php echo esc_html($paginationItem['number']); ?></a>
+                                                            <a href="<?php echo esc_url(get_blog_pagenum_link($paginationItem['number'])); ?>" class="el_commonNumberList_item_number"><?php echo esc_html($paginationItem['number']); ?></a>
                                                         <?php endif; ?>
                                                     </li>
                                                 <?php endif; ?>
@@ -180,7 +180,7 @@
 
                                         <?php if ($currentPage < $totalPages): ?>
                                             <div class="bl_commonPagination_item bl_commonPagination_item_next">
-                                                <a href="<?php echo esc_url(get_pagenum_link($currentPage + 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_next">
+                                                <a href="<?php echo esc_url(get_blog_pagenum_link($currentPage + 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_next">
                                                     <p class="el_commonPagination_item_link_txt">次のページへ</p>
                                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/pagination-next.svg" alt="">
                                                 </a>
