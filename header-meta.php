@@ -45,3 +45,7 @@
     <?php if (is_single() && !is_singular('menu')): ?>
         <script src="<?php echo get_template_directory_uri(); ?>/assets/js/blog.js"></script>
     <?php endif; ?>
+
+    <?php if (is_page_template('page-recruit.php')): ?>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/recruit.js"></script>
+    <?php endif; ?>

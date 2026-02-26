@@ -153,5 +153,18 @@
             </li>
         <?php endif; ?>
 
+
+        <?php if (is_page('monitor')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">モニター募集</p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_page('recruit')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">採用情報</p>
+            </li>
+        <?php endif; ?>
+
     </ul>
 </div>

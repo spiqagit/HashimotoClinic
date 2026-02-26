@@ -11,17 +11,18 @@ add_theme_support('post-thumbnails');
 add_filter('automatic_updater_disabled', '__return_true');
 
 /* ---------- 固定ページテンプレート（管理画面の「テンプレート」欄に表示） ---------- */
-function renewal2026_ensure_page_templates($templates)
-{
-    $custom = [
-        'page-about.php'  => 'About',
-        'page-access.php' => 'Access',
-        'page-blog.php'   => 'Blog',
-        'front-page.php'  => 'front-page',
-    ];
-    return array_merge($custom, (array) $templates);
-}
-add_filter('theme_page_templates', 'renewal2026_ensure_page_templates');
+// function renewal2026_ensure_page_templates($templates)
+// {
+//     $custom = [
+//         'page-about.php'  => 'About',
+//         'page-access.php' => 'Access',
+//         'page-blog.php'   => 'Blog',
+//         'page-monitor.php' => 'Monitor',
+//         'front-page.php'  => 'front-page',
+//     ];
+//     return array_merge($custom, (array) $templates);
+// }
+// add_filter('theme_page_templates', 'renewal2026_ensure_page_templates');
 
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示
