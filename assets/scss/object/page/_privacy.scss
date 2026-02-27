@@ -1,0 +1,233 @@
+@use '../../foundation/function/index' as *;
+
+
+.bl_privacyPolicyContainer {
+    padding-inline: rem(20);
+
+    .bl_privacyPolicyContainer_inner {
+        max-width: rem(900);
+        width: 100%;
+        margin-inline: auto;
+
+        h2 {
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(24);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: calc(1.92 / 24 * 1em);
+            padding-block: rem(10);
+            border-bottom: 1px solid rgba(52, 49, 44, 0.30);
+
+            &:not(:first-child) {
+                margin-top: rem(80);
+
+                    @include underSP {
+                        margin-top: rem(60);
+                    }
+            }
+        }
+
+        p {
+            color: var(--black);
+            font-size: rem(16);
+            font-weight: 400;
+            line-height: 1.8;
+            letter-spacing: calc(1.28 / 16 * 1em);
+
+            &:not(:first-child) {
+                margin-top: rem(30);
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: rem(24);
+
+            &:not(:first-child) {
+                margin-top: rem(20);
+            }
+
+            li {
+                position: relative;
+                color: var(--black);
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.8;
+                letter-spacing: calc(1.28 / 16 * 1em);
+                padding-left: rem(16);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: rem(4);
+                    height: rem(4);
+                    background-color: var(--black);
+                    border-radius: 100%;
+                    top: rem(12);
+                    left: 0;
+                }
+            }
+        }
+
+        .bl_numBox {
+            margin-top: rem(10);
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
+
+            p {
+                color: var(--black);
+            }
+        }
+
+        >ol {
+            list-style: decimal;
+            padding-left: rem(20);
+            display: flex;
+            flex-direction: column;
+            gap: rem(24);
+
+            &:not(:first-child) {
+                margin-top: rem(30);
+            }
+
+            li {
+                color: var(--black);
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.8;
+                letter-spacing: calc(1.28 / 16 * 1em);
+
+                >ol {
+                    list-style: disc;
+                    padding-left: rem(20);
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(24);
+                }
+            }
+        }
+
+        a {
+            display: block;
+            color: #0F8DA9;
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.7;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+
+        .bl_linkBox {
+            margin-top: rem(16);
+        }
+
+        .bl_borderBox {
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
+            padding: rem(20);
+            border: 1px solid rgba(52, 49, 44, 0.30);
+            border-radius: rem(4);
+            width: fit-content;
+            margin-top: rem(20);
+
+
+            p {
+                color: var(--black);
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.8;
+                letter-spacing: calc(1.28 / 16 * 1em);
+                margin: 0;
+            }
+        }
+
+        .bl_noteBox {
+            margin-top: rem(12);
+            padding-left: rem(20);
+
+            p {
+                color: rgba(52, 49, 44, 0.70);
+                font-family: var(--mainFont);
+                font-size: rem(14);
+                font-weight: 400;
+                line-height: 1.5;
+                letter-spacing: calc(1.12 / 14 * 1em);
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+.bl_privacyPolicyContainer_contact {
+    display: flex;
+    flex-direction: column;
+    gap: rem(14);
+    background-color: #F6F6F6;
+    padding: rem(20);
+    border-radius: rem(4);
+    margin-top: rem(20);
+    width: fit-content;
+
+    h3 {
+        color: var(--black);
+        font-family: var(--mainFont);
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: calc(1.28 / 16 * 1em);
+        padding-left: rem(16);
+        padding-block: rem(2);
+        border-left: 2px solid var(--black);
+    }
+
+    p {
+        color: var(--black);
+        font-family: var(--mainFont);
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: calc(1.28 / 16 * 1em);
+        margin: 0 !important;
+    }
+
+    .bl_privacyPolicyContainer_contact_contact {
+        color: var(--black);
+        font-family: var(--mainFont);
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: calc(1.28 / 16 * 1em);
+
+        a {
+            text-decoration: none;
+            color: var(--black);
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            display: inline;
+        }
+    }
+}

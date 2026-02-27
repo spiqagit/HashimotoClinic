@@ -7,11 +7,11 @@
 .bl_commonlowerPage {
 
     .bl_commonlowerPage_inner {
-        padding-top: fluid(184, 'pc');
+        padding-top: rem(184);
         background-color: var(--gray);
 
         @include underSP {
-            padding-top: rem(100);
+            padding-top: rem(90);
         }
 
         .bl_commonlowerPage_contents {
@@ -398,6 +398,14 @@
                 left: 0;
             }
         }
+    }
+
+    .wp-block-embed iframe {
+        max-width: 100%;
+        width: 100%;
+        display: block;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 
     >ol {
@@ -1301,4 +1309,90 @@ CTAボタン
     margin-bottom: rem(40);
     letter-spacing: calc(1.92 / 24 * 1em);
     font-feature-settings: 'palt' on;
+}
+
+
+
+.bl_404Container {
+    background-color: #fff;
+    padding-inline: rem(20);
+    padding-top: rem(40);
+
+    .bl_404Container_breadcrumbs {
+        padding-inline: rem(100);
+        margin-bottom: rem(160);
+
+        @include underSP {
+            padding-inline: 0;
+        }
+    }
+
+    .bl_404Container_inner {
+        max-width: rem(850);
+        width: 100%;
+        margin-inline: auto;
+
+        .el_thanksContainer_ttl {
+            color: var(--black-black, #34312C);
+            text-align: center;
+            font-family: var(--subFontJa);
+            font-size: rem(32);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: calc(2.56 / 32 * 1em);
+            margin-bottom: rem(50);
+
+            @include underSP {
+                font-size: rem(24);
+            }
+        }
+
+
+        .el_404Container_txt {
+            color: var(--black-black, #34312C);
+            text-align: center;
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-weight: 700;
+            line-height: 1.8;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            margin-bottom: rem(80);
+
+            br {
+                @include underSP {
+                    display: none;
+                }
+            }
+
+            @include underSP {
+                text-align: left;
+            }
+        }
+
+        .el_404Container_btn {
+            display: block;
+            max-width: rem(200);
+            width: 100%;
+            margin-inline: auto;
+            background-color: var(--black);
+            color: #fff;
+            font-family: var(--subFontJa);
+            font-size: rem(18);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: calc(1.44 / 18 * 1em);
+            padding-block: rem(16);
+            padding-inline: rem(20);
+            border-radius: rem(4);
+            text-align: center;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+    }
 }

@@ -166,5 +166,23 @@
             </li>
         <?php endif; ?>
 
+        <?php if (is_page('contact')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">お問い合わせ</p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_page('privacy-policy')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">プライバシーポリシー</p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_404()): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">ページが見つかりませんでした</p>
+            </li>
+        <?php endif; ?>
+
     </ul>
 </div>

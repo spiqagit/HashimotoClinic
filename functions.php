@@ -27,6 +27,21 @@ add_filter('automatic_updater_disabled', '__return_true');
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示
 
+// 投稿タイプ menu でアイキャッチを有効化（記事編集ページに「アイキャッチ画像」欄を表示）
+function renewal2026_menu_add_thumbnail_support()
+{
+    add_post_type_support('menu', 'thumbnail');
+}
+add_action('init', 'renewal2026_menu_add_thumbnail_support', 20);
+
+// 投稿タイプ menu の一覧ではサムネイル列を非表示（編集画面で登録できればよい）
+function renewal2026_menu_remove_thumbnail_column($columns)
+{
+    unset($columns['thumbnail']);
+    return $columns;
+}
+add_filter('manage_menu_posts_columns', 'renewal2026_menu_remove_thumbnail_column', 21);
+
 
 /* ---------- 投稿関連 ---------- */
 // 投稿（post）のURLを /blog/スラッグ にする

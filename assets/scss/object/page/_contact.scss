@@ -1,0 +1,547 @@
+@use '../../foundation/function/index' as *;
+
+
+.bl_contactContainer {
+    padding-inline: rem(20);
+
+    .bl_contactContainer_inner {
+        max-width: rem(900);
+        width: 100%;
+        margin-inline: auto;
+
+        .bl_contactContainer_freeContainer {
+            padding: rem(30);
+            background-color: #F6F6F6;
+            border-radius: rem(4);
+            margin-bottom: rem(50);
+
+            .el_contactContainer_ttl {
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                align-items: center;
+                justify-content: center;
+                gap: rem(50);
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(24);
+                font-weight: 500;
+                line-height: 1.2;
+                letter-spacing: calc(1.92 / 24 * 1em);
+                max-width: rem(600);
+                width: 100%;
+                margin-inline: auto;
+                margin-bottom: rem(30);
+
+                @include underSP {
+                    font-size: rem(20);
+                    gap: rem(30);
+                }
+
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: rgba(52, 49, 44, 0.30);
+                }
+
+                .el_contactContainer_ttl_txt {
+                    grid-column: 2;
+                }
+            }
+
+            .el_contactContainer_freeContainer_txt {
+                color: var(--black);
+                text-align: center;
+                font-family: var(--mainFont);
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.8;
+                letter-spacing: calc(1.28 / 16 * 1em);
+                width: 100%;
+            }
+        }
+
+
+        .bl_contactContainer_formContainer {
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: rem(50);
+
+                >p {
+                    display: contents;
+                }
+            }
+
+            .bl_formItem {
+                display: block;
+
+                .bl_formItem_ttlContainer {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    align-items: center;
+                    gap: rem(15);
+                    width: fit-content;
+                    margin-bottom: rem(15);
+
+                    .bl_formItem_ttlContainer_txt {
+                        display: block;
+                        color: var(--black);
+                        width: fit-content;
+                        font-family: var(--subFontJa);
+                        font-size: rem(16);
+                        font-weight: 500;
+                        line-height: 1.2;
+                        letter-spacing: calc(1.28 / 16 * 1em);
+                    }
+
+                    .bl_formItem_ttlContainer_req {
+                        display: block;
+                        padding: rem(6) rem(8);
+                        color: #fff;
+                        width: fit-content;
+                        font-family: var(--subFontJa);
+                        font-size: rem(12);
+                        font-weight: 500;
+                        line-height: 1.2;
+                        letter-spacing: calc(0.96 / 12 * 1em);
+                        background-color: var(--black);
+                        border-radius: rem(2);
+                    }
+                }
+
+                .bl_textInput {
+                    border: 1px solid rgba(52, 49, 44, 0.60);
+                    padding: rem(16);
+                    width: 100%;
+                    min-height: rem(40);
+                    font-family: var(--mainFont);
+                    font-size: rem(16);
+                    font-weight: 400;
+                    line-height: 1.2;
+
+                    &::placeholder {
+                        color: rgba(52, 49, 44, 0.60);
+                        font-family: var(--mainFont);
+                        font-size: rem(16);
+                        font-weight: 400;
+                        line-height: 1.8;
+                        letter-spacing: calc(1.28 / 16 * 1em);
+                    }
+                }
+
+                .bl_textRadio {
+                    width: fit-content;
+                    display: grid;
+                    grid-template-columns: repeat(3, auto);
+                    gap: rem(30);
+
+                    @include underSP {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: rem(10);
+                    }
+
+                    .wpcf7-list-item {
+                        display: contents;
+                    }
+
+                    label {
+                        width: fit-content;
+                        display: grid;
+                        grid-template-columns: rem(18) auto;
+                        align-items: center;
+                        gap: rem(10);
+
+                        input {
+                            display: block;
+                            border: 1px solid rgba(52, 49, 44, 0.60);
+                            height: auto;
+                            width: 100%;
+                            aspect-ratio: 1 / 1;
+                            border-radius: 100%;
+
+                            &:checked {
+                                &::before {
+                                    content: '';
+                                    position: relative;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    display: block;
+                                    width: 80%;
+                                    height: auto;
+                                    aspect-ratio: 1 / 1;
+                                    background-color: var(--black);
+                                    border-radius: 100%;
+                                }
+                            }
+                        }
+
+                        span {
+                            display: block;
+                            color: var(--black);
+                            text-align: center;
+                            font-family: var(--mainFont);
+                            font-size: rem(16);
+                            font-weight: 400;
+                            line-height: 1.8;
+                            letter-spacing: calc(1.28 / 16 * 1em);
+                            width: fit-content;
+                        }
+                    }
+                }
+
+                .bl_customarInfo {
+                    width: fit-content;
+                    display: grid;
+                    align-items: center;
+                    grid-template-columns: repeat(2, auto);
+                    gap: rem(30);
+
+                    @include underSP {
+                        gap: rem(20);
+                        grid-template-columns: 1fr;
+                    }
+
+                    >p {
+                        display: contents;
+                    }
+
+                    .bl_textRadio {
+                        display: grid;
+                        grid-template-columns: repeat(2, auto);
+                    }
+                }
+
+                .bl_formItem_age {
+                    display: grid;
+                    grid-template-columns: rem(90) auto;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: rem(10);
+
+                    >span {
+                        display: contents;
+                    }
+
+                    .wpcf7-not-valid-tip {
+                        display: block;
+                        grid-row: 2;
+                        grid-column: span 2;
+                    }
+                }
+
+                .bl_formItem_dateContainer {
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(50);
+
+                    @include underSP {
+                        gap: rem(30);
+                    }
+
+                    .bl_formItem_dateContainer_item {
+                        display: grid;
+                        grid-template-columns: auto auto;
+                        align-items: flex-start;
+                        gap: rem(50);
+                        width: fit-content;
+
+                        @include underSP {
+                            grid-template-columns: 1fr;
+                            gap: rem(20);
+                            width: 100%;
+                        }
+
+                        .bl_formItem_dateContainer_item_ttl {
+                            padding-top: rem(6);
+                        }
+
+                        .bl_formItem_dateContainer_item_dateContainer {
+                            display: grid;
+                            grid-template-columns: repeat(2, auto);
+                            align-items: flex-start;
+                            gap: rem(40);
+                            width: fit-content;
+
+                            @include underSP {
+                                grid-template-columns: 1fr;
+                                gap: rem(20);
+                                width: 100%;
+                            }
+
+                            .bl_formItem_dateContainer_item_dateContainer_item_ttl {
+                                color: var(--black);
+                                font-family: var(--mainFont);
+                                font-size: rem(16);
+                                font-weight: 400;
+                                line-height: 1.8;
+                                letter-spacing: calc(1.28 / 16 * 1em);
+                                padding-top: rem(6);
+                            }
+
+                            .bl_formItem_dateContainer_item_dateContainer_item {
+                                display: grid;
+                                grid-template-columns: auto rem(200);
+                                align-items: flex-start;
+                                gap: rem(10);
+
+                                @include underSP {
+                                    grid-template-columns: rem(60) 1fr;
+                                    gap: rem(10);
+                                    width: 100%;
+                                }
+
+                                input {
+                                    width: 100%;
+                                    border: 1px solid rgba(52, 49, 44, 0.60);
+                                    padding: rem(8);
+                                }
+                            }
+
+                            .bl_formItem_dateContainer_item_dateContainer_item_ttl {
+                                padding-top: rem(6);
+                            }
+
+
+                            .bl_formItem_dateContainer_item_dateContainer_item_time {
+                                position: relative;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: rem(18);
+                                    right: rem(10);
+                                    width: rem(10);
+                                    height: rem(6);
+                                    background-image: url('../img/common/lang-arrow.svg');
+                                    background-repeat: no-repeat;
+                                    background-size: 100%;
+                                }
+
+                                span {
+                                    display: block;
+                                }
+
+                                select {
+                                    width: 100%;
+                                    border: 1px solid rgba(52, 49, 44, 0.60);
+                                    padding: rem(8);
+                                    min-height: rem(40);
+                                    padding-right: rem(38);
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                textarea {
+                    width: 100%;
+                    border: 1px solid rgba(52, 49, 44, 0.60);
+                    padding: rem(8);
+                    min-height: rem(100);
+                }
+            }
+
+            .bl_privacyContainer {
+
+                span {
+                    display: block;
+                }
+
+                label {
+                    display: grid;
+                    grid-template-columns: rem(24) auto;
+                    align-items: center;
+                    gap: rem(10);
+                    width: fit-content;
+                    margin-inline: auto;
+                    margin-bottom: rem(10);
+
+                    input {
+                        display: block;
+                        width: 100%;
+                        aspect-ratio: 1 / 1;
+                        border-radius: rem(2);
+                        border: 1px solid rgba(52, 49, 44, 0.60);
+                        margin: 0;
+
+                        &:checked {
+                            background-color: var(--black);
+
+                            &::before {
+                                content: '';
+                                position: relative;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: block;
+                                width: 80%;
+                                height: auto;
+                                aspect-ratio: 1 / 1;
+                                background-image: url('../img/common/check.svg');
+                                background-repeat: no-repeat;
+                                background-size: 100%;
+                                background-position: center;
+                            }
+                        }
+                    }
+
+                    span {
+                        display: block;
+                        color: var(--black);
+                        font-family: var(--mainFont);
+                        font-size: rem(14);
+                        font-weight: 400;
+                        line-height: 1.8;
+                    }
+                }
+
+                .el_privacyContainer_txt {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(16);
+                    font-weight: 500;
+                    line-height: 1.6;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                    width: fit-content;
+                    margin-inline: auto;
+                    margin-bottom: rem(30);
+
+                    .el_privacyContainer_txt_link {
+                        color: #0F8DA9;
+                        font-family: var(--subFontJa);
+                        font-size: rem(16);
+                        font-weight: 400;
+                        line-height: 1.6;
+                        letter-spacing: calc(1.28 / 16 * 1em);
+                        text-decoration-line: underline;
+                        text-decoration-style: solid;
+                        text-decoration-skip-ink: auto;
+                        text-decoration-thickness: auto;
+                        text-underline-offset: auto;
+                        text-underline-position: from-font;
+                    }
+                }
+
+                .bl_submit {
+                    display: block;
+                    margin-inline: auto;
+                    border-radius: 4px;
+                    background: var(--black);
+                    padding: rem(16);
+                    color: #fff;
+                    font-family: var(--subFontJa);
+                    font-size: rem(16);
+                    font-weight: 500;
+                    line-height: 1.2;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                    width: fit-content;
+                    margin-inline: auto;
+                    text-align: center;
+                    max-width: rem(300);
+                    width: 100%;
+                    pointer-events: none;
+                }
+
+                .is-active {
+                    pointer-events: auto;
+                    transition: opacity 0.5s ease;
+
+
+                    @media (hover: hover) {
+                        &:hover {
+                            opacity: 0.6;
+                            transition: opacity 0.5s ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.bl_thanksContainer {
+    background-color: #fff;
+    padding-inline: rem(20);
+    padding-top: rem(100);
+
+    @include underSP {
+        padding-top: rem(80);
+    }
+
+    .bl_thanksContainer_inner {
+        max-width: rem(900);
+        width: 100%;
+        margin-inline: auto;
+
+        .el_thanksContainer_ttl {
+            color: var(--black);
+            width: fit-content;
+            font-family: var(--subFontJa);
+            font-size: rem(32);
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: calc(2.56 / 32 * 1em);
+            margin-bottom: rem(50);
+            margin-inline: auto;
+
+            @include underSP {
+                font-size: rem(24);
+            }
+
+            .is-sp{
+                display: none;
+
+                @include underSP {
+                    display: block;
+                }
+            }
+        }
+
+        .bl_thanksContainer_txtContainer {
+            display: flex;
+            flex-direction: column;
+            gap: rem(30);
+            margin-bottom: rem(80);
+
+            .el_thanksContainer_txtContainer_txt {
+                color: var(--black);
+                text-align: center;
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.8;
+                letter-spacing: calc(1.28 / 16 * 1em);
+
+                @include underSP {
+                    font-size: rem(16);
+                    text-align: left;
+                }
+            }
+        }
+
+
+        .bl_thanksContainer_btn{
+            display: block;
+            max-width: rem(200);
+            width: 100%;
+            margin-inline: auto;
+            background-color: var(--black);
+            color: #fff;
+            font-family: var(--subFontJa);
+            font-size: rem(16);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            padding-block: rem(16);
+            padding-inline: rem(20);
+            text-align: center;
+            border-radius: rem(4);
+        }
+    }
+}
