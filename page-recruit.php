@@ -31,13 +31,13 @@
 
                         <div class="bl_recruitContainer_copyWrapper">
                             <img class="el_recruitContainer_copyWrapper_iconTop" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/recruit-about-icon-top.svg" alt="">
-                            <p class="el_recruitContainer_copyWrapper_txt">静岡美容外科橋本クリニックを一緒に盛り上げてくれる<br>新しい仲間を募集いたします。</p>
+                            <p class="el_recruitContainer_copyWrapper_txt">静岡美容外科橋本クリニックを<br class="is-sp">一緒に盛り上げてくれる<br class="is-sp">新しい仲間を募集いたします。</p>
                             <img class="el_recruitContainer_copyWrapper_iconBottom" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/recruit-about-icon-bottom.svg" alt="">
                         </div>
 
                         <?php if (have_rows('philosophy-list')): ?>
                             <div class="bl_recruitContainer_philosophyContainer">
-                                <h2 class="el_recruitContainer_philosophyContainer_ttl">静岡美容外科橋本クリニックの医療理念</h2>
+                                <h2 class="el_recruitContainer_philosophyContainer_ttl">静岡美容外科橋本クリニックの<br class="is-sp">医療理念</h2>
 
                                 <div class="bl_recruitContainer_philosophyContainer_list">
                                     <?php $i = 0;
@@ -121,7 +121,7 @@
                             </div>
 
                             <div class="bl_recruitContainer_flowContainer_contactContainer">
-                                <p class="el_recruitContainer_flowContainer_contactContainer_txt">ご質問等は、下記アドレスへお気軽にお問合わせください。</p>
+                                <p class="el_recruitContainer_flowContainer_contactContainer_txt">ご質問等は、下記アドレスへ<br class="is-sp">お気軽にお問合わせください。</p>
 
                                 <div class="bl_recruitContainer_flowContainer_contactContainer_contactWrapper">
                                     <p class="el_recruitContainer_flowContainer_contactContainer_contactWrapper_ttl">連絡先/採用担当者</p>

@@ -14,6 +14,9 @@
         .bl_recruitContainer_copyWrapper {
             position: relative;
             margin-bottom: rem(120);
+            max-width: rem(900);
+            width: 95%;
+            margin-inline: auto;
 
             .el_recruitContainer_copyWrapper_iconTop {
                 position: absolute;
@@ -40,6 +43,15 @@
                 padding: rem(40);
                 border-radius: rem(4);
                 background-color: #F6F6F6;
+
+
+                .is-sp{
+                    display: none;
+
+                    @include underSP {
+                        display: block;
+                    }
+                }
             }
         }
 
@@ -61,6 +73,18 @@
                 padding-inline: rem(20);
                 padding-bottom: rem(15);
                 border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+
+                @include underSP {
+                    text-align: center;
+                }
+
+                .is-sp{
+                    display: none;
+
+                    @include underSP {
+                        display: block;
+                    }
+                }
             }
 
             .bl_recruitContainer_philosophyContainer_list {
@@ -69,7 +93,7 @@
                 gap: rem(30);
 
                 .bl_recruitContainer_philosophyContainer_list_item {
-                    border-radius: rem(4);
+                    border-radius: rem(10);
                     background-color: #F6F6F6;
                     overflow: hidden;
 
@@ -82,6 +106,13 @@
                         background-color: var(--black);
                         padding: rem(17);
 
+                        @include underSP {
+                            grid-template-columns: auto;
+                            gap: rem(10);
+                            justify-content: center;
+                            align-items: center;
+                        }
+
                         .el_recruitContainer_philosophyContainer_list_item_ttlContainer_num {
                             color: rgba(255, 255, 255, 0.70);
                             font-family: var(--subFontEn);
@@ -89,6 +120,11 @@
                             font-weight: 400;
                             line-height: 1.2;
                             letter-spacing: calc(4.48 / 56 * 1em);
+                            width: fit-content;
+
+                            @include underSP {
+                                margin-inline: auto;
+                            }
                         }
 
                         .el_recruitContainer_philosophyContainer_list_item_ttlContainer_ttl {
@@ -106,6 +142,10 @@
                         grid-template-columns: rem(360) auto;
                         gap: rem(20);
                         padding: rem(20);
+
+                        @include underSP {
+                            grid-template-columns: auto;
+                        }
 
                         .el_recruitContainer_philosophyContainer_list_item_lower_img {
                             width: 100%;
@@ -132,6 +172,11 @@
                 margin-inline: auto;
                 margin-bottom: rem(60);
 
+                @include underSP {
+                    grid-template-columns: auto;
+                    gap: rem(30);
+                }
+
                 .el_recruitContainer_flowContainer_ttl {
                     color: var(--black);
                     font-family: var(--subFontJa);
@@ -143,18 +188,47 @@
                     padding-bottom: rem(15);
                     padding-inline: rem(10);
                     width: fit-content;
+
+                    @include underSP {
+                        margin-inline: auto;
+                    }
                 }
 
                 .bl_recruitContainer_flowContainer_list {
+                    position: relative;
                     display: flex;
                     flex-direction: column;
                     gap: rem(30);
+                    
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: rem(23);
+                        display: block;
+                        width: 2px;
+                        height: 100%;
+                        background-color: rgba(52, 49, 44, 0.30);
+                        margin-bottom: rem(30);
+                        z-index: 0;
+
+                        @include underSP {
+                            height: 92%;
+                        }
+                    }
 
                     .bl_recruitContainer_flowContainer_list_item {
+                        position: relative;
+                        z-index: 1;
                         display: grid;
                         grid-template-columns: rem(140) auto;
                         gap: rem(30);
                         align-items: flex-start;
+
+                        @include underSP {
+                            grid-template-columns: auto;
+                            gap: rem(10);
+                        }
 
                         .bl_recruitContainer_flowContainer_list_item_ttl {
                             display: grid;
@@ -193,6 +267,11 @@
 
                         .bl_recruitContainer_flowContainer_list_item_contents {
                             padding-top: rem(10);
+
+                            @include underSP {
+                                padding-left: rem(56);
+                                padding-top: 0;
+                            }
 
                             .el_recruitContainer_flowContainer_list_item_contents_txt {
                                 color: var(--black);
@@ -272,6 +351,14 @@
                     width: fit-content;
                     margin-inline: auto;
                     margin-bottom: rem(20);
+
+                    .is-sp{
+                        display: none;
+
+                        @include underSP {
+                            display: block;
+                        }
+                    }
                 }
 
                 .bl_recruitContainer_flowContainer_contactContainer_contactWrapper {
@@ -335,8 +422,14 @@
             max-width: rem(900);
             width: 100%;
             margin-inline: auto;
+            align-items: flex-start;
             gap: rem(86);
             padding-top: rem(120);
+
+            @include underSP {
+                grid-template-columns: auto;
+                gap: rem(30);
+            }
 
 
             .el_recruitContainer_recruitPostContainer_ttl {
@@ -348,6 +441,9 @@
                 letter-spacing: calc(1.92 / 24 * 1em);
                 padding-bottom: rem(15);
                 padding-inline: rem(10);
+                border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+                width: fit-content;
+                margin-inline: auto;
             }
 
             .bl_recruitContainer_recruitPostContainer_list {
@@ -406,12 +502,17 @@
 
                                 &::after {
                                     rotate: 90deg;
+                                    transition: rotate 0.3s ease;
                                 }
                             }
+                        }
 
-                            // アコーディオン開時：＋ → －
-                            .bl_recruitContainer_recruitPostContainer_details_summary.is-open .el_recruitContainer_recruitPostContainer_details_summary_icon::after {
-                                rotate: 0deg;
+                        .is-open{
+                            .el_recruitContainer_recruitPostContainer_details_summary_icon{
+                                &::after{
+                                    rotate: 0deg;
+                                    transition: rotate 0.3s ease;
+                                }
                             }
                         }
 

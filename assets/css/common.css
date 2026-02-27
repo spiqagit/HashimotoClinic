@@ -6355,6 +6355,9 @@ CTAボタン
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_copyWrapper {
   position: relative;
   margin-bottom: 7.5rem;
+  max-width: 56.25rem;
+  width: 95%;
+  margin-inline: auto;
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_copyWrapper .el_recruitContainer_copyWrapper_iconTop {
   position: absolute;
@@ -6380,6 +6383,14 @@ CTAボタン
   border-radius: 0.25rem;
   background-color: #F6F6F6;
 }
+.bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_copyWrapper .el_recruitContainer_copyWrapper_txt .is-sp {
+  display: none;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_copyWrapper .el_recruitContainer_copyWrapper_txt .is-sp {
+    display: block;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer {
   max-width: 56.25rem;
   width: 100%;
@@ -6399,13 +6410,26 @@ CTAボタン
   padding-bottom: 0.9375rem;
   border-bottom: 1px dashed rgba(52, 49, 44, 0.3);
 }
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .el_recruitContainer_philosophyContainer_ttl {
+    text-align: center;
+  }
+}
+.bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .el_recruitContainer_philosophyContainer_ttl .is-sp {
+  display: none;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .el_recruitContainer_philosophyContainer_ttl .is-sp {
+    display: block;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list {
   display: flex;
   flex-direction: column;
   gap: 1.875rem;
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item {
-  border-radius: 0.25rem;
+  border-radius: 0.625rem;
   background-color: #F6F6F6;
   overflow: hidden;
 }
@@ -6418,6 +6442,14 @@ CTAボタン
   background-color: var(--black);
   padding: 1.0625rem;
 }
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item .bl_recruitContainer_philosophyContainer_list_item_ttlContainer {
+    grid-template-columns: auto;
+    gap: 0.625rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item .bl_recruitContainer_philosophyContainer_list_item_ttlContainer .el_recruitContainer_philosophyContainer_list_item_ttlContainer_num {
   color: rgba(255, 255, 255, 0.7);
   font-family: var(--subFontEn);
@@ -6425,6 +6457,12 @@ CTAボタン
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.08em;
+  width: fit-content;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item .bl_recruitContainer_philosophyContainer_list_item_ttlContainer .el_recruitContainer_philosophyContainer_list_item_ttlContainer_num {
+    margin-inline: auto;
+  }
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item .bl_recruitContainer_philosophyContainer_list_item_ttlContainer .el_recruitContainer_philosophyContainer_list_item_ttlContainer_ttl {
   color: #fff;
@@ -6439,6 +6477,11 @@ CTAボタン
   grid-template-columns: 22.5rem auto;
   gap: 1.25rem;
   padding: 1.25rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item .bl_recruitContainer_philosophyContainer_list_item_lower {
+    grid-template-columns: auto;
+  }
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item .bl_recruitContainer_philosophyContainer_list_item_lower .el_recruitContainer_philosophyContainer_list_item_lower_img {
   width: 100%;
@@ -6457,6 +6500,12 @@ CTAボタン
   margin-inline: auto;
   margin-bottom: 3.75rem;
 }
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner {
+    grid-template-columns: auto;
+    gap: 1.875rem;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .el_recruitContainer_flowContainer_ttl {
   color: var(--black);
   font-family: var(--subFontJa);
@@ -6469,16 +6518,47 @@ CTAボタン
   padding-inline: 0.625rem;
   width: fit-content;
 }
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .el_recruitContainer_flowContainer_ttl {
+    margin-inline: auto;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.875rem;
 }
+.bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.4375rem;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(52, 49, 44, 0.3);
+  margin-bottom: 1.875rem;
+  z-index: 0;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list::before {
+    height: 92%;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list .bl_recruitContainer_flowContainer_list_item {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 8.75rem auto;
   gap: 1.875rem;
   align-items: flex-start;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list .bl_recruitContainer_flowContainer_list_item {
+    grid-template-columns: auto;
+    gap: 0.625rem;
+  }
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list .bl_recruitContainer_flowContainer_list_item .bl_recruitContainer_flowContainer_list_item_ttl {
   display: grid;
@@ -6513,6 +6593,12 @@ CTAボタン
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list .bl_recruitContainer_flowContainer_list_item .bl_recruitContainer_flowContainer_list_item_contents {
   padding-top: 0.625rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list .bl_recruitContainer_flowContainer_list_item .bl_recruitContainer_flowContainer_list_item_contents {
+    padding-left: 3.5rem;
+    padding-top: 0;
+  }
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner .bl_recruitContainer_flowContainer_list .bl_recruitContainer_flowContainer_list_item .bl_recruitContainer_flowContainer_list_item_contents .el_recruitContainer_flowContainer_list_item_contents_txt {
   color: var(--black);
@@ -6581,6 +6667,14 @@ CTAボタン
   margin-inline: auto;
   margin-bottom: 1.25rem;
 }
+.bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_contactContainer .el_recruitContainer_flowContainer_contactContainer_txt .is-sp {
+  display: none;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_contactContainer .el_recruitContainer_flowContainer_contactContainer_txt .is-sp {
+    display: block;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_contactContainer .bl_recruitContainer_flowContainer_contactContainer_contactWrapper .el_recruitContainer_flowContainer_contactContainer_contactWrapper_ttl {
   padding-block: 0.3125rem;
   background-color: #fff;
@@ -6632,8 +6726,15 @@ CTAボタン
   max-width: 56.25rem;
   width: 100%;
   margin-inline: auto;
+  align-items: flex-start;
   gap: 5.375rem;
   padding-top: 7.5rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_recruitPostContainer {
+    grid-template-columns: auto;
+    gap: 1.875rem;
+  }
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_recruitPostContainer .el_recruitContainer_recruitPostContainer_ttl {
   color: var(--black);
@@ -6644,6 +6745,9 @@ CTAボタン
   letter-spacing: 0.08em;
   padding-bottom: 0.9375rem;
   padding-inline: 0.625rem;
+  border-bottom: 1px dashed rgba(52, 49, 44, 0.3);
+  width: fit-content;
+  margin-inline: auto;
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_recruitPostContainer .bl_recruitContainer_recruitPostContainer_list {
   display: flex;
@@ -6696,6 +6800,14 @@ CTAボタン
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_recruitPostContainer .bl_recruitContainer_recruitPostContainer_list .bl_recruitContainer_recruitPostContainer_list_item .bl_recruitContainer_recruitPostContainer_details .bl_recruitContainer_recruitPostContainer_details_summary .el_recruitContainer_recruitPostContainer_details_summary_icon::after {
   rotate: 90deg;
+  transition: rotate 0.3s ease;
+}
+.bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_recruitPostContainer .bl_recruitContainer_recruitPostContainer_list .bl_recruitContainer_recruitPostContainer_list_item .bl_recruitContainer_recruitPostContainer_details .is-open .el_recruitContainer_recruitPostContainer_details_summary_icon::after {
+  rotate: 0deg;
+  transition: rotate 0.3s ease;
+}
+.bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_recruitPostContainer .bl_recruitContainer_recruitPostContainer_list .bl_recruitContainer_recruitPostContainer_list_item .bl_recruitContainer_recruitPostContainer_details .bl_recruitContainer_recruitPostContainer_details_content {
+  overflow: hidden;
 }
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_recruitPostContainer .bl_recruitContainer_recruitPostContainer_list .bl_recruitContainer_recruitPostContainer_list_item .bl_recruitContainer_recruitPostContainer_details .bl_recruitContainer_recruitPostContainer_details_content .bl_recruitContainer_recruitPostContainer_details_content_inner {
   padding-top: 2.5rem;
