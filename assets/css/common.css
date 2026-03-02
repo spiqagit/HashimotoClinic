@@ -2844,6 +2844,35 @@ CTAボタン
     margin-bottom: 1.875rem;
   }
 }
+.bl_frontMenuSection .bl_menuPartsCatContainer .bl_frontMenuSection_selectMenuPostContainer {
+  max-width: 75rem;
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 28.125rem), 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: 1.25rem;
+}
+.bl_frontMenuSection .bl_menuPartsCatContainer .bl_frontMenuSection_selectMenuPostContainer .bl_frontMenuSection_selectMenuPostItem {
+  display: grid;
+  grid-template-columns: 1fr 0.875rem;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background-color: #F6F6F6;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+}
+.bl_frontMenuSection .bl_menuPartsCatContainer .bl_frontMenuSection_selectMenuPostContainer .bl_frontMenuSection_selectMenuPostItem .el_frontMenuSection_selectMenuPostItem_ttl {
+  color: var(--black);
+  font-family: var(--subFontJa);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+}
 .bl_frontMenuSection .bl_frontMenuSection_allBtnContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

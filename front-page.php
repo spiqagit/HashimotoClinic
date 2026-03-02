@@ -188,6 +188,20 @@
                         <?php $j++;
                         endforeach; ?>
                     </div>
+
+                    <?php 
+                    $selectMenuPost = get_field('select-menupost', 'option'); 
+                    ?>
+                    <?php if ($selectMenuPost): ?>
+                        <div class="bl_frontMenuSection_selectMenuPostContainer">
+                            <?php foreach ($selectMenuPost as $selectMenuPostItem): ?>
+                                <a href="<?php echo get_the_permalink($selectMenuPostItem); ?>" class="bl_frontMenuSection_selectMenuPostItem">
+                                    <p class="el_frontMenuSection_selectMenuPostItem_ttl"><?php echo get_the_title($selectMenuPostItem); ?></p>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/pagination-next.svg" alt="">
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="bl_frontMenuSection_allBtnContainer">

@@ -188,6 +188,21 @@
                         <?php $j++;
                         endforeach; ?>
                     </div>
+
+                    <?php 
+                    $selectMenuPost = get_field('select-menupost', 'option'); 
+                    var_dump($selectMenuPost);
+                    ?>
+                    <?php if ($selectMenuPost): ?>
+                        <div>
+                            <?php foreach ($selectMenuPost as $selectMenuPostItem): ?>
+                                <a href="<?php echo get_the_permalink($selectMenuPostItem); ?>">
+                                    <p><?php echo get_the_title($selectMenuPostItem); ?></p>
+                                    <img src="<?php echo get_the_post_thumbnail_url($selectMenuPostItem); ?>" alt="<?php echo get_the_title($selectMenuPostItem); ?>">
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="bl_frontMenuSection_allBtnContainer">
@@ -468,7 +483,6 @@
 
         <section class="bl_fronSnsSection">
             <div class="bl_fronSnsSection_inner">
-
 
                 <div class="bl_frontSnsContainer">
                     <h2 class="el_frontSnsContainer_ttl">静岡美容外科橋本クリニック<br class="sp_only"> Instagram</h2>

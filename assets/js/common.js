@@ -157,8 +157,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* スケジュール */
     document.querySelectorAll('.bl_scheduleContainer').forEach(function(scheduleContainer) {
-        const scheduleSwiper = scheduleContainer.querySelector('.bl_scheduleSwiper');
-        new Swiper(scheduleSwiper, {
+        const schedule = scheduleContainer.querySelector('.bl_scheduleSwiper');
+        const slideItem = schedule.querySelectorAll('.swiper-slide');
+        let currentMonthIndex = 0;
+        
+        const now = new Date();
+        slideItem.forEach(function(item, index) {
+            const dateStr = item.getAttribute('data-date');
+            const [year, month] = dateStr.split('/').map(Number);
+            const date = new Date(year, month - 1, 1); // monthは0始まりのため-1
+
+            if (date.getFullYear() === now.getFullYear() && date.getMonth() === now.getMonth()) {
+                currentMonthIndex = index;
+            }
+        });
+
+        const scheduleSwiper = new Swiper(schedule, {
             slidesPerView: 'auto',
             navigation: {
                 nextEl: scheduleContainer.querySelector('.bl_scheduleContainer_upper_next'),
@@ -169,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 clickable: true,
             },
         });
+        scheduleSwiper.slideTo(currentMonthIndex);
     });
 
 

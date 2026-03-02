@@ -325,6 +325,38 @@
         @include underSP {
             margin-bottom: rem(30);
         }
+
+        .bl_frontMenuSection_selectMenuPostContainer {
+            max-width: rem(1200);
+            width: 100%;
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, rem(450)), 1fr));
+            gap: rem(20);
+            width: 100%;
+            margin-top: rem(20);
+
+            .bl_frontMenuSection_selectMenuPostItem {
+                display: grid;
+                grid-template-columns: 1fr rem(14);
+                align-items: center;
+                gap: rem(10);
+                padding: rem(24);
+                border-radius: rem(20);
+                background-color: #F6F6F6;
+                transition: opacity 0.5s ease;
+                cursor: pointer;
+
+                .el_frontMenuSection_selectMenuPostItem_ttl {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(18);
+                    font-weight: 500;
+                    line-height: 1.2;
+                    letter-spacing: calc(1.44 / 18 * 1em);
+                }
+            }
+        }
     }
 
     .bl_frontMenuSection_allBtnContainer {
