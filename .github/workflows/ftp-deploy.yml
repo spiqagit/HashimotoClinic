@@ -1,3 +1,4 @@
+# main プッシュ時に FTP へデプロイ
 name: FTP Deploy
 
 on:
