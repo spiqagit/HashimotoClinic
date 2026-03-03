@@ -189,8 +189,8 @@
                         endforeach; ?>
                     </div>
 
-                    <?php 
-                    $selectMenuPost = get_field('select-menupost', 'option'); 
+                    <?php
+                    $selectMenuPost = get_field('select-menupost', 'option');
                     var_dump($selectMenuPost);
                     ?>
                     <?php if ($selectMenuPost): ?>
@@ -488,7 +488,6 @@
                     <h2 class="el_frontSnsContainer_ttl">静岡美容外科橋本クリニック<br class="sp_only"> Instagram</h2>
 
                     <div class="bl_frontSnsContainer_lower">
-                        <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
                     </div>
                 </div>
 
