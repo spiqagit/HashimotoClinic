@@ -81,6 +81,43 @@
         <?php endif; ?>
 
         <?php
+        /* 症例 */
+        ?>
+        <?php if (is_post_type_archive('case')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text">症例</p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (get_query_var('search_case')): ?>
+            <?php
+            $menu_id = isset($_GET['menu']) ? (int) $_GET['menu'] : 0;
+            $menu_label = '';
+            if ($menu_id > 0) {
+                $menu_post = get_post($menu_id);
+                if ($menu_post && $menu_post->post_type === 'menu' && $menu_post->post_status === 'publish') {
+                    $menu_label = get_the_title($menu_post);
+                }
+            }
+            ?>
+            <li class="bl_breadcrumbs_list_item">
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">症例</a>
+            </li>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text"><?php echo $menu_label ? esc_html($menu_label) . 'の症例' : '症例検索'; ?></p>
+            </li>
+        <?php endif; ?>
+
+        <?php if (is_singular('case') && !is_post_type_archive('case')): ?>
+            <li class="bl_breadcrumbs_list_item">
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/case/">症例</a>
+            </li>
+            <li class="bl_breadcrumbs_list_item">
+                <p class="bl_breadcrumbs_list_item_text"><?php the_title(); ?></p>
+            </li>
+        <?php endif; ?>
+
+        <?php
         /* 院長ブログ */
         ?>
         <?php if (is_home()): ?>

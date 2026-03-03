@@ -149,7 +149,7 @@
 #2カラムレイアウト
 ------------------------------------------------------------------------------------------ */
 .ly_twoColumnContainer {
-    padding-inline: fluid(120, 'pc');
+    padding-inline: fluid(20, 'pc');
 
     @include underSP {
         padding-inline: rem(24);
@@ -159,6 +159,9 @@
         display: grid;
         grid-template-columns: fluid(250, 'pc') 1fr;
         gap: fluid(100, 'pc');
+        max-width: rem(1200);
+        width: 100%;
+        margin-inline: auto;
 
 
         @include underSP {
@@ -171,7 +174,7 @@
 
 .bl_commonNavWrapper {
     position: sticky;
-    top: rem(100);
+    top: rem(280);
     display: flex;
     flex-direction: column;
     gap: rem(24);
@@ -436,46 +439,111 @@
 ------------------------------------------------------------------------------------------ */
 
 .bl_commonCaseCard {
+    border-radius: rem(20);
+    background-color: var(--gray);
 
     .bl_commonCaseCard_link {
-
-        .el_commonCaseCard_img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            aspect-ratio: 240/325;
-            margin-bottom: rem(20);
-        }
-
-
-        .bl_commonCaseCard_tagList {
-            display: flex;
-            flex-wrap: wrap;
-            gap: rem(10);
-            margin-bottom: rem(14);
-
-            .el_commonCaseCard_tagList_item {
-                color: var(--black);
-                font-family: var(--mainFont);
-                font-size: rem(12);
-                font-weight: 400;
-                line-height: 1.2;
-                letter-spacing: calc(0.96 / 12 * 1em);
-                padding-inline: rem(8);
-                padding-block: rem(6);
-                border-radius: rem(4);
-                border: 1px solid var(--black);
+        display: block;
+        padding: rem(20);
+        transition: opacity 0.5s ease;
+        
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
             }
         }
 
+        .bl_commonCaseCard_imgWrapper {
+            margin-bottom: rem(20);
 
-        .el_commonCaseCard_ttl {
-            color: var(--black);
-            font-family: var(--subFontJa);
-            font-size: rem(18);
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: calc(1.44 / 18 * 1em);
+            .el_commonCaseCard_img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: 300/404;
+                margin-bottom: rem(20);
+                object-fit: cover;
+                border-radius: rem(4);
+            }
+        }
+
+        .bl_commonCaseCard_ttlWrapper {
+            margin-bottom: rem(14);
+
+            .bl_commonCaseCard_tagList {
+                display: flex;
+                flex-wrap: wrap;
+                gap: rem(10);
+                margin-bottom: rem(12);
+
+                .el_commonCaseCard_tagList_item {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(12);
+                    font-weight: 400;
+                    line-height: 1.2;
+                    letter-spacing: calc(0.96 / 12 * 1em);
+                    padding-inline: rem(8);
+                    padding-block: rem(6);
+                    border-radius: rem(4);
+                    border: 1px solid var(--black);
+                }
+            }
+
+            .el_commonCaseCard_ttl {
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(18);
+                font-weight: 600;
+                line-height: 1.2;
+                letter-spacing: calc(1.44 / 18 * 1em);
+            }
+        }
+
+        .bl_commonCaseCard_infoWrapper {
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
+            padding-top: rem(10);
+
+            .bl_commonCaseCard_infoWrapper_item {
+                display: grid;
+                grid-template-columns: rem(120) 1fr;
+                gap: rem(10);
+                align-items: flex-start;
+                border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+                padding-bottom: rem(10);
+
+                .el_commonCaseCard_infoWrapper_item_dt {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(10);
+                    font-weight: 500;
+                    line-height: 1;
+                    letter-spacing: calc(0.8 / 10 * 1em);
+                }
+
+                .el_commonCaseCard_infoWrapper_item_dd {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(10);
+                    font-weight: 400;
+                    line-height: 1.1;
+                    letter-spacing: calc(0.8 / 10 * 1em);
+
+                    .el_commonCaseCard_infoWrapper_item_dd_sub {
+                        display: block;
+                        margin-top: rem(10);
+                        color: rgba(52, 49, 44, 0.60);
+                        font-family: var(--mainFont);
+                        font-size: rem(10);
+                        font-weight: 400;
+                        line-height: 1.2;
+                        letter-spacing: calc(0.8 / 10 * 1em);
+                    }
+                }
+            }
         }
     }
 }

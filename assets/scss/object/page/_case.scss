@@ -1,0 +1,15 @@
+@use '../../foundation/function/index' as *;
+
+
+.bl_caseArchiveListContainer{
+
+    .bl_commonPagination{
+        margin-top: rem(80);
+    }
+}
+
+.bl_caseArchiveList{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, rem(300)), 1fr));
+    gap: rem(50);
+}

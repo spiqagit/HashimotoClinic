@@ -171,6 +171,10 @@ add_action('template_redirect', 'disable_faq_pages');
 /* ---------- 検索機能 ---------- */
 function custom_search_case_rewrite_rule()
 {
+    // ページネーション用（先にマッチさせる）
+    add_rewrite_rule('^search-case/page/([0-9]+)/?$', 'index.php?search_case=1&paged=$matches[1]', 'top');
+    add_rewrite_rule('^search-price/page/([0-9]+)/?$', 'index.php?search_price=1&paged=$matches[1]', 'top');
+    // 1ページ目
     add_rewrite_rule('^search-case/?$', 'index.php?search_case=1', 'top');
     add_rewrite_rule('^search-price/?$', 'index.php?search_price=1', 'top');
 }
@@ -183,6 +187,42 @@ function add_query_vars_for_search_case($vars)
     return $vars;
 }
 add_filter('query_vars', 'add_query_vars_for_search_case');
+
+/**
+ * 検索ページ（search-case / search-price）を 404 扱いにしない
+ */
+function prevent_404_for_search_case_price($pre_handle_404, $wp_query)
+{
+    if ($wp_query->get('search_case') || $wp_query->get('search_price')) {
+        return true;
+    }
+    return $pre_handle_404;
+}
+add_filter('pre_handle_404', 'prevent_404_for_search_case_price', 10, 2);
+
+/**
+ * search-case: 無効な menu パラメータの場合は症例一覧へリダイレクト（出力前に実行）
+ */
+function redirect_search_case_invalid_menu()
+{
+    if (!get_query_var('search_case')) {
+        return;
+    }
+    if (!isset($_GET['menu'])) {
+        return;
+    }
+    $selected_menu_id = (int) $_GET['menu'];
+    $menu_post = $selected_menu_id > 0 ? get_post($selected_menu_id) : null;
+    $is_invalid = $selected_menu_id <= 0
+        || !$menu_post
+        || $menu_post->post_type !== 'menu'
+        || $menu_post->post_status !== 'publish';
+    if ($is_invalid) {
+        wp_safe_redirect(get_post_type_archive_link('case'), 302);
+        exit;
+    }
+}
+add_action('template_redirect', 'redirect_search_case_invalid_menu');
 
 
 function load_custom_search_case_template($template)

@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         watchSlidesProgress: true,
         breakpoints: {
             1024: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 40,
                 centeredSlides: false,
 

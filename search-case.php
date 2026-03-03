@@ -21,6 +21,8 @@
 
 
             <?php
+            $selected_menu_id = isset($_GET['menu']) ? (int) $_GET['menu'] : 0;
+
             // case 投稿に紐づく menu-cat タームのみ取得
             $case_post_ids = get_posts(array(
                 'post_type'      => 'case',
@@ -89,7 +91,7 @@
                                                     <option value="">施術を選ぶ</option>
                                                     <?php foreach ($nav_posts as $post_id): ?>
                                                         <?php $post = get_post($post_id); ?>
-                                                        <option value="<?php echo esc_url(home_url('/search-case/?menu=' . $post->ID)); ?>"><?php echo esc_html(get_the_title($post->ID)); ?></option>
+                                                        <option value="<?php echo esc_url(home_url('/search-case/?menu=' . $post->ID)); ?>"<?php echo (int) $post->ID === $selected_menu_id ? ' selected' : ''; ?>><?php echo esc_html(get_the_title($post->ID)); ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -102,11 +104,21 @@
                     <div class="l_twoColumnContainer_right bl_caseArchiveListContainer">
                         <?php
                         $currentPage = max(1, (int) get_query_var('paged'));
+
                         $args = array(
                             'post_type'      => 'case',
                             'posts_per_page' => 10,
                             'paged'          => $currentPage,
                         );
+                        if ($selected_menu_id > 0) {
+                            $args['meta_query'] = array(
+                                array(
+                                    'key'     => 'menu_select',
+                                    'value'   => '"' . $selected_menu_id . '"',
+                                    'compare' => 'LIKE',
+                                ),
+                            );
+                        }
                         $query = new WP_Query($args);
                         ?>
                         <?php if ($query->have_posts()): ?>
@@ -229,12 +241,21 @@
                             }
                         }
                         ?>
+                        <?php
+                        $pagination_link = function ($page_num) use ($selected_menu_id) {
+                            $url = get_pagenum_link($page_num);
+                            if ($selected_menu_id > 0) {
+                                $url = add_query_arg('menu', $selected_menu_id, $url);
+                            }
+                            return $url;
+                        };
+                        ?>
                         <?php if ($totalPages > 1): ?>
                             <nav class="bl_commonPagination">
 
                                 <?php if ($currentPage > 1): ?>
                                     <div class="bl_commonPagination_item bl_commonPagination_item_prev">
-                                        <a href="<?php echo esc_url(get_pagenum_link($currentPage - 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_prev">
+                                        <a href="<?php echo esc_url($pagination_link($currentPage - 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_prev">
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/pagination-prev.svg" alt="">
                                             <p class="el_commonPagination_item_link_txt">前のページへ</p>
                                         </a>
@@ -253,7 +274,7 @@
                                                 <?php if ((int) $paginationItem['number'] === $currentPage): ?>
                                                     <span class="el_commonNumberList_item_number el_commonNumberList_item_number_current"><?php echo esc_html($paginationItem['number']); ?></span>
                                                 <?php else: ?>
-                                                    <a href="<?php echo esc_url(get_pagenum_link($paginationItem['number'])); ?>" class="el_commonNumberList_item_number"><?php echo esc_html($paginationItem['number']); ?></a>
+                                                    <a href="<?php echo esc_url($pagination_link($paginationItem['number'])); ?>" class="el_commonNumberList_item_number"><?php echo esc_html($paginationItem['number']); ?></a>
                                                 <?php endif; ?>
                                             </li>
                                         <?php endif; ?>
@@ -262,7 +283,7 @@
 
                                 <?php if ($currentPage < $totalPages): ?>
                                     <div class="bl_commonPagination_item bl_commonPagination_item_next">
-                                        <a href="<?php echo esc_url(get_pagenum_link($currentPage + 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_next">
+                                        <a href="<?php echo esc_url($pagination_link($currentPage + 1)); ?>" class="bl_commonPagination_item_link bl_commonPagination_item_next">
                                             <p class="el_commonPagination_item_link_txt">次のページへ</p>
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/pagination-next.svg" alt="">
                                         </a>

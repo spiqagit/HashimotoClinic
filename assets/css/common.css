@@ -1469,7 +1469,7 @@ html {
 #2カラムレイアウト
 ------------------------------------------------------------------------------------------ */
 .ly_twoColumnContainer {
-  padding-inline: clamp(5.25rem, 8.3333333333vw, 11.25rem);
+  padding-inline: clamp(0.875rem, 1.3888888889vw, 1.875rem);
 }
 @media screen and (width <= 1024px) {
   .ly_twoColumnContainer {
@@ -1480,6 +1480,9 @@ html {
   display: grid;
   grid-template-columns: clamp(10.9375rem, 17.3611111111vw, 23.4375rem) 1fr;
   gap: clamp(4.375rem, 6.9444444444vw, 9.375rem);
+  max-width: 75rem;
+  width: 100%;
+  margin-inline: auto;
 }
 @media screen and (width <= 1024px) {
   .ly_twoColumnContainer .ly_twoColumnContainer_inner {
@@ -1490,7 +1493,7 @@ html {
 
 .bl_commonNavWrapper {
   position: sticky;
-  top: 6.25rem;
+  top: 17.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -1715,20 +1718,43 @@ html {
 
 /* 症例カード
 ------------------------------------------------------------------------------------------ */
-.bl_commonCaseCard .bl_commonCaseCard_link .el_commonCaseCard_img {
+.bl_commonCaseCard {
+  border-radius: 1.25rem;
+  background-color: var(--gray);
+}
+.bl_commonCaseCard .bl_commonCaseCard_link {
+  display: block;
+  padding: 1.25rem;
+  transition: opacity 0.5s ease;
+}
+@media (any-hover: hover) {
+  .bl_commonCaseCard .bl_commonCaseCard_link:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_imgWrapper {
+  margin-bottom: 1.25rem;
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_imgWrapper .el_commonCaseCard_img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  aspect-ratio: 240/325;
+  aspect-ratio: 300/404;
   margin-bottom: 1.25rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_tagList {
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper {
+  margin-bottom: 0.875rem;
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper .bl_commonCaseCard_tagList {
   display: flex;
   flex-wrap: wrap;
   gap: 0.625rem;
-  margin-bottom: 0.875rem;
+  margin-bottom: 0.75rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_tagList .el_commonCaseCard_tagList_item {
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper .bl_commonCaseCard_tagList .el_commonCaseCard_tagList_item {
   color: var(--black);
   font-family: var(--mainFont);
   font-size: 0.75rem;
@@ -1740,11 +1766,51 @@ html {
   border-radius: 0.25rem;
   border: 1px solid var(--black);
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .el_commonCaseCard_ttl {
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper .el_commonCaseCard_ttl {
   color: var(--black);
   font-family: var(--subFontJa);
   font-size: 1.125rem;
   font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-top: 0.625rem;
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.625rem;
+  align-items: flex-start;
+  border-bottom: 1px dashed rgba(52, 49, 44, 0.3);
+  padding-bottom: 0.625rem;
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dt {
+  color: var(--black);
+  font-family: var(--mainFont);
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dd {
+  color: var(--black);
+  font-family: var(--mainFont);
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+}
+.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dd .el_commonCaseCard_infoWrapper_item_dd_sub {
+  display: block;
+  margin-top: 0.625rem;
+  color: rgba(52, 49, 44, 0.6);
+  font-family: var(--mainFont);
+  font-size: 0.625rem;
+  font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.08em;
 }
@@ -2924,6 +2990,9 @@ CTAボタン
   width: 100%;
   margin-inline: auto;
 }
+.bl_frontCaseSection .bl_topCaseSwiperContainer .bl_topCaseSwiper .swiper-wrapper {
+  margin-bottom: 1.875rem;
+}
 .bl_frontCaseSection .bl_topCaseSwiperContainer .bl_topCaseSwiper .swiper-slide {
   opacity: 0.5;
   transition: opacity 0.5s ease;
@@ -2933,17 +3002,14 @@ CTAボタン
   transition: opacity 0.5s ease;
 }
 .bl_frontCaseSection .bl_topCaseSwiperContainer .bl_topCaseSwiper_btnContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 6.25rem;
+  margin-inline: auto;
   gap: 1.25rem;
   width: 100%;
-  max-width: 74.875rem;
 }
 .bl_frontCaseSection .bl_topCaseSwiperContainer .bl_topCaseSwiper_btnContainer .bl_topCaseSwiper_prev,
 .bl_frontCaseSection .bl_topCaseSwiperContainer .bl_topCaseSwiper_btnContainer .bl_topCaseSwiper_next {
@@ -4315,6 +4381,16 @@ CTAボタン
     grid-column: span 2;
     grid-row: 1;
   }
+}
+
+.bl_caseArchiveListContainer .bl_commonPagination {
+  margin-top: 5rem;
+}
+
+.bl_caseArchiveList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.75rem), 1fr));
+  gap: 3.125rem;
 }
 
 .bl_blogArchiveList {
