@@ -13,6 +13,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set server-dir (must end with /)
+        run: |
+          SERVER_DIR="${{ secrets.FTP_REMOTE_DIR }}"
+          [[ "${SERVER_DIR}" != */ ]] && SERVER_DIR="${SERVER_DIR}/"
+          echo "SERVER_DIR=${SERVER_DIR}" >> $GITHUB_ENV
+
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -20,7 +26,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          server-dir: ${{ env.SERVER_DIR }}
           exclude: |
             **/.git*
             **/.github*
