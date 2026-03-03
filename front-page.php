@@ -252,9 +252,14 @@
 
                                             <a href="<?php the_permalink($relatedCasePost->ID); ?>" class="bl_commonCaseCard_link">
                                                 <div class="bl_commonCaseCard_imgWrapper">
-                                                    <?php if (have_rows('slide', $relatedCasePost->ID)): ?>
+                                                    <?php 
+                                                    $i = 0;
+                                                    if (have_rows('slide', $relatedCasePost->ID)): ?>
                                                         <?php while (have_rows('slide', $relatedCasePost->ID)): the_row(); ?>
-                                                            <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title($relatedCasePost->ID); ?>">
+                                                            <?php if ($i == 0): ?>
+                                                                <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title($relatedCasePost->ID); ?>">
+                                                            <?php endif; ?>
+                                                            <?php $i++; ?>
                                                         <?php endwhile; ?>
                                                     <?php endif; ?>
                                                 </div>

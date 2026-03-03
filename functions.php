@@ -10,6 +10,16 @@ add_theme_support('post-thumbnails');
 //自動更新を無効化
 add_filter('automatic_updater_disabled', '__return_true');
 
+function remove_admin_selection_color() {
+    echo '<style>
+        ::selection {
+            background: auto !important;
+            color: auto !important;
+        }
+    </style>';
+}
+add_action("admin_head", "remove_admin_selection_color");
+
 /* ---------- 固定ページテンプレート（管理画面の「テンプレート」欄に表示） ---------- */
 // function renewal2026_ensure_page_templates($templates)
 // {

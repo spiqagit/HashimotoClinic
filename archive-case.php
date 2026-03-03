@@ -115,9 +115,14 @@
                                     <article class="bl_commonCaseCard">
                                         <a href="<?php the_permalink(); ?>" class="bl_commonCaseCard_link">
                                             <div class="bl_commonCaseCard_imgWrapper">
-                                                <?php if (have_rows('slide')): ?>
+                                                <?php 
+                                                $i = 0;
+                                                if (have_rows('slide')): ?>
                                                     <?php while (have_rows('slide')): the_row(); ?>
-                                                        <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                        <?php if ($i == 0): ?>
+                                                            <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                        <?php endif; ?>
+                                                        <?php $i++; ?>
                                                     <?php endwhile; ?>
                                                 <?php endif; ?>
                                             </div>

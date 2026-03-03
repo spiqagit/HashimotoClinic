@@ -130,14 +130,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.bl_menuCaseSwiper').forEach(function (swiper) {
         new Swiper(swiper, {
-            slidesPerView: 1.5,
+            slidesPerView: 1,
             spaceBetween: 20,
             centeredSlides: true,
             breakpoints: {
                 1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
-                    centeredSlides: false,
+                    slidesPerView: "auto",
+                    spaceBetween: 30,
                 },
             },
             navigation: {

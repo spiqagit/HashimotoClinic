@@ -9,9 +9,12 @@
     }
 
     .bl_footerReserveContainer_logo {
-        max-width: rem(1190);
         width: 100%;
         margin-inline: auto;
+
+        img {
+            width: 100%;
+        }
     }
 
     .bl_footerReserveContainer_section {

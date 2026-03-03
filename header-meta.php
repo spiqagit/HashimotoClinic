@@ -49,3 +49,7 @@
     <?php if (is_page_template('page-recruit.php')): ?>
         <script src="<?php echo get_template_directory_uri(); ?>/assets/js/recruit.js"></script>
     <?php endif; ?>
+
+    <?php if (is_singular('case')): ?>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/case.js"></script>
+    <?php endif; ?>
