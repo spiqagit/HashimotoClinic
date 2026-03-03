@@ -1,0 +1,32 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules*
+            **/.env*
+            **/*.md
+          # 必要に応じてオプションを追加
+          # protocol: ftps          # FTPS の場合は ftps を指定
+          # port: 21                 # デフォルト 21（FTPS は 990 のことも）
+          # dangerous-clean-slate: true  # リモートをローカルと完全同期（削除も行う）
