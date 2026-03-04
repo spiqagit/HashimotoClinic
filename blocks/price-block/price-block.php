@@ -18,7 +18,7 @@
             <?php if (!empty($price_posts)): ?>
                 <?php foreach ($price_posts as $price_post): ?>
                     <div class="bl_priceCatChildList_item">
-                        <h4 class="el_priceCatChildList_item_ttl"><?php echo esc_html(get_the_title($price_post)); ?></h4>
+                        <p class="el_priceCatChildList_item_ttl"><?php echo esc_html(get_the_title($price_post)); ?></p>
 
                         <?php if (have_rows('price_wrap', $price_post)): ?>
                             <?php while (have_rows('price_wrap', $price_post)): the_row(); ?>

@@ -132,7 +132,7 @@
                                                 <?php if ($menuSelect): ?>
                                                     <div class="bl_commonCaseCard_tagList">
                                                         <?php foreach ($menuSelect as $menuSelectPost): ?>
-                                                            <h3 class="el_commonCaseCard_tagList_item"><?php echo esc_html(get_the_title($menuSelectPost)); ?></h3>
+                                                            <h2 class="el_commonCaseCard_tagList_item"><?php echo esc_html(get_the_title($menuSelectPost)); ?></h2>
                                                         <?php endforeach; ?>
                                                     </div>
                                                 <?php endif; ?>
