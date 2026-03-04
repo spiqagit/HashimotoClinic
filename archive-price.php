@@ -98,8 +98,7 @@
                                 $children = get_terms(array(
                                     'taxonomy'   => 'menu-cat',
                                     'parent'     => $price_category->term_id,
-                                    'hide_empty' => false,
-                                    'fields'     => 'all',
+                                    'hide_empty' => true,
                                 ));
                                 ?>
 
