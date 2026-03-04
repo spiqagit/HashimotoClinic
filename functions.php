@@ -54,14 +54,66 @@ add_filter('manage_menu_posts_columns', 'renewal2026_menu_remove_thumbnail_colum
 
 
 /* ---------- 投稿関連 ---------- */
-// 投稿（post）のURLを /blog/スラッグ にする
+// 投稿（post）の編集画面でスラッグを変更できるメタボックス（ブロックエディターでURLの編集が表示されない場合用）
+function renewal2026_post_slug_metabox()
+{
+    add_meta_box(
+        'renewal2026_post_slug',
+        __('スラッグ'),
+        'renewal2026_post_slug_metabox_callback',
+        'post',
+        'side'
+    );
+}
+
+function renewal2026_post_slug_metabox_callback($post)
+{
+    $slug = $post->post_name;
+    wp_nonce_field('renewal2026_post_slug', 'renewal2026_post_slug_nonce');
+    ?>
+    <p>
+        <label for="renewal2026_post_slug">スラッグ</label><br>
+        <input type="text" id="renewal2026_post_slug" name="renewal2026_post_slug" value="<?php echo esc_attr($slug); ?>" class="widefat" />
+    </p>
+    <p class="description"><?php echo esc_html(home_url('/blog/' . $slug . '/')); ?></p>
+    <?php
+}
+
+function renewal2026_post_slug_save($post_id)
+{
+    if (!isset($_POST['renewal2026_post_slug_nonce']) || !wp_verify_nonce($_POST['renewal2026_post_slug_nonce'], 'renewal2026_post_slug')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    if (isset($_POST['renewal2026_post_slug']) && get_post_type($post_id) === 'post') {
+        $new_slug = sanitize_title($_POST['renewal2026_post_slug']);
+        if ($new_slug !== '') {
+            remove_action('save_post', 'renewal2026_post_slug_save');
+            wp_update_post(array(
+                'ID'        => $post_id,
+                'post_name' => $new_slug,
+            ));
+            add_action('save_post', 'renewal2026_post_slug_save', 10, 1);
+        }
+    }
+}
+add_action('add_meta_boxes_post', 'renewal2026_post_slug_metabox');
+add_action('save_post', 'renewal2026_post_slug_save');
+
+// 投稿（post）のURLを /blog/スラッグ にする（Custom Post Type Permalinks より後に登録）
 function renewal2026_post_blog_rewrite_rules()
 {
     add_rewrite_rule('^blog/page/([0-9]+)/?$', 'index.php?pagename=blog&paged=$matches[1]', 'top');
     add_rewrite_rule('^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top');
 }
-add_action('init', 'renewal2026_post_blog_rewrite_rules');
+add_action('init', 'renewal2026_post_blog_rewrite_rules', 99);
 
+// Custom Post Type Permalinks より後に適用し「投稿を表示」リンクを /blog/スラッグ/ にする
 function renewal2026_post_link_blog_prefix($permalink, $post)
 {
     if ($post->post_type !== 'post') {
@@ -69,7 +121,7 @@ function renewal2026_post_link_blog_prefix($permalink, $post)
     }
     return home_url('/blog/' . $post->post_name . '/');
 }
-add_filter('post_link', 'renewal2026_post_link_blog_prefix', 10, 2);
+add_filter('post_link', 'renewal2026_post_link_blog_prefix', 999, 2);
 
 function get_blog_pagenum_link($page)
 {
