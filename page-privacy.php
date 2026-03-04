@@ -84,10 +84,10 @@
 
                                 <p>｢カスタムオーディエンス｣、｢オーディエンスデータ利用機能｣、｢カスタマーマッチ｣及び｢顧客データのオーディエンスリストを用いた配信｣での使用停止をご希望の場合は、こちらで無効化を行ってください。</p>
                                 <div class="bl_linkBox">
-                                    <a href="#">Facebookオプトアウト</a>
-                                    <a href="#">LINEオプトアウト</a>
-                                    <a href="#">Google広告オプトアウト</a>
-                                    <a href="#">Yahoo!広告オプトアウト</a>
+                                    <a href="https://www.facebook.com/about/ads" target="_blank" rel="noopener noreferrer">Facebookオプトアウト</a>
+                                    <a href="https://optout.tr.line.me/" target="_blank" rel="noopener noreferrer">LINEオプトアウト</a>
+                                    <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer">Google広告オプトアウト</a>
+                                    <a href="https://btoptout.yahoo.co.jp/optout/index.html" target="_blank" rel="noopener noreferrer">Yahoo!広告オプトアウト</a>
                                 </div>
 
                                 <p>上記以外は、法令に基づく場合を除いて、本人の同意を得ることなく第三者に提供することはありません。</p>
@@ -97,7 +97,7 @@
                                 </ul>
 
                                 <div class="bl_linkBox">
-                                    <a href="#">Googleアナリティクスオプトアウト</a>
+                                    <a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener noreferrer">Googleアナリティクスオプトアウト</a>
                                 </div>
 
                                 <ul>
@@ -105,8 +105,8 @@
                                 </ul>
 
                                 <div class="bl_linkBox">
-                                    <a href="#">LINEオプトアウト</a>
-                                    <a href="#">Google広告オプトアウト </a>
+                                    <a href="https://optout.tr.line.me/" target="_blank" rel="noopener noreferrer">LINEオプトアウト</a>
+                                    <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer">Google広告オプトアウト </a>
                                 </div>
 
                                 <ul>
