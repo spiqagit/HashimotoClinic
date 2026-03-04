@@ -99,6 +99,7 @@
                                     'taxonomy'   => 'menu-cat',
                                     'parent'     => $price_category->term_id,
                                     'hide_empty' => true,
+                                    'object_ids' => $price_post_ids,
                                 ));
                                 ?>
 
