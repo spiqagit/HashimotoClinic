@@ -257,7 +257,7 @@
                                                     if (have_rows('slide', $relatedCasePost->ID)): ?>
                                                         <?php while (have_rows('slide', $relatedCasePost->ID)): the_row(); ?>
                                                             <?php if ($i == 0): ?>
-                                                                <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title($relatedCasePost->ID); ?>">
+                                                                <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php echo get_the_title($relatedCasePost->ID); ?>">
                                                             <?php endif; ?>
                                                             <?php $i++; ?>
                                                         <?php endwhile; ?>
@@ -405,7 +405,7 @@
 
                                 <div class="bl_doctorUpperContainer_imgWrapper">
                                     <?php if (get_the_post_thumbnail($relatedDoctorPost->ID)): ?>
-                                        <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_the_post_thumbnail_url($relatedDoctorPost->ID); ?>" alt="<?php echo get_the_title($relatedDoctorPost->ID); ?>">
+                                        <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_the_post_thumbnail_url($relatedDoctorPost->ID); ?>" alt="<?php echo get_the_terms($relatedDoctorPost->ID, 'job-cat')[0]->name; ?> <?php echo get_the_title($relatedDoctorPost->ID); ?>">
                                     <?php else: ?>
                                         <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="Noimage">
                                     <?php endif; ?>
