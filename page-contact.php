@@ -113,6 +113,13 @@
                     });
                 });
             }
+
+            /* CF7 送信成功時にサンクスページへ遷移 */
+            document.addEventListener("wpcf7mailsent", function(ev) {
+                if (ev.detail && ev.detail.contactFormId) {
+                    window.location.href = "<?php echo esc_url( home_url( '/thanks/' ) ); ?>";
+                }
+            }, false);
         });
     </script>
     <?php get_footer(); ?>
