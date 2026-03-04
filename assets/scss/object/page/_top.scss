@@ -63,6 +63,7 @@
 
     @include underSP {
         padding-bottom: rem(20);
+        padding-top: rem(20);
     }
 
 
@@ -181,7 +182,9 @@
             padding-top: rem(20);
 
             .bl_fvSlideSwiper_playBtn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 100%;
                 max-width: rem(22);
                 height: auto;
@@ -201,6 +204,7 @@
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
+                    max-width: rem(10);
                 }
             }
 
@@ -715,6 +719,7 @@
                 @include underSP {
                     flex-direction: initial;
                     gap: 0;
+                    margin-bottom: rem(30);
                 }
             }
 
