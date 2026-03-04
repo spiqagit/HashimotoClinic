@@ -6371,6 +6371,7 @@ CTAボタン
   }
 }
 .bl_faqArchive .bl_faqArchive_inner .bl_faqArchive_contents .bl_faqArchive_contents_item {
+  scroll-margin-top: 200px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -7526,6 +7527,12 @@ CTAボタン
   letter-spacing: 0.08em;
   width: 100%;
 }
+.bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_contactContainer_emailMatchError {
+  color: #d63638;
+  font-size: 0.875rem;
+  margin-top: -1.875rem;
+  margin-bottom: 0.625rem;
+}
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer form {
   display: flex;
   flex-direction: column;
@@ -7743,6 +7750,7 @@ CTAボタン
   width: 100%;
   border: 1px solid rgba(52, 49, 44, 0.6);
   padding: 0.5rem;
+  min-height: 2.5rem;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_formItem .bl_formItem_dateContainer .bl_formItem_dateContainer_item .bl_formItem_dateContainer_item_dateContainer .bl_formItem_dateContainer_item_dateContainer_item_ttl {
   padding-top: 0.375rem;
@@ -7770,6 +7778,17 @@ CTAボタン
   padding: 0.5rem;
   min-height: 2.5rem;
   padding-right: 2.375rem;
+  background-color: transparent;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_formItem textarea {
   width: 100%;
