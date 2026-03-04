@@ -30,7 +30,7 @@
             if (!empty($price_post_ids)) {
                 $price_categories = get_terms(array(
                     'taxonomy'   => 'menu-cat',
-                    'hide_empty' => false,
+                    'hide_empty' => true,
                     'object_ids' => $price_post_ids,
                 ));
                 if (is_wp_error($price_categories)) {
