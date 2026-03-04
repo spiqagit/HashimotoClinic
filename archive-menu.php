@@ -1,5 +1,6 @@
-<?php wp_head(); ?>
+
 <?php get_header('meta'); ?>
+<?php wp_head(); ?>
 </head>
 
 <body class="">
