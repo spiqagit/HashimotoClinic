@@ -4951,6 +4951,16 @@ CTAボタン
   border-radius: 0.25rem;
   min-height: 3.6875rem;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  background-color: transparent;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: var(--black);
 }
 
 .bl_relatedBlogListContainer {

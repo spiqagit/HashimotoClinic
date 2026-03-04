@@ -197,6 +197,16 @@
                 border-radius: rem(4);
                 min-height: rem(59);
                 cursor: pointer;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                background-color: transparent;
+                font-size: rem(14);
+                font-weight: 400;
+                line-height: 1.2;
+                letter-spacing: calc(1.12 / 14 * 1em);
+                color: var(--black);
             }
         }
     }

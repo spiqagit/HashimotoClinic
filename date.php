@@ -121,11 +121,11 @@
                                                     <?php endif; ?>
                                                 </div>
 
-                                                <h3 class="bl_blogArchiveList_item_ttl">
+                                                <h2 class="bl_blogArchiveList_item_ttl">
                                                     <a href="<?php echo esc_url(get_permalink($blog_post->ID)); ?>" class="bl_blogArchiveList_item_link">
                                                         <?php echo esc_html(get_the_title($blog_post->ID)); ?>
                                                     </a>
-                                                </h3>
+                                                </h2>
                                             </div>
                                         </article>
                                 <?php
