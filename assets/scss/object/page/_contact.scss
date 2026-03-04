@@ -65,6 +65,13 @@
 
 
         .bl_contactContainer_formContainer {
+            .bl_contactContainer_emailMatchError {
+                color: #d63638;
+                font-size: rem(14);
+                margin-top: rem(-30);
+                margin-bottom: rem(10);
+            }
+
             form {
                 display: flex;
                 flex-direction: column;

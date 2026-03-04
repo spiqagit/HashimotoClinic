@@ -197,7 +197,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    /* よくある質問 */
+    /* よくある質問 - ナビリンクで目的箇所へスムーススクロール */
+    const faqArchive = document.querySelector('.bl_faqArchive');
+    if (faqArchive) {
+        faqArchive.querySelectorAll('.el_faqArchive_nav_list_item_link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (!href || href.charAt(0) !== '#') return;
+                const id = href.slice(1);
+                const target = document.getElementById(id);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 200;
+                    const y = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            });
+        });
+    }
+
     const faqSpNav = document.querySelector('.bl_faqArchive_nav.is-sp');
     if (faqSpNav) {
         const faqNavBtn = faqSpNav.querySelector('.bl_faqArchive_nav_btn');

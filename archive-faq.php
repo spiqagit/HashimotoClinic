@@ -73,7 +73,7 @@
                         <div class="bl_faqArchive_contents">
                             <?php if (!empty($faq_terms)): ?>
                                 <?php foreach ($faq_terms as $faq_term): ?>
-                                    <div class="bl_faqArchive_contents_item">
+                                    <div id="<?php echo esc_attr($faq_term->slug); ?>" class="bl_faqArchive_contents_item">
                                         <h2 class="el_faqArchive_contents_item_ttl"><?php echo $faq_term->name; ?></h2>
                                         <?php $faq_posts = get_posts(array(
                                             'post_type' => 'faq',

@@ -445,3 +445,25 @@ add_filter('query_vars', function ($vars) {
     $vars[] = 'type';
     return $vars;
 });
+
+
+/* ---------- Contact Form 7：メールアドレス一致チェック（email と email-2） ---------- */
+function renewal2026_cf7_validate_email_match($result, $tag)
+{
+    if ($tag->name !== 'email-2') {
+        return $result;
+    }
+    $submission = WPCF7_Submission::get_instance();
+    if (!$submission) {
+        return $result;
+    }
+    $posted = $submission->get_posted_data();
+    $email = isset($posted['email']) ? trim((string) $posted['email']) : '';
+    $email2 = isset($posted['email-2']) ? trim((string) $posted['email-2']) : '';
+    if ($email2 !== '' && $email !== $email2) {
+        $result->invalidate($tag, 'メールアドレスが一致しません。同じメールアドレスを入力してください。');
+    }
+    return $result;
+}
+add_filter('wpcf7_validate_email', 'renewal2026_cf7_validate_email_match', 20, 2);
+add_filter('wpcf7_validate_email*', 'renewal2026_cf7_validate_email_match', 20, 2);

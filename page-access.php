@@ -182,11 +182,11 @@
                                                         <p class="el_accessParkingInfoWrapper_contents_txt">当院ではクリニック近隣に提携駐車場をご用意しております。<br>お車でご来院の方は提携駐車場をご利用ください。</p>
 
                                                         <div class="bl_accessParkingInfoWrapper_parkinglinkList">
-                                                            <a href="#" class="bl_accessParkingInfoWrapper_parkinglinkList_item">
+                                                            <a href="https://www.inamori-parking.com/" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_parkinglinkList_item">
                                                                 <p class="el_accessParkingInfoWrapper_parkinglinkList_item_txt">稲森パーキングについて</p>
                                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon-black.svg" alt="">
                                                             </a>
-                                                            <a href="#" class="bl_accessParkingInfoWrapper_parkinglinkList_item">
+                                                            <a href="https://www.city.shizuoka.lg.jp/s3792/s001405.html" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_parkinglinkList_item">
                                                                 <p class="el_accessParkingInfoWrapper_parkinglinkList_item_txt">エキパについて</p>
                                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon-black.svg" alt="">
                                                             </a>
@@ -221,7 +221,7 @@
                                                                 </div>
 
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_details">
-                                                                    <a href="#" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
+                                                                    <a href="https://mkp.jp/search/?pref=&k=%E4%B8%89%E5%B3%B6%E9%A7%85" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
                                                                         <p>名鉄協商パーキングについて</p>
                                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon.svg" alt="">
                                                                     </a>
@@ -250,7 +250,7 @@
                                                                 </div>
 
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_details">
-                                                                    <a href="#" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
+                                                                    <a href="https://times-shizuoka.com/parking/detail/" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
                                                                         <p>タイムズ三島一番町について</p>
                                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon.svg" alt="">
                                                                     </a>

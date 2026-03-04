@@ -38,6 +38,7 @@
 
                         <div class="bl_contactContainer_formContainer">
                             <?php the_content(); ?>
+                            <div id="js-emailMatchError" class="bl_contactContainer_emailMatchError" role="alert" aria-live="polite" hidden>メールアドレスが一致しません。同じメールアドレスを入力してください。</div>
                         </div>
                     </div>
                 </div>
@@ -67,6 +68,50 @@
 
             if (privacyLink) {
                 privacyLink.setAttribute("href", "<?php echo home_url(); ?>/privacy-policy/");
+            }
+
+            /* メールアドレス一致チェック（email と email-2） */
+            const formContainer = document.querySelector(".bl_contactContainer_formContainer");
+            const form = formContainer?.querySelector("form.wpcf7-form");
+            const emailInput = document.querySelector("input[name='email']");
+            const email2Input = document.querySelector("input[name='email-2']");
+            const emailMatchError = document.getElementById("js-emailMatchError");
+
+            function validateEmailMatch() {
+                var emailVal = (emailInput && emailInput.value) ? emailInput.value.trim() : "";
+                var email2Val = (email2Input && email2Input.value) ? email2Input.value.trim() : "";
+                if (email2Val === "") return true;
+                return emailVal === email2Val;
+            }
+
+            function showEmailMatchError(show) {
+                if (!emailMatchError) return;
+                if (show) {
+                    emailMatchError.removeAttribute("hidden");
+                    emailMatchError.textContent = "メールアドレスが一致しません。同じメールアドレスを入力してください。";
+                } else {
+                    emailMatchError.setAttribute("hidden", "");
+                    emailMatchError.textContent = "";
+                }
+            }
+
+            if (form && emailInput && email2Input && emailMatchError) {
+                form.addEventListener("submit", function(ev) {
+                    if (!validateEmailMatch()) {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        showEmailMatchError(true);
+                        email2Input.focus();
+                        return false;
+                    }
+                    showEmailMatchError(false);
+                });
+
+                [emailInput, email2Input].forEach(function(input) {
+                    input.addEventListener("input", function() {
+                        if (validateEmailMatch()) showEmailMatchError(false);
+                    });
+                });
             }
         });
     </script>
