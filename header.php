@@ -77,11 +77,11 @@
     </div>
     <nav class="bl_header_nav">
         <div class="bl_header_nav_inner">
-            <a href="<?php echo home_url(); ?>/information/"  class="bl_header_nav_item">
+            <a href="<?php echo home_url(); ?>/information/" class="bl_header_nav_item">
                 <p class="el_header_nav_item_txt">クリニックについて</p>
                 <img class="el_header_nav_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
             </a>
-            <a href="<?php echo home_url(); ?>/doctor/"  class="bl_header_nav_item">
+            <a href="<?php echo home_url(); ?>/doctor/" class="bl_header_nav_item">
                 <p class="el_header_nav_item_txt">ドクター紹介</p>
                 <img class="el_header_nav_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
             </a>
@@ -139,7 +139,7 @@
                 <p class="el_commonNavBtnList_item_txt">院長ブログ</p>
                 <img class="el_commonNavBtnList_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
             </a>
-            
+
 
             <a href="<?php echo home_url(); ?>/faq/" class="bl_commonNavBtnList_item">
                 <p class="el_commonNavBtnList_item_txt">よくある質問</p>
@@ -237,3 +237,10 @@
         </div>
     </div>
 </nav>
+
+<button class="bl_commonTopScrollBtn" type="button">
+    <span class="bl_commonTopScrollBtn_inner">
+        <img class="el_commonTopScrollBtn_inner_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/top-scroll-arrow.svg" alt="">
+        <span class="el_commonTopScrollBtn_inner_txt">Top</span>
+    </span>
+</button>

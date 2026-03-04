@@ -53,6 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
+    /* ページ最上部へスクロール */
+    const topScrollBtn = document.querySelector('.bl_commonTopScrollBtn');
+    if (topScrollBtn) {
+        topScrollBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     /* ヘッダーナビゲーション */
     const toggleNavOuter = document.querySelector('.bl_commonToggleNavOuter');
     const toggleNav = document.querySelector('.bl_commonToggleNav');

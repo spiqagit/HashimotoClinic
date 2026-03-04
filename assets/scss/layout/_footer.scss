@@ -11,7 +11,11 @@
     .bl_footerReserveContainer_logo {
         width: 100%;
         margin-inline: auto;
-
+        padding-inline: rem(120);
+        margin-bottom: rem(-5);
+        @include underSP {
+            padding-inline: rem(12);
+        }
         img {
             width: 100%;
         }
@@ -21,12 +25,15 @@
         padding-block: rem(60);
         background-color: var(--black);
         border-radius: rem(60) rem(60) 0 0;
+        padding-inline: rem(20);
 
         .bl_footerReserveContainer_section_inner {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr rem(596);
+            max-width: rem(1200);
             align-items: center;
-            padding-right: rem(120);
+            width: 100%;
+            margin-inline: auto;
 
             @include underSP {
                 grid-template-columns: 1fr;
@@ -67,10 +74,6 @@
 
 
             .bl_footerReserveContainer_section_contents {
-
-                @include underSP {
-                    padding-inline: rem(20);
-                }
 
                 .bl_common_telWrapper {
                     padding-block: rem(38);
@@ -289,6 +292,7 @@
                             background-color: var(--black);
                             border-radius: 100%;
                             max-width: rem(32);
+                            border: none;
 
                             img {
                                 width: 100%;
@@ -702,7 +706,7 @@
                     grid-columns: 1;
                     column-gap: rem(30);
                 }
-                
+
                 @include underSP_m {
                     grid-template-columns: 1fr;
                 }

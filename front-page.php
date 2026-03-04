@@ -514,7 +514,7 @@
                             <div class="bl_commonAllBtnContainer">
                                 <a href="<?php echo get_field('youtube', 'option'); ?>" target="_blank" class="bl_commonAllBtn bl_commonSnsBtn">
                                     <img class="el_commonSnsBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-youtube-white.svg" alt="YouTube">
-                                    <p class="bl_commonAllBtn_txt">Youtubeでチャンネル登録</p>
+                                    <p class="bl_commonAllBtn_txt">YouTubeでチャンネル登録</p>
                                 </a>
                             </div>
                         <?php endif; ?>
@@ -525,14 +525,14 @@
                     <div class="bl_frontTiktokContainer">
                         <div class="bl_frontTiktokContainer_ttl">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tiktok-ttl-icon.svg" alt="">
-                            <h2 class="el_frontTiktokContainer_ttl_ttl">Clinic Tiktok</h2>
+                            <h2 class="el_frontTiktokContainer_ttl_ttl">Clinic TikTok</h2>
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tiktok-ttl-icon.svg" alt="">
                         </div>
                         <?php if (get_field('tiktok', 'option')): ?>
                             <div class="bl_commonAllBtnContainer">
                                 <a href="<?php echo get_field('youtube', 'option'); ?>" target="_blank" class="bl_commonAllBtn bl_commonSnsBtn">
                                     <img class="el_commonSnsBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-tiktok-white.svg" alt="YouTube">
-                                    <p class="bl_commonAllBtn_txt">Tiktokでフォロー</p>
+                                    <p class="bl_commonAllBtn_txt">TikTokでフォロー</p>
                                 </a>
                             </div>
                         <?php endif; ?>

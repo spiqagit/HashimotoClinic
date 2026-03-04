@@ -344,7 +344,7 @@ html {
   font-family: Marcellus;
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.5;
   letter-spacing: 0.02em;
   cursor: pointer;
   transition: opacity 0.5s ease;
@@ -424,6 +424,9 @@ html {
   .ly_header_contentsWrapper .bl_header_contentsWrapper_lower .bl_header_contentsWrapper_btnWrapper .bl_header_contentsWrapper_ctaWrapper {
     display: none;
   }
+}
+.ly_header_contentsWrapper .bl_header_contentsWrapper_lower .bl_header_contentsWrapper_btnWrapper .bl_header_contentsWrapper_ctaWrapper .bl_commonCtaBtn .bl_commonCtaBtn_inner {
+  padding-block: 0.75rem;
 }
 .ly_header_contentsWrapper .bl_header_contentsWrapper_lower .bl_header_contentsWrapper_btnWrapper .bl_header_toggleBtn {
   position: relative;
@@ -653,6 +656,52 @@ html {
   margin-inline: auto;
 }
 
+.bl_commonTopScrollBtn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  border-radius: 100%;
+  background-color: var(--black);
+  max-width: 4.375rem;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+@media screen and (width <= 1024px) {
+  .bl_commonTopScrollBtn {
+    bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
+  }
+}
+@media (any-hover: hover) {
+  .bl_commonTopScrollBtn:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
+}
+.bl_commonTopScrollBtn .bl_commonTopScrollBtn_inner .el_commonTopScrollBtn_inner_icon {
+  width: 100%;
+  max-width: 0.875rem;
+  margin-inline: auto;
+  margin-bottom: 0.3125rem;
+}
+.bl_commonTopScrollBtn .bl_commonTopScrollBtn_inner .el_commonTopScrollBtn_inner_txt {
+  color: #FFF;
+  text-align: center;
+  font-family: var(--subFontJa);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+}
+
 .bl_footerReserveContainer {
   padding-top: 12.5rem;
 }
@@ -664,6 +713,13 @@ html {
 .bl_footerReserveContainer .bl_footerReserveContainer_logo {
   width: 100%;
   margin-inline: auto;
+  padding-inline: 7.5rem;
+  margin-bottom: -0.3125rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_footerReserveContainer .bl_footerReserveContainer_logo {
+    padding-inline: 0.75rem;
+  }
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_logo img {
   width: 100%;
@@ -672,12 +728,15 @@ html {
   padding-block: 3.75rem;
   background-color: var(--black);
   border-radius: 3.75rem 3.75rem 0 0;
+  padding-inline: 1.25rem;
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 37.25rem;
+  max-width: 75rem;
   align-items: center;
-  padding-right: 7.5rem;
+  width: 100%;
+  margin-inline: auto;
 }
 @media screen and (width <= 1024px) {
   .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner {
@@ -714,11 +773,6 @@ html {
 @media screen and (width <= 1024px) {
   .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_frontPageTtlContainer .bl_frontPageTtlContainer_jaTtl {
     font-size: 1.875rem;
-  }
-}
-@media screen and (width <= 1024px) {
-  .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_footerReserveContainer_section_contents {
-    padding-inline: 1.25rem;
   }
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_footerReserveContainer_section_contents .bl_common_telWrapper {
@@ -917,6 +971,7 @@ html {
   background-color: var(--black);
   border-radius: 100%;
   max-width: 2rem;
+  border: none;
 }
 .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .bl_scheduleContainer_upper_prev img,
 .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .bl_scheduleContainer_upper_next img {
@@ -2677,6 +2732,7 @@ CTAボタン
 @media screen and (width <= 1024px) {
   .bl_fvSlideSwiperContainer {
     padding-bottom: 1.25rem;
+    padding-top: 1.25rem;
   }
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper {
@@ -2785,7 +2841,9 @@ CTAボタン
   padding-top: 1.25rem;
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_pageNationContainer .bl_fvSlideSwiper_playBtn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1.375rem;
   height: auto;
@@ -2805,6 +2863,7 @@ CTAボタン
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  max-width: 0.625rem;
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_pageNationContainer .is-stop::before {
   background-image: url("../img/common/play.svg");
@@ -3264,6 +3323,7 @@ CTAボタン
   .bl_frontBlogSection .bl_frontBlogSection_inner .bl_frontBlogSwiperContainer .bl_blogArchiveList {
     flex-direction: initial;
     gap: 0;
+    margin-bottom: 1.875rem;
   }
 }
 .bl_frontBlogSection .bl_frontBlogSection_inner .bl_frontBlogSwiperContainer .bl_frontBlogSwiper_btnContainer {
