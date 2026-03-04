@@ -31,7 +31,7 @@
                                 </a>
 
                                 <div class="bl_commonBlogSlideBtn_lower">
-                                    <time class="el_commonBlogSlideBtn_lower_time"><?php echo get_the_date('Y.m.d', $relatedBlogPost->ID); ?></time>
+                                    <time class="el_commonBlogSlideBtn_lower_time" datetime="<?php echo get_the_date('Y-m-d', $relatedBlogPost->ID); ?>"><?php echo get_the_date('Y.m.d', $relatedBlogPost->ID); ?></time>
 
                                     <?php
                                     $categoryList = get_the_category($relatedBlogPost->ID);

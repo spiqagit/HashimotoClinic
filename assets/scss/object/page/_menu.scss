@@ -254,6 +254,11 @@
         padding-inline: rem(35);
         border-radius: rem(20);
 
+        @include underSP {
+            padding-inline: rem(10);
+            padding-block: rem(30);
+        }
+
         .bl_menuCatContainer_parentItem {
 
             .bl_menuCatContainer_parentItem_childList {

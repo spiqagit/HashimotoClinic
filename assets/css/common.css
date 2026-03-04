@@ -1607,6 +1607,17 @@ html {
   padding-block: 0.8125rem;
   border-radius: 0.25rem;
   border: 1px solid rgba(52, 49, 44, 0.3);
+  background-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
 }
 
 /* ------------------------------------------------------------------------------------------
@@ -3795,6 +3806,12 @@ CTAボタン
   padding-block: 4.375rem;
   padding-inline: 2.1875rem;
   border-radius: 1.25rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_menuCatContainer .bl_menuCatContainer_contentsWrapper {
+    padding-inline: 0.625rem;
+    padding-block: 1.875rem;
+  }
 }
 .bl_menuCatContainer .bl_menuCatContainer_contentsWrapper .bl_menuCatContainer_parentItem .bl_menuCatContainer_parentItem_childList {
   display: flex;
