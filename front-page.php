@@ -17,7 +17,7 @@
                             <div class="swiper-slide">
                                 <?php if (get_sub_field('fvslide-url')): ?>
                                     <a href="<?php the_sub_field('fvslide-url'); ?>" class="bl_fvSlideSwiper_item bl_fvSlideSwiper_link">
-                                        <img src="<?php the_sub_field('fvslide-img'); ?>" alt="<?php the_sub_field('tifvslide-alttle'); ?>">
+                                        <img src="<?php the_sub_field('fvslide-img'); ?>" width="276" height="276" alt="<?php the_sub_field('tifvslide-alttle'); ?>">
                                     </a>
                                 <?php else: ?>
                                     <div class="bl_fvSlideSwiper_item">
@@ -67,7 +67,7 @@
                             <?php if (get_sub_field('pickup-menu')): ?>
                                 <?php foreach (get_sub_field('pickup-menu') as $menu): ?>
                                     <a href="<?php echo get_the_permalink($menu); ?>" class="bl_frontPickupSection_item">
-                                        <img src="<?php the_sub_field('pickup-banner'); ?>" alt="<?php the_sub_field('pickup-banner-alt'); ?>">
+                                        <img src="<?php the_sub_field('pickup-banner'); ?>" width="440" height="176" alt="<?php the_sub_field('pickup-banner-alt'); ?>">
                                     </a>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -257,7 +257,7 @@
                                                     if (have_rows('slide', $relatedCasePost->ID)): ?>
                                                         <?php while (have_rows('slide', $relatedCasePost->ID)): the_row(); ?>
                                                             <?php if ($i == 0): ?>
-                                                                <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php echo get_the_title($relatedCasePost->ID); ?>">
+                                                                <img class="el_commonCaseCard_img" width="360" height="485" src="<?php the_sub_field('img'); ?>" alt="<?php echo get_the_title($relatedCasePost->ID); ?>">
                                                             <?php endif; ?>
                                                             <?php $i++; ?>
                                                         <?php endwhile; ?>
@@ -405,9 +405,9 @@
 
                                 <div class="bl_doctorUpperContainer_imgWrapper">
                                     <?php if (get_the_post_thumbnail($relatedDoctorPost->ID)): ?>
-                                        <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_the_post_thumbnail_url($relatedDoctorPost->ID); ?>" alt="<?php echo get_the_terms($relatedDoctorPost->ID, 'job-cat')[0]->name; ?> <?php echo get_the_title($relatedDoctorPost->ID); ?>">
+                                        <img class="el_doctorUpperContainer_imgWrapper_img" width="520" height="520" src="<?php echo get_the_post_thumbnail_url($relatedDoctorPost->ID); ?>" alt="<?php echo get_the_terms($relatedDoctorPost->ID, 'job-cat')[0]->name; ?> <?php echo get_the_title($relatedDoctorPost->ID); ?>">
                                     <?php else: ?>
-                                        <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="Noimage">
+                                        <img class="el_doctorUpperContainer_imgWrapper_img" width="520" height="520" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="Noimage">
                                     <?php endif; ?>
                                 </div>
 
@@ -569,9 +569,9 @@
                                     <article class="bl_blogArchiveList_item swiper-slide">
                                         <a href="<?php the_permalink($relatedBlogPost->ID); ?>" class="bl_blogArchiveList_item_link">
                                             <?php if (get_the_post_thumbnail($relatedBlogPost->ID)): ?>
-                                                <img class="el_blogArchiveList_item_img" src="<?php echo get_the_post_thumbnail_url($relatedBlogPost->ID); ?>" alt="<?php echo get_the_title($relatedBlogPost->ID); ?>">
+                                                <img class="el_blogArchiveList_item_img" width="130" height="130" src="<?php echo get_the_post_thumbnail_url($relatedBlogPost->ID); ?>" alt="<?php echo get_the_title($relatedBlogPost->ID); ?>">
                                             <?php else: ?>
-                                                <img class="el_blogArchiveList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="<?php echo get_the_title($relatedBlogPost->ID); ?>">
+                                                <img class="el_blogArchiveList_item_img" width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="<?php echo get_the_title($relatedBlogPost->ID); ?>">
                                             <?php endif; ?>
                                         </a>
 

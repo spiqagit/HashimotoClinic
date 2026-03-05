@@ -133,7 +133,7 @@
                                                 if (have_rows('slide')): ?>
                                                     <?php while (have_rows('slide')): the_row(); ?>
                                                         <?php if ($i == 0): ?>
-                                                            <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                            <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" width="360" height="485" alt="<?php the_title_attribute(); ?>">
                                                         <?php endif; ?>
                                                         <?php $i++; ?>
                                                     <?php endwhile; ?>
