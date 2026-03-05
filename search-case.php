@@ -72,6 +72,7 @@
                                         'post_type'      => 'menu',
                                         'posts_per_page' => -1,
                                         'fields'         => 'ids',
+                                        'post__in'       => $menu_post_ids,
                                         'tax_query'      => array(
                                             array(
                                                 'taxonomy'         => 'menu-cat',
@@ -91,7 +92,7 @@
                                                     <option value="">施術を選ぶ</option>
                                                     <?php foreach ($nav_posts as $post_id): ?>
                                                         <?php $post = get_post($post_id); ?>
-                                                        <option value="<?php echo esc_url(home_url('/search-case/?menu=' . $post->ID)); ?>"<?php echo (int) $post->ID === $selected_menu_id ? ' selected' : ''; ?>><?php echo esc_html(get_the_title($post->ID)); ?></option>
+                                                        <option value="<?php echo esc_url(home_url('/search-case/?menu=' . $post->ID)); ?>" <?php echo (int) $post->ID === $selected_menu_id ? ' selected' : ''; ?>><?php echo esc_html(get_the_title($post->ID)); ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -127,9 +128,14 @@
                                     <article class="bl_commonCaseCard">
                                         <a href="<?php the_permalink(); ?>" class="bl_commonCaseCard_link">
                                             <div class="bl_commonCaseCard_imgWrapper">
-                                                <?php if (have_rows('slide')): ?>
+                                                <?php
+                                                $i = 0;
+                                                if (have_rows('slide')): ?>
                                                     <?php while (have_rows('slide')): the_row(); ?>
-                                                        <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                        <?php if ($i == 0): ?>
+                                                            <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                        <?php endif; ?>
+                                                        <?php $i++; ?>
                                                     <?php endwhile; ?>
                                                 <?php endif; ?>
                                             </div>
@@ -200,7 +206,7 @@
                                                         <dd class="el_commonCaseCard_infoWrapper_item_dd">
                                                             <?php echo esc_html(get_field('case-risk')); ?>
                                                             <?php if (get_field('case-risk_sub')): ?>
-                                                                <span><?php echo esc_html(get_field('case-risk_sub')); ?></span>
+                                                                <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo esc_html(get_field('case-risk_sub')); ?></span>
                                                             <?php endif; ?>
                                                         </dd>
                                                     </dl>

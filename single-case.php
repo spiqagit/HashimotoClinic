@@ -41,16 +41,19 @@
                                         </button>
                                         <div class="swiper bl_caseSingleSwiper">
                                             <div class="swiper-wrapper">
-                                                <?php while (have_rows('slide')) : the_row(); ?>
+                                                <?php 
+                                                
+                                                $i = 0;
+                                                while (have_rows('slide')) : the_row(); ?>
                                                     <div class="swiper-slide">
                                                         <div class="bl_caseSingleSwiper_imgWrapper">
-                                                            <img class="bl_caseSingleSwiper_img" src="<?php echo get_sub_field('img'); ?>" alt="">
+                                                            <img class="bl_caseSingleSwiper_img" src="<?php echo get_sub_field('img'); ?>" alt="<?php the_title(); ?>の症例 <?php echo $i + 1; ?>">
                                                         </div>
                                                         <?php if (get_sub_field('caption')): ?>
                                                             <p class="bl_caseSingleSwiper_caption"><?php echo get_sub_field('caption'); ?></p>
                                                         <?php endif; ?>
                                                     </div>
-                                                <?php endwhile; ?>
+                                                <?php $i++; endwhile; ?>
                                             </div>
                                         </div>
                                         <button class="bl_caseSingleSwiper_next">
@@ -167,7 +170,7 @@
                 <div class="bl_caseArticle_relatedCaseContainer">
 
                     <div class="bl_caseArticle_relatedCaseContainer_inner">
-                        <h2 class="el_caseArticle_relatedCase_ttl">関連症例</h2>
+                        <h2 class="el_caseArticle_relatedCase_ttl">関連する症例</h2>
 
                         <div class="bl_caseArticle_relatedCase_slideContainer">
                             <div class="bl_caseArticle_relatedCase_slideContainer_slide">
@@ -266,7 +269,7 @@
                                                                     <dd class="el_commonCaseCard_infoWrapper_item_dd">
                                                                         <?php echo esc_html(get_field('case-risk')); ?>
                                                                         <?php if (get_field('case-risk_sub')): ?>
-                                                                            <span><?php echo esc_html(get_field('case-risk_sub')); ?></span>
+                                                                            <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo esc_html(get_field('case-risk_sub')); ?></span>
                                                                         <?php endif; ?>
                                                                     </dd>
                                                                 </dl>

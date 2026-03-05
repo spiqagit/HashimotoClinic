@@ -1669,7 +1669,8 @@ html {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.08em;
-  padding-inline: 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 1.5rem;
   padding-block: 0.8125rem;
   border-radius: 0.25rem;
   border: 1px solid rgba(52, 49, 44, 0.3);
@@ -4631,6 +4632,14 @@ CTAボタン
 .bl_caseArticle_contents .bl_caseArticle_contents_inner .bl_caseArticl_imgSlider {
   height: 100%;
 }
+@media screen and (width <= 1024px) {
+  .bl_caseArticle_contents .bl_caseArticle_contents_inner .bl_caseArticl_imgSlider {
+    max-width: 28.125rem;
+    width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+}
 .bl_caseArticle_contents .bl_caseArticle_contents_inner .bl_caseArticl_imgSlider .bl_caseArticl_imgSlider_inner {
   position: sticky;
   top: 13.75rem;
@@ -4689,6 +4698,12 @@ CTAボタン
     transition: opacity 0.5s ease;
   }
 }
+.bl_caseArticle_contents .bl_caseArticle_contents_inner .bl_caseArticl_imgSlider .bl_caseSingleSwiperContainer .swiper-button-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+  transition: opacity 0.5s ease;
+}
 .bl_caseArticle_contents .bl_caseArticle_contents_inner .bl_caseArticl_imgSlider .bl_caseSingleSwiper_pagination {
   width: fit-content;
   display: flex;
@@ -4743,6 +4758,10 @@ CTAボタン
   .bl_caseArticle_relatedCaseContainer .bl_caseArticle_relatedCaseContainer_inner .bl_caseArticle_relatedCase_slideContainer .bl_caseArticle_relatedCase_slideContainer_slide {
     padding-bottom: 7.375rem;
   }
+}
+.bl_caseArticle_relatedCaseContainer .bl_caseArticle_relatedCaseContainer_inner .bl_caseArticle_relatedCase_slideContainer .bl_caseArticle_relatedCase_slideContainer_slide .swiper-slide {
+  max-width: 21.25rem;
+  width: 100%;
 }
 .bl_caseArticle_relatedCaseContainer .bl_caseArticle_relatedCaseContainer_inner .bl_caseArticle_relatedCase_slideContainer .bl_caseArticle_relatedCase_slideContainer_slide .bl_caseArticle_relatedCase_slideContainer_prev,
 .bl_caseArticle_relatedCaseContainer .bl_caseArticle_relatedCaseContainer_inner .bl_caseArticle_relatedCase_slideContainer .bl_caseArticle_relatedCase_slideContainer_slide .bl_caseArticle_relatedCase_slideContainer_next {
@@ -4854,6 +4873,9 @@ CTAボタン
 .bl_caseArticle_nfoTableContainer .bl_caseArticle_nfoTableContainer_table .bl_caseArticle_nfoTableContainer_item:last-child {
   border-bottom: none;
 }
+.bl_caseArticle_nfoTableContainer .bl_caseArticle_nfoTableContainer_table .bl_caseArticle_nfoTableContainer_item:last-child:first-child th {
+  border-top: none;
+}
 .bl_caseArticle_nfoTableContainer .bl_caseArticle_nfoTableContainer_table .bl_caseArticle_nfoTableContainer_item th {
   text-align: left;
   padding-block: 0.75rem;
@@ -4874,9 +4896,6 @@ CTAボタン
   }
   .bl_caseArticle_nfoTableContainer .bl_caseArticle_nfoTableContainer_table .bl_caseArticle_nfoTableContainer_item th:last-child {
     border-bottom: none;
-  }
-  .bl_caseArticle_nfoTableContainer .bl_caseArticle_nfoTableContainer_table .bl_caseArticle_nfoTableContainer_item th:first-child {
-    border-top: none;
   }
 }
 .bl_caseArticle_nfoTableContainer .bl_caseArticle_nfoTableContainer_table .bl_caseArticle_nfoTableContainer_item td {

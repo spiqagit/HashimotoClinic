@@ -70,6 +70,7 @@
                                         'post_type'      => 'menu',
                                         'posts_per_page' => -1,
                                         'fields'         => 'ids',
+                                        'post__in'       => $menu_post_ids,
                                         'tax_query'      => array(
                                             array(
                                                 'taxonomy'         => 'menu-cat',
@@ -193,7 +194,7 @@
                                                         <dd class="el_commonCaseCard_infoWrapper_item_dd">
                                                             <?php echo esc_html(get_field('case-risk')); ?>
                                                             <?php if (get_field('case-risk_sub')): ?>
-                                                                <span><?php echo esc_html(get_field('case-risk_sub')); ?></span>
+                                                                <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo esc_html(get_field('case-risk_sub')); ?></span>
                                                             <?php endif; ?>
                                                         </dd>
                                                     </dl>

@@ -56,6 +56,13 @@
 
         .bl_caseArticl_imgSlider {
             height: 100%;
+            
+            @include underSP {
+                max-width: rem(450);
+                width: 100%;
+                height: auto;
+                margin-inline: auto;
+            }
 
             .bl_caseArticl_imgSlider_inner {
                 position: sticky;
@@ -120,6 +127,13 @@
                         }
                     }
                 }
+
+                .swiper-button-disabled{
+                    opacity: 0.6;
+                    pointer-events: none;
+                    cursor: default;
+                    transition: opacity 0.5s ease;
+                }
             }
 
             .bl_caseSingleSwiper_pagination {
@@ -183,6 +197,11 @@
 
                 @include underSP {
                     padding-bottom: rem(118);
+                }
+
+                .swiper-slide{
+                    max-width: rem(340);
+                    width: 100%;
                 }
 
                 .bl_caseArticle_relatedCase_slideContainer_prev,
@@ -297,6 +316,12 @@
 
             &:last-child {
                 border-bottom: none;
+
+                &:first-child {
+                    th{
+                    border-top: none;
+                    }
+                }
             }
 
             th {
@@ -318,10 +343,6 @@
 
                     &:last-child {
                         border-bottom: none;
-                    }
-
-                    &:first-child {
-                        border-top: none;
                     }
                 }
             }

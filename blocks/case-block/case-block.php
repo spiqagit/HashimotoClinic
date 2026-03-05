@@ -106,7 +106,7 @@
                                                 <dd class="el_commonCaseCard_infoWrapper_item_dd">
                                                     <?php echo esc_html(get_field('case-risk', $relatedCasePost->ID)); ?>
                                                     <?php if (get_field('case-risk_sub', $relatedCasePost->ID)): ?>
-                                                        <span><?php echo esc_html(get_field('case-risk_sub', $relatedCasePost->ID)); ?></span>
+                                                        <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo esc_html(get_field('case-risk_sub', $relatedCasePost->ID)); ?></span>
                                                     <?php endif; ?>
                                                 </dd>
                                             </dl>

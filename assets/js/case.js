@@ -26,14 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (caseArticleRelatedContainer) {
         const caseArticleRelatedSwiper = caseArticleRelatedContainer.querySelector('.bl_caseArticle_relatedCase_swiper');
         new Swiper(caseArticleRelatedSwiper, {
-            slidesPerView: 1,
+            slidesPerView: "auto",
             spaceBetween: 25,
-            breakpoints: {
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 25,
-                },
-            },
             navigation: {
                 nextEl: caseArticleRelatedContainer.querySelector('.bl_caseArticle_relatedCase_slideContainer_next'),
                 prevEl: caseArticleRelatedContainer.querySelector('.bl_caseArticle_relatedCase_slideContainer_prev'),
