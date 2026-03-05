@@ -148,7 +148,6 @@
 
 
             .el_priceTable_item_lower_txt {
-                padding-top: rem(12);
                 color: rgba(52, 49, 44, 0.60);
                 font-family: var(--mainFont);
                 font-size: rem(14);
@@ -189,6 +188,10 @@
 
     .el_amountTable_pricetxt {
         grid-column: 1;
+
+        @include underSP {
+            text-align: left;
+        }
     }
 
     .el_amountTable_view {

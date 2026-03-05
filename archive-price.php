@@ -135,7 +135,7 @@
                                                                 <div class="bl_priceWrapper">
                                                                     <div class="bl_priceWrapper_item">
                                                                         <?php if (get_sub_field('left')): ?>
-                                                                            <p class="el_priceWrapper_item_ttl"><?php echo esc_html(get_sub_field('left')); ?></p>
+                                                                            <h5 class="el_priceWrapper_item_ttl"><?php echo esc_html(get_sub_field('left')); ?></h5>
                                                                         <?php endif; ?>
 
                                                                         <?php if (have_rows('price_table')): ?>
@@ -177,7 +177,7 @@
                                                             <?php endwhile; ?>
                                                         <?php endif; ?>
 
-                                                        <p>料金は全て税込価格です。</p>
+                                                        <p class="el_priceCatChildList_item_lower_txt">料金は全て税込価格です。</p>
 
                                                     </div>
                                                 <?php endforeach; ?>
@@ -216,7 +216,7 @@
                                                             <div class="bl_priceWrapper">
                                                                 <div class="bl_priceWrapper_item">
                                                                     <?php if (get_sub_field('left')): ?>
-                                                                        <p class="el_priceWrapper_item_ttl"><?php echo esc_html(get_sub_field('left')); ?></p>
+                                                                            <h5 class="el_priceWrapper_item_ttl"><?php echo esc_html(get_sub_field('left')); ?></h5>
                                                                     <?php endif; ?>
 
                                                                     <?php if (have_rows('price_table')): ?>

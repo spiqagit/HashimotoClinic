@@ -17,7 +17,7 @@
 
         <?php if (is_singular('price') && !is_post_type_archive('price')): ?>
             <li class="bl_breadcrumbs_list_item">
-                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/price/">料金表</a>
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/payment/">料金表</a>
             </li>
             <li class="bl_breadcrumbs_list_item">
                 <p class="bl_breadcrumbs_list_item_text"><?php the_title(); ?></p>

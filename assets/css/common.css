@@ -1457,6 +1457,11 @@ html {
   background-color: #fff;
   border-radius: 3.75rem 3.75rem 0 0;
 }
+@media screen and (width <= 1024px) {
+  .bl_commonlowerPage .bl_commonlowerPage_inner .bl_commonlowerPage_contents {
+    border-radius: 1.875rem 1.875rem 0 0;
+  }
+}
 
 .bl_commonlowerPage_ttlContainer {
   display: flex;
@@ -3641,7 +3646,6 @@ CTAボタン
   letter-spacing: 0.08em;
 }
 .bl_priceTableWrapper .bl_priceTable .bl_priceTable_item .el_priceTable_item_lower_txt {
-  padding-top: 0.75rem;
   color: rgba(52, 49, 44, 0.6);
   font-family: var(--mainFont);
   font-size: 0.875rem;
@@ -3675,6 +3679,11 @@ CTAボタン
 }
 .bl_amountTable .el_amountTable_pricetxt {
   grid-column: 1;
+}
+@media screen and (width <= 1024px) {
+  .bl_amountTable .el_amountTable_pricetxt {
+    text-align: left;
+  }
 }
 .bl_amountTable .el_amountTable_view {
   grid-column: 2;

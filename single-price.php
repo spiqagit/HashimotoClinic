@@ -72,7 +72,7 @@
                                                     <select class="el_commonNavWrapper_selectWrapper_select js_priceNavSelect" name="<?php echo $price_category->slug; ?>" id="nav-<?php echo $price_category->slug; ?>">
                                                         <option value="">施術を選ぶ</option>
                                                         <?php foreach ($price_posts as $post_id): ?>
-                                                            <option value="<?php echo esc_url(get_permalink($post_id)); ?>"><?php echo esc_html(get_the_title($post_id)); ?></option>
+                                                            <option value="<?php echo esc_url(get_permalink($post_id)); ?>"<?php selected(get_the_ID(), $post_id); ?>><?php echo esc_html(get_the_title($post_id)); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -95,7 +95,7 @@
                                         <div class="bl_priceWrapper">
                                             <div class="bl_priceWrapper_item">
                                                 <?php if (get_sub_field('left')): ?>
-                                                    <p class="el_priceWrapper_item_ttl"><?php echo get_sub_field('left'); ?></p>
+                                                    <h3 class="el_priceWrapper_item_ttl"><?php echo get_sub_field('left'); ?></h3>
                                                 <?php endif; ?>
 
                                                 <?php if (have_rows('price_table')): ?>
@@ -140,6 +140,9 @@
                                         </div>
                                     <?php endwhile; ?>
                                 <?php endif; ?>
+
+                                <p class="el_priceCatChildList_item_lower_txt">料金は全て税込価格です。</p>
+
                             </div>
                         </div>
                     </div>
