@@ -271,7 +271,7 @@ $clinicPostList = get_posts(array(
 
                                     <?php foreach ($childrenMenuCategories as $childrenMenuCategory): ?>
                                         <div class="bl_footerMenuPostList_childList_item">
-                                            <h4 class="el_footerMenuPostList_item_child_ttl"><?php echo $childrenMenuCategory->name; ?></h4>
+                                            <h3 class="el_footerMenuPostList_item_child_ttl"><?php echo $childrenMenuCategory->name; ?></h3>
                                             <?php
                                             $childrenMenuPosts = get_posts(array(
                                                 'post_type' => 'menu',

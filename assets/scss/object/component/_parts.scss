@@ -781,6 +781,11 @@
             margin-top: rem(30);
         }
 
+        .swiper-slide {
+            max-width: rem(340);
+            width: 100%;
+        }
+
 
         .bl_commonBlogSwiper_prev,
         .bl_commonBlogSwiper_next {
@@ -841,7 +846,7 @@
         justify-content: center;
         align-items: center;
         gap: rem(4);
-        margin-top: rem(20);
+        margin-top: rem(30);
 
         .swiper-pagination-bullet {
             max-width: rem(18);

@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const blogSwiper = blogSContainer.querySelector('.bl_commonBlogSwiper');
         const blogSwiperPagination = blogSContainer.querySelector('.bl_commonBlogSwiper_pagination');
         new Swiper(blogSwiper, {
-            slidesPerView: 1.5,
+            slidesPerView: "auto",
             spaceBetween: 20,
             centeredSlides: true,
             breakpoints: {

@@ -125,6 +125,14 @@
         flex-direction: column;
         gap: rem(20);
 
+        @include underSP {
+            position: relative;
+            top: auto;
+            max-width: rem(388);
+            width: 100%;
+            margin-inline: auto;
+        }
+
         .bl_blogArchiveListContainer_nav_searchContainer {
 
             .bl_blogArchiveListContainer_nav_searchContainer_form {
@@ -300,7 +308,7 @@
     .bl_shareContainer_linkContainer {
         display: grid;
         grid-template-columns: auto auto;
-        gap: rem(10);
+        gap: rem(15);
         align-items: center;
 
         @include underSP {
@@ -329,6 +337,7 @@
             font-weight: 400;
             line-height: 1.8;
             letter-spacing: calc(1.12 / 14 * 1em);
+            transition: opacity 0.5s ease;
 
             @media (any-hover: hover) {
                 &:hover {
@@ -340,8 +349,9 @@
 
         .bl_shareContainer_snsContainer {
             display: grid;
-            grid-template-columns: repeat(3, rem(28));
-            gap: rem(4);
+            grid-template-columns: rem(28) rem(24) rem(20);
+            gap: rem(15);
+            align-items: center;
 
             @include underSP_s {
                 gap: rem(8);
@@ -353,6 +363,7 @@
                 width: 100%;
                 height: auto;
                 aspect-ratio: 1/1;
+                transition: opacity 0.5s ease;
 
                 img {
                     display: block;

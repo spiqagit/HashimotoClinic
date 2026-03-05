@@ -124,7 +124,7 @@
                                                                 </a>
 
                                                                 <div class="bl_commonBlogSlideBtn_lower">
-                                                                    <time class="el_commonBlogSlideBtn_lower_time"><?php echo get_the_date('Y.m.d', $relatedBlogPost->ID); ?></time>
+                                                                    <time class="el_commonBlogSlideBtn_lower_time" datetime="<?php echo get_the_date('Y-m-d', $relatedBlogPost->ID); ?>"><?php echo get_the_date('Y.m.d', $relatedBlogPost->ID); ?></time>
 
                                                                     <?php
                                                                     $categoryList = get_the_category($relatedBlogPost->ID);
@@ -137,11 +137,11 @@
                                                                         </div>
                                                                     <?php endif; ?>
 
-                                                                    <h1 class="el_commonBlogSlideBtn_lower_ttl">
+                                                                    <h2 class="el_commonBlogSlideBtn_lower_ttl">
                                                                         <a class="el_commonBlogSlideBtn_lower_ttl_link" href="<?php the_permalink($relatedBlogPost->ID); ?>">
                                                                             <?php echo get_the_title($relatedBlogPost->ID); ?>
                                                                         </a>
-                                                                    </h1>
+                                                                    </h2>
                                                                 </div>
                                                             </article>
                                                         </div>
