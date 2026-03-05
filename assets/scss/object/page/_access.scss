@@ -167,6 +167,9 @@
 
                         .bl_accessRoutelist_item {
                             position: relative;
+                            @include underSP {
+                                max-width: rem(300);
+                            }
 
                             &::after {
                                 content: '';
@@ -294,6 +297,10 @@
                 max-width: rem(580);
                 width: 100%;
                 margin-inline: auto;
+
+                @media screen and (max-width: 768px) {
+                    grid-template-columns: 1fr;
+                }
 
 
                 .bl_accessParkingInfoWrapper_parkinglinkList_item {

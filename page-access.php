@@ -3,8 +3,9 @@
  * Template Name: Access
  */
 ?>
-<?php wp_head(); ?>
+
 <?php get_header('meta'); ?>
+<?php wp_head(); ?>
 </head>
 
 <body class="">
@@ -209,7 +210,7 @@
                                                         <div class="bl_accessParkingInfoWrapper_detailsWrapper">
                                                             <div class="bl_accessParkingInfoWrapper_detailsWrapper_item">
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl">
-                                                                    <h5 class="el_accessParkingInfoWrapper_detailsWrapper_ttl_ttl">名鉄協商パーキング</h5>
+                                                                    <h4 class="el_accessParkingInfoWrapper_detailsWrapper_ttl_ttl">名鉄協商パーキング</h5>
                                                                     
                                                                     <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList">
                                                                         <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣2か所にございます。</p>
@@ -236,21 +237,21 @@
 
                                                             <div class="bl_accessParkingInfoWrapper_detailsWrapper_item">
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl">
-                                                                    <h5 class="el_accessParkingInfoWrapper_detailsWrapper_ttl_ttl">タイムズ三島一番町</h5>
+                                                                    <h4 class="el_accessParkingInfoWrapper_detailsWrapper_ttl_ttl">タイムズ三島一番町</h5>
                                                                     
                                                                     <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList">
                                                                         <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣2か所にございます。</p>
                                                                         <ol class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list">
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9312;タイムズ三島南口寿町</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9313;タイムズ三島一番町第2</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9313;タイムズ三島一番町第3</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9313;タイムズ三島一番町第4</li>
+                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">①タイムズ三島南口寿町</li>
+                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">②タイムズ三島一番町第2</li>
+                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">③タイムズ三島一番町第3</li>
+                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">④タイムズ三島一番町第4</li>
                                                                         </ol>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_details">
-                                                                    <a href="https://times-shizuoka.com/parking/detail/" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
+                                                                    <a href="https://times-info.net/P22-shizuoka/C206/park-detail-BUK0042887/" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
                                                                         <p>タイムズ三島一番町について</p>
                                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon.svg" alt="">
                                                                     </a>

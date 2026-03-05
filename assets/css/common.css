@@ -6107,6 +6107,11 @@ CTAボタン
 .bl_accessArchiveContainer .bl_accessArchiveContainer_item .bl_accessRouteContainer .bl_accessRouteContainer_item .bl_accessRoutelistContainer .bl_accessRoutelistSwiper .bl_accessRoutelist_item {
   position: relative;
 }
+@media screen and (width <= 1024px) {
+  .bl_accessArchiveContainer .bl_accessArchiveContainer_item .bl_accessRouteContainer .bl_accessRouteContainer_item .bl_accessRoutelistContainer .bl_accessRoutelistSwiper .bl_accessRoutelist_item {
+    max-width: 18.75rem;
+  }
+}
 .bl_accessArchiveContainer .bl_accessArchiveContainer_item .bl_accessRouteContainer .bl_accessRouteContainer_item .bl_accessRoutelistContainer .bl_accessRoutelistSwiper .bl_accessRoutelist_item::after {
   content: "";
   position: absolute;
@@ -6215,6 +6220,11 @@ CTAボタン
   max-width: 36.25rem;
   width: 100%;
   margin-inline: auto;
+}
+@media screen and (max-width: 768px) {
+  .bl_accessParkingContainer .bl_accessParkingInfoWrapper .bl_accessParkingInfoWrapper_contents .bl_accessParkingInfoWrapper_parkinglinkList {
+    grid-template-columns: 1fr;
+  }
 }
 .bl_accessParkingContainer .bl_accessParkingInfoWrapper .bl_accessParkingInfoWrapper_contents .bl_accessParkingInfoWrapper_parkinglinkList .bl_accessParkingInfoWrapper_parkinglinkList_item {
   display: grid;
