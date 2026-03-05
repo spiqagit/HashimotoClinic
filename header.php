@@ -51,14 +51,14 @@
 
                                 <a href="<?php the_sub_field('mypage-login'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
                                     <div class="bl_commonCtaBtn_inner">
-                                        <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon.svg" alt="">
+                                        <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon.svg" alt="マイページ">
                                         <p class="el_commonCtaBtn_txt">マイページログイン</p>
                                     </div>
                                 </a>
 
                                 <a href="<?php the_sub_field('line-resere'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
                                     <div class="bl_commonCtaBtn_inner">
-                                        <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/line-icon.svg" alt="">
+                                        <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/line-icon.svg" alt="LINE">
                                         <p class="el_commonCtaBtn_txt">LINE予約</p>
                                     </div>
                                 </a>
@@ -194,14 +194,14 @@
 
                             <a href="<?php the_sub_field('mypage-login'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
                                 <div class="bl_commonCtaBtn_inner">
-                                    <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon.svg" alt="">
+                                    <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon.svg" alt="マイページ">
                                     <p class="el_commonCtaBtn_txt">マイページログイン</p>
                                 </div>
                             </a>
 
                             <a href="<?php the_sub_field('line-resere'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
                                 <div class="bl_commonCtaBtn_inner">
-                                    <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/line-icon.svg" alt="">
+                                    <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/line-icon.svg" alt="LINE">
                                     <p class="el_commonCtaBtn_txt">LINE予約</p>
                                 </div>
                             </a>
@@ -214,19 +214,19 @@
                     <div class="bl_commonSnsList">
 
                         <?php if (get_field('instagram', 'option')): ?>
-                            <a href="<?php echo get_field('instagram', 'option'); ?>" class="bl_commonSnsList_item">
+                            <a href="<?php echo get_field('instagram', 'option'); ?>" target="_blank" rel="noopener noreferrer" class="bl_commonSnsList_item">
                                 <img class="el_commonSnsList_item_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/instagram-black.svg" alt="Instagram">
                             </a>
                         <?php endif; ?>
 
                         <?php if (get_field('tiktok', 'option')): ?>
-                            <a href="<?php echo get_field('tiktok', 'option'); ?>" class="bl_commonSnsList_item">
+                            <a href="<?php echo get_field('tiktok', 'option'); ?>" target="_blank" rel="noopener noreferrer" class="bl_commonSnsList_item">
                                 <img class="el_commonSnsList_item_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-tiktok-black.svg" alt="TikTok">
                             </a>
                         <?php endif; ?>
 
                         <?php if (get_field('youtube', 'option')): ?>
-                            <a href="<?php echo get_field('tiktok', 'option'); ?>" class="bl_commonSnsList_item">
+                            <a href="<?php echo get_field('tiktok', 'option'); ?>" target="_blank" rel="noopener noreferrer"    class="bl_commonSnsList_item">
                                 <img class="el_commonSnsList_item_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-youtube-black.svg" alt="YouTube">
                             </a>
                         <?php endif; ?>

@@ -7,11 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerView: 1,
         loop: true,
         spaceBetween: 90,
-        loopAdditionalSlides: 2,
+        loopAdditionalSlides: 1,
         centeredSlides: true,
         speed: 1000,
         breakpoints: {
             1024: {
+                spaceBetween: 24,
+            },
+            768: {
                 slidesPerView: 3,
                 spaceBetween: 90,
                 loopAdditionalSlides: 2,
@@ -52,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //症例
     const topCaseContainer = document.querySelector('.bl_topCaseSwiper');
     const topCaseSwiper = new Swiper(topCaseContainer, {
-        slidesPerView: 1.2,
-        spaceBetween: 20,
+        slidesPerView: 'auto',
+        spaceBetween: 35,
         centeredSlides: true,
         watchSlidesProgress: true,
         breakpoints: {

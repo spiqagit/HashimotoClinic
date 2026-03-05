@@ -370,7 +370,7 @@ html {
 .ly_header_contentsWrapper .bl_header_contentsWrapper_lower .bl_header_contentsWrapper_telWrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 0.125rem;
 }
 @media screen and (width <= 1024px) {
   .ly_header_contentsWrapper .bl_header_contentsWrapper_lower .bl_header_contentsWrapper_telWrapper {
@@ -532,9 +532,9 @@ html {
   right: 0;
   height: 100%;
   background-color: #fff;
-  z-index: 9999;
+  z-index: 10000;
   width: 100%;
-  max-width: 37.5rem;
+  max-width: 42.5rem;
   transform: translateX(100%);
 }
 .bl_commonToggleNav .bl_commonToggleNav_inner {
@@ -561,6 +561,11 @@ html {
   margin-left: auto;
   margin-bottom: 1.875rem;
 }
+@media screen and (width <= 1024px) {
+  .bl_commonToggleNav .bl_commonToggleNav_closeBtn {
+    max-width: 1.375rem;
+  }
+}
 .bl_commonToggleNav .bl_commonToggleNav_closeBtn .el_commonToggleNav_closeBtn_line {
   position: absolute;
   width: 100%;
@@ -576,6 +581,9 @@ html {
 }
 .bl_commonToggleNav .bl_commonToggleNav_closeBtn .el_commonToggleNav_closeBtn_line:nth-child(2) {
   rotate: -45deg;
+}
+.bl_commonToggleNav .bl_commonNavBtnList {
+  grid-template-columns: repeat(2, 1fr);
 }
 @media screen and (width <= 1024px) {
   .bl_commonToggleNav .bl_commonNavBtnList {
@@ -638,11 +646,11 @@ html {
   align-items: center;
   margin-bottom: 1.5rem;
 }
-@media screen and (width <= 480px) {
+@media screen and (max-width: 650px) {
   .bl_commonToggleNav .bl_commonToggleNav_lower .bl_commonToggleNav_infoWrapper .bl_commonToggleNav_infoWrapper_ctaWrapper {
+    grid-template-columns: repeat(1, 1fr);
     max-width: 17.5rem;
     margin-inline: auto;
-    grid-template-columns: repeat(1, 1fr);
   }
 }
 .bl_commonToggleNav .bl_commonToggleNav_lower .bl_commonToggleNav_infoWrapper .bl_commonToggleNav_infoWrapper_ctaWrapper .bl_commonCtaBtn .el_commonCtaBtn_txt {
@@ -728,12 +736,16 @@ html {
   padding-block: 3.75rem;
   background-color: var(--black);
   border-radius: 3.75rem 3.75rem 0 0;
-  padding-inline: 1.25rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_footerReserveContainer .bl_footerReserveContainer_section {
+    padding-inline: 1.25rem;
+  }
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner {
   display: grid;
   grid-template-columns: 1fr 37.25rem;
-  max-width: 75rem;
+  padding-right: 7.5rem;
   align-items: center;
   width: 100%;
   margin-inline: auto;
@@ -795,7 +807,7 @@ html {
 }
 @media screen and (width <= 1024px) {
   .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_footerReserveContainer_section_contents .bl_common_telWrapper .el_common_telLink {
-    font-size: 1.25rem;
+    font-size: 2.125rem;
   }
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_footerReserveContainer_section_contents .bl_common_telWrapper .el_common_telHour {
@@ -814,6 +826,8 @@ html {
 @media screen and (width <= 1024px) {
   .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_footerReserveContainer_section_contents .bl_header_contentsWrapper_ctaWrapper {
     grid-template-columns: repeat(1, 1fr);
+    max-width: 31.25rem;
+    margin-inline: auto;
   }
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_footerReserveContainer_section_contents .bl_commonCtaBtn .bl_commonCtaBtn_inner {
@@ -839,6 +853,9 @@ html {
   border-radius: 0.25rem;
   padding: 0.3125rem;
   aspect-ratio: 1/1;
+  height: auto;
+  width: 100%;
+  max-width: 1.875rem;
   transition: opacity 0.5s ease;
 }
 @media (any-hover: hover) {
@@ -936,6 +953,11 @@ html {
   font-size: 1.25rem;
   font-weight: 500;
 }
+@media screen and (width <= 1024px) {
+  .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .el_footerScheduleContainer_list_item_ttl {
+    font-size: 1rem;
+  }
+}
 .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .el_footerScheduleContainer_list_item_ttl .bl_footerScheduleContainer_list_item_inner {
   display: flex;
   flex-direction: column;
@@ -972,12 +994,26 @@ html {
   border-radius: 100%;
   max-width: 2rem;
   border: none;
+  transition: opacity 0.5s ease;
+}
+@media (any-hover: hover) {
+  .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .bl_scheduleContainer_upper_prev:hover,
+  .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .bl_scheduleContainer_upper_next:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
 }
 .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .bl_scheduleContainer_upper_prev img,
 .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .bl_scheduleContainer_upper_next img {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+.bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .swiper-button-disabled {
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  cursor: default;
 }
 .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item .bl_scheduleContainer .bl_scheduleContainer_upper .bl_scheduleSwiper {
   max-width: 28.625rem;
@@ -1026,6 +1062,11 @@ html {
   gap: 7rem;
 }
 @media screen and (width <= 1024px) {
+  .bl_footerClinicBranchContainer .bl_footerClinicBranchContainer_inner .bl_footerClinicBranchWrapper {
+    gap: 1.875rem;
+  }
+}
+@media screen and (max-width: 768px) {
   .bl_footerClinicBranchContainer .bl_footerClinicBranchContainer_inner .bl_footerClinicBranchWrapper {
     grid-template-columns: 1fr;
     gap: 1.875rem;
@@ -1081,7 +1122,8 @@ html {
 .bl_footerClinicBranchContainer .bl_footerClinicBranchContainer_inner .bl_footerClinicBranchWrapper .bl_footerClinicBranchWrapper_infoWrapper .bl_footerClinicBranchWrapper_infoWrapper_cliniInfoList {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 .bl_footerClinicBranchContainer .bl_footerClinicBranchContainer_inner .bl_footerClinicBranchWrapper .bl_footerClinicBranchWrapper_infoWrapper .bl_footerClinicBranchWrapper_infoWrapper_cliniInfoList .bl_footerClinicBranchWrapper_infoWrapper_cliniInfoList_item {
   display: grid;
@@ -2286,7 +2328,7 @@ CTAボタン
 .bl_commonNavBtnList .bl_commonNavBtnList_item {
   width: 100%;
   display: grid;
-  grid-template-columns: max-content 0.625rem;
+  grid-template-columns: max-content 0.5rem;
   gap: 0.625rem;
   align-items: center;
   justify-content: space-between;
@@ -2686,7 +2728,7 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_commonFrontPage {
-    padding-top: 6.25rem;
+    padding-top: 6.1875rem;
   }
 }
 
@@ -2742,8 +2784,8 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_fvSlideSwiperContainer {
+    padding-top: 0;
     padding-bottom: 1.25rem;
-    padding-top: 1.25rem;
   }
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper {
@@ -2804,7 +2846,7 @@ CTAボタン
     top: auto;
     bottom: -0.3125rem;
     transform: translate(-50%, 0);
-    max-width: 98%;
+    width: 90%;
   }
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_btnContainer .bl_fvSlideSwiper_prev,
@@ -2884,7 +2926,6 @@ CTAボタン
   width: fit-content;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_pageNationContainer .bl_fvSlideSwiper_pagination .swiper-pagination-bullet {
   display: block;
@@ -3003,6 +3044,12 @@ CTAボタン
   transition: opacity 0.5s ease;
   cursor: pointer;
 }
+@media (any-hover: hover) {
+  .bl_frontMenuSection .bl_menuPartsCatContainer .bl_frontMenuSection_selectMenuPostContainer .bl_frontMenuSection_selectMenuPostItem:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
+}
 .bl_frontMenuSection .bl_menuPartsCatContainer .bl_frontMenuSection_selectMenuPostContainer .bl_frontMenuSection_selectMenuPostItem .el_frontMenuSection_selectMenuPostItem_ttl {
   color: var(--black);
   font-family: var(--subFontJa);
@@ -3068,6 +3115,8 @@ CTAボタン
 .bl_frontCaseSection .bl_topCaseSwiperContainer .bl_topCaseSwiper .swiper-slide {
   opacity: 0.5;
   transition: opacity 0.5s ease;
+  max-width: 21.25rem;
+  width: 100%;
 }
 .bl_frontCaseSection .bl_topCaseSwiperContainer .bl_topCaseSwiper .swiper-slide-visible {
   opacity: 1;
@@ -3389,6 +3438,12 @@ CTAボタン
   }
 }
 @media screen and (width <= 1024px) {
+  .bl_frontBlogSection .bl_frontBlogSection_inner .bl_frontBlogSwiperContainer .bl_frontBlogSwiper_btnContainer .swiper-button-disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+    transition: opacity 0.5s ease;
+  }
   .bl_frontBlogSection .bl_frontBlogSection_inner .bl_frontBlogSwiperContainer .bl_frontBlogSwiper_btnContainer .bl_frontBlogSwiper_pagination {
     width: fit-content;
     display: flex;
@@ -3597,19 +3652,14 @@ CTAボタン
 .bl_menuPartsCatContainer .el_menuPartsCatContainer_ttl {
   color: var(--black);
   font-family: var(--mainFont);
-  font-size: 1.875rem;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.08em;
   margin-bottom: 1.875rem;
   width: fit-content;
   margin-inline: auto;
-  margin-bottom: 1.875rem;
-}
-@media screen and (width <= 1024px) {
-  .bl_menuPartsCatContainer .el_menuPartsCatContainer_ttl {
-    font-size: 1.5rem;
-  }
+  margin-bottom: 1.8125rem;
 }
 .bl_menuPartsCatContainer .bl_menuPartsCatContainer_btnContainer {
   display: grid;
@@ -3630,7 +3680,7 @@ CTAボタン
   font-family: var(--subFontEn);
   font-size: 1.75rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: 0.08em;
   padding-top: 2rem;
   padding-bottom: 1.75rem;
@@ -3661,7 +3711,7 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_menuPartsCatContainer .bl_menuPartsCatContainer_tabContents {
-    padding-inline: 0.625rem;
+    padding-inline: 0.9375rem;
     padding-block: 1.875rem;
   }
 }
@@ -4405,7 +4455,7 @@ CTAボタン
 }
 .bl_newsArchiveList .bl_commonNewsPost {
   padding-bottom: 1.5rem;
-  border-bottom: 1px dashed var(--black);
+  border-bottom: 1px dashed rgba(52, 49, 44, 0.3);
   transition: opacity 0.5s ease;
 }
 @media (any-hover: hover) {
@@ -4415,6 +4465,7 @@ CTAボタン
   }
 }
 .bl_newsArchiveList .bl_commonNewsPost .el_commonNewsPost_time {
+  display: block;
   color: var(--black);
   font-family: var(--subFontJa);
   font-size: 0.875rem;
@@ -6371,7 +6422,6 @@ CTAボタン
   }
 }
 .bl_faqArchive .bl_faqArchive_inner .bl_faqArchive_contents .bl_faqArchive_contents_item {
-  scroll-margin-top: 200px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -7526,12 +7576,6 @@ CTAボタン
   line-height: 1.8;
   letter-spacing: 0.08em;
   width: 100%;
-}
-.bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_contactContainer_emailMatchError {
-  color: #d63638;
-  font-size: 0.875rem;
-  margin-top: -1.875rem;
-  margin-bottom: 0.625rem;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer form {
   display: flex;

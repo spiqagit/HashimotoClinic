@@ -481,7 +481,7 @@
                 <?php endif; ?>
 
                 <div class="bl_commonAllBtnContainer">
-                    <a href="<?php echo home_url(); ?>/doctor/" class="bl_commonAllBtn">
+                    <a href="<?php echo home_url(); ?>/news/" class="bl_commonAllBtn">
                         <p class="bl_commonAllBtn_txt">お知らせ一覧はこちら</p>
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow.svg" alt="">
                     </a>

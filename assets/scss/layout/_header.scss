@@ -173,7 +173,7 @@
         .bl_header_contentsWrapper_telWrapper {
             display: flex;
             flex-direction: column;
-            gap: rem(10);
+            gap: rem(2);
 
             @include underSP {
                 display: none;
@@ -354,9 +354,9 @@
     right: 0;
     height: 100%;
     background-color: #fff;
-    z-index: 9999;
+    z-index: 10000;
     width: 100%;
-    max-width: rem(600);
+    max-width: rem(680);
     transform: translateX(100%);
 
     .bl_commonToggleNav_inner {
@@ -383,6 +383,10 @@
         margin-left: auto;
         margin-bottom: rem(30);
 
+        @include underSP {
+            max-width: rem(22);
+        }
+
         .el_commonToggleNav_closeBtn_line {
             position: absolute;
             width: 100%;
@@ -405,6 +409,8 @@
     }
 
     .bl_commonNavBtnList {
+        grid-template-columns: repeat(2, 1fr);
+        
         @include underSP {
             grid-template-columns: repeat(2, 1fr);
             column-gap: rem(28);
@@ -470,11 +476,12 @@
                 align-items: center;
                 margin-bottom: rem(24);
 
-                @include underSP_m {
+                @media screen and (max-width: 650px) {
+                    grid-template-columns: repeat(1, 1fr);
                     max-width: rem(280);
                     margin-inline: auto;
-                    grid-template-columns: repeat(1, 1fr);
                 }
+
 
                 .bl_commonCtaBtn {
 

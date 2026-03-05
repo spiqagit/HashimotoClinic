@@ -253,9 +253,9 @@ $clinicPostList = get_posts(array(
                     <?php foreach ($menu_categories as $menu_category): ?>
 
                         <div class="bl_footerMenuPostList_item">
-                            <h3 class="el_footerMenuPostList_item_ttl">
+                            <h2 class="el_footerMenuPostList_item_ttl">
                                 <span class="el_footerMenuPostList_item_ttl_txt"><?php echo $menu_category->name; ?></span>
-                            </h3>
+                            </h2>
 
                             <?php
                             $childrenMenuCategories = get_terms(array(
@@ -381,7 +381,7 @@ $clinicPostList = get_posts(array(
                         </a>
 
                         <a href="<?php echo home_url(); ?>/doctor/" class="bl_footerNavContainer_nav_item">
-                            <p class="el_footerNavContainer_nav_item_txt">医師紹介</p>
+                            <p class="el_footerNavContainer_nav_item_txt">ドクター紹介</p>
                             <img class="el_footerNavContainer_nav_item_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/footer-navicon-white.svg" alt="">
                         </a>
 

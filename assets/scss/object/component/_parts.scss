@@ -1041,7 +1041,7 @@ CTAボタン
     .bl_commonNavBtnList_item {
         width: 100%;
         display: grid;
-        grid-template-columns: max-content rem(10);
+        grid-template-columns: max-content rem(8);
         gap: rem(10);
         align-items: center;
         justify-content: space-between;
