@@ -36,7 +36,7 @@
 
         <?php if (is_singular('menu') && !is_post_type_archive('menu')): ?>
             <li class="bl_breadcrumbs_list_item">
-                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/menu/">施術メニュー</a>
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/service/">施術メニュー</a>
             </li>
             <li class="bl_breadcrumbs_list_item">
                 <p class="bl_breadcrumbs_list_item_text"><?php the_title(); ?></p>

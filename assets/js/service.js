@@ -152,15 +152,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.bl_menuCaseSwiper').forEach(function (swiper) {
         new Swiper(swiper, {
-            slidesPerView: 1,
+            slidesPerView: "auto",
             spaceBetween: 20,
             centeredSlides: true,
-            breakpoints: {
-                1024: {
-                    slidesPerView: "auto",
-                    spaceBetween: 30,
-                },
-            },
             navigation: {
                 nextEl: document.querySelector('.bl_menuCaseSwiper_next'),
                 prevEl: document.querySelector('.bl_menuCaseSwiper_prev'),

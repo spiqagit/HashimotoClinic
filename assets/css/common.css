@@ -2466,7 +2466,7 @@ CTAボタン
   max-width: 44.375rem;
   width: 100%;
 }
-@media screen and (width <= 1024px) {
+@media (max-width: 48rem) {
   .bl_commonDownBtnContainer {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -2489,6 +2489,18 @@ CTAボタン
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.08em;
+  transition: opacity 0.5s ease;
+}
+@media (any-hover: hover) {
+  .bl_commonDownBtnContainer .bl_commonDownBtnContainer_item:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
+}
+@media screen and (width <= 375px) {
+  .bl_commonDownBtnContainer .bl_commonDownBtnContainer_item {
+    font-size: 1.125rem;
+  }
 }
 
 /* ------------------------------------------------------------------------------------------
@@ -3746,6 +3758,7 @@ CTAボタン
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 21.25rem), 1fr));
   column-gap: 2.5rem;
+  align-items: flex-start;
   row-gap: 1.25rem;
   width: 100%;
 }
@@ -3953,7 +3966,7 @@ CTAボタン
 ------------------------------------------------------------------------------------------ */
 .bl_menuArticle_header {
   display: grid;
-  grid-template-columns: 1fr clamp(23.05625rem, 36.5972222222vw, 49.40625rem);
+  grid-template-columns: auto 32.9375rem;
   gap: 1.875rem;
   align-items: center;
   padding-inline: clamp(5.25rem, 8.3333333333vw, 11.25rem);
@@ -3965,8 +3978,11 @@ CTAボタン
     gap: 1.25rem;
     padding-inline: 1.25rem;
     padding-top: 1.875rem;
-    padding-bottom: 3.75rem;
+    padding-bottom: 0;
   }
+}
+.bl_menuArticle_header .bl_menuArticle_header_ttlContainer {
+  overflow: hidden;
 }
 @media screen and (width <= 1024px) {
   .bl_menuArticle_header .bl_menuArticle_header_ttlContainer {
@@ -4252,6 +4268,12 @@ CTAボタン
     transition: opacity 0.5s ease;
   }
 }
+.bl_menuCaseSwiperContainer .swiper-button-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+  transition: opacity 0.5s ease;
+}
 .bl_menuCaseSwiperContainer .bl_menuCaseSwiper_prev {
   grid-row: 2;
   grid-column: 1;
@@ -4274,11 +4296,6 @@ CTAボタン
 .bl_menuCaseSwiperContainer .bl_menuCaseSwiper .swiper-slide {
   max-width: 21.25rem;
   width: 100% !important;
-}
-@media screen and (width <= 1024px) {
-  .bl_menuCaseSwiperContainer .bl_menuCaseSwiper .swiper-slide {
-    max-width: 100% !important;
-  }
 }
 
 .bl_relatedPriceBlock:not(:first-child) {
