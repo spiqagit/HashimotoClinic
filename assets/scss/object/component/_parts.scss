@@ -33,12 +33,17 @@
 
     @include underSP {
         padding-inline: rem(24);
+        padding-bottom: rem(60);
     }
 
     .bl_commonlowerPage_ttl {
         display: flex;
         flex-direction: column;
         gap: rem(24);
+
+        @include underSP {
+            gap: rem(14);
+        }
 
         .bl_commonlowerPage_ttl_enTtl {
             color: var(--black);
@@ -47,6 +52,10 @@
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: calc(2.2 / 22 * 1em);
+
+            @include underSP {
+                font-size: rem(20);
+            }
         }
 
         .bl_commonlowerPage_ttl_jaTtl {
@@ -56,6 +65,10 @@
             font-weight: 600;
             line-height: 1.2;
             letter-spacing: calc(3.2 / 40 * 1em);
+
+            @include underSP {
+                font-size: rem(36);
+            }
         }
     }
 }
@@ -140,6 +153,14 @@
         &:hover {
             opacity: 0.6;
             transition: opacity 0.5s ease;
+        }
+    }
+
+    .is-sp {
+        display: none;
+
+        @include underSP {
+            display: block;
         }
     }
 }
@@ -457,7 +478,7 @@
         display: block;
         padding: rem(20);
         transition: opacity 0.5s ease;
-        
+
         @media (any-hover: hover) {
             &:hover {
                 opacity: 0.6;

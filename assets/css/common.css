@@ -1469,12 +1469,18 @@ html {
 @media screen and (width <= 1024px) {
   .bl_commonlowerPage_ttlContainer {
     padding-inline: 1.5rem;
+    padding-bottom: 3.75rem;
   }
 }
 .bl_commonlowerPage_ttlContainer .bl_commonlowerPage_ttl {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_commonlowerPage_ttlContainer .bl_commonlowerPage_ttl {
+    gap: 0.875rem;
+  }
 }
 .bl_commonlowerPage_ttlContainer .bl_commonlowerPage_ttl .bl_commonlowerPage_ttl_enTtl {
   color: var(--black);
@@ -1484,6 +1490,11 @@ html {
   line-height: 1.2;
   letter-spacing: 0.1em;
 }
+@media screen and (width <= 1024px) {
+  .bl_commonlowerPage_ttlContainer .bl_commonlowerPage_ttl .bl_commonlowerPage_ttl_enTtl {
+    font-size: 1.25rem;
+  }
+}
 .bl_commonlowerPage_ttlContainer .bl_commonlowerPage_ttl .bl_commonlowerPage_ttl_jaTtl {
   color: var(--black);
   font-family: var(--subFontJa);
@@ -1491,6 +1502,11 @@ html {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0.08em;
+}
+@media screen and (width <= 1024px) {
+  .bl_commonlowerPage_ttlContainer .bl_commonlowerPage_ttl .bl_commonlowerPage_ttl_jaTtl {
+    font-size: 2.25rem;
+  }
 }
 
 .bl_breadcrumbs {
@@ -1561,6 +1577,14 @@ html {
   .bl_commonDownloadBtn:hover {
     opacity: 0.6;
     transition: opacity 0.5s ease;
+  }
+}
+.bl_commonDownloadBtn .is-sp {
+  display: none;
+}
+@media screen and (width <= 1024px) {
+  .bl_commonDownloadBtn .is-sp {
+    display: block;
   }
 }
 
@@ -5254,6 +5278,11 @@ CTAボタン
   text-decoration-thickness: 1px;
   text-underline-offset: 0.75rem;
 }
+@media screen and (width <= 1024px) {
+  .bl_infoAboutContainer .bl_infoAboutContainer_inner .bl_infoAboutContainer_copyWrapper .el_infoAboutContainer_copyWrapper_txt {
+    font-size: 1.5rem;
+  }
+}
 .bl_infoAboutContainer .bl_infoAboutContainer_inner .bl_infoAboutContainer_copyWrapper .el_infoAboutContainer_copyWrapper_txt .is-sp {
   display: none;
 }
@@ -5330,7 +5359,6 @@ CTAボタン
 .bl_infoFeatureContainer .bl_infoContainer_featureList .bl_infoContainer_featureList_item {
   position: relative;
   padding-top: 2.5625rem;
-  padding-bottom: 1.5rem;
 }
 .bl_infoFeatureContainer .bl_infoContainer_featureList .bl_infoContainer_featureList_item::before {
   content: "";
@@ -5380,6 +5408,7 @@ CTAボタン
   border-radius: 0.625rem;
   padding: 1.5rem;
   position: relative;
+  height: 100%;
   z-index: 1;
 }
 .bl_infoFeatureContainer .bl_infoContainer_featureList .bl_infoContainer_featureList_item .bl_infoContainer_featureList_item_txtWrapper .el_infoContainer_featureList_item_txtWrapper_copy {
@@ -5470,6 +5499,11 @@ CTAボタン
 .bl_infoFlowContainer .bl_infoFlowContainer_inner .bl_infoFlowContainer_listWrapper .bl_infoFlowContainer_numListWrapper .bl_infoFlowContainer_numList .bl_infoFlowContainer_numList_item {
   padding-bottom: 3.125rem;
   border-bottom: 1px solid rgba(52, 49, 44, 0.3);
+}
+@media screen and (width <= 1024px) {
+  .bl_infoFlowContainer .bl_infoFlowContainer_inner .bl_infoFlowContainer_listWrapper .bl_infoFlowContainer_numListWrapper .bl_infoFlowContainer_numList .bl_infoFlowContainer_numList_item {
+    padding-bottom: 1.875rem;
+  }
 }
 .bl_infoFlowContainer .bl_infoFlowContainer_inner .bl_infoFlowContainer_listWrapper .bl_infoFlowContainer_numListWrapper .bl_infoFlowContainer_numList .bl_infoFlowContainer_numList_item .el_infoFlowContainer_numList_item_img {
   display: none;
@@ -5735,11 +5769,16 @@ CTAボタン
     transition: opacity 0.5s ease;
   }
 }
+.bl_infoBranchClinicContainer .bl_infoBranchClinicContainer_inner .bl_infoBranchClinicSlideContainer .bl_infoBranchClinicSlideContainer_item .bl_clinicSwiperWrapper .bl_clinicSwiper_btnWrapper .swiper-button-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+  transition: opacity 0.5s ease;
+}
 .bl_infoBranchClinicContainer .bl_infoBranchClinicContainer_inner .bl_infoBranchClinicSlideContainer .bl_infoBranchClinicSlideContainer_item .bl_clinicSwiperWrapper .bl_clinicSwiper_pagination {
   width: fit-content;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
   margin-inline: auto;
 }
 .bl_infoBranchClinicContainer .bl_infoBranchClinicContainer_inner .bl_infoBranchClinicSlideContainer .bl_infoBranchClinicSlideContainer_item .bl_clinicSwiperWrapper .bl_clinicSwiper_pagination .swiper-pagination-bullet {
@@ -6422,6 +6461,7 @@ CTAボタン
   }
 }
 .bl_faqArchive .bl_faqArchive_inner .bl_faqArchive_contents .bl_faqArchive_contents_item {
+  scroll-margin-top: 200px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -7576,6 +7616,12 @@ CTAボタン
   line-height: 1.8;
   letter-spacing: 0.08em;
   width: 100%;
+}
+.bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_contactContainer_emailMatchError {
+  color: #d63638;
+  font-size: 0.875rem;
+  margin-top: -1.875rem;
+  margin-bottom: 0.625rem;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer form {
   display: flex;

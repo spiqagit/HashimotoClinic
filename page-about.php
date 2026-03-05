@@ -61,7 +61,7 @@
                             <li class="bl_infoContainer_featureList_item">
                                 <p class="el_infoContainer_featureList_item_num">01</p>
                                 <div class="bl_infoContainer_featureList_item_txtWrapper">
-                                    <p class="el_infoContainer_featureList_item_txtWrapper_copy">医師による<br>誠実なカウンセリング</p>
+                                    <h4 class="el_infoContainer_featureList_item_txtWrapper_copy">医師による<br>誠実なカウンセリング</h4>
                                     <p class="el_infoContainer_featureList_item_txtWrapper_txt">カウンセラー任せにせず、医師が直接、手術内容からリスクまで十分に説明します。ご納得いただかないまま施術を勧めることはありません。</p>
                                 </div>
                             </li>
@@ -69,7 +69,7 @@
                             <li class="bl_infoContainer_featureList_item">
                                 <p class="el_infoContainer_featureList_item_num">02</p>
                                 <div class="bl_infoContainer_featureList_item_txtWrapper">
-                                    <p class="el_infoContainer_featureList_item_txtWrapper_copy">追加費用のない<br>「完全明朗会計」</p>
+                                    <h4 class="el_infoContainer_featureList_item_txtWrapper_copy">追加費用のない<br>「完全明朗会計」</h4>
                                     <p class="el_infoContainer_featureList_item_txtWrapper_txt">HP表示価格には、麻酔・薬代・カウンセリング料がすべて含まれています。剃り残し対応などの不透明な追加費用は一切ございません。</p>
                                 </div>
                             </li>
@@ -77,7 +77,7 @@
                             <li class="bl_infoContainer_featureList_item">
                                 <p class="el_infoContainer_featureList_item_num">03</p>
                                 <div class="bl_infoContainer_featureList_item_txtWrapper">
-                                    <p class="el_infoContainer_featureList_item_txtWrapper_copy">「痛み・腫れ」を<br>最小限に抑える技術</p>
+                                    <h4 class="el_infoContainer_featureList_item_txtWrapper_copy">「痛み・腫れ」を<br>最小限に抑える技術</h4>
                                     <p class="el_infoContainer_featureList_item_txtWrapper_txt">極細針の使用や熟練のスピード施術により、身体への負担を軽減。患者様が一番不安に思う「痛み」に対し、最大限の配慮を尽くします。</p>
                                 </div>
                             </li>
@@ -85,7 +85,7 @@
                             <li class="bl_infoContainer_featureList_item">
                                 <p class="el_infoContainer_featureList_item_num">04</p>
                                 <div class="bl_infoContainer_featureList_item_txtWrapper">
-                                    <p class="el_infoContainer_featureList_item_txtWrapper_copy">1年間の充実したアフターケア</p>
+                                    <h4 class="el_infoContainer_featureList_item_txtWrapper_copy">1年間の充実したアフターケア</h4>
                                     <p class="el_infoContainer_featureList_item_txtWrapper_txt">すべての施術に1年間のアフターケア料金が含まれています。術後の些細な不安も、遠慮なくご相談いただける体制を整えています。</p>
                                 </div>
                             </li>
@@ -93,7 +93,7 @@
                             <li class="bl_infoContainer_featureList_item">
                                 <p class="el_infoContainer_featureList_item_num">05</p>
                                 <div class="bl_infoContainer_featureList_item_txtWrapper">
-                                    <p class="el_infoContainer_featureList_item_txtWrapper_copy">モニター価格に<br>頼らない適正価格</p>
+                                    <h4 class="el_infoContainer_featureList_item_txtWrapper_copy">モニター価格に<br>頼らない適正価格</h4>
                                     <p class="el_infoContainer_featureList_item_txtWrapper_txt">当院の基本料金は、モニター前提の価格ではありません。どなたでも安心して受けていただける適正価格を提示し、モニターご協力時にはさらに割引を適用いたします。</p>
                                 </div>
                             </li>
@@ -101,7 +101,7 @@
                             <li class="bl_infoContainer_featureList_item">
                                 <p class="el_infoContainer_featureList_item_num">06</p>
                                 <div class="bl_infoContainer_featureList_item_txtWrapper">
-                                    <p class="el_infoContainer_featureList_item_txtWrapper_copy">わたくし、橋本健太郎は<br>美容外科医でありながら<br>整形顔が嫌いです</p>
+                                    <h4 class="el_infoContainer_featureList_item_txtWrapper_copy">わたくし、橋本健太郎は<br>美容外科医でありながら<br>整形顔が嫌いです</h4>
                                     <p class="el_infoContainer_featureList_item_txtWrapper_txt"> どの施術においても｢いかにも整形しています｣の仕上りではなく、｢自然に生まれながら｣のように｢昔のあなた｣のように仕上げることをポリシーとして施術させて頂いております。</p>
                                 </div>
                             </li>
@@ -131,12 +131,12 @@
                                         <img class="el_infoFlowContainer_numList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/about/flow-01.jpg" alt="ご予約・無料相談">
                                         <div class="bl_infoFlowContainer_numList_item_ttlWrapper">
                                             <p class="el_infoFlowContainer_numList_item_ttlWrapper_num">01</p>
-                                            <p class="el_infoFlowContainer_numList_item_ttlWrapper_txt">ご予約・無料相談</p>
+                                            <h4 class="el_infoFlowContainer_numList_item_ttlWrapper_txt">ご予約・無料相談</h4>
                                         </div>
 
                                         <div class="bl_infoFlowContainer_infoWrapper">
                                             <div class="bl_infoFlowContainer_infoWrapper_item">
-                                                <p class="el_infoFlowContainer_infoWrapper_item_txt">メールでのご相談</p>
+                                                <h4 class="el_infoFlowContainer_infoWrapper_item_txt">メールでのご相談</h4>
                                                 <div class="bl_header_contentsWrapper_ctaWrapper">
                                                     <a href="<?php echo home_url(); ?>/contact/" class="bl_commonCtaBtn">
                                                         <div class="bl_commonCtaBtn_inner">
@@ -147,7 +147,7 @@
                                             </div>
 
                                             <div class="bl_infoFlowContainer_infoWrapper_item">
-                                                <p class="el_infoFlowContainer_infoWrapper_item_txt">お電話でのご相談</p>
+                                                <h4 class="el_infoFlowContainer_infoWrapper_item_txt">お電話でのご相談</h4>
                                                 <a class="el_infoFlowContainer_infoWrapper_item_telLink" href="tel:<?php echo get_field('tel', 'option'); ?>">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tel-icon.svg" alt="">
                                                     <p class="el_infoFlowContainer_infoWrapper_item_telLink_txt"><?php echo get_field('tel', 'option'); ?></p>
@@ -163,7 +163,7 @@
 
                                         <div class="bl_infoFlowContainer_numList_item_ttlWrapper">
                                             <p class="el_infoFlowContainer_numList_item_ttlWrapper_num">02</p>
-                                            <p class="el_infoFlowContainer_numList_item_ttlWrapper_txt">ご来院・無料カウンセリング</p>
+                                            <h4 class="el_infoFlowContainer_numList_item_ttlWrapper_txt">ご来院・無料カウンセリング</h4>
                                         </div>
 
                                         <div class="bl_infoFlowContainer_numList_item_txtWrapper">
@@ -176,7 +176,7 @@
 
                                         <div class="bl_infoFlowContainer_numList_item_ttlWrapper">
                                             <p class="el_infoFlowContainer_numList_item_ttlWrapper_num">03</p>
-                                            <p class="el_infoFlowContainer_numList_item_ttlWrapper_txt">治療・施術</p>
+                                            <h4 class="el_infoFlowContainer_numList_item_ttlWrapper_txt">治療・施術</h4>
                                         </div>
 
                                         <div class="bl_infoFlowContainer_numList_item_txtWrapper">
@@ -189,7 +189,7 @@
 
                                         <div class="bl_infoFlowContainer_numList_item_ttlWrapper">
                                             <p class="el_infoFlowContainer_numList_item_ttlWrapper_num">04</p>
-                                            <p class="el_infoFlowContainer_numList_item_ttlWrapper_txt">アフターケア</p>
+                                            <h4 class="el_infoFlowContainer_numList_item_ttlWrapper_txt">アフターケア</h4>
                                         </div>
 
                                         <div class="bl_infoFlowContainer_numList_item_txtWrapper">
@@ -280,7 +280,7 @@
 
                             <?php if (get_field('download-file', 'option')): ?>
                                 <a href="<?php echo get_field('download-file', 'option') ?>" download class="bl_commonDownloadBtn">
-                                    <p class="el_commonCtaBtn_txt">同意書をダウンロード</p>
+                                    <p class="el_commonCtaBtn_txt">同意書を<br class="is-sp">ダウンロード</p>
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/download-icon.svg" alt="">
                                 </a>
                             <?php endif; ?>

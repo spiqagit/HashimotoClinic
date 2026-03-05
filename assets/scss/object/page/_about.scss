@@ -59,6 +59,10 @@
                 text-decoration-thickness: 1px;
                 text-underline-offset: rem(12);
 
+                @include underSP {
+                    font-size: rem(24);
+                }
+
                 .is-sp {
                     display: none;
 
@@ -142,7 +146,6 @@
         .bl_infoContainer_featureList_item {
             position: relative;
             padding-top: rem(41);
-            padding-bottom: rem(24);
 
             &::before {
                 content: '';
@@ -195,6 +198,7 @@
                 border-radius: rem(10);
                 padding: rem(24);
                 position: relative;
+                height: 100%;
                 z-index: 1;
 
                 .el_infoContainer_featureList_item_txtWrapper_copy {
@@ -298,6 +302,10 @@
                     .bl_infoFlowContainer_numList_item {
                         padding-bottom: rem(50);
                         border-bottom: 1px solid rgba(52, 49, 44, 0.30);
+
+                        @include underSP {
+                            padding-bottom: rem(30);
+                        }
 
                         .el_infoFlowContainer_numList_item_img {
                             display: none;
@@ -589,6 +597,13 @@
                                 }
                             }
                         }
+
+                        .swiper-button-disabled{
+                            opacity: 0.6;
+                            pointer-events: none;
+                            cursor: default;
+                            transition: opacity 0.5s ease;
+                        }
                     }
 
 
@@ -596,7 +611,6 @@
                         width: fit-content;
                         display: flex;
                         align-items: center;
-                        gap: rem(4);
                         margin-inline: auto;
 
                         .swiper-pagination-bullet {
