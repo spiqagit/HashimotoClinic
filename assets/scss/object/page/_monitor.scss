@@ -20,6 +20,7 @@
             @include underSP {
                 grid-template-columns: 1fr 1fr;
                 row-gap: rem(26);
+                padding-bottom: rem(65);
             }
 
             .el_monitorContainer_aboutWrapper_img {
@@ -47,6 +48,10 @@
                     grid-row: 2;
                     margin-top: rem(42);
                 }
+
+                @include underSP_m {
+                    max-width: rem(150);
+                }
             }
 
             .el_monitorContainer_aboutWrapper_img02 {
@@ -64,10 +69,15 @@
                     grid-row: 2;
                     margin-left: auto;
                 }
+
+                @include underSP_m {
+                    max-width: rem(110);
+                }
             }
 
             .bl_monitorContainer_aboutWrapper_txtWrapper {
                 grid-column: 2;
+                padding-top: rem(50);
 
                 @include underSP {
                     grid-column: span 2;
@@ -115,6 +125,10 @@
 
                         @include underSP {
                             font-size: rem(22);
+                        }
+
+                        @include underSP_m {
+                            font-size: rem(18);
                         }
                     }
                 }
@@ -217,6 +231,10 @@
                     letter-spacing: calc(1.28 / 16 * 1em);
                     margin-bottom: rem(30);
 
+                    @include underSP {
+                        text-align: left;
+                    }
+
                     .el_monitorContainer_infoWrapper_txtWrapper_noteTxt_line {
                         color: var(--black);
                         font-family: var(--mainFont);
@@ -224,7 +242,7 @@
                         font-weight: 700;
                         line-height: 1.8;
                         letter-spacing: calc(1.28 / 16 * 1em);
-                        background-image: linear-gradient(180deg, rgba(144, 245, 154, 0) 72%, rgba(147, 146, 143, 1) 72%);
+                        background-image: linear-gradient(180deg, rgba(144, 245, 154, 0) 72%, rgb(147 146 143 / 30%) 72%);
                     }
                 }
             }
@@ -419,6 +437,11 @@
                         width: 2px;
                         height: 80%;
                     }
+
+                    @include underSP_m {
+                        top: rem(40);
+                        left: rem(40);
+                    }
                 }
 
                 .bl_monitorContainer_flowList_item {
@@ -432,8 +455,11 @@
                         gap: rem(20);
                     }
 
+                    @include underSP_m {
+                        grid-template-columns: rem(80) auto;
+                    }
+
                     .bl_monitorContainer_flowList_item_imgWrapper {
-                        padding: rem(25);
                         background-color: var(--gray);
                         border-radius: rem(4);
                         border: 1px solid rgba(52, 49, 44, 0.30);

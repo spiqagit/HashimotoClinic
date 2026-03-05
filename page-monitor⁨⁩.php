@@ -63,7 +63,7 @@
                                         </ul>
                                     </div>
                                     <div class="bl_monitorContainer_boxWrapper_item">
-                                        <p class="el_monitorContainer_boxWrapper_item_ttl">撮影部位</p>
+                                        <p class="el_monitorContainer_boxWrapper_item_ttl">ご協力いただく内容</p>
                                         <div class="bl_monitorContainer_boxWrapper_item_txtWrapper">
                                             <p class="el_monitorContainer_boxWrapper_item_txtWrapper_txt">写真･体験談</p>
                                         </div>
@@ -92,7 +92,7 @@
                             <ol class="bl_monitorContainer_flowList">
                                 <li class="bl_monitorContainer_flowList_item">
                                     <div class="bl_monitorContainer_flowList_item_imgWrapper">
-                                        <img class="el_monitorContainer_flowList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/monitor/flow-icon01.svg" alt="">
+                                        <img class="el_monitorContainer_flowList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/monitor/flow-icon01.svg" alt="カレンダーのアイコン">
                                     </div>
                                     <div class="bl_monitorContainer_flowList_item_txtWrapper">
                                         <p class="el_monitorContainer_flowList_item_txtWrapper_num">01</p>
@@ -118,7 +118,7 @@
                                 </li>
                                 <li class="bl_monitorContainer_flowList_item">
                                     <div class="bl_monitorContainer_flowList_item_imgWrapper">
-                                        <img class="el_monitorContainer_flowList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/monitor/flow-icon02.svg" alt="">
+                                        <img class="el_monitorContainer_flowList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/monitor/flow-icon02.svg" alt="医師のアイコン">
                                     </div>
                                     <div class="bl_monitorContainer_flowList_item_txtWrapper">
                                         <p class="el_monitorContainer_flowList_item_txtWrapper_num">02</p>
@@ -129,7 +129,7 @@
                                 </li>
                                 <li class="bl_monitorContainer_flowList_item">
                                     <div class="bl_monitorContainer_flowList_item_imgWrapper">
-                                        <img class="el_monitorContainer_flowList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/monitor/flow-icon03.svg" alt="">
+                                        <img class="el_monitorContainer_flowList_item_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/monitor/flow-icon03.svg" alt="施術のアイコン">
                                     </div>
                                     <div class="bl_monitorContainer_flowList_item_txtWrapper">
                                         <p class="el_monitorContainer_flowList_item_txtWrapper_num">03</p>
