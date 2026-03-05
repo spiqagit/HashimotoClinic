@@ -34,6 +34,10 @@
         <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/service.js"></script>
     <?php endif; ?>
 
+    <?php if (is_post_type_archive('doctor')): ?>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/doctor.js"></script>
+    <?php endif; ?>
+
     <?php if (is_page('information')): ?>
         <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/info.js"></script>
     <?php endif; ?>

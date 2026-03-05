@@ -166,6 +166,10 @@
             gap: rem(40);
             align-items: flex-start;
 
+            @include underSP {
+                gap: rem(14);
+            }
+
     
             .el_doctorContainer_profileList_item_year {
                 font-size: rem(16);
@@ -207,10 +211,34 @@
             gap: rem(80);
         }
 
+        .bl_commonDownBtnContainer {
+            margin-bottom: 0;
+            max-width: rem(850);
+            margin-inline: auto;
+            grid-template-columns: repeat(auto-fill, minmax(min(rem(200) ,100%), 1fr));
+        }
+
         .bl_doctorContainer {
             &:not(:last-child) {
                 padding-bottom: rem(80);
                 border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+            }
+        }
+
+        .is-doctor{
+            grid-template-columns: rem(350) 1fr;
+
+            @include underSP {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .bl_doctorContainer_upperContainer_imgContainer{
+            height: 100%;
+
+            .bl_doctorUpperContainer_imgWrapper{
+                position: sticky;
+                top: rem(220);
             }
         }
     }

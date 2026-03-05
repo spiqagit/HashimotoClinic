@@ -4434,6 +4434,11 @@ CTAボタン
   gap: 2.5rem;
   align-items: flex-start;
 }
+@media screen and (width <= 1024px) {
+  .bl_doctorContainer_profileListContainer .bl_doctorContainer_profileList .bl_doctorContainer_profileList_item {
+    gap: 0.875rem;
+  }
+}
 .bl_doctorContainer_profileListContainer .bl_doctorContainer_profileList .bl_doctorContainer_profileList_item .el_doctorContainer_profileList_item_year {
   font-size: 1rem;
   font-weight: 400;
@@ -4467,9 +4472,30 @@ CTAボタン
     gap: 5rem;
   }
 }
+.bl_doctorArchiveContainer .bl_doctorArchiveContainer_inner .bl_commonDownBtnContainer {
+  margin-bottom: 0;
+  max-width: 53.125rem;
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fill, minmax(min(12.5rem, 100%), 1fr));
+}
 .bl_doctorArchiveContainer .bl_doctorArchiveContainer_inner .bl_doctorContainer:not(:last-child) {
   padding-bottom: 5rem;
   border-bottom: 1px dashed rgba(52, 49, 44, 0.3);
+}
+.bl_doctorArchiveContainer .bl_doctorArchiveContainer_inner .is-doctor {
+  grid-template-columns: 21.875rem 1fr;
+}
+@media screen and (width <= 1024px) {
+  .bl_doctorArchiveContainer .bl_doctorArchiveContainer_inner .is-doctor {
+    grid-template-columns: 1fr;
+  }
+}
+.bl_doctorArchiveContainer .bl_doctorArchiveContainer_inner .bl_doctorContainer_upperContainer_imgContainer {
+  height: 100%;
+}
+.bl_doctorArchiveContainer .bl_doctorArchiveContainer_inner .bl_doctorContainer_upperContainer_imgContainer .bl_doctorUpperContainer_imgWrapper {
+  position: sticky;
+  top: 13.75rem;
 }
 
 .bl_newsArchiveList {

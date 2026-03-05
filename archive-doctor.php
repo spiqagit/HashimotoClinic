@@ -29,7 +29,25 @@
                             'taxonomy' => 'job-cat',
                             'hide_empty' => false,
                         ));
+
+                        $relatedDoctorPosts = get_posts(array(
+                            'post_type' => 'doctor',
+                            'posts_per_page' => -1,
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                        ));
                         ?>
+
+                        <?php if (!empty($relatedDoctorPosts) && count($relatedDoctorPosts) > 1): ?>
+                            <div class="bl_commonDownBtnContainer">
+                                <?php foreach ($relatedDoctorPosts as $relatedDoctorPost): ?>
+                                    <a href="#doctor-<?php echo $relatedDoctorPost->ID; ?>" class="bl_commonDownBtnContainer_item">
+                                        <span><?php echo get_the_title($relatedDoctorPost->ID); ?></span>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/down-arrow.svg" alt="">
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
 
                         <?php if (!empty($job_categories)): ?>
 
@@ -51,17 +69,26 @@
                                 ));
                                 ?>
 
+
                                 <?php if (!empty($relatedDoctorPosts)): ?>
                                     <div class="bl_doctorContainer">
                                         <?php foreach ($relatedDoctorPosts as $relatedDoctorPost): ?>
 
-                                            <div class="bl_doctorContainer_upperContainer">
-                                                <div class="bl_doctorUpperContainer_imgWrapper">
-                                                    <?php if (get_the_post_thumbnail($relatedDoctorPost->ID)): ?>
-                                                        <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_the_post_thumbnail_url($relatedDoctorPost->ID); ?>" alt="<?php echo get_the_title($relatedDoctorPost->ID); ?>">
-                                                    <?php else: ?>
-                                                        <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="Noimage">
-                                                    <?php endif; ?>
+                                            <?php 
+                                            $doctorClass = "";    
+                                            if ($job_category->slug != "director") {
+                                                $doctorClass = "is-doctor";
+                                            }
+                                            ?>
+                                            <div class="bl_doctorContainer_upperContainer <?php echo $doctorClass; ?>" id="doctor-<?php echo $relatedDoctorPost->ID; ?>">
+                                                <div class="bl_doctorContainer_upperContainer_imgContainer">
+                                                    <div class="bl_doctorUpperContainer_imgWrapper">
+                                                        <?php if (get_the_post_thumbnail($relatedDoctorPost->ID)): ?>
+                                                            <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_the_post_thumbnail_url($relatedDoctorPost->ID); ?>" alt="<?php echo get_the_title($relatedDoctorPost->ID); ?>">
+                                                        <?php else: ?>
+                                                            <img class="el_doctorUpperContainer_imgWrapper_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage-doc.jpg" alt="Noimage">
+                                                        <?php endif; ?>
+                                                    </div>
                                                 </div>
 
                                                 <div class="bl_doctorUpperContainer_rightWrapper">
