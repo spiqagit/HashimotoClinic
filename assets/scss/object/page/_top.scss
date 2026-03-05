@@ -4,7 +4,7 @@
     padding-top: rem(202);
 
     @include underSP {
-        padding-top: rem(100);
+        padding-top: rem(99);
     }
 }
 
@@ -62,8 +62,8 @@
     overflow: hidden;
 
     @include underSP {
+        padding-top: 0;
         padding-bottom: rem(20);
-        padding-top: rem(20);
     }
 
 
@@ -132,7 +132,7 @@
                 top: auto;
                 bottom: rem(-5);
                 transform: translate(-50%, 0);
-                max-width: 98%;
+                width: 90%;
             }
 
             .bl_fvSlideSwiper_prev,
@@ -220,7 +220,6 @@
                 width: fit-content;
                 display: flex;
                 align-items: center;
-                gap: rem(4);
 
                 .swiper-pagination-bullet {
                     display: block;
@@ -351,6 +350,13 @@
                 transition: opacity 0.5s ease;
                 cursor: pointer;
 
+                @media (any-hover: hover) {
+                    &:hover {
+                        opacity: 0.6;
+                        transition: opacity 0.5s ease;
+                    }
+                }
+
                 .el_frontMenuSection_selectMenuPostItem_ttl {
                     color: var(--black);
                     font-family: var(--subFontJa);
@@ -422,6 +428,8 @@
             .swiper-slide {
                 opacity: .5;
                 transition: opacity 0.5s ease;
+                max-width: rem(340);
+                width: 100%;
             }
 
             .swiper-slide-visible {
@@ -767,6 +775,13 @@
                                 transition: opacity 0.5s ease;
                             }
                         }
+                    }
+                    
+                    .swiper-button-disabled{
+                        opacity: 0.6;
+                        pointer-events: none;
+                        cursor: default;
+                        transition: opacity 0.5s ease;
                     }
 
                     .bl_frontBlogSwiper_pagination {
