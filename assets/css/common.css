@@ -2921,7 +2921,7 @@ CTAボタン
   margin-inline: auto;
   pointer-events: none;
 }
-@media screen and (width <= 1024px) {
+@media screen and (max-width: 768px) {
   .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_btnContainer {
     top: auto;
     bottom: -0.3125rem;

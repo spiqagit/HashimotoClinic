@@ -128,7 +128,7 @@
             margin-inline: auto;
             pointer-events: none;
 
-            @include underSP {
+            @media screen and (max-width: 768px) {
                 top: auto;
                 bottom: rem(-5);
                 transform: translate(-50%, 0);
