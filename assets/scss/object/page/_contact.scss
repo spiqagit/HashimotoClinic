@@ -312,6 +312,11 @@
                                     padding: rem(8);
                                     min-height: rem(40);
                                     appearance: none;
+                                    -webkit-appearance: none;
+                                    -moz-appearance: none;
+                                    -ms-appearance: none;
+                                    -o-appearance: none;
+                                    background-color: transparent;
                                 }
                             }
 

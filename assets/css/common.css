@@ -8028,6 +8028,11 @@ CTAボタン
   padding: 0.5rem;
   min-height: 2.5rem;
   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  background-color: transparent;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_formItem .bl_formItem_dateContainer .bl_formItem_dateContainer_item .bl_formItem_dateContainer_item_dateContainer .bl_formItem_dateContainer_item_dateContainer_item_ttl {
   padding-top: 0.375rem;
