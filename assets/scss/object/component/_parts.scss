@@ -1327,6 +1327,7 @@ CTAボタン
             display: grid;
             grid-template-columns: auto rem(14);
             align-items: center;
+            justify-content: flex-end;
             gap: rem(20);
 
             @include underSP {

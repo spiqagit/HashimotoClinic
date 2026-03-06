@@ -2603,6 +2603,7 @@ CTAボタン
   display: grid;
   grid-template-columns: auto 0.875rem;
   align-items: center;
+  justify-content: flex-end;
   gap: 1.25rem;
 }
 @media screen and (width <= 1024px) {
