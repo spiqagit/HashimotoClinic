@@ -44,19 +44,30 @@
                 border-radius: rem(4);
                 background-color: #F6F6F6;
 
+                @include underSP {
+                    font-size: rem(22);
+                }
+
                 @include underSP_m {
                     font-size: rem(20);
                 }
 
-                @include underSP {
+                @include underSP_s{
                     font-size: rem(18);
+                }
+
+                .is-tab {
+                    display: none;
+                    @include underSP {
+                        display: block;
+                    }
                 }
 
 
                 .is-sp {
                     display: none;
 
-                    @include underSP {
+                    @include underSP_m {
                         display: block;
                     }
                 }

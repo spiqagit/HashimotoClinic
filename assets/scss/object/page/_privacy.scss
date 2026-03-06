@@ -150,6 +150,10 @@
             width: fit-content;
             margin-top: rem(20);
 
+            @include underSP_m {
+                width: 100%;
+            }
+
 
             p {
                 color: var(--black);

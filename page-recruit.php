@@ -31,7 +31,7 @@
 
                         <div class="bl_recruitContainer_copyWrapper">
                             <img class="el_recruitContainer_copyWrapper_iconTop" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/recruit-about-icon-top.svg" alt="">
-                            <p class="el_recruitContainer_copyWrapper_txt">静岡美容外科<br class="is-sp">橋本クリニックを<br class="is-sp">一緒に盛り上げてくれる<br class="is-pc">新しい仲間を<br class="is-sp">募集いたします。</p>
+                            <p class="el_recruitContainer_copyWrapper_txt">静岡美容外科<br class="is-sp">橋本クリニックを<br class="is-tab">一緒に盛り上げてくれる<br class="is-pc">新しい仲間を<br class="is-sp">募集いたします。</p>
                             <img class="el_recruitContainer_copyWrapper_iconBottom" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/recruit-about-icon-bottom.svg" alt="">
                         </div>
 
