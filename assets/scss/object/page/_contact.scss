@@ -132,6 +132,13 @@
                     font-size: rem(16);
                     font-weight: 400;
                     line-height: 1.5;
+                    border-radius: 0;
+                    background-color: transparent;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    -ms-appearance: none;  
+                    -o-appearance: none;
 
                     &::placeholder {
                         color: rgba(52, 49, 44, 0.60);
@@ -386,6 +393,13 @@
                     border: 1px solid rgba(52, 49, 44, 0.60);
                     padding: rem(8);
                     min-height: rem(100);
+                    border-radius: 0;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    -ms-appearance: none;
+                    -o-appearance: none;
+                    background-color: transparent;
                 }
             }
 

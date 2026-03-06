@@ -7860,6 +7860,13 @@ CTAボタン
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+  border-radius: 0;
+  background-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_formItem .bl_textInput::placeholder {
   color: rgba(52, 49, 44, 0.6);
@@ -8091,6 +8098,13 @@ CTAボタン
   border: 1px solid rgba(52, 49, 44, 0.6);
   padding: 0.5rem;
   min-height: 6.25rem;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  background-color: transparent;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_privacyContainer span {
   display: block;
