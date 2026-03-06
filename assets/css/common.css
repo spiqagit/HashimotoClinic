@@ -8023,11 +8023,13 @@ CTAボタン
   }
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_formItem .bl_formItem_dateContainer .bl_formItem_dateContainer_item .bl_formItem_dateContainer_item_dateContainer .bl_formItem_dateContainer_item_dateContainer_item input {
+  cursor: pointer;
   width: 100%;
   border: 1px solid rgba(52, 49, 44, 0.6);
   padding: 0.5rem;
   min-height: 2.5rem;
   appearance: none;
+  color: var(--black);
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
