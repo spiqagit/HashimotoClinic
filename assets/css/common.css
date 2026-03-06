@@ -2499,6 +2499,11 @@ CTAボタン
   max-width: 56.25rem;
   width: 100%;
 }
+@media screen and (width <= 1024px) {
+  .bl_commonDownBtnContainer {
+    gap: 1.25rem;
+  }
+}
 @media (max-width: 48rem) {
   .bl_commonDownBtnContainer {
     grid-template-columns: 1fr;
@@ -2561,7 +2566,6 @@ CTAボタン
   }
 }
 .bl_commonPagination .bl_commonPagination_item .bl_commonPagination_item_link {
-  padding-block: 1rem;
   transition: opacity 0.5s ease;
 }
 @media (any-hover: hover) {

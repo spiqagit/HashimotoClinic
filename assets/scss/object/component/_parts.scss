@@ -1221,6 +1221,10 @@ CTAボタン
     max-width: rem(900);
     width: 100%;
 
+    @include underSP {
+        gap: rem(20);
+    }
+
     @media (max-width: rem(768)) {
         grid-template-columns: 1fr;
         gap: rem(20);
@@ -1284,7 +1288,6 @@ CTAボタン
     .bl_commonPagination_item {
 
         .bl_commonPagination_item_link {
-            padding-block: rem(16);
             transition: opacity 0.5s ease;
 
             @media (any-hover: hover) {
