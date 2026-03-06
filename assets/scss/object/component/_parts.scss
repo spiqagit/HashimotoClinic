@@ -690,6 +690,10 @@
                     font-weight: 500;
                     line-height: 1.5;
                     letter-spacing: calc(1.6 / 20 * 1em);
+
+                    @include underSP {
+                        font-size: rem(18);
+                    }
                 }
             }
 

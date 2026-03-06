@@ -2042,6 +2042,11 @@ html {
   line-height: 1.5;
   letter-spacing: 0.08em;
 }
+@media screen and (width <= 1024px) {
+  .bl_commonFaqList .bl_commonFaqList_details .bl_commonFaqList_details_summary .bl_commonFaqList_details_summary_txt .el_commonFaqList_details_summary_txt_ttl {
+    font-size: 1.125rem;
+  }
+}
 .bl_commonFaqList .bl_commonFaqList_details .bl_commonFaqList_details_summary .el_commonFaqList_details_summary_icon {
   position: relative;
   width: 100%;
@@ -6570,6 +6575,11 @@ CTAボタン
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.08em;
+}
+@media screen and (width <= 1024px) {
+  .bl_faqArchive .bl_faqArchive_inner .bl_faqArchive_contents .bl_faqArchive_contents_item .el_faqArchive_contents_item_ttl {
+    font-size: 1.625rem;
+  }
 }
 
 .bl_siteSearch {
