@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
         speed: 1000,
         breakpoints: {
             1024: {
-                spaceBetween: 24,
+                spaceBetween: 90,
                 slidesPerView: 3,
             },
             768: {
                 slidesPerView: 3,
-                spaceBetween: 90,
+                spaceBetween: 60,
                 loopAdditionalSlides: 2,
                 centeredSlides: true,
             },
