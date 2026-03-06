@@ -1957,7 +1957,7 @@ html {
 }
 .bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dd .el_commonCaseCard_infoWrapper_item_dd_sub {
   display: block;
-  margin-top: 0.625rem;
+  margin-top: 0.3125rem;
   color: rgba(52, 49, 44, 0.6);
   font-family: var(--mainFont);
   font-size: 0.625rem;
