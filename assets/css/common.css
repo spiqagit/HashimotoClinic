@@ -2605,6 +2605,7 @@ CTAボタン
   align-items: center;
   justify-content: flex-end;
   gap: 1.25rem;
+  width: fit-content;
 }
 @media screen and (width <= 1024px) {
   .bl_commonPagination .bl_commonPagination_item .bl_commonPagination_item_next {
