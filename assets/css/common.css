@@ -2740,6 +2740,11 @@ CTAボタン
     font-size: 1.5rem;
   }
 }
+@media screen and (width <= 480px) {
+  .bl_404Container .bl_404Container_inner .el_thanksContainer_ttl {
+    font-size: 1.125rem;
+  }
+}
 .bl_404Container .bl_404Container_inner .el_404Container_txt {
   color: var(--black-black, #34312C);
   text-align: center;
@@ -2750,12 +2755,25 @@ CTAボタン
   letter-spacing: 0.08em;
   margin-bottom: 5rem;
 }
+.bl_404Container .bl_404Container_inner .el_404Container_txt .is-sp {
+  display: none;
+}
 @media screen and (width <= 1024px) {
+  .bl_404Container .bl_404Container_inner .el_404Container_txt .is-sp {
+    display: block;
+  }
+}
+@media screen and (width <= 480px) {
+  .bl_404Container .bl_404Container_inner .el_404Container_txt .is-sp {
+    display: none;
+  }
+}
+@media screen and (width <= 480px) {
   .bl_404Container .bl_404Container_inner .el_404Container_txt br {
     display: none;
   }
 }
-@media screen and (width <= 1024px) {
+@media screen and (width <= 480px) {
   .bl_404Container .bl_404Container_inner .el_404Container_txt {
     text-align: left;
   }

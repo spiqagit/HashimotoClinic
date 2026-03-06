@@ -1480,6 +1480,10 @@ CTAボタン
             @include underSP {
                 font-size: rem(24);
             }
+
+            @include underSP_m {
+                font-size: rem(18);
+            }
         }
 
 
@@ -1493,13 +1497,25 @@ CTAボタン
             letter-spacing: calc(1.28 / 16 * 1em);
             margin-bottom: rem(80);
 
-            br {
+            .is-sp {
+                display: none;
+
                 @include underSP {
+                    display: block;
+                }
+
+                @include underSP_m {
                     display: none;
                 }
             }
 
-            @include underSP {
+            br {
+                @include underSP_m {
+                    display: none;
+                }
+            }
+
+            @include underSP_m {
                 text-align: left;
             }
         }
