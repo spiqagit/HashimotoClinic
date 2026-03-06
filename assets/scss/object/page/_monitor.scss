@@ -130,6 +130,10 @@
                         @include underSP_m {
                             font-size: rem(18);
                         }
+
+                        @include underSP_s {
+                            font-size: 5vw;
+                        }
                     }
                 }
 

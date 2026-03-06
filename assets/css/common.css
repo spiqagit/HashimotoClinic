@@ -6879,6 +6879,11 @@ CTAボタン
     font-size: 1.125rem;
   }
 }
+@media screen and (width <= 375px) {
+  .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_aboutWrapper .bl_monitorContainer_aboutWrapper_txtWrapper .el_monitorContainer_aboutWrapper_txtWrapper_txt .el_monitorContainer_aboutWrapper_txtWrapper_txt_line {
+    font-size: 5vw;
+  }
+}
 .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_aboutWrapper .bl_monitorContainer_aboutWrapper_txtWrapper .el_monitorContainer_aboutWrapper_txtWrapper_noteTxt {
   color: var(--black-black);
   text-align: center;
@@ -8505,6 +8510,9 @@ CTAボタン
 }
 .bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_numBox p {
   color: var(--black);
+}
+.bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_numBox ul {
+  margin-top: 0;
 }
 .bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner > ol {
   list-style: decimal;
