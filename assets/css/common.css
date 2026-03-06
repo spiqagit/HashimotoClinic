@@ -8357,7 +8357,7 @@ CTAボタン
 }
 @media screen and (width <= 375px) {
   .bl_thanksContainer .bl_thanksContainer_inner .el_thanksContainer_ttl {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
 }
 .bl_thanksContainer .bl_thanksContainer_inner .el_thanksContainer_ttl .is-sp {
