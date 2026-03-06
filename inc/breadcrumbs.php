@@ -1,7 +1,7 @@
 <div class="bl_breadcrumbs">
     <ul class="bl_breadcrumbs_list">
         <li class="bl_breadcrumbs_list_item">
-            <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>">トップ</a>
+            <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/">トップ</a>
         </li>
 
 

@@ -6,7 +6,7 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo.svg" alt="HASHIMOTO CLINIC 静岡美容外科橋本クリニック">
                 </h1>
             <?php else: ?>
-                <a href="<?php echo home_url(); ?>" class="el_header_logo">
+                <a href="<?php echo home_url(); ?>/" class="el_header_logo">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo.svg" alt="HASHIMOTO CLINIC 静岡美容外科橋本クリニック">
                 </a>
             <?php endif; ?>

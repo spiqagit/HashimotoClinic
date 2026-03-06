@@ -3014,7 +3014,7 @@ CTAボタン
   row-gap: 1.25rem;
   column-gap: 0.625rem;
 }
-@media screen and (width <= 480px) {
+@media screen and (width <= 375px) {
   .bl_frontPickupSection .bl_frontPickupSection_contents {
     grid-template-columns: repeat(1, 1fr);
   }

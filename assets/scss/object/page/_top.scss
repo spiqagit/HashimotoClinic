@@ -272,7 +272,7 @@
         row-gap: rem(20);
         column-gap: rem(10);
 
-        @include underSP_m {
+        @include underSP_s {
             grid-template-columns: repeat(1, 1fr);
         }
 

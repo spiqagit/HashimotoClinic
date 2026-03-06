@@ -126,7 +126,7 @@
                             <div class="bl_caseArchiveList">
                                 <?php while ($query->have_posts()): $query->the_post(); ?>
                                     <article class="bl_commonCaseCard">
-                                        <a href="<?php the_permalink(); ?>" class="bl_commonCaseCard_link">
+                                        <a href="<?php the_permalink(); ?>/" class="bl_commonCaseCard_link">
                                             <div class="bl_commonCaseCard_imgWrapper">
                                                 <?php
                                                 $i = 0;
