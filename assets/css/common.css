@@ -2923,7 +2923,7 @@ CTAボタン
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_btnContainer {
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -2940,6 +2940,15 @@ CTAボタン
     bottom: -0.3125rem;
     transform: translate(-50%, 0);
     width: 90%;
+  }
+}
+.bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_btnContainer .swiper-slide-active {
+  margin-inline: 3.125rem !important;
+  transition: margin-inline 0.5s ease;
+}
+@media screen and (width <= 1024px) {
+  .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_btnContainer .swiper-slide-active {
+    margin-inline: 1.25rem;
   }
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_btnContainer .bl_fvSlideSwiper_prev,
@@ -2985,9 +2994,14 @@ CTAボタン
   gap: 0.625rem;
   justify-content: center;
   padding-top: 1.25rem;
-  width: fit-content;
   margin-inline: auto;
-  padding-inline: 2.5rem;
+  padding-top: 0.625rem;
+}
+@media screen and (width <= 1024px) {
+  .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_pageNationContainer {
+    padding-inline: 3.125rem;
+    width: fit-content;
+  }
 }
 .bl_fvSlideSwiperContainer .bl_fvSlideSwiper .bl_fvSlideSwiper_pageNationContainer .bl_fvSlideSwiper_playBtn {
   display: flex;
@@ -5756,6 +5770,12 @@ CTAボタン
   .bl_infoFlowContainer .bl_infoFlowContainer_inner .bl_infoFlowContainer_listWrapper .bl_infoFlowContainer_numListWrapper .bl_infoFlowContainer_numList .bl_infoFlowContainer_numList_item .bl_infoFlowContainer_infoWrapper .bl_infoFlowContainer_infoWrapper_item:last-child {
     padding-left: 0;
     padding-top: 1.5rem;
+  }
+}
+@media screen and (width <= 1024px) {
+  .bl_infoFlowContainer .bl_infoFlowContainer_inner .bl_infoFlowContainer_listWrapper .bl_infoFlowContainer_numListWrapper .bl_infoFlowContainer_numList .bl_infoFlowContainer_numList_item .bl_infoFlowContainer_infoWrapper .bl_infoFlowContainer_infoWrapper_item .bl_commonCtaBtn {
+    max-width: 25rem;
+    margin-inline: auto;
   }
 }
 .bl_infoFlowContainer .bl_infoFlowContainer_inner .bl_infoFlowContainer_listWrapper .bl_infoFlowContainer_numListWrapper .bl_infoFlowContainer_numList .bl_infoFlowContainer_numList_item .bl_infoFlowContainer_infoWrapper .el_infoFlowContainer_infoWrapper_item_txt {

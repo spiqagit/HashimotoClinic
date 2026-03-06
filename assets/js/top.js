@@ -6,18 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const fvSwiper = new Swiper('.bl_fvSlideSwiper', {
         slidesPerView: 1,
         loop: true,
-        spaceBetween: 90,
+        spaceBetween: 40,
         loopAdditionalSlides: 1,
         centeredSlides: true,
         speed: 1000,
         breakpoints: {
             1024: {
-                spaceBetween: 90,
+                spaceBetween: 40,
                 slidesPerView: 3,
             },
             768: {
                 slidesPerView: 3,
-                spaceBetween: 60,
+                spaceBetween: 40,
                 loopAdditionalSlides: 2,
                 centeredSlides: true,
             },
