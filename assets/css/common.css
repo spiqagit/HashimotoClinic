@@ -8426,11 +8426,26 @@ CTAボタン
   letter-spacing: 0.08em;
   margin: 0;
 }
+.bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_borderBox p .is-sp {
+  display: none;
+}
+@media screen and (width <= 1024px) {
+  .bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_borderBox p .is-sp {
+    display: block;
+  }
+}
 .bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_noteBox {
   margin-top: 0.75rem;
   padding-left: 1.25rem;
+  list-style: none !important;
+  gap: 0;
 }
-.bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_noteBox p {
+.bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_noteBox li {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  gap: 0.1875rem;
   color: rgba(52, 49, 44, 0.7);
   font-family: var(--mainFont);
   font-size: 0.875rem;
@@ -8438,6 +8453,16 @@ CTAボタン
   line-height: 1.5;
   letter-spacing: 0.08em;
   margin: 0;
+}
+.bl_privacyPolicyContainer .bl_privacyPolicyContainer_inner .bl_noteBox li::before {
+  content: "※";
+  position: relative;
+  display: block;
+  width: fit-content;
+  background-color: transparent;
+  height: auto;
+  top: auto;
+  left: auto;
 }
 
 .bl_privacyPolicyContainer_contact {

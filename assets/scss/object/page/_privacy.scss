@@ -158,14 +158,29 @@
                 line-height: 1.8;
                 letter-spacing: calc(1.28 / 16 * 1em);
                 margin: 0;
+
+                .is-sp {
+                    display: none;
+
+                    @include underSP {
+                        display: block;
+                    }
+                }
             }
         }
 
         .bl_noteBox {
             margin-top: rem(12);
             padding-left: rem(20);
+            list-style: none !important;
+            gap: 0;
 
-            p {
+            li {
+                position: relative;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: flex-start;
+                gap: rem(3);
                 color: rgba(52, 49, 44, 0.70);
                 font-family: var(--mainFont);
                 font-size: rem(14);
@@ -173,6 +188,17 @@
                 line-height: 1.5;
                 letter-spacing: calc(1.12 / 14 * 1em);
                 margin: 0;
+
+                &::before {
+                    content: '※';
+                    position: relative;
+                    display: block;
+                    width:fit-content;
+                    background-color: transparent;
+                    height: auto;
+                    top: auto;
+                    left: auto;
+                }
             }
         }
     }
