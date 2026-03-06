@@ -60,6 +60,10 @@
                 line-height: 1.8;
                 letter-spacing: calc(1.28 / 16 * 1em);
                 width: 100%;
+
+                @include underSP_m {
+                    text-align: left;
+                }
             }
         }
 
@@ -292,7 +296,7 @@
 
                             .bl_formItem_dateContainer_item_dateContainer_item {
                                 display: grid;
-                                grid-template-columns: auto rem(200);
+                                grid-template-columns: auto rem(220);
                                 align-items: flex-start;
                                 gap: rem(10);
 
@@ -307,6 +311,7 @@
                                     border: 1px solid rgba(52, 49, 44, 0.60);
                                     padding: rem(8);
                                     min-height: rem(40);
+                                    appearance: none;
                                 }
                             }
 
@@ -341,6 +346,12 @@
                                     min-height: rem(40);
                                     padding-right: rem(38);
                                     background-color: transparent;
+                                    color: var(--black);
+                                    font-family: var(--mainFont);
+                                    font-size: rem(12);
+                                    font-weight: 400;
+                                    line-height: 1.8;
+                                    letter-spacing: calc(1.28 / 16 * 1em);
                                     border-radius: 0;
                                     appearance: none;
                                     -webkit-appearance: none;
