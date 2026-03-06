@@ -31,19 +31,19 @@
 
                         <div class="bl_recruitContainer_copyWrapper">
                             <img class="el_recruitContainer_copyWrapper_iconTop" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/recruit-about-icon-top.svg" alt="">
-                            <p class="el_recruitContainer_copyWrapper_txt">静岡美容外科橋本クリニックを<br class="is-sp">一緒に盛り上げてくれる<br class="is-sp">新しい仲間を募集いたします。</p>
+                            <p class="el_recruitContainer_copyWrapper_txt">静岡美容外科<br class="is-sp">橋本クリニックを<br class="is-sp">一緒に盛り上げてくれる<br class="is-pc">新しい仲間を<br class="is-sp">募集いたします。</p>
                             <img class="el_recruitContainer_copyWrapper_iconBottom" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/recruit-about-icon-bottom.svg" alt="">
                         </div>
 
                         <?php if (have_rows('philosophy-list')): ?>
                             <div class="bl_recruitContainer_philosophyContainer">
-                                <h2 class="el_recruitContainer_philosophyContainer_ttl">静岡美容外科橋本クリニックの<br class="is-sp">医療理念</h2>
+                                <h2 class="el_recruitContainer_philosophyContainer_ttl">静岡美容外科<br class="is-sp">橋本クリニックの<br class="is-sp">医療理念</h2>
 
-                                <div class="bl_recruitContainer_philosophyContainer_list">
+                                <ol class="bl_recruitContainer_philosophyContainer_list">
                                     <?php $i = 0;
                                     while (have_rows('philosophy-list')): the_row();
                                         $i++; ?>
-                                        <div class="bl_recruitContainer_philosophyContainer_list_item">
+                                        <li class="bl_recruitContainer_philosophyContainer_list_item">
                                             <div class="bl_recruitContainer_philosophyContainer_list_item_ttlContainer">
                                                 <p class="el_recruitContainer_philosophyContainer_list_item_ttlContainer_num"><?php echo sprintf('%02d', $i); ?></p>
                                                 <?php if (get_sub_field('philosophy-list-ttl')): ?>
@@ -52,18 +52,22 @@
                                             </div>
 
                                             <div class="bl_recruitContainer_philosophyContainer_list_item_lower">
-                                                <?php if (get_sub_field('philosophy-list-img')): ?>
-                                                    <img class="el_recruitContainer_philosophyContainer_list_item_lower_img" src="<?php the_sub_field('philosophy-list-img'); ?>" alt="">
-                                                <?php else: ?>
-                                                    <img class="el_recruitContainer_philosophyContainer_list_item_lower_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/noimage-doc.jpg" alt="">
+                                                <?php if (have_rows('philosophy-list-img-group')): ?>
+                                                    <?php while (have_rows('philosophy-list-img-group')): the_row(); ?>
+                                                        <?php if (get_sub_field('philosophy-list-img')): ?>
+                                                            <img class="el_recruitContainer_philosophyContainer_list_item_lower_img" src="<?php the_sub_field('philosophy-list-img'); ?>" alt="<?php the_sub_field('philosophy-list-img-alt'); ?>">
+                                                        <?php else: ?>
+                                                            <img class="el_recruitContainer_philosophyContainer_list_item_lower_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/recruit/noimage-doc.jpg" alt="<?php the_sub_field('philosophy-list-img-alt'); ?>">
+                                                        <?php endif; ?>
+                                                    <?php endwhile; ?>
                                                 <?php endif; ?>
                                                 <?php if (get_sub_field('philosophy-list-txt')): ?>
-                                                    <p><?php the_sub_field('philosophy-list-txt'); ?></p>
+                                                    <p class="el_recruitContainer_philosophyContainer_list_item_lower_txt"><?php the_sub_field('philosophy-list-txt'); ?></p>
                                                 <?php endif; ?>
                                             </div>
-                                        </div>
+                                        </li>
                                     <?php endwhile; ?>
-                                </div>
+                                </ol>
                             </div>
                         <?php endif; ?>
 
@@ -73,7 +77,7 @@
                             <div class="bl_recruitContainer_flowContainer_inner">
                                 <h2 class="el_recruitContainer_flowContainer_ttl">選考の流れ</h2>
 
-                                <ul class="bl_recruitContainer_flowContainer_list">
+                                <ol class="bl_recruitContainer_flowContainer_list">
                                     <li class="bl_recruitContainer_flowContainer_list_item">
                                         <div class="bl_recruitContainer_flowContainer_list_item_ttl">
                                             <p class="el_recruitContainer_flowContainer_list_item_ttl_num">01</p>
@@ -117,7 +121,7 @@
                                             <p class="el_recruitContainer_flowContainer_list_item_contents_txt">書類選考が通過次第、面接となります。</p>
                                         </div>
                                     </li>
-                                </ul>
+                                </ol>
                             </div>
 
                             <div class="bl_recruitContainer_flowContainer_contactContainer">

@@ -37,6 +37,55 @@ add_action("admin_head", "remove_admin_selection_color");
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示
 
+// recruit 固定ページのエディターを非表示（テンプレート page-recruit.php またはスラッグ recruit のとき）
+function renewal2026_is_recruit_page($post)
+{
+    if (!$post || $post->post_type !== 'page') {
+        return false;
+    }
+    $template = get_page_template_slug($post);
+    return $template === 'page-recruit.php' || $post->post_name === 'recruit';
+}
+
+add_filter('use_block_editor_for_post', function ($use_block_editor, $post) {
+    if (renewal2026_is_recruit_page($post)) {
+        return false;
+    }
+    return $use_block_editor;
+}, 10, 2);
+
+add_action('add_meta_boxes', function () {
+    $post = get_post();
+    if (!renewal2026_is_recruit_page($post)) {
+        return;
+    }
+    remove_meta_box('postdivrich', 'page', 'normal');
+    remove_meta_box('postimagediv', 'page', 'side');
+}, 99);
+
+add_action('admin_head', function () {
+    $screen = get_current_screen();
+    if (!$screen || $screen->id !== 'page' || $screen->base !== 'post') {
+        return;
+    }
+    $post_id = isset($_GET['post']) ? (int) $_GET['post'] : 0;
+    if (!$post_id) {
+        return;
+    }
+    $post = get_post($post_id);
+    if (!renewal2026_is_recruit_page($post)) {
+        return;
+    }
+    echo '<style>
+        #postdivrich,
+        #postdiv,
+        #post-body-content .wp-editor-wrap,
+        #postimagediv {
+            display: none !important;
+        }
+    </style>';
+});
+
 // 投稿タイプ menu でアイキャッチを有効化（記事編集ページに「アイキャッチ画像」欄を表示）
 function renewal2026_menu_add_thumbnail_support()
 {
