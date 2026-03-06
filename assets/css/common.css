@@ -5596,7 +5596,7 @@ CTAボタン
   padding-inline: 1.5rem;
   box-shadow: 0 2px 5px 0 rgba(52, 49, 44, 0.2);
   background-color: #fff;
-  border-radius: 0.625rem;
+  border-radius: 0.25rem;
   padding: 1.5rem;
   position: relative;
   height: 100%;
@@ -5807,6 +5807,7 @@ CTAボタン
   justify-content: center;
   gap: 0.1875rem;
   pointer-events: none;
+  margin-bottom: 0.5rem;
 }
 @media screen and (width <= 1024px) {
   .bl_infoFlowContainer .bl_infoFlowContainer_inner .bl_infoFlowContainer_listWrapper .bl_infoFlowContainer_numListWrapper .bl_infoFlowContainer_numList .bl_infoFlowContainer_numList_item .bl_infoFlowContainer_infoWrapper .el_infoFlowContainer_infoWrapper_item_telLink {

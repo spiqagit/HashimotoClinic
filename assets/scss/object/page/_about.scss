@@ -207,7 +207,7 @@
                 padding-inline: rem(24);
                 box-shadow: 0 2px 5px 0 rgba(52, 49, 44, 0.20);
                 background-color: #fff;
-                border-radius: rem(10);
+                border-radius: rem(4);
                 padding: rem(24);
                 position: relative;
                 height: 100%;
@@ -435,6 +435,7 @@
                                 justify-content: center;
                                 gap: rem(3);
                                 pointer-events: none;
+                                margin-bottom: rem(8);
 
                                 @include underSP {
                                     pointer-events: auto;

@@ -240,7 +240,7 @@
                                                                     <h4 class="el_accessParkingInfoWrapper_detailsWrapper_ttl_ttl">タイムズ三島一番町</h5>
                                                                     
                                                                     <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList">
-                                                                        <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣2か所にございます。</p>
+                                                                        <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣4か所にございます。</p>
                                                                         <ol class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list">
                                                                             <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">①タイムズ三島南口寿町</li>
                                                                             <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">②タイムズ三島一番町第2</li>
