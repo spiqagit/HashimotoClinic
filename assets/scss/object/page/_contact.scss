@@ -530,8 +530,11 @@
 
     @include underSP {
         padding-top: rem(80);
+        padding-inline: rem(60);
     }
-
+    @include underSP_m {
+        padding-inline: rem(20);
+    }
     .bl_thanksContainer_inner {
         max-width: rem(900);
         width: 100%;
@@ -552,6 +555,10 @@
                 font-size: rem(24);
             }
 
+            @include underSP_s {
+                font-size: rem(18);
+            }
+
             .is-sp{
                 display: none;
 
@@ -566,6 +573,10 @@
             flex-direction: column;
             gap: rem(30);
             margin-bottom: rem(80);
+
+            @include underSP_s {
+                gap: rem(20);
+            }
 
             .el_thanksContainer_txtContainer_txt {
                 color: var(--black);

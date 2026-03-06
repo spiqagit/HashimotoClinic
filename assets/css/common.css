@@ -8255,6 +8255,12 @@ CTAボタン
 @media screen and (width <= 1024px) {
   .bl_thanksContainer {
     padding-top: 5rem;
+    padding-inline: 3.75rem;
+  }
+}
+@media screen and (width <= 480px) {
+  .bl_thanksContainer {
+    padding-inline: 1.25rem;
   }
 }
 .bl_thanksContainer .bl_thanksContainer_inner {
@@ -8278,6 +8284,11 @@ CTAボタン
     font-size: 1.5rem;
   }
 }
+@media screen and (width <= 375px) {
+  .bl_thanksContainer .bl_thanksContainer_inner .el_thanksContainer_ttl {
+    font-size: 1.125rem;
+  }
+}
 .bl_thanksContainer .bl_thanksContainer_inner .el_thanksContainer_ttl .is-sp {
   display: none;
 }
@@ -8291,6 +8302,11 @@ CTAボタン
   flex-direction: column;
   gap: 1.875rem;
   margin-bottom: 5rem;
+}
+@media screen and (width <= 375px) {
+  .bl_thanksContainer .bl_thanksContainer_inner .bl_thanksContainer_txtContainer {
+    gap: 1.25rem;
+  }
 }
 .bl_thanksContainer .bl_thanksContainer_inner .bl_thanksContainer_txtContainer .el_thanksContainer_txtContainer_txt {
   color: var(--black);
