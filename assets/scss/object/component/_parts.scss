@@ -837,11 +837,23 @@
             }
         }
 
+
+        .swiper-button-lock {
+            display: none;
+        }
+
         .bl_commonBlogSwiper_next {
             @include underSP {
                 right: 0;
                 left: auto;
             }
+        }
+
+        .swiper-button-disabled {
+            opacity: 0.6;
+            pointer-events: none;
+            cursor: default;
+            transition: opacity 0.5s ease;
         }
 
         .bl_commonBlogSwiper {

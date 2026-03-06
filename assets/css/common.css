@@ -2172,11 +2172,20 @@ html {
     height: 2.5rem;
   }
 }
+.bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .swiper-button-lock {
+  display: none;
+}
 @media screen and (width <= 1024px) {
   .bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .bl_commonBlogSwiper_next {
     right: 0;
     left: auto;
   }
+}
+.bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .swiper-button-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+  transition: opacity 0.5s ease;
 }
 .bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .bl_commonBlogSwiper {
   width: 100%;
