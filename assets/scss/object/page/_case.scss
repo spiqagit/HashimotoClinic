@@ -239,6 +239,13 @@
                     }
                 }
 
+                .swiper-button-disabled{
+                    opacity: 0.6;
+                    pointer-events: none;
+                    cursor: default;
+                    transition: opacity 0.5s ease;
+                }
+
                 .swiper-button-lock {
                     display: none;
                 }

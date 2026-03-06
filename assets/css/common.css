@@ -4362,6 +4362,9 @@ CTAボタン
     transition: opacity 0.5s ease;
   }
 }
+.bl_menuCaseSwiperContainer .swiper-button-lock {
+  display: none;
+}
 .bl_menuCaseSwiperContainer .swiper-button-disabled {
   opacity: 0.6;
   pointer-events: none;
@@ -4891,6 +4894,12 @@ CTAボタン
     opacity: 0.6;
     transition: opacity 0.5s ease;
   }
+}
+.bl_caseArticle_relatedCaseContainer .bl_caseArticle_relatedCaseContainer_inner .bl_caseArticle_relatedCase_slideContainer .bl_caseArticle_relatedCase_slideContainer_slide .swiper-button-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+  transition: opacity 0.5s ease;
 }
 .bl_caseArticle_relatedCaseContainer .bl_caseArticle_relatedCaseContainer_inner .bl_caseArticle_relatedCase_slideContainer .bl_caseArticle_relatedCase_slideContainer_slide .swiper-button-lock {
   display: none;
