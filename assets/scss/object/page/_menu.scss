@@ -9,7 +9,7 @@
     .el_menuPartsCatContainer_ttl {
         color: var(--black);
         font-family: var(--mainFont);
-        font-size: rem(18);
+        font-size: rem(30);
         font-weight: 500;
         line-height: 1.2;
         letter-spacing: calc(2.4 / 30 * 1em);
@@ -17,6 +17,10 @@
         width: fit-content;
         margin-inline: auto;
         margin-bottom: rem(29);
+
+        @include underSP_m {
+            font-size: rem(18);
+        }
     }
 
 
@@ -226,6 +230,10 @@
         margin-bottom: rem(30);
         width: fit-content;
         margin-inline: auto;
+
+        @include underSP_m {
+            font-size: rem(18);
+        }
     }
 
     .el_menuCatContainer_catTtl {

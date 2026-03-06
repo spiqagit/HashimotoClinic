@@ -36,7 +36,7 @@
                         </h2>
 
                         <div class="bl_infoAboutContainer_copyWrapper">
-                            <p class="el_infoAboutContainer_copyWrapper_txt">自然な美しさ、<br class="is-sp">確かな安心。<br>12万症例の経験を、<br class="is-sp">あなたの自信に。</p>
+                            <p class="el_infoAboutContainer_copyWrapper_txt">自然な美しさ、確かな安心。<br>12万症例の経験を、<br class="is-sp">あなたの自信に。</p>
                         </div>
 
                         <div class="bl_infoAboutContainer_txtWrapper">

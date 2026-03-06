@@ -4,6 +4,14 @@
 .bl_infoAboutContainer {
     padding-inline: rem(20);
 
+    @include underSP {
+        padding-inline: rem(60);
+    }
+
+    @include underSP_m {
+        padding-inline: rem(20);
+    }
+
     .bl_infoAboutContainer_inner {
         max-width: rem(1200);
         width: 100%;
@@ -61,6 +69,10 @@
 
                 @include underSP {
                     font-size: rem(24);
+                }
+
+                @include underSP_s {
+                    font-size: rem(20);
                 }
 
                 .is-sp {
@@ -229,10 +241,14 @@
     padding-block: rem(150);
     padding-inline: rem(20);
 
-
     @include underSP {
         padding-block: rem(120);
+        padding-inline: rem(60);
     }
+
+    @include underSP_m {
+        padding-inline: rem(20);
+    }   
 
     .bl_infoFlowContainer_inner {
         max-width: rem(900);
