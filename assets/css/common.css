@@ -6537,7 +6537,7 @@ CTAボタン
 }
 .bl_faqArchive .bl_faqArchive_inner .bl_faqArchive_navContainer .bl_faqArchive_nav_listContainer .bl_faqArchive_nav_list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 11.25rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.375rem), 1fr));
 }
 .bl_faqArchive .bl_faqArchive_inner .bl_faqArchive_navContainer .is-sp {
   display: none;
