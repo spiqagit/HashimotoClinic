@@ -8025,6 +8025,12 @@ CTAボタン
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_formItem .bl_formItem_dateContainer .bl_formItem_dateContainer_item .bl_formItem_dateContainer_item_dateContainer .bl_formItem_dateContainer_item_dateContainer_item input {
   cursor: pointer;
   width: 100%;
+  text-align: left;
+  font-family: var(--mainFont);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.1066666667em;
   border: 1px solid rgba(52, 49, 44, 0.6);
   padding: 0.5rem;
   min-height: 2.5rem;
