@@ -7854,7 +7854,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_formItem .bl_textInput::placeholder {
   color: rgba(52, 49, 44, 0.6);
@@ -8082,6 +8082,7 @@ CTAボタン
 .bl_contactContainer .bl_contactContainer_inner .bl_contactContainer_formContainer .bl_privacyContainer label input {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 1/1;
   border-radius: 0.125rem;
   border: 1px solid rgba(52, 49, 44, 0.6);

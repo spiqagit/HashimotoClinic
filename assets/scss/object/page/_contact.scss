@@ -127,7 +127,7 @@
                     font-family: var(--mainFont);
                     font-size: rem(16);
                     font-weight: 400;
-                    line-height: 1.2;
+                    line-height: 1.5;
 
                     &::placeholder {
                         color: rgba(52, 49, 44, 0.60);
@@ -383,6 +383,7 @@
                     input {
                         display: block;
                         width: 100%;
+                        height: auto;
                         aspect-ratio: 1 / 1;
                         border-radius: rem(2);
                         border: 1px solid rgba(52, 49, 44, 0.60);

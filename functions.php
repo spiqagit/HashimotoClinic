@@ -516,3 +516,28 @@ function renewal2026_cf7_validate_email_match($result, $tag)
 }
 add_filter('wpcf7_validate_email', 'renewal2026_cf7_validate_email_match', 20, 2);
 add_filter('wpcf7_validate_email*', 'renewal2026_cf7_validate_email_match', 20, 2);
+
+
+/* ---------- Contact Form 7：ルビ（フリガナ）はカタカナのみ許可 ---------- */
+function renewal2026_cf7_validate_rubi_katakana($result, $tag)
+{
+    if ($tag->name !== 'rubi') {
+        return $result;
+    }
+    $submission = WPCF7_Submission::get_instance();
+    if (!$submission) {
+        return $result;
+    }
+    $posted = $submission->get_posted_data();
+    $value = isset($posted['rubi']) ? trim((string) $posted['rubi']) : '';
+    if ($value === '') {
+        return $result;
+    }
+    // カタカナ・長音（ー）・中黒（・）・スペースのみ許可
+    if (!preg_match('/^[\p{Katakana}ー・\s]+$/u', $value)) {
+        $result->invalidate($tag, 'カタカナで入力してください。');
+    }
+    return $result;
+}
+add_filter('wpcf7_validate_text', 'renewal2026_cf7_validate_rubi_katakana', 20, 2);
+add_filter('wpcf7_validate_text*', 'renewal2026_cf7_validate_rubi_katakana', 20, 2);
