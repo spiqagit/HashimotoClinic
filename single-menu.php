@@ -10,26 +10,28 @@
         <div class="bl_commonArticlePage_inner">
             <article class="bl_menuArticle">
                 <div class="bl_menuArticle_header">
-                    <div class="bl_menuArticle_header_ttlContainer">
-                        <div class="bl_menuArticle_header_ttlContainer_upper">
-                            <h1 class="el_menuArticle_header_ttlContainer_ttl">
-                                <?php the_title(); ?>
-                            </h1>
+                    <div class="bl_menuArticle_header_inner">
+                        <div class="bl_menuArticle_header_ttlContainer">
+                            <div class="bl_menuArticle_header_ttlContainer_upper">
+                                <h1 class="el_menuArticle_header_ttlContainer_ttl">
+                                    <?php the_title(); ?>
+                                </h1>
 
-                            <?php if (get_field('menu-subtxt')): ?>
-                                <p class="el_menuArticle_header_ttlContainer_subTxt">
-                                    <?php the_field('menu-subtxt'); ?>
-                                </p>
+                                <?php if (get_field('menu-subtxt')): ?>
+                                    <p class="el_menuArticle_header_ttlContainer_subTxt">
+                                        <?php the_field('menu-subtxt'); ?>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
+                            <?php get_template_part('inc/breadcrumbs'); ?>
+                        </div>
+                        <div class="bl_menuArticle_header_imgContainer">
+                            <?php if (get_the_post_thumbnail()): ?>
+                                <img class="el_menuArticle_header_imgContainer_img" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>">
+                            <?php else: ?>
+                                <img class="el_menuArticle_header_imgContainer_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/menu-no-image.jpg" alt="<?php the_title(); ?>">
                             <?php endif; ?>
                         </div>
-                        <?php get_template_part('inc/breadcrumbs'); ?>
-                    </div>
-                    <div class="bl_menuArticle_header_imgContainer">
-                        <?php if (get_the_post_thumbnail()): ?>
-                            <img class="el_menuArticle_header_imgContainer_img" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>">
-                        <?php else: ?>
-                            <img class="el_menuArticle_header_imgContainer_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/menu-no-image.jpg" alt="<?php the_title(); ?>">
-                        <?php endif; ?>
                     </div>
                 </div>
 

@@ -19,7 +19,7 @@
         padding-bottom: rem(100);
 
         @include underSP {
-            padding-bottom: rem(120);
+            padding-bottom: rem(80);
         }
 
         .el_infoAboutContainer_ttl {
@@ -100,7 +100,7 @@
                 font-family: var(--mainFont);
                 font-size: rem(16);
                 font-weight: 400;
-                line-height: 1.8;
+                line-height: 1.6;
                 letter-spacing: calc(1.28 / 16 * 1em);
                 
                 @include underSP {
@@ -136,7 +136,7 @@
     padding-inline: rem(20);
 
     @include underSP {
-        padding-block: rem(120);
+        padding-block: rem(80);
     }
 
     .bl_infoFeatureContainer_inner {
@@ -228,7 +228,7 @@
                     color: var(--black);
                     font-size: rem(14);
                     font-weight: 400;
-                    line-height: 1.75;
+                    line-height: 1.6;
                     letter-spacing: calc(1.12 / 14 * 1em);
                 }
             }
@@ -489,7 +489,8 @@
     padding-inline: rem(20);
 
     @include underSP {
-        padding-block: rem(120);
+        padding-top: rem(0);
+        padding-bottom: rem(80);
     }
 
     .bl_infoBranchClinicContainer_inner {
@@ -506,7 +507,7 @@
             font-family: var(--mainFont);
             font-size: rem(16);
             font-weight: 400;
-            line-height: 180%;
+            line-height: 1.6;
             letter-spacing: calc(1.28 / 16 * 1em);
             margin-bottom: rem(30);
             width: fit-content;
@@ -713,7 +714,7 @@
                     font-family: var(--mainFont);
                     font-size: rem(16);
                     font-weight: 400;
-                    line-height: 1.8;
+                    line-height: 1.6;
                     letter-spacing: calc(1.28 / 16 * 1em);
                     margin-bottom: rem(12);
                 }
@@ -729,7 +730,7 @@
                         font-family: var(--mainFont);
                         font-size: rem(14);
                         font-weight: 400;
-                        line-height: 1.8;
+                        line-height: 1.6;
                         letter-spacing: calc(1.12 / 14 * 1em);
     
                         &::before {

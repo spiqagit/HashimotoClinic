@@ -52,14 +52,9 @@
             <section class="bl_frontPickupSection">
                 <div class="bl_frontPickupSection_inner">
 
-                    <hgroup class="bl_frontPageTtlContainer">
-                        <p class="bl_frontPageTtlContainer_enTtl">
-                            <span>(</span>
-                            <span>Pickup</span>
-                            <span>)</span>
-                        </p>
+                    <div class="bl_frontPageTtlContainer">
                         <h2 class="bl_frontPageTtlContainer_jaTtl">おすすめメニュー</h2>
-                    </hgroup>
+                    </div>
 
                     <div class="bl_frontPickupSection_contents">
                         <?php while (have_rows('pickup-list', 'option')): the_row(); ?>

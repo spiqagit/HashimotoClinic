@@ -225,7 +225,7 @@
                                 font-family: var(--mainFont);
                                 font-size: rem(16);
                                 font-weight: 400;
-                                line-height: 1.8;
+                                line-height: 1.6;
                                 letter-spacing: calc(1.28 / 16 * 1em);
                             }
                         }
@@ -276,7 +276,7 @@
                 font-family: var(--mainFont);
                 font-size: rem(16);
                 font-weight: 400;
-                line-height: 1.8;
+                line-height: 1.6;
                 letter-spacing: calc(1.28 / 16 * 1em);
                 margin-bottom: rem(24);
 
@@ -346,7 +346,7 @@
                     font-family: var(--mainFont);
                     font-size: rem(14);
                     font-weight: 400;
-                    line-height: 1.8;
+                    line-height: 1.6;
                     letter-spacing: calc(1.12 / 14 * 1em);
 
                     &::before {
@@ -522,7 +522,7 @@
                 font-family: var(--mainFont);
                 font-size: rem(16);
                 font-weight: 400;
-                line-height: 1.8;
+                line-height: 1.6;
                 letter-spacing: calc(1.28 / 16 * 1em);
 
                 @include underSP {

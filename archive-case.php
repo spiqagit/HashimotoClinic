@@ -14,7 +14,7 @@
             <div class="bl_commonlowerPage_ttlContainer">
                 <hgroup class="bl_commonlowerPage_ttl">
                     <p class="bl_commonlowerPage_ttl_enTtl">Case</p>
-                    <h1 class="bl_commonlowerPage_ttl_jaTtl">症例</h1>
+                    <h1 class="bl_commonlowerPage_ttl_jaTtl">症例一覧</h1>
                 </hgroup>
                 <?php get_template_part('inc/breadcrumbs'); ?>
             </div>

@@ -273,6 +273,8 @@
     background-color: #F6F6F6;
 
     @include underSP {
+        padding-top: rem(30);
+        padding-bottom: rem(50);
         padding-inline: rem(10);
     }
 
@@ -326,12 +328,10 @@
 
 .bl_frontMenuSection {
     padding-top: rem(150);
-    padding-bottom: rem(180);
     padding-inline: rem(20);
 
     @include underSP {
-        padding-top: rem(120);
-        padding-bottom: rem(120);
+        padding-top: rem(80);
     }
 
     .bl_frontPageTtlContainer {
@@ -554,7 +554,7 @@
     padding-block: rem(150);
 
     @include underSP {
-        padding-block: rem(120);
+        padding-block: rem(80);
     }
 
     .bl_frontNewsSection_inner {

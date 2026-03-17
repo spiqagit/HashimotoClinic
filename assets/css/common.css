@@ -710,6 +710,61 @@ html {
   letter-spacing: 0.1em;
 }
 
+.bl_commonCtaTab {
+  display: none;
+  trnaslate: translateY(100%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: #fff;
+  z-index: 9999;
+  border-radius: 3.75rem 3.75rem 0 0;
+  padding-top: 1.875rem;
+  padding-bottom: 3.125rem;
+  padding-inline: 0.625rem;
+}
+.bl_commonCtaTab .bl_commonCtaTab_closeBtnContainer {
+  padding-right: 3.125rem;
+  position: relative;
+  margin-bottom: 1.875rem;
+}
+.bl_commonCtaTab .bl_commonCtaTab_closeBtnContainer .bl_commonCtaTab_closeBtn {
+  display: block;
+  max-width: 1rem;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  margin-left: auto;
+}
+.bl_commonCtaTab .bl_commonCtaTab_inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  max-width: 17.5rem;
+  margin-inline: auto;
+}
+
+.bl_ctaFixedBtn {
+  display: none !important;
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
+  left: 0.875rem;
+  max-width: 9.9375rem;
+  background-color: transparent;
+  z-index: 9999;
+}
+@media screen and (width <= 1024px) {
+  .bl_ctaFixedBtn {
+    display: block !important;
+  }
+}
+
 .bl_footerReserveContainer {
   padding-top: 12.5rem;
 }
@@ -734,6 +789,7 @@ html {
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_section {
   padding-block: 3.75rem;
+  padding-inline: 1.25rem;
   background-color: var(--black);
   border-radius: 3.75rem 3.75rem 0 0;
 }
@@ -745,7 +801,8 @@ html {
 .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner {
   display: grid;
   grid-template-columns: 1fr 37.25rem;
-  padding-right: 7.5rem;
+  max-width: 90rem;
+  margin-inline: auto;
   align-items: center;
   width: 100%;
   margin-inline: auto;
@@ -1156,6 +1213,11 @@ html {
     pointer-events: auto;
   }
 }
+.bl_footerClinicBranchContainer .bl_footerClinicBranchContainer_inner .bl_footerClinicBranchWrapper .bl_footerClinicBranchWrapper_infoWrapper_btnList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.625rem;
+}
 .bl_footerClinicBranchContainer .bl_footerClinicBranchContainer_inner .bl_footerClinicBranchWrapper .bl_footerClinicBranchWrapper_infoWrapper_noteLink {
   display: grid;
   grid-template-columns: auto 1rem;
@@ -1187,6 +1249,10 @@ html {
   object-fit: contain;
   aspect-ratio: 1/1;
   padding-top: 0.125rem;
+}
+.bl_footerClinicBranchContainer .bl_footerClinicBranchContainer_inner .bl_footerClinicBranchWrapper .bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon {
+  display: block;
+  text-align: center;
 }
 
 .ly_footer {
@@ -1787,7 +1853,7 @@ html {
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
 }
 .bl_commonArticle_content > p:not(:first-child) {
@@ -2053,15 +2119,10 @@ html {
 .bl_commonFaqList .bl_commonFaqList_details .bl_commonFaqList_details_summary .bl_commonFaqList_details_summary_txt .el_commonFaqList_details_summary_txt_ttl {
   color: var(--black);
   font-family: var(--subFontJa);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.08em;
-}
-@media screen and (width <= 1024px) {
-  .bl_commonFaqList .bl_commonFaqList_details .bl_commonFaqList_details_summary .bl_commonFaqList_details_summary_txt .el_commonFaqList_details_summary_txt_ttl {
-    font-size: 1.125rem;
-  }
 }
 .bl_commonFaqList .bl_commonFaqList_details .bl_commonFaqList_details_summary .el_commonFaqList_details_summary_icon {
   position: relative;
@@ -3076,6 +3137,8 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_frontPickupSection {
+    padding-top: 1.875rem;
+    padding-bottom: 3.125rem;
     padding-inline: 0.625rem;
   }
 }
@@ -3123,13 +3186,11 @@ CTAボタン
 ------------------------------------------------------------------------------------------ */
 .bl_frontMenuSection {
   padding-top: 9.375rem;
-  padding-bottom: 11.25rem;
   padding-inline: 1.25rem;
 }
 @media screen and (width <= 1024px) {
   .bl_frontMenuSection {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem;
+    padding-top: 5rem;
   }
 }
 .bl_frontMenuSection .bl_frontPageTtlContainer {
@@ -3336,7 +3397,7 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_frontNewsSection {
-    padding-block: 7.5rem;
+    padding-block: 5rem;
   }
 }
 .bl_frontNewsSection .bl_frontNewsSection_inner {
@@ -4068,20 +4129,28 @@ CTAボタン
 #記事
 ------------------------------------------------------------------------------------------ */
 .bl_menuArticle_header {
-  display: grid;
-  grid-template-columns: auto 32.9375rem;
-  gap: 1.875rem;
-  align-items: center;
-  padding-inline: clamp(5.25rem, 8.3333333333vw, 11.25rem);
+  padding-inline: 1.25rem;
   padding-block: 2.5rem;
 }
 @media screen and (width <= 1024px) {
   .bl_menuArticle_header {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
     padding-inline: 1.25rem;
     padding-top: 1.875rem;
     padding-bottom: 0;
+  }
+}
+.bl_menuArticle_header .bl_menuArticle_header_inner {
+  display: grid;
+  grid-template-columns: auto 32.9375rem;
+  gap: 1.875rem;
+  align-items: center;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+@media screen and (width <= 1024px) {
+  .bl_menuArticle_header .bl_menuArticle_header_inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
 .bl_menuArticle_header .bl_menuArticle_header_ttlContainer {
@@ -4512,6 +4581,11 @@ CTAボタン
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0.08em;
+}
+@media screen and (width <= 1024px) {
+  .bl_doctorContainer .bl_doctorContainer_upperContainer .bl_doctorUpperContainer_rightWrapper .bl_doctorUpperContainer_txtWrapper_txtWrapper .el_doctorUpperContainer_txtWrapper_txtWrapper_txt {
+    line-height: 1.6;
+  }
 }
 .bl_doctorContainer .bl_doctorContainer_upperContainer .bl_doctorUpperContainer_rightWrapper .bl_doctorContainer_profileListContainer {
   margin-top: 2.5rem;
@@ -5427,7 +5501,7 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_infoAboutContainer .bl_infoAboutContainer_inner {
-    padding-bottom: 7.5rem;
+    padding-bottom: 5rem;
   }
 }
 .bl_infoAboutContainer .bl_infoAboutContainer_inner .el_infoAboutContainer_ttl {
@@ -5507,7 +5581,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
 }
 @media screen and (width <= 1024px) {
@@ -5540,7 +5614,7 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_infoFeatureContainer {
-    padding-block: 7.5rem;
+    padding-block: 5rem;
   }
 }
 .bl_infoFeatureContainer .bl_infoFeatureContainer_inner {
@@ -5625,7 +5699,7 @@ CTAボタン
   color: var(--black);
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.6;
   letter-spacing: 0.08em;
 }
 
@@ -5856,7 +5930,8 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_infoBranchClinicContainer {
-    padding-block: 7.5rem;
+    padding-top: 0rem;
+    padding-bottom: 5rem;
   }
 }
 .bl_infoBranchClinicContainer .bl_infoBranchClinicContainer_inner {
@@ -5872,7 +5947,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 180%;
+  line-height: 1.6;
   letter-spacing: 0.08em;
   margin-bottom: 1.875rem;
   width: fit-content;
@@ -6062,7 +6137,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
 }
@@ -6075,7 +6150,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
 }
 .bl_infoUnderContainerOuter .bl_infoUnderContainer .bl_infoUnderContainer_inner .bl_infoUnderContainer_txtWrapper .bl_infoUnderContainer_txtWrapper_list .bl_infoUnderContainer_txtWrapper_list_item::before {
@@ -6284,7 +6359,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
 }
 
@@ -6326,7 +6401,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
 }
@@ -6390,7 +6465,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
 }
 .bl_accessParkingContainer .bl_accessParkingInfoWrapper .bl_accessParkingInfoWrapper_contents .bl_accessParkingInfoWrapper_parkinglinkList_noteList .bl_accessParkingInfoWrapper_parkinglinkList_noteList_item::before {
@@ -6537,7 +6612,7 @@ CTAボタン
   font-family: var(--mainFont);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.08em;
 }
 @media screen and (width <= 1024px) {
@@ -6929,7 +7004,7 @@ CTAボタン
 @media screen and (width <= 1024px) {
   .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_infoWrapper {
     padding-inline: 1.25rem;
-    margin-bottom: 7.5rem;
+    margin-bottom: 5rem;
   }
 }
 .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_infoWrapper .bl_monitorContainer_infoWrapper_ttl {
@@ -6975,6 +7050,7 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_infoWrapper .bl_monitorContainer_infoWrapper_txtWrapper .bl_monitorContainer_infoWrapper_txtWrapper_txt {
+    line-height: 1.6;
     text-align: left;
   }
   .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_infoWrapper .bl_monitorContainer_infoWrapper_txtWrapper .bl_monitorContainer_infoWrapper_txtWrapper_txt br {
@@ -7086,6 +7162,11 @@ CTAボタン
   padding: 1rem;
   margin-bottom: 9.375rem;
 }
+@media screen and (width <= 1024px) {
+  .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_conditionWrapper {
+    margin-bottom: 5rem;
+  }
+}
 .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_conditionWrapper .bl_monitorContainer_conditionWrapper_inner {
   border-radius: 0.25rem;
   border: 1px solid #fff;
@@ -7119,6 +7200,11 @@ CTAボタン
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0.08em;
+}
+@media screen and (width <= 1024px) {
+  .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_conditionWrapper .bl_monitorContainer_conditionWrapper_inner .bl_monitorContainer_conditionWrapper_list .bl_monitorContainer_conditionWrapper_list_item {
+    line-height: 1.6;
+  }
 }
 .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_conditionWrapper .bl_monitorContainer_conditionWrapper_inner .bl_monitorContainer_conditionWrapper_list .bl_monitorContainer_conditionWrapper_list_item::before {
   content: "";
@@ -7253,6 +7339,11 @@ CTAボタン
   line-height: 1.8;
   letter-spacing: 0.08em;
 }
+@media screen and (width <= 1024px) {
+  .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_flowWrapper .bl_monitorContainer_flowList .bl_monitorContainer_flowList_item .bl_monitorContainer_flowList_item_txtWrapper .el_monitorContainer_flowList_item_txtWrapper_txt {
+    line-height: 1.6;
+  }
+}
 .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_flowWrapper .bl_monitorContainer_flowList .bl_monitorContainer_flowList_item .bl_monitorContainer_flowList_item_txtWrapper .el_monitorContainer_flowList_item_txtWrapper_noteTxt {
   color: rgba(52, 49, 44, 0.6);
   font-family: var(--mainFont);
@@ -7260,6 +7351,11 @@ CTAボタン
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0.08em;
+}
+@media screen and (width <= 1024px) {
+  .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_flowWrapper .bl_monitorContainer_flowList .bl_monitorContainer_flowList_item .bl_monitorContainer_flowList_item_txtWrapper .el_monitorContainer_flowList_item_txtWrapper_noteTxt {
+    line-height: 1.6;
+  }
 }
 .bl_monitorContainer .bl_monitorContainer_inner .bl_monitorContainer_flowWrapper .bl_monitorContainer_flowList .bl_monitorContainer_flowList_item .bl_monitorContainer_flowList_item_txtWrapper .bl_monitorContainer_flowList_item_btnWrapper {
   border-radius: 0.25rem;
@@ -7483,6 +7579,11 @@ CTAボタン
   line-height: 1.8;
   letter-spacing: 0.08em;
 }
+@media screen and (width <= 1024px) {
+  .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_philosophyContainer .bl_recruitContainer_philosophyContainer_list .bl_recruitContainer_philosophyContainer_list_item .bl_recruitContainer_philosophyContainer_list_item_lower .el_recruitContainer_philosophyContainer_list_item_lower_txt {
+    line-height: 1.6;
+  }
+}
 .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -7496,6 +7597,7 @@ CTAボタン
 }
 @media screen and (width <= 1024px) {
   .bl_recruitContainer .bl_recruitContainer_inner .bl_recruitContainer_flowContainer .bl_recruitContainer_flowContainer_inner {
+    padding-top: 5rem;
     grid-template-columns: auto;
     gap: 1.875rem;
   }

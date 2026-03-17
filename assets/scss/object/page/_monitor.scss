@@ -166,7 +166,7 @@
 
             @include underSP {
                 padding-inline: rem(20);
-                margin-bottom: rem(120);
+                margin-bottom: rem(80);
             }
 
             .bl_monitorContainer_infoWrapper_ttl {
@@ -215,6 +215,7 @@
                     margin-bottom: rem(8);
 
                     @include underSP {
+                        line-height: 1.6;
                         text-align: left;
 
                         br {
@@ -342,6 +343,10 @@
             padding: rem(16);
             margin-bottom: rem(150);
 
+            @include underSP {
+                margin-bottom: rem(80);
+            }
+
             .bl_monitorContainer_conditionWrapper_inner {
                 border-radius: rem(4);
                 border: 1px solid #fff;
@@ -376,6 +381,10 @@
                         font-weight: 400;
                         line-height: 1.8;
                         letter-spacing: calc(1.28 / 16 * 1em);
+
+                        @include underSP {
+                            line-height: 1.6;
+                        }
 
                         &::before {
                             content: '';
@@ -518,6 +527,10 @@
                             font-weight: 400;
                             line-height: 1.8;
                             letter-spacing: calc(1.28 / 16 * 1em);
+
+                            @include underSP {
+                                line-height: 1.6;
+                            }
                         }
 
                         .el_monitorContainer_flowList_item_txtWrapper_noteTxt {
@@ -527,6 +540,10 @@
                             font-weight: 400;
                             line-height: 1.8;
                             letter-spacing: calc(1.12 / 14 * 1em);
+
+                            @include underSP {
+                                line-height: 1.6;
+                            }
                         }
 
 

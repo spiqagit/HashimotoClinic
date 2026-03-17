@@ -1,11 +1,11 @@
 /**
  * アコーディオン（GSAP）
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const duration = 0.4;
     const ease = 'power2.out';
 
-    document.querySelectorAll('.js-details').forEach(function(details) {
+    document.querySelectorAll('.js-details').forEach(function (details) {
         const summary = details.querySelector('.is-summary');
         const content = details.querySelector('.is-details-content');
 
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (details.open) summary.classList.add('is-open');
 
-        summary.addEventListener('click', function(event) {
+        summary.addEventListener('click', function (event) {
             event.preventDefault();
 
             if (details.open) {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     overflow: 'hidden',
                     duration: duration,
                     ease: ease,
-                    onComplete: function() {
+                    onComplete: function () {
                         details.removeAttribute('open');
                         gsap.set(content, { clearProps: 'height,overflow' });
                     },
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         overflow: 'hidden',
                         duration: duration,
                         ease: ease,
-                        onComplete: function() {
+                        onComplete: function () {
                             gsap.set(content, { height: 'auto', overflow: '' });
                         },
                     },
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* ページ最上部へスクロール */
     const topScrollBtn = document.querySelector('.bl_commonTopScrollBtn');
     if (topScrollBtn) {
-        topScrollBtn.addEventListener('click', function() {
+        topScrollBtn.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleCloseBtn = document.querySelector('.bl_commonToggleNav_closeBtn');
 
     if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
+        toggleBtn.addEventListener('click', function () {
 
             document.body.style.overflow = 'hidden';
 
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ease: 'power2.out',
                 display: 'block',
             });
-            
+
             gsap.fromTo(toggleNav, {
                 x: '100%',
             }, {
@@ -89,12 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 duration: 0.5,
                 ease: 'power2.out',
             });
-            
+
         });
     }
 
     if (toggleCloseBtn) {
-        toggleCloseBtn.addEventListener('click', function() {
+        toggleCloseBtn.addEventListener('click', function () {
 
             document.body.style.overflow = '';
 
@@ -117,25 +117,74 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const ctaTabBtn = document.getElementById('CtaTabBtn');
+    const ctaTab = document.querySelector('.bl_commonCtaTab');
+    const ctaTabCloseBtn = document.querySelector('.bl_commonCtaTab_closeBtn');
+
+    if (ctaTabBtn) {
+        ctaTabBtn.addEventListener('click', function () {
+
+            gsap.fromTo(ctaTab, {
+                translateY: '100%',
+            }, {
+                translateY: 0,
+                duration: 0.5,
+                ease: 'power2.out',
+            });
+            gsap.set(ctaTab, { display: 'block' });
+
+
+            gsap.fromTo(toggleNavOuter, {
+                opacity: 0,
+            }, {
+                opacity: .5,
+                duration: 0.5,
+                ease: 'power2.out',
+            });
+
+            gsap.set(toggleNavOuter, { display: 'block' });
+        });
+    }
+
+    if (ctaTabCloseBtn) {
+        ctaTabCloseBtn.addEventListener('click', function () {
+            gsap.fromTo(ctaTab, {
+                translateY: 0,
+            }, {
+                translateY: "100%",
+                duration: 0.8,
+                ease: 'power2.out',
+                display: 'none',
+            });
+
+            gsap.to(toggleNavOuter,  {
+                opacity: 0,
+                display: 'none',
+                duration: 0.5,
+                ease: 'power2.out',
+            });
+
+        });
+    }
 
     /* 気になる部位セクション（タブ切り替え）
     ------------------------------------------------------------------------------------------ */
     const partsCatBtns = document.querySelectorAll('.el_menuPartsCatContainer_btn');
     const partsCatTabItems = document.querySelectorAll('.bl_menuPartsCatContainer_tabContents_item');
 
-    partsCatBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
+    partsCatBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
             const targetId = this.getAttribute('id');
             if (!targetId) return;
 
             // ボタンの is_active を切り替え
-            partsCatBtns.forEach(function(b) {
+            partsCatBtns.forEach(function (b) {
                 b.classList.remove('is_active');
             });
             this.classList.add('is_active');
 
             // タブコンテンツの is_active を切り替え
-            partsCatTabItems.forEach(function(item) {
+            partsCatTabItems.forEach(function (item) {
                 if (item.getAttribute('data-id') === targetId) {
                     item.classList.add('is_active');
 
@@ -164,13 +213,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     /* スケジュール */
-    document.querySelectorAll('.bl_scheduleContainer').forEach(function(scheduleContainer) {
+    document.querySelectorAll('.bl_scheduleContainer').forEach(function (scheduleContainer) {
         const schedule = scheduleContainer.querySelector('.bl_scheduleSwiper');
         const slideItem = schedule.querySelectorAll('.swiper-slide');
         let currentMonthIndex = 0;
-        
+
         const now = new Date();
-        slideItem.forEach(function(item, index) {
+        slideItem.forEach(function (item, index) {
             const dateStr = item.getAttribute('data-date');
             const [year, month] = dateStr.split('/').map(Number);
             const date = new Date(year, month - 1, 1); // monthは0始まりのため-1
@@ -200,8 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
     /* よくある質問 - ナビリンクで目的箇所へスムーススクロール */
     const faqArchive = document.querySelector('.bl_faqArchive');
     if (faqArchive) {
-        faqArchive.querySelectorAll('.el_faqArchive_nav_list_item_link').forEach(function(link) {
-            link.addEventListener('click', function(e) {
+        faqArchive.querySelectorAll('.el_faqArchive_nav_list_item_link').forEach(function (link) {
+            link.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (!href || href.charAt(0) !== '#') return;
                 const id = href.slice(1);
@@ -224,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let isFaqNavOpen = false;
 
         if (faqNavBtn && faqNavListContainer) {
-            faqNavBtn.addEventListener('click', function() {
+            faqNavBtn.addEventListener('click', function () {
                 gsap.killTweensOf(faqNavListContainer);
                 if (faqNavArrow) gsap.killTweensOf(faqNavArrow);
 
@@ -249,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             height: faqNavListContainer.scrollHeight,
                             duration: 0.4,
                             ease: 'power2.out',
-                            onComplete: function() {
+                            onComplete: function () {
                                 gsap.set(faqNavListContainer, { height: 'auto' });
                             },
                         },
@@ -266,8 +315,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 isFaqNavOpen = !isFaqNavOpen;
             });
 
-            faqSpNav.querySelectorAll('.el_faqArchive_nav_list_item_link').forEach(function(link) {
-                link.addEventListener('click', function() {
+            faqSpNav.querySelectorAll('.el_faqArchive_nav_list_item_link').forEach(function (link) {
+                link.addEventListener('click', function () {
                     if (!isFaqNavOpen) return;
                     gsap.killTweensOf(faqNavListContainer);
                     if (faqNavArrow) gsap.killTweensOf(faqNavArrow);

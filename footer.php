@@ -182,37 +182,21 @@ $clinicPostList = get_posts(array(
                             <?php endif; ?>
                         </div>
 
-                        <?php if (have_rows('clinic-snslist', $clinicPost->ID)): ?>
-                            <div class="bl_footerSnsList">
-                                <?php while (have_rows('clinic-snslist', $clinicPost->ID)): the_row(); ?>
-                                    <a href="<?php the_sub_field('clinic-snslist-link'); ?>" class="bl_footerSnsList_item" target="_blank">
-
-                                        <?php if (get_sub_field('clinic-snslist-sns') == "Instagram"): ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-instagram-black.svg" alt="">
-                                        <?php endif; ?>
-
-                                        <?php if (get_sub_field('clinic-snslist-sns') == "TikTok"): ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-tiktok-black.svg" alt="">
-                                        <?php endif; ?>
-
-                                        <?php if (get_sub_field('clinic-snslist-sns') == "YouTube"): ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-youtube-black.svg" alt="">
-                                        <?php endif; ?>
-
-                                    </a>
-                                <?php endwhile; ?>
-                            </div>
-                        <?php endif; ?>
 
 
-                        <?php if (get_field('googlemap-link', $clinicPost->ID)): ?>
-
-                            <a href="<?php echo get_field('googlemap-link', $clinicPost->ID); ?>" class="bl_footerClinicBranchWrapper_infoWrapper_noteLink" target="_blank">
-                                <p>Google Maps</p>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon.svg" alt="">
+                        <div class="bl_footerClinicBranchWrapper_infoWrapper_btnList">
+                            <a href="<?php echo home_url(); ?>/access/" class="bl_footerClinicBranchWrapper_infoWrapper_noteLink bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon">
+                                <p>提携駐車場について</p>
                             </a>
+                            <?php if (get_field('googlemap-link', $clinicPost->ID)): ?>
 
-                        <?php endif; ?>
+                                <a href="<?php echo get_field('googlemap-link', $clinicPost->ID); ?>" class="bl_footerClinicBranchWrapper_infoWrapper_noteLink" target="_blank">
+                                    <p>Google Maps</p>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon.svg" alt="">
+                                </a>
+
+                            <?php endif; ?>
+                        </div>
 
                     </div>
                 </div>

@@ -126,7 +126,7 @@
 
 
             <a href="<?php echo home_url(); ?>/case/" class="bl_commonNavBtnList_item">
-                <p class="el_commonNavBtnList_item_txt">症例</p>
+                <p class="el_commonNavBtnList_item_txt">症例一覧</p>
                 <img class="el_commonNavBtnList_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
             </a>
 
@@ -226,7 +226,7 @@
                         <?php endif; ?>
 
                         <?php if (get_field('youtube', 'option')): ?>
-                            <a href="<?php echo get_field('tiktok', 'option'); ?>" target="_blank" rel="noopener noreferrer"    class="bl_commonSnsList_item">
+                            <a href="<?php echo get_field('tiktok', 'option'); ?>" target="_blank" rel="noopener noreferrer" class="bl_commonSnsList_item">
                                 <img class="el_commonSnsList_item_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-youtube-black.svg" alt="YouTube">
                             </a>
                         <?php endif; ?>
@@ -244,3 +244,52 @@
         <span class="el_commonTopScrollBtn_inner_txt">Top</span>
     </span>
 </button>
+
+
+<button type="button" class="bl_commonCtaBtn bl_ctaFixedBtn" id="CtaTabBtn">
+    <div class="bl_commonCtaBtn_inner">
+        <p class="el_commonCtaBtn_txt">各種お問い合わせ</p>
+    </div>
+</button>
+
+<div class="bl_commonCtaTab">
+    <div class="bl_commonCtaTab_closeBtnContainer">
+        <button class="bl_commonCtaTab_closeBtn" type="button">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close.svg" alt="">
+        </button>
+    </div>
+    <div class="bl_commonCtaTab_inner">
+        <?php if (get_field('tel', 'option')): ?>
+            <a href="tel:<?php echo get_field('tel', 'option'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
+                <div class="bl_commonCtaBtn_inner">
+                    <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tel-icon-white.svg" alt="電話">
+                    <p class="el_commonCtaBtn_txt"><?php echo get_field('tel', 'option'); ?></p>
+                </div>
+            </a>
+        <?php endif; ?>
+        <a href="<?php echo home_url(); ?>/contact/" target="_blank" class="bl_commonCtaBtn">
+            <div class="bl_commonCtaBtn_inner">
+                <p class="el_commonCtaBtn_txt">お問い合わせ</p>
+            </div>
+        </a>
+        <?php if (have_rows('reserve-url-group', 'option')): ?>
+            <?php while (have_rows('reserve-url-group', 'option')): the_row(); ?>
+
+                <a href="<?php the_sub_field('mypage-login'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
+                    <div class="bl_commonCtaBtn_inner">
+                        <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon.svg" alt="マイページ">
+                        <p class="el_commonCtaBtn_txt">マイページログイン</p>
+                    </div>
+                </a>
+
+                <a href="<?php the_sub_field('line-resere'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
+                    <div class="bl_commonCtaBtn_inner">
+                        <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/line-icon.svg" alt="LINE">
+                        <p class="el_commonCtaBtn_txt">LINE予約</p>
+                    </div>
+                </a>
+
+            <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
+</div>

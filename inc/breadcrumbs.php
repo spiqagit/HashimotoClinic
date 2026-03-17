@@ -85,7 +85,7 @@
         ?>
         <?php if (is_post_type_archive('case')): ?>
             <li class="bl_breadcrumbs_list_item">
-                <p class="bl_breadcrumbs_list_item_text">症例</p>
+                <p class="bl_breadcrumbs_list_item_text">症例一覧</p>
             </li>
         <?php endif; ?>
 
@@ -101,7 +101,7 @@
             }
             ?>
             <li class="bl_breadcrumbs_list_item">
-                <a class="bl_breadcrumbs_list_item_link" href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">症例</a>
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">症例一覧</a>
             </li>
             <li class="bl_breadcrumbs_list_item">
                 <p class="bl_breadcrumbs_list_item_text"><?php echo $menu_label ? esc_html($menu_label) . 'の症例' : '症例検索'; ?></p>
@@ -110,7 +110,7 @@
 
         <?php if (is_singular('case') && !is_post_type_archive('case')): ?>
             <li class="bl_breadcrumbs_list_item">
-                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/case/">症例</a>
+                <a class="bl_breadcrumbs_list_item_link" href="<?php echo home_url(); ?>/case/">症例一覧</a>
             </li>
             <li class="bl_breadcrumbs_list_item">
                 <p class="bl_breadcrumbs_list_item_text"><?php the_title(); ?></p>

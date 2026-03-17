@@ -23,6 +23,7 @@
 
     .bl_footerReserveContainer_section {
         padding-block: rem(60);
+        padding-inline: rem(20);
         background-color: var(--black);
         border-radius: rem(60) rem(60) 0 0;
 
@@ -33,7 +34,8 @@
         .bl_footerReserveContainer_section_inner {
             display: grid;
             grid-template-columns: 1fr rem(596);
-            padding-right: rem(120);
+            max-width: rem(1440);
+            margin-inline: auto;
             align-items: center;
             width: 100%;
             margin-inline: auto;
@@ -492,6 +494,12 @@
                 }
             }
 
+            .bl_footerClinicBranchWrapper_infoWrapper_btnList{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: rem(26);
+            }
+
             .bl_footerClinicBranchWrapper_infoWrapper_noteLink {
                 display: grid;
                 grid-template-columns: auto rem(16);
@@ -525,6 +533,11 @@
                     aspect-ratio: 1/1;
                     padding-top: rem(2);
                 }
+            }
+
+            .bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon{
+                display: block;
+                text-align: center;
             }
         }
     }

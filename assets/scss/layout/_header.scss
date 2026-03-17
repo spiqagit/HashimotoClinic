@@ -410,7 +410,7 @@
 
     .bl_commonNavBtnList {
         grid-template-columns: repeat(2, 1fr);
-        
+
         @include underSP {
             grid-template-columns: repeat(2, 1fr);
             column-gap: rem(28);
@@ -555,5 +555,64 @@
             line-height: 1.2;
             letter-spacing: calc(1.6 / 16 * 1em);
         }
+    }
+}
+
+
+.bl_commonCtaTab {
+    display: none;
+    trnaslate: translateY(100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: #fff;
+    z-index: 9999;
+    border-radius: rem(60) rem(60) 0 0;
+    padding-top: rem(30);
+    padding-bottom: rem(50);
+    padding-inline: rem(10);
+
+    .bl_commonCtaTab_closeBtnContainer {
+        padding-right: rem(50);
+        position: relative;
+        margin-bottom: rem(30);
+
+        .bl_commonCtaTab_closeBtn {
+            display: block;
+            max-width: rem(16);
+            width: 100%;
+            height: auto;
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            aspect-ratio: 1/1;
+            margin-left: auto;
+        }
+    }
+
+    .bl_commonCtaTab_inner{
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+        max-width: rem(280);
+        margin-inline: auto;
+    }
+}
+
+
+.bl_ctaFixedBtn{
+    display: none !important;
+    position: fixed;
+    bottom:  calc(env(safe-area-inset-bottom) + rem(24));
+    left: rem(14);
+    max-width: rem(159);
+    background-color: transparent;
+    z-index: 9999;
+
+    @include underSP {
+        display: block !important;
     }
 }

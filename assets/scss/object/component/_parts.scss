@@ -379,7 +379,7 @@
         font-family: var(--mainFont);
         font-size: rem(16);
         font-weight: 400;
-        line-height: 1.8;
+        line-height: 1.6;
         letter-spacing: calc(1.28 / 16 * 1em);
 
         &:not(:first-child) {
@@ -699,14 +699,10 @@
                 .el_commonFaqList_details_summary_txt_ttl {
                     color: var(--black);
                     font-family: var(--subFontJa);
-                    font-size: rem(20);
+                    font-size: rem(18);
                     font-weight: 500;
                     line-height: 1.5;
                     letter-spacing: calc(1.6 / 20 * 1em);
-
-                    @include underSP {
-                        font-size: rem(18);
-                    }
                 }
             }
 
