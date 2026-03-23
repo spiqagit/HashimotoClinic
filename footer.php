@@ -185,7 +185,7 @@ $clinicPostList = get_posts(array(
 
 
                         <div class="bl_footerClinicBranchWrapper_infoWrapper_btnList">
-                            <a href="<?php echo home_url(); ?>/access/" class="bl_footerClinicBranchWrapper_infoWrapper_noteLink bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon">
+                            <a href="<?php echo home_url(); ?>/access/#post<?php echo $clinicPost->ID; ?>" class="bl_footerClinicBranchWrapper_infoWrapper_noteLink bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon">
                                 <p>提携駐車場について</p>
                             </a>
                             <?php if (get_field('googlemap-link', $clinicPost->ID)): ?>
@@ -370,7 +370,7 @@ $clinicPostList = get_posts(array(
                         </a>
 
                         <a href="<?php echo home_url(); ?>/case/" class="bl_footerNavContainer_nav_item">
-                            <p class="el_footerNavContainer_nav_item_txt">症例</p>
+                            <p class="el_footerNavContainer_nav_item_txt">症例一覧</p>
                             <img class="el_footerNavContainer_nav_item_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/footer-navicon-white.svg" alt="">
                         </a>
 

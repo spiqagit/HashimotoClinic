@@ -13,29 +13,6 @@
     width: fit-content;
     margin-inline: auto;
 
-    .bl_frontPageTtlContainer_enTtl {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: rem(15);
-        color: var(--black);
-        text-align: center;
-        font-family: var(--subFontEn);
-        font-size: rem(22);
-        font-weight: 400;
-        line-height: 1.2;
-        letter-spacing: calc(2.2 / 22 * 1em);
-        margin-bottom: rem(20);
-
-        @include underSP {
-            font-size: rem(20);
-        }
-
-        span {
-            display: block;
-            width: fit-content;
-        }
-    }
 
     .bl_frontPageTtlContainer_jaTtl {
         color: var(--black);
@@ -193,6 +170,7 @@
             padding-top: rem(10);
 
             @include underSP {
+                padding-top: rem(20);
                 padding-inline: rem(50);
                 width: fit-content;
             }
@@ -286,6 +264,10 @@
 
     .bl_frontPageTtlContainer {
         margin-bottom: rem(50);
+
+        @include underSP {
+            margin-bottom: rem(30);
+        }
     }
 
     .bl_frontPickupSection_contents {

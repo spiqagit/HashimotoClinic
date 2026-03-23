@@ -23,7 +23,8 @@
 
     .bl_footerReserveContainer_section {
         padding-block: rem(60);
-        padding-inline: rem(20);
+        padding-left: rem(40);
+        padding-right: rem(60);
         background-color: var(--black);
         border-radius: rem(60) rem(60) 0 0;
 
@@ -498,6 +499,11 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: rem(26);
+
+                @include underSP {
+                    grid-template-columns: auto;
+                    gap: rem(10);
+                }
             }
 
             .bl_footerClinicBranchWrapper_infoWrapper_noteLink {

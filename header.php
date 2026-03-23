@@ -22,6 +22,7 @@
                     </button>
                 </form>
 
+
                 <div class="bl_header_langWrapper">
                     <?php echo do_shortcode('[gtranslate]'); ?>
                 </div>
@@ -66,11 +67,28 @@
                             <?php endwhile; ?>
                         <?php endif; ?>
                     </div>
+
+                    <?php if (have_rows('reserve-url-group', 'option')): ?>
+                        <div class="bl_header_contentsWrapper_mypageWrapper">
+                            <?php while (have_rows('reserve-url-group', 'option')): the_row(); ?>
+
+                                <a href="<?php the_sub_field('mypage-login'); ?>" target="_blank" class=""><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon-black.svg" alt="マイページ"></a>
+
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="bl_header_langWrapper">
+                        <?php echo do_shortcode('[gtranslate]'); ?>
+                    </div>
+
                     <button class="bl_header_toggleBtn" type="button">
                         <span class="el_header_toggleBtn_line"></span>
                         <span class="el_header_toggleBtn_line"></span>
                         <span class="el_header_toggleBtn_line"></span>
                     </button>
+
+
                 </div>
             </div>
         </div>
@@ -101,6 +119,14 @@
             <span class="el_commonToggleNav_closeBtn_line"></span>
             <span class="el_commonToggleNav_closeBtn_line"></span>
         </button>
+
+        <form action="<?php echo home_url(); ?>/" class="bl_header_searchWrapper">
+            <input class="el_header_searchWrapper_input" type="text" name="s" placeholder="サイト内検索">
+            <input type="hidden" name="type" value="site">
+            <button class="el_header_searchWrapper_button" type="submit">
+                <img class="el_header_searchWrapper_button_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/search.svg" alt="">
+            </button>
+        </form>
 
         <div class="bl_commonNavBtnList">
             <a href="<?php echo home_url(); ?>/" class="bl_commonNavBtnList_item">
@@ -230,7 +256,6 @@
                                 <img class="el_commonSnsList_item_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-youtube-black.svg" alt="YouTube">
                             </a>
                         <?php endif; ?>
-
                     </div>
                 <?php endif; ?>
             </div>

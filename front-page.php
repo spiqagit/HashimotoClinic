@@ -77,14 +77,9 @@
 
         <section class="bl_frontMenuSection">
             <div class="bl_frontMenuSection_inner">
-                <hgroup class="bl_frontPageTtlContainer">
-                    <p class="bl_frontPageTtlContainer_enTtl">
-                        <span>(</span>
-                        <span>Menu</span>
-                        <span>)</span>
-                    </p>
+                <div class="bl_frontPageTtlContainer">
                     <h2 class="bl_frontPageTtlContainer_jaTtl">施術メニュー</h2>
-                </hgroup>
+                </div>
 
                 <div class="bl_menuPartsCatContainer">
                     <h3 class="el_menuPartsCatContainer_ttl">気になる部位から探す</h3>
@@ -222,14 +217,9 @@
 
         <section class="bl_frontNewsSection">
             <div class="bl_frontNewsSection_inner">
-                <hgroup class="bl_frontPageTtlContainer">
-                    <p class="bl_frontPageTtlContainer_enTtl">
-                        <span>(</span>
-                        <span>News</span>
-                        <span>)</span>
-                    </p>
+                <div class="bl_frontPageTtlContainer">
                     <h2 class="bl_frontPageTtlContainer_jaTtl">お知らせ</h2>
-                </hgroup>
+                </div>
 
                 <?php
                 $relatedNewsPosts = get_posts(array(
@@ -317,14 +307,9 @@
 
         <section class="bl_frontBlogSection">
             <div class="bl_frontBlogSection_inner">
-                <hgroup class="bl_frontPageTtlContainer">
-                    <p class="bl_frontPageTtlContainer_enTtl">
-                        <span>(</span>
-                        <span>Blog</span>
-                        <span>)</span>
-                    </p>
+                <div class="bl_frontPageTtlContainer">
                     <h2 class="bl_frontPageTtlContainer_jaTtl">院長ブログ</h2>
-                </hgroup>
+                </div>
 
                 <?php
                 $relatedBlogPosts = get_posts(array(
