@@ -865,10 +865,14 @@ html {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.1em;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 1.25rem;
 }
 @media screen and (width <= 1024px) {
   .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_frontPageTtlContainer .bl_frontPageTtlContainer_enTtl {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    margin-bottom: 0.625rem;
   }
 }
 .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner .bl_frontPageTtlContainer .bl_frontPageTtlContainer_jaTtl {

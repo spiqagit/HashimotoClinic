@@ -60,9 +60,13 @@
                     font-weight: 400;
                     line-height: 1.2;
                     letter-spacing: calc(2.6 / 26 * 1em);
+                    width: fit-content;
+                    margin-inline: auto;
+                    margin-bottom: rem(20);
 
                     @include underSP {
-                        font-size: rem(20);
+                        font-size: rem(18);
+                        margin-bottom: rem(10);
                     }
                 }
 
