@@ -64,14 +64,9 @@
 
 <section class="bl_footerScheduleContainer">
     <div class="bl_footerScheduleContainer_inner">
-        <hgroup class="bl_frontPageTtlContainer">
-            <p class="bl_frontPageTtlContainer_enTtl">
-                <span>(</span>
-                <span>Schedule</span>
-                <span>)</span>
-            </p>
+        <div class="bl_frontPageTtlContainer">
             <h2 class="bl_frontPageTtlContainer_jaTtl">スケジュール</h2>
-        </hgroup>
+        </div>
 
         <?php
         $clinicPostList = get_posts(array(

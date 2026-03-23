@@ -827,7 +827,7 @@ html {
 .bl_footerReserveContainer .bl_footerReserveContainer_section {
   padding-block: 3.75rem;
   padding-left: 2.5rem;
-  padding-right: 3.75rem;
+  padding-right: 7.5rem;
   background-color: var(--black);
   border-radius: 3.75rem 3.75rem 0 0;
 }
@@ -840,6 +840,7 @@ html {
   display: grid;
   grid-template-columns: 1fr 37.25rem;
   max-width: 90rem;
+  gap: 2.5rem;
   margin-inline: auto;
   align-items: center;
   width: 100%;
@@ -849,6 +850,7 @@ html {
   .bl_footerReserveContainer .bl_footerReserveContainer_section .bl_footerReserveContainer_section_inner {
     grid-template-columns: 1fr;
     padding-right: 0;
+    gap: 0rem;
   }
 }
 @media screen and (width <= 1024px) {
@@ -1026,6 +1028,7 @@ html {
 .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item:nth-child(even) {
   display: flex;
   gap: 2.625rem;
+  justify-content: flex-end;
 }
 @media screen and (width <= 1024px) {
   .bl_footerScheduleContainer .bl_footerScheduleContainer_inner .bl_footerScheduleContainer_list .bl_footerScheduleContainer_list_item:nth-child(even) {

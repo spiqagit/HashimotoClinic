@@ -24,7 +24,7 @@
     .bl_footerReserveContainer_section {
         padding-block: rem(60);
         padding-left: rem(40);
-        padding-right: rem(60);
+        padding-right: rem(120);
         background-color: var(--black);
         border-radius: rem(60) rem(60) 0 0;
 
@@ -36,6 +36,7 @@
             display: grid;
             grid-template-columns: 1fr rem(596);
             max-width: rem(1440);
+            gap: rem(40);
             margin-inline: auto;
             align-items: center;
             width: 100%;
@@ -44,6 +45,7 @@
             @include underSP {
                 grid-template-columns: 1fr;
                 padding-right: 0;
+                gap: rem(0);
             }
 
             .bl_frontPageTtlContainer {
@@ -242,6 +244,7 @@
                 &:nth-child(even) {
                     display: flex;
                     gap: rem(42);
+                    justify-content: flex-end;
 
                     @include underSP {
                         display: block;
