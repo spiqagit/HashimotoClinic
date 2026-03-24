@@ -259,6 +259,14 @@ function disable_faq_pages()
         exit;
     }
 
+    if (is_singular('recruit')) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        get_template_part(404);
+        exit;
+    }
+
     if (is_singular('doctor')) {
         global $wp_query;
         $wp_query->set_404();
@@ -541,3 +549,50 @@ function renewal2026_cf7_validate_rubi_katakana($result, $tag)
 }
 add_filter('wpcf7_validate_text', 'renewal2026_cf7_validate_rubi_katakana', 20, 2);
 add_filter('wpcf7_validate_text*', 'renewal2026_cf7_validate_rubi_katakana', 20, 2);
+
+
+/**
+ * 症例絞り込み（search-case + ?menu=）かどうか。
+ * AIOSEO 4.x はこのURLを「通常のWP条件分岐」に当てはめず getTitle/getDescription が空になるため、
+ * aioseo_title / aioseo_description フィルタは通らない。pre_get_document_title と head 直出力で補う。
+ */
+function is_search_case_page()
+{
+    return (int) get_query_var('search_case') === 1 && isset($_GET['menu']);
+}
+
+function renewal2026_search_case_document_title()
+{
+    $post_id = (int) $_GET['menu'];
+    $post_title = $post_id ? get_the_title($post_id) : '';
+
+    return $post_title
+        ? $post_title . 'の絞り込み結果 | 静岡美容外科橋本クリニック'
+        : '絞り込み結果 | 静岡美容外科橋本クリニック';
+}
+
+function renewal2026_search_case_meta_description()
+{
+    $post_id = (int) $_GET['menu'];
+    $post_title = $post_id ? get_the_title($post_id) : '';
+
+    return $post_title ? $post_title . 'に関する症例の絞り込み結果ページです。' : '';
+}
+
+add_filter('pre_get_document_title', function ($title) {
+    if (!is_search_case_page()) {
+        return $title;
+    }
+    return renewal2026_search_case_document_title();
+}, 100000);
+
+add_action('wp_head', function () {
+    if (!is_search_case_page()) {
+        return;
+    }
+    $description = renewal2026_search_case_meta_description();
+    if ($description !== '') {
+        echo '<meta name="description" content="' . esc_attr($description) . '" />' . "\n";
+    }
+    echo "<meta name=\"robots\" content=\"noindex, follow\" />\n";
+}, 2);

@@ -1,5 +1,62 @@
 <?php get_header('meta'); ?>
 <?php wp_head(); ?>
+<!-- リッチリザルト（構造化データ: FAQPage用） -->
+<?php
+$faq_terms = get_terms('faq-cat', array(
+    'orderby' => 'term_id',
+    'order' => 'menu_order',
+    'hide_empty' => true,
+    'parent' => 0,
+));
+?>
+<?php if (!empty($faq_terms)): ?>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                <?php
+                $faq_json = [];
+                foreach ($faq_terms as $faq_term) {
+                    // 各カテゴリ内のFAQ投稿を取得
+                    $faq_query = new WP_Query(array(
+                        'post_type' => 'faq',
+                        'posts_per_page' => -1,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'faq-cat',
+                                'field' => 'term_id',
+                                'terms' => $faq_term->term_id,
+                            )
+                        )
+                    ));
+                    if ($faq_query->have_posts()) :
+                        while ($faq_query->have_posts()) : $faq_query->the_post();
+                            $question = get_the_title();
+                            $answer = get_the_content();
+                            // 改行や余計なHTMLを除去して整形
+                            $answer = strip_tags(apply_filters('the_content', $answer));
+                            $answer = trim(preg_replace('/\s+/', ' ', $answer));
+                            $faq_json[] = '{
+                  "@type": "Question",
+                  "name": ' . json_encode($question) . ',
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": ' . json_encode($answer) . '
+                  }
+                }';
+                        endwhile;
+                        wp_reset_postdata();
+                    endif;
+                }
+                // カンマ区切りで出力
+                echo implode(",\n", $faq_json);
+                ?>
+            ]
+        }
+    </script>
+<?php endif; ?>
+
 </head>
 
 <body class="">
