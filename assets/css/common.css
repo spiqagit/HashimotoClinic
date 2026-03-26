@@ -2246,10 +2246,6 @@ html {
 .bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner:not(:first-child) {
   margin-top: 1.875rem;
 }
-.bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .swiper-slide {
-  max-width: 21.25rem;
-  width: 100%;
-}
 .bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .bl_commonBlogSwiper_prev,
 .bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .bl_commonBlogSwiper_next {
   display: grid;
@@ -2301,6 +2297,7 @@ html {
 }
 .bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .bl_commonBlogSwiper {
   width: 100%;
+  grid-column: 2;
 }
 @media screen and (width <= 1024px) {
   .bl_commonBlogSwiperContainer .bl_commonBlogSwiperContainer_inner .bl_commonBlogSwiper {
@@ -2335,6 +2332,9 @@ html {
   width: 100%;
   padding-bottom: 1.5rem;
   border-bottom: 1px dashed rgba(52, 49, 44, 0.3);
+}
+.bl_commonBlogSlideBtn .swiper-slide {
+  width: 13.875rem !important;
 }
 .bl_commonBlogSlideBtn .bl_commonBlogSlideBtn_imgContainer {
   display: block;

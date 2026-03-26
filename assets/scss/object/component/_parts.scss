@@ -794,11 +794,6 @@
             margin-top: rem(30);
         }
 
-        .swiper-slide {
-            max-width: rem(340);
-            width: 100%;
-        }
-
 
         .bl_commonBlogSwiper_prev,
         .bl_commonBlogSwiper_next {
@@ -854,6 +849,7 @@
 
         .bl_commonBlogSwiper {
             width: 100%;
+            grid-column: 2;
 
             @include underSP {
                 overflow: visible;
@@ -893,6 +889,10 @@
     width: 100%;
     padding-bottom: rem(24);
     border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+
+    .swiper-slide{
+        width: rem(222) !important;
+    }
 
 
     .bl_commonBlogSlideBtn_imgContainer {

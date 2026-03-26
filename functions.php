@@ -455,6 +455,7 @@ function renewal2026_disable_doctor_editor_support()
     remove_post_type_support('doctor', 'editor');
     remove_post_type_support('clinic', 'editor');
     remove_post_type_support('faq', 'editor');
+    remove_post_type_support('recruit', 'editor');
 }
 add_action('init', 'renewal2026_disable_doctor_editor_support', 20);
 
@@ -466,6 +467,10 @@ function renewal2026_disable_doctor_block_editor($use_block_editor, $post_type)
     }
 
     if ($post_type === 'clinic') {
+        return false;
+    }
+
+    if ($post_type === 'recruit') {
         return false;
     }
 
