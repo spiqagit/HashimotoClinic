@@ -37,6 +37,38 @@ add_action("admin_head", "remove_admin_selection_color");
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示
 
+// Contact Form 7（お問い合わせ）のメニューをカスタム投稿タイプより下へ（番号が大きいほどサイドバーで下）
+function renewal2026_move_cf7_admin_menu_down()
+{
+    global $menu;
+    if (!is_array($menu)) {
+        return;
+    }
+    $slug = 'wpcf7';
+    $item = null;
+    $key_found = null;
+    foreach ($menu as $key => $m) {
+        if (isset($m[2]) && $m[2] === $slug) {
+            $item = $m;
+            $key_found = $key;
+            break;
+        }
+    }
+    if ($item === null) {
+        return;
+    }
+    unset($menu[$key_found]);
+    // 外観(60)より手前で、使える一番大きい番号＝サイドバーで一番下に近い位置
+    for ($pos = 58; $pos >= 25; $pos--) {
+        if (!isset($menu[$pos])) {
+            $menu[$pos] = $item;
+            return;
+        }
+    }
+    $menu[58] = $item;
+}
+add_action('admin_menu', 'renewal2026_move_cf7_admin_menu_down', 9999);
+
 // recruit 固定ページのエディターを非表示（テンプレート page-recruit.php またはスラッグ recruit のとき）
 function renewal2026_is_recruit_page($post)
 {
