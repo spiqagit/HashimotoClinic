@@ -633,3 +633,16 @@ add_action('wp_head', function () {
     }
     echo "<meta name=\"robots\" content=\"noindex, follow\" />\n";
 }, 2);
+
+
+$categories = get_the_category();
+
+// 親カテゴリーを先にソート
+usort($categories, function($a, $b) {
+    return $a->parent - $b->parent;
+    // parent=0（親）が先、parent!=0（子）が後になる
+});
+
+foreach ($categories as $cat) {
+    echo $cat->name;
+}
