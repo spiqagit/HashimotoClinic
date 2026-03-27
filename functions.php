@@ -637,12 +637,23 @@ add_action('wp_head', function () {
 
 $categories = get_the_category();
 
-// 親カテゴリーを先にソート
-usort($categories, function($a, $b) {
-    return $a->parent - $b->parent;
-    // parent=0（親）が先、parent!=0（子）が後になる
+// デフォルトのカテゴリー列を削除して再登録
+add_filter('manage_posts_columns', function($columns) {
+    unset($columns['categories']);
+    $columns['categories'] = 'カテゴリー';
+    return $columns;
 });
 
-foreach ($categories as $cat) {
-    echo $cat->name;
-}
+// カスタム列の中身を出力
+add_action('manage_posts_custom_column', function($column, $post_id) {
+    if ($column === 'categories') {
+        $categories = get_the_category($post_id);
+        usort($categories, function($a, $b) {
+            return $a->parent - $b->parent;
+        });
+        $links = array_map(function($cat) use ($post_id) {
+            return '<a href="' . esc_url(add_query_arg(['category_name' => $cat->slug], admin_url('edit.php'))) . '">' . esc_html($cat->name) . '</a>';
+        }, $categories);
+        echo implode('、', $links);
+    }
+}, 10, 2);
