@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 
-    
+
 
 
     // メニューアーカイブ内アンカーのスムーススクロール
@@ -151,10 +151,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     document.querySelectorAll('.bl_menuCaseSwiper').forEach(function (swiper) {
-        new Swiper(swiper, {
-            slidesPerView: "auto",
+        new Swiper(swiper, {            
+            slidesPerView: 1, // 一度に表示する枚数
             spaceBetween: 20,
             centeredSlides: true,
+            initialSlide: 1, 
+            breakpoints: {
+                1100: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                768: {
+                    slidesPerView: 1.5,
+                },
+            },
             navigation: {
                 nextEl: document.querySelector('.bl_menuCaseSwiper_next'),
                 prevEl: document.querySelector('.bl_menuCaseSwiper_prev'),

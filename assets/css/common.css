@@ -4502,11 +4502,6 @@ CTAボタン
     z-index: 0;
   }
 }
-.bl_menuCaseSwiperContainer .bl_menuCaseSwiper .swiper-slide {
-  max-width: 21.25rem;
-  width: 100% !important;
-}
-
 .bl_relatedPriceBlock:not(:first-child) {
   margin-top: 1.875rem;
 }
