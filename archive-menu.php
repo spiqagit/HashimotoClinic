@@ -221,10 +221,10 @@
                                                                         ),
                                                                     ));
                                                                     ?>
-                                                                    <?php if (!empty($partsCatPosts)): ?>
-                                                                        <?php foreach ($partsCatPosts as $partsCatPost): ?>
-                                                                            <a href="<?php echo get_the_permalink($partsCatPost); ?>" class="bl_menuPartChildDetails_contents_link">
-                                                                                <p><?php echo get_the_title($partsCatPost); ?></p>
+                                                                    <?php if (!empty($childrenMenuPosts)): ?>
+                                                                        <?php foreach ($childrenMenuPosts as $childrenMenuPost): ?>
+                                                                            <a href="<?php echo get_the_permalink($childrenMenuPost->ID); ?>" class="bl_menuPartChildDetails_contents_link">
+                                                                                <p><?php echo get_the_title($childrenMenuPost->ID); ?></p>
                                                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                                             </a>
                                                                         <?php endforeach; ?>
