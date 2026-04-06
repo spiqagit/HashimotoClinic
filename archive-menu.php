@@ -223,8 +223,8 @@
                                                                     ?>
                                                                     <?php if (!empty($childrenMenuPosts)): ?>
                                                                         <?php foreach ($childrenMenuPosts as $childrenMenuPost): ?>
-                                                                            <a href="<?php echo get_the_permalink($childrenMenuPost->ID); ?>" class="bl_menuPartChildDetails_contents_link">
-                                                                                <p><?php echo get_the_title($childrenMenuPost->ID); ?></p>
+                                                                            <a href="<?php echo get_the_permalink($childrenMenuPost); ?>" class="bl_menuPartChildDetails_contents_link">
+                                                                                <p><?php echo get_the_title($childrenMenuPost); ?></p>
                                                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                                             </a>
                                                                         <?php endforeach; ?>
