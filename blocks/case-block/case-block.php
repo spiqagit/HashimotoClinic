@@ -122,6 +122,8 @@
             <button class="bl_menuCaseSwiper_next" type="button">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow-next.svg" alt="">
             </button>
+
+            <div class="bl_menuCaseSwiper_pagination"></div>
         </div>
 
         <div class="bl_commonAllBtnContainer">

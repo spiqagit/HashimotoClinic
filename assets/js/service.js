@@ -169,6 +169,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextEl: document.querySelector('.bl_menuCaseSwiper_next'),
                 prevEl: document.querySelector('.bl_menuCaseSwiper_prev'),
             },
+            pagination: {
+                el: document.querySelector('.bl_menuCaseSwiper_pagination'),
+                clickable: true,
+            },
         });
     });
 
