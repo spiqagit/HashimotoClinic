@@ -1,319 +1,374 @@
 @use '../foundation/function/index' as *;
 
 
-.bl_commonReserveSection {
-    background-image: url(../img/common/reserve-bg.jpg);
-    background-size: cover;
-    background-position: left top;
-    background-repeat: no-repeat;
-    padding: fluid(30, 'pc');
+.bl_footerReserveContainer {
+    padding-top: rem(200);
 
     @include underSP {
-        background-image: url(../img/common/reserve-bg-sp.jpg);
+        padding-top: rem(140);
     }
 
-
-    .bl_commonReserveSection_inner {
-        position: relative;
-        overflow: hidden;
-
-        .bl_commonReserveSection_contentWrapper {
-            position: relative;
-            z-index: 1;
-            padding: fluid(40, 'pc');
-            padding-inline: fluid(40, 'pc');
-            padding-bottom: fluid(192, 'pc');
+    .bl_footerReserveContainer_logo {
+        width: 100%;
+        margin-inline: auto;
+        padding-inline: rem(120);
+        margin-bottom: rem(-5);
+        @include underSP {
+            padding-inline: rem(12);
+        }
+        img {
             width: 100%;
+        }
+    }
 
-            .el_commonReserveSection_contentWrapper_title {
-                position: relative;
-                color: var(--white);
-                font-family: var(--subFontEn);
-                font-size: fluid(12, 'pc');
-                font-weight: 400;
-                line-height: 1.5;
-                letter-spacing: calc(0.24 / 12 * 1em);
-                z-index: 1;
-                width: fit-content;
-                margin-left: auto;
-                text-transform: uppercase;
-                margin-bottom: fluid(135, 'pc');
+    .bl_footerReserveContainer_section {
+        padding-block: rem(60);
+        padding-left: rem(40);
+        padding-right: rem(120);
+        background-color: var(--black);
+        border-radius: rem(60) rem(60) 0 0;
 
-                @include underSP {
-                    font-size: fluid(10, 'sp');
-                    margin-bottom: fluid(114, 'sp');
-                }
+        @include underSP {
+            padding-inline: rem(20);
+        }
+
+        .bl_footerReserveContainer_section_inner {
+            display: grid;
+            grid-template-columns: 1fr rem(596);
+            max-width: rem(1440);
+            gap: rem(40);
+            margin-inline: auto;
+            align-items: center;
+            width: 100%;
+            margin-inline: auto;
+
+            @include underSP {
+                grid-template-columns: 1fr;
+                padding-right: 0;
+                gap: rem(0);
             }
 
-            .bl_commonReserveSection_btnWrapper {
-                display: grid;
-                grid-template-columns: max-content 1px fluid(381, 'pc');
-                align-items: center;
-                justify-content: center;
-                gap: fluid(138, 'pc');
-
+            .bl_frontPageTtlContainer {
                 @include underSP {
-                    grid-template-columns: 1fr;
-                    gap: fluid(40, 'sp');
+                    margin-bottom: rem(50);
                 }
 
-                &::before {
-                    content: '';
-                    position: relative;
-                    height: 70%;
-                    margin-block: fluid(40, 'pc');
-                    border-left: 1px dashed var(--white);
-                    z-index: 1;
-                    order: 2;
+                .bl_frontPageTtlContainer_enTtl {
+                    color: #fff;
+                    font-family: var(--subFontEn);
+                    font-size: rem(26);
+                    font-weight: 400;
+                    line-height: 1.2;
+                    letter-spacing: calc(2.6 / 26 * 1em);
+                    width: fit-content;
+                    margin-inline: auto;
+                    margin-bottom: rem(20);
 
                     @include underSP {
-                        display: none;
+                        font-size: rem(18);
+                        margin-bottom: rem(10);
                     }
                 }
 
-                .el_commonReserveSection_contentWrapper_btnWrapper_ttl {
-                    color: var(--white);
-                    font-family: var(--subFontEn);
-                    font-size: fluid(78, 'pc');
-                    font-weight: 400;
-                    line-height: 1;
-                    letter-spacing: calc(1.56 / 78 * 1em);
-                    width: fit-content;
-                    order: 1;
+                .bl_frontPageTtlContainer_jaTtl {
+                    color: #fff;
+                    font-family: var(--subFontJa);
+                    font-size: rem(50);
+                    font-weight: 600;
+                    line-height: 1.2;
+                    letter-spacing: calc(4 / 50 * 1em);
 
                     @include underSP {
-                        width: fit-content;
-                        font-size: fluid(58, 'sp');
+                        font-size: rem(30);
+                    }
+                }
+            }
+
+
+            .bl_footerReserveContainer_section_contents {
+
+                .bl_common_telWrapper {
+                    padding-block: rem(38);
+                    margin-bottom: rem(36);
+                    border-top: 1px solid #fff;
+                    border-bottom: 1px solid #fff;
+
+                    @include underSP {
+                        padding-block: rem(36);
+                    }
+
+                    .el_common_telLink {
+                        color: #fff;
+                        font-size: rem(34);
+                        font-weight: 300;
+                        line-height: 1.2;
+                        letter-spacing: calc(1.36 / 34 * 1em);
+
+                        @include underSP {
+                            font-size: rem(34);
+                        }
+                    }
+
+                    .el_common_telHour {
+                        color: #FFF;
+
+                        @include underSP {
+                            font-size: rem(16);
+                        }
+                    }
+                }
+
+                .bl_header_contentsWrapper_ctaWrapper {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: rem(10);
+
+                    @include underSP {
+                        grid-template-columns: repeat(1, 1fr);
+                        max-width: rem(500);
                         margin-inline: auto;
                     }
                 }
 
-                .bl_commonReserveSection_btnWrapper_btnList {
-                    display: flex;
-                    flex-direction: column;
-                    gap: fluid(24, 'pc');
-                    order: 3;
+                .bl_commonCtaBtn {
+                    .bl_commonCtaBtn_inner {
+                        background-color: #fff;
 
-                    @include underSP {
-                        flex-direction: row;
-                        gap: fluid(20, 'sp');
-
-                        .bl_commonReserveBtnWrapper {
-                            width: 100%;
+                        .el_commonCtaBtn_txt {
+                            color: var(--black);
+                            font-family: var(--subFontJa);
+                            font-size: rem(14);
+                            font-weight: 500;
+                            line-height: 1.2;
+                            letter-spacing: calc(1.28 / 16 * 1em);
                         }
                     }
-
-                    @include underSP_m {
-                        flex-direction: column;
-                        gap: fluid(16, 'sp');
-                        
-                    }
-                }
-
-                .bl_commonReserveBtnWrapper_btn {
-                    width: 100%;
-                    padding-block: fluid(30, 'pc');
-
-                    @include underSP {
-                        padding-block: fluid(30, 'sp');
-                    }
-
-                    .bl_commonReserveBtnWrapper_btn_txtContainer {
-                        font-size: rem(20);
-                        min-height: rem(22);
-                    }
                 }
             }
-        }
 
-        .bl_commonReserveSwiper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 2;
-            }
-
-            .swiper-wrapper {
-                transition-timing-function: linear;
-            }
-
-            .swiper-slide {
-                width: 100% !important;
-                max-width: fluid(900, 'pc');
-            }
-
-            .bl_commonReserveSwiper_img {
-                width: 100%;
-                height: 100%;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
         }
     }
 }
 
 
-.ly_footerMenuWrapper {
-    padding-block: fluid(90, 'pc');
-    padding-inline: fluid(160, 'pc');
-    background-color: #E5E1DC;
+.bl_footerSnsList {
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+    margin-bottom: rem(26);
 
-    @include underSP {
-        padding-block: fluid(70, 'sp');
-        padding-inline: fluid(20, 'sp');
+    .bl_footerSnsList_item {
+        background-color: #FFF;
+        border-radius: rem(4);
+        padding: rem(5);
+        aspect-ratio: 1/1;
+        height: auto;
+        width: 100%;
+        max-width: rem(30);
+        transition: opacity 0.5s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+        }
     }
+}
 
-    .bl_footerMenuWrapper_ttl {
-        display: grid;
-        grid-template-columns: max-content max-content;
-        align-items: flex-end;
-        justify-content: flex-start;
-        gap: fluid(19, 'pc');
-        padding-bottom: fluid(16, 'pc');
-        border-bottom: 1px solid var(--line);
-        margin-bottom: fluid(40, 'pc');
 
-        @include underSP {
-            gap: fluid(20, 'sp');
-            padding-bottom: rem(14);
-            margin-bottom: rem(40);
-        }
+/* ------------------------------------------------------------------------------------------
+#スケジュール
+------------------------------------------------------------------------------------------ */
 
-        @include underSP_m {
-            padding-bottom: fluid(20, 'sp');
-        }
+.bl_footerScheduleContainer {
+    padding-block: rem(100);
+    padding-inline: rem(20);
 
-        .el_footerMenuWrapper_ttl_ja {
-            font-family: var(--subFontJa);
-            font-size: fluid(20, 'pc');
-            font-weight: 500;
-            line-height: 1.5;
-            letter-spacing: calc(0.8 / 20 * 1em);
 
-            @include underSP{
-                font-size: rem(20);
-            }
 
-            @include underSP_m {
-                font-size: fluid(20, 'sp');
-            }
-        }
+    .bl_footerScheduleContainer_inner {
+        max-width: rem(1200);
+        width: 100%;
+        margin-inline: auto;
 
-        .el_footerMenuWrapper_ttl_en {
-            color: #444;
-            font-family: var(--subFontEn);
-            font-size: fluid(12, 'pc');
-            font-weight: 400;
-            line-height: 1;
-            letter-spacing: calc(0.48 / 12 * 1em);
-            padding-bottom: fluid(5, 'pc');
+        .bl_frontPageTtlContainer {
+            margin-bottom: rem(80);
 
             @include underSP {
-                font-size: rem(12);
-            }
-
-            @include underSP_m {
-                font-size: fluid(12, 'sp');
+                margin-bottom: rem(50);
             }
         }
-    }
 
+        .bl_footerScheduleContainer_list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            row-gap: rem(42);
 
-    .bl_footerMenuWrapper_content {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(min(fluid(220, 'pc'), 100%), 1fr));
-        column-gap: fluid(40, 'pc');
-        row-gap: fluid(40, 'pc');
-        align-items: flex-start;
-
-        @include underSP {
-            grid-template-columns: 1fr;
-            row-gap: fluid(40, 'sp');
-            column-gap: fluid(40, 'sp');
-        }
-
-        .bl_footerMenuWrapper_content_item {
-
-            .el_footerMenuWrapper_content_item_ttl {
-                color: var(--black);
-                font-family: var(--subFontJa);
-                font-size: fluid(16, 'pc');
-                font-weight: 500;
-                line-height: 1;
-                letter-spacing: calc(0.64 / 16 * 1em);
-                margin-bottom: fluid(25, 'pc');
-
-                @include underSP {
-                    font-size: rem(16);
-                }
-
-                @include underSP_m {
-                    font-size: fluid(16, 'sp');
-                }
-            }
-
-            .bl_footerMenuWrapper_postlist {
+            @include underSP {
                 display: flex;
                 flex-direction: column;
-                gap: fluid(12, 'pc');
+                gap: rem(20);
+            }
 
-                @include underSP {
-                    gap: rem(12);
-                }
+            .bl_footerScheduleContainer_list_item {
 
-                @include underSP_m {
-                    gap: fluid(10, 'sp');
-                }
+                &:nth-child(odd) {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: rem(42);
 
-                .bl_footerMenuWrapper_postlist_item {
-                    width: fit-content;
+                    @include underSP {
+                        flex-direction: column;
+                        gap: rem(20);
+                    }
 
-                    .bl_footerMenuWrapper_postlist_btn {
-                        display: grid;
-                        grid-template-columns: rem(4) auto;
-                        align-items: flex-start;
-                        gap: rem(6);
-                        font-feature-settings: 'palt' on;
-                        font-size: rem(12);
-                        font-weight: 400;
-                        line-height: 1.5;
-                        letter-spacing: calc(0.48 / 12 * 1em);
-                        transition: opacity 0.5s ease;
+                    &::after {
+                        content: '';
+                        position: relative;
+                        display: block;
+                        width: 1px;
+                        background-color: rgba(52, 49, 44, 0.30);
 
-
-                        @media (any-hover: hover) {
-                            &:hover {
-                                opacity: 0.7;
-                                transition: opacity 0.5s ease;
-                            }
+                        @include underSP {
+                            height: 1px;
+                            width: 100%;
                         }
+                    }
+                }
 
-                        &::before {
-                            content: '';
-                            display: block;
-                            position: relative;
+                &:nth-child(even) {
+                    display: flex;
+                    gap: rem(42);
+                    justify-content: flex-end;
+
+                    @include underSP {
+                        display: block;
+                    }
+
+                    &::before {
+                        content: '';
+                        position: relative;
+
+                        @include underSP {
+                            display: none;
+                        }
+                    }
+                }
+
+
+                .el_footerScheduleContainer_list_item_ttl {
+                    margin-inline: auto;
+                    color: #fff;
+                    font-family: var(--subFontJa);
+                    font-size: rem(20);
+                    font-weight: 500;
+
+                    @include underSP {
+                        font-size: rem(16);
+                    }
+
+                    .bl_footerScheduleContainer_list_item_inner {
+                        display: flex;
+                        flex-direction: column;
+                        gap: rem(20);
+                    }
+
+                    line-height: 1.2;
+                    letter-spacing: calc(1.6 / 20 * 1em);
+                    padding-block: rem(15);
+                    background-color: var(--black);
+                    text-align: center;
+                    width: 100%;
+                    max-width: rem(458);
+                    border-radius: rem(8);
+                    margin-bottom: rem(20);
+                }
+
+                .bl_scheduleContainer {
+
+                    .bl_scheduleContainer_upper {
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        gap: rem(20);
+                        margin-bottom: rem(24);
+
+                        .bl_scheduleContainer_upper_prev,
+                        .bl_scheduleContainer_upper_next {
+                            display: grid;
+                            grid-template-columns: rem(6);
+                            align-items: center;
+                            justify-content: center;
                             width: 100%;
                             height: auto;
                             aspect-ratio: 1/1;
-                            background-color: #A09B92;
+                            background-color: var(--black);
                             border-radius: 100%;
-                            margin-top: rem(8);
+                            max-width: rem(32);
+                            border: none;
+                            transition: opacity 0.5s ease;
+
+                            @media (any-hover: hover) {
+                                &:hover {
+                                    opacity: 0.6;
+                                    transition: opacity 0.5s ease;
+                                }
+                            }
+
+                            img {
+                                width: 100%;
+                                height: auto;
+                                object-fit: contain;
+                            }
+                        }
+
+                        .swiper-button-disabled{
+                            opacity: 0.6;
+                            transition: opacity 0.5s ease;
+                            pointer-events: none;
+                            cursor: default;
+                        }
+
+
+                        .bl_scheduleSwiper {
+                            max-width: rem(458);
+                            width: 100%;
+
+                            .swiper-slide {
+                                width: 100%;
+                            }
+                        }
+                    }
+
+
+                    .bl_scheduleContainer_paginationWrapper {
+                        width: fit-content;
+                        display: flex;
+                        align-items: center;
+                        gap: rem(4);
+                        margin-inline: auto;
+
+                        .swiper-pagination-bullet {
+                            display: block;
+                            width: rem(22);
+                            height: rem(4);
+                            background-color: #D9D9D9;
+                            border-radius: rem(100);
+                            opacity: 1;
+                        }
+
+                        .swiper-pagination-bullet-active {
+                            background-color: var(--black);
+                            opacity: 1;
                         }
                     }
                 }
@@ -323,139 +378,452 @@
 }
 
 
-.bl_footeeGoogleMapnWrapper {
-    background-color: var(--white);
-    aspect-ratio: 1440/330;
-    width: 100%;
-    height: auto;
 
-    @include underSP {
-        aspect-ratio: 428/220;
-    }
+.bl_footerClinicBranchContainer {
+    padding-block: rem(80);
+    background-color: var(--gray);
+    padding-inline: rem(20);
 
-    iframe {
-        filter: grayscale(100%);
+    .bl_footerClinicBranchContainer_inner {
+        display: flex;
+        flex-direction: column;
+        gap: rem(80);
+        max-width: rem(1200);
         width: 100%;
-        height: 100%;
-        display: block;
-    }
-}
+        margin-inline: auto;
 
 
-.bl_footerNavSection {
-    background-image: url(../img/common/footer-bg.jpg);
-    background-size: cover;
-    background-position: left top;
-    background-repeat: no-repeat;
-    padding-block: fluid(70, 'pc');
-    padding-inline: fluid(160, 'pc');
-
-    @include underSP {
-        padding-top: fluid(70, 'sp');
-        padding-bottom: fluid(110, 'sp');
-        padding-inline: fluid(20, 'sp');
-    }
-
-    .bl_footerNavSection_upper {
-        display: grid;
-        grid-template-columns: rem(313) rem(468);
-        justify-content: space-between;
-        margin-bottom: fluid(60, 'pc');
-
-        @include underSP{
-            grid-template-columns: 1fr;
-            gap: fluid(60, 'sp');
-            margin-bottom: fluid(60, 'sp');
-
-        }
-
-        .bl_footerNavSection_upper_logo {
-            cursor: pointer;
-            display: block;
-            margin-bottom: fluid(30, 'pc');
-            transition: opacity 0.5s ease;
+        .bl_footerClinicBranchWrapper {
+            display: grid;
+            grid-template-columns: 1fr rem(420);
+            align-items: center;
+            gap: rem(112);
 
             @include underSP {
-                max-width: fluid(340, 'sp');
+                gap: rem(30);
+            }
+
+            @media screen and (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: rem(30);
+            }
+
+            &:not(:last-child) {
+                padding-bottom: rem(80);
+                border-bottom: 1px solid rgba(52, 49, 44, 0.30);
+            }
+
+
+            .bl_footerClinicBranchWrapper_googlemap {
                 width: 100%;
-                padding-inline: fluid(24, 'sp');
-                margin-bottom: fluid(20, 'sp');
-                margin-inline: auto;
-            }
-
-            @media (any-hover: hover) {
-                &:hover {
-                    opacity: 0.7;
-                    transition: opacity 0.5s ease;
-                }
-            }
-
-            img {
-                width: 100%;
-            }
-        }
-
-        .bl_footerNavSection_clinicInfo_location {
-            display: flex;
-            flex-direction: column;
-            gap: fluid(10, 'pc');
-
-            @include underSP {
-                gap: fluid(6, 'sp');
-            }
-
-            .el_footerNavSection_clinicInfo_location_address {
-                color: var(--white);
-                font-feature-settings: 'palt' on;
-                font-family: var(--mainFont);
-                font-size: fluid(14, 'pc');
-                font-weight: 400;
-                line-height: 1.5;
-                letter-spacing: calc(0.56 / 14 * 1em);
+                height: auto;
+                min-height: rem(300);
 
                 @include underSP {
-                    font-size: rem(16);
-                    text-align: center;
-
+                    min-height: rem(194);
                 }
 
-                @include underSP_m {
-                    font-size: fluid(14, 'sp');
-                    text-align: center;
+                iframe {
+                    display: block;
+                    width: 100%;
+                    height: rem(300);
+
+                    @include underSP {
+                        height: rem(194);
+                    }
                 }
             }
 
+            .bl_footerClinicBranchWrapper_infoWrapper {
 
-            .bl_footerNavSection_clinicInfo_location_googleMapLink {
+                .el_footerClinicBranchWrapper_infoWrapper_ttl {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(24);
+                    font-weight: 600;
+                    line-height: 1.2;
+                    letter-spacing: calc(1.92 / 24 * 1em);
+                    margin-bottom: rem(30);
+
+                    @include underSP {
+                        font-size: rem(20);
+                    }
+                }
+
+                .el_footerClinicBranchWrapper_infoWrapper_address {
+                    font-family: var(--mainFont);
+                    font-size: rem(16);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 1.8;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                    margin-bottom: rem(24);
+                }
+
+                .bl_footerClinicBranchWrapper_infoWrapper_cliniInfoList {
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(10);
+                    margin-bottom: rem(20);
+
+                    .bl_footerClinicBranchWrapper_infoWrapper_cliniInfoList_item {
+                        display: grid;
+                        grid-template-columns: rem(70) 1fr;
+                        align-items: flex-start;
+                        gap: rem(24);
+
+                        .el_footerClinicBranchWrapper_infoWrapper_cliniInfoList_item_ttl {
+                            font-family: var(--mainFont);
+                            font-size: rem(16);
+                            font-weight: 400;
+                            line-height: 1.5;
+                            letter-spacing: calc(1.28 / 16 * 1em);
+                        }
+
+                        .el_footerClinicBranchWrapper_infoWrapper_cliniInfoList_item_txt {
+                            font-family: var(--mainFont);
+                            font-size: rem(16);
+                            font-weight: 400;
+                            line-height: 1.5;
+                            letter-spacing: calc(1.28 / 16 * 1em);
+
+                            .el_footerClinicBranchWrapper_infoWrapper_cliniInfoList_item_txt_link {
+                                color: var(--black);
+                                display: block;
+                                width: fit-content;
+                                pointer-events: none;
+
+                                @include underSP {
+                                    pointer-events: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bl_footerClinicBranchWrapper_infoWrapper_btnList{
                 display: grid;
-                grid-template-columns: max-content fluid(10, 'pc');
-                align-items: center;
-                gap: fluid(6, 'pc');
-                transition: opacity 0.5s ease;
+                grid-template-columns: repeat(2, 1fr);
+                gap: rem(26);
 
+                @include underSP {
+                    grid-template-columns: auto;
+                    gap: rem(10);
+                }
+            }
+
+            .bl_footerClinicBranchWrapper_infoWrapper_noteLink {
+                display: grid;
+                grid-template-columns: auto rem(16);
+                align-items: center;
+                justify-content: center;
+                gap: rem(8);
+                padding-block: rem(14);
+                border-radius: rem(100);
+                background-color: var(--black);
+                color: #fff;
+                font-family: var(--mainFont);
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1.5;
+                letter-spacing: calc(1.28 / 16 * 1em);
+                max-width: rem(195);
+                transition: opacity 0.5s ease;
 
                 @media (any-hover: hover) {
                     &:hover {
-                        opacity: 0.7;
+                        opacity: 0.6;
                         transition: opacity 0.5s ease;
                     }
                 }
 
-                @include underSP {
-                    grid-template-columns: max-content fluid(10, 'sp');
-                    width: fit-content;
-                    margin-inline: auto;
-                    gap: fluid(6, 'sp');
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                    aspect-ratio: 1/1;
+                    padding-top: rem(2);
+                }
+            }
+
+            .bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon{
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+
+.ly_footer {
+    background-color: var(--black);
+
+    .bl_footer_upper {
+        padding-top: rem(100);
+        padding-inline: rem(20);
+
+        .bl_footer_upper_inner {
+            max-width: rem(1200);
+            width: 100%;
+            margin-inline: auto;
+        }
+    }
+
+
+    .bl_footerMenuPostList {
+        display: flex;
+        flex-direction: column;
+        gap: rem(80);
+        padding-bottom: rem(100);
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.70);
+
+        .bl_footerMenuPostList_item {
+
+            .el_footerMenuPostList_item_ttl {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+                gap: rem(20);
+                color: #FFF;
+                font-family: var(--subFontJa);
+                font-size: rem(28);
+                font-style: normal;
+                font-weight: 300;
+                line-height: 1.2;
+                letter-spacing: calc(2.24 / 28 * 1em);
+                margin-bottom: rem(50);
+
+
+                &::after {
+                    content: '';
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: #FFF;
                 }
 
-                .el_footerNavSection_clinicInfo_location_googleMapLink_txt {
-                    color: var(--white);
-                    font-feature-settings: 'palt' on;
+                .el_footerMenuPostList_item_ttl_txt {
+                    display: block;
+                    width: fit-content;
+                }
+            }
+
+
+            .bl_footerMenuPostList_childList {
+                display: flex;
+                flex-direction: column;
+                gap: rem(50);
+
+                .el_footerMenuPostList_item_child_ttl {
+                    padding-left: rem(20);
+                    border-left: 4px solid #FFF;
+                    color: #FFF;
                     font-family: var(--mainFont);
-                    font-size: fluid(14, 'pc');
+                    font-size: rem(20);
+                    font-weight: 500;
+                    line-height: 1.2;
+                    letter-spacing: calc(1.6 / 20 * 1em);
+                }
+
+                .bl_footerMenuPostList_childList_item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(30);
+                }
+            }
+
+            .bl_footerMenuPostList_postList {
+                display: flex;
+                flex-wrap: wrap;
+                gap: rem(30);
+
+                .el_footerMenuPostList_postList_item {
+                    color: #FFF;
+                    font-family: var(--mainFont);
+                    font-size: rem(16);
                     font-weight: 400;
-                    line-height: 1.5;
-                    letter-spacing: calc(0.56 / 14 * 1em);
+                    line-height: 1.4;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                    text-decoration-line: underline;
+                    text-decoration-style: solid;
+                    text-decoration-skip-ink: auto;
+                    text-decoration-thickness: auto;
+                    text-underline-offset: auto;
+                    text-underline-position: from-font;
+                    transition: opacity 0.5s ease;
+
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            opacity: 0.6;
+                            transition: opacity 0.5s ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .bl_footerNavContainer {
+
+        .bl_footerNavContainer_inner {
+            display: grid;
+            grid-template-columns: rem(510) rem(480);
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: rem(20);
+            padding-top: rem(100);
+            padding-bottom: rem(50);
+
+
+            @media screen and (max-width: 1100px) {
+                grid-template-columns: rem(450) rem(480);
+            }
+
+
+            @include underSP {
+                grid-template-columns: 1fr;
+                gap: rem(80);
+                padding-bottom: rem(30);
+            }
+
+            .bl_footerNavContainer_leftWrapper {
+
+                @include underSP {
+                    order: 2;
+                }
+
+                .bl_footerNavContainer_leftWrapper_logo {
+                    display: block;
+                    width: 100%;
+                    transition: opacity 0.5s ease;
+                    margin-bottom: rem(50);
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            opacity: 0.7;
+                            transition: opacity 0.5s ease;
+                        }
+                    }
+                }
+
+                .bl_footerNavContainer_leftWrapper_infoWrapper {
+
+                    .bl_common_telWrapper {
+
+                        .el_common_telLink {
+                            text-align: left;
+                            color: #FFF;
+                            font-family: var(--subFontJa);
+                            font-size: rem(24);
+                            font-weight: 500;
+                            line-height: 1.2;
+                            letter-spacing: calc(0.96 / 24 * 1em);
+                            margin-right: auto;
+                            margin-left: 0;
+                        }
+
+                        .el_common_telHour {
+                            text-align: left;
+                            color: #FFF;
+                            font-family: var(--mainFont);
+                            font-size: rem(14);
+                            font-style: normal;
+                            font-weight: 300;
+                            line-height: 1.5;
+                            margin-right: auto;
+                            margin-left: 0;
+                            letter-spacing: calc(1.12 / 14 * 1em);
+
+                            @include underSP {
+                                font-size: rem(12);
+                            }
+                        }
+                    }
+                }
+
+                .bl_footerSnsList {
+                    margin-bottom: 0;
+                }
+            }
+
+
+            .bl_footerNavContainer_nav {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+                justify-content: flex-end;
+                row-gap: rem(30);
+                column-gap: rem(80);
+
+                @include underSP {
+                    grid-columns: 1;
+                    column-gap: rem(30);
+                }
+
+                @include underSP_m {
+                    grid-template-columns: 1fr;
+                }
+
+                .bl_footerNavContainer_nav_item {
+                    display: grid;
+                    grid-template-columns: 1fr rem(10);
+                    align-items: center;
+                    gap: rem(10);
+                    color: #FFF;
+                    font-family: var(--subFontJa);
+                    font-size: rem(16);
+                    font-weight: 300;
+                    line-height: 1.2;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                    transition: opacity 0.5s ease;
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            opacity: 0.7;
+                            transition: opacity 0.5s ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bl_footer_lower {
+        background-color: #fff;
+        padding-block: rem(20);
+        padding-inline: rem(20);
+
+        .bl_footer_lower_inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: rem(1200);
+            margin-inline: auto;
+
+            @include underSP {
+                flex-direction: column;
+                gap: rem(24);
+            }
+
+            .bl_footer_lower_inner_linkWrapper {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                gap: rem(20);
+
+
+                .el_footer_lower_link {
+                    color: #34312C;
+                    font-family: var(--subFontJa);
+                    font-size: rem(12);
+                    font-weight: 400;
+                    line-height: 1.2;
+                    letter-spacing: calc(0.96 / 12 * 1em);
                     text-decoration-line: underline;
                     text-decoration-style: solid;
                     text-decoration-skip-ink: auto;
@@ -463,163 +831,26 @@
                     text-underline-offset: auto;
                     text-underline-position: from-font;
 
-                    @include underSP {
-                        font-size: rem(14);
-                    }
+                    transition: opacity 0.5s ease;
 
-                    @include underSP_m {
-                        font-size: fluid(14, 'sp');
-                    }
-                }
-            }
-
-        }
-
-        .bl_footerNavSection_clinicInfo_sns {
-            display: flex;
-            gap: fluid(10, 'pc');
-            align-items: center;
-            margin-top: fluid(24, 'pc');
-
-            @include underSP {
-                justify-content: center;
-                gap: fluid(6, 'sp');
-                margin-top: fluid(14, 'sp');
-            }
-
-            .bl_footerNavSection_clinicInfo_sns_btn {
-                display: block;
-                width: 100%;
-                height: 100%;
-                max-width: fluid(20, 'pc');
-                transition: opacity 0.5s ease;
-
-                @include underSP {
-                    max-width: fluid(20, 'sp');
-                }
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    aspect-ratio: 1 / 1;
-                }
-
-                @media (any-hover: hover) {
-                    &:hover {
-                        opacity: 0.7;
-                        transition: opacity 0.5s ease;
+                    @media (any-hover: hover) {
+                        &:hover {
+                            opacity: 0.6;
+                            transition: opacity 0.5s ease;
+                        }
                     }
                 }
             }
-        }
 
-        .bl_footerNavSection_accessBtnWrapper {
-            margin-top: fluid(30, 'pc');
-            max-width: fluid(230, 'pc');
-
-            @include underSP {
-                margin-top: fluid(20, 'sp');
-                max-width: fluid(210, 'sp');
-                width: 100%;
-                margin-inline: auto;
-            }
-
-            .bl_commonViewMoreBtn {
-                border: 1px solid var(--white);
-                color: var(--white);
-
-                .el_commonViewMoreBtn_txtWrapper_txt {
-                    color: var(--white);
-                }
-            }
-
-        }
-    }
-
-    .bl_footerNavSection_navContainer {
-
-        
-
-        .bl_commonNavContainer {
-            column-gap: fluid(20, 'pc');
-            @include underSP {
-                grid-template-columns: 1fr 1fr;
-                margin-bottom: 0;
-                column-gap: fluid(24, 'sp');
-            }
-        }
-    }
-
-
-    .bl_footerNavSection_lower {
-        padding-top: fluid(30, 'pc');
-        border-top: 1px solid #E5E1DC;
-
-        @include underSP {
-            padding-top: fluid(30, 'sp');
-        }
-
-        .bl_footerNavSection_lower_inner {
-            display: grid;
-            grid-template-columns: repeat(3, auto);
-            align-items: center;
-            justify-content: flex-end;
-            gap: fluid(30, 'pc');
-
-            @include underSP {
-                grid-template-columns: repeat(2, auto);
-                column-gap: fluid(24, 'sp');
-                row-gap: fluid(14, 'sp');
-                justify-content: center;
-            }
-
-            .bl_footerNavSection_lower_btn {
-                color: var(--white);
-                font-feature-settings: 'palt' on;
-                font-family: var(--mainFont);
+            .el_footer_lower_copyright {
+                color: var(--black);
+                font-family: var(--subFontJa);
                 font-size: rem(12);
-                font-weight: 400;
-                line-height: 1.5;
-                letter-spacing: calc(0.48 / 12 * 1em);
-                text-decoration-line: underline;
-                text-decoration-style: solid;
-                text-decoration-skip-ink: auto;
-                text-decoration-thickness: auto;
-                text-underline-offset: auto;
-                text-underline-position: from-font;
-
-                @media (any-hover: hover) {
-                    &:hover {
-                        opacity: 0.7;
-                        transition: opacity 0.5s ease;
-                    }
-                }
-            }
-
-            .bl_footerNavSection_lower_copyright {
-                color: rgba(243, 242, 240, 0.60);
-                font-feature-settings: 'palt' on;
-                font-family: var(--mainFont);
-                font-size: fluid(12, 'pc');
-                font-weight: 400;
-                line-height: 1.5;
-                letter-spacing: calc(0.48 / 12 * 1em);
-
-                @include underSP {
-                    grid-column: span 2;
-                    font-size: rem(12);
-                    text-align: center;
-                    width: fit-content;
-                    margin-inline: auto;
-                }
-
-                @include underSP_m {
-                    font-size: fluid(12, 'sp');
-                    
-                    text-align: center;
-                }
+                font-weight: 500;
+                line-height: 1.2;
+                letter-spacing: calc(0.96 / 12 * 1em);
             }
         }
     }
+
 }

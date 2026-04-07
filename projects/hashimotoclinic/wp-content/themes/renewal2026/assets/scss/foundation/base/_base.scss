@@ -6,4 +6,5 @@ html {
     font-size: rem(16);
     font-family: var(--mainFont);
     color: var(--black);
+    overflow-x: clip;
 }

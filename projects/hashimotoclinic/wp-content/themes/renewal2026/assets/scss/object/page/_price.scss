@@ -77,6 +77,17 @@
     }
 }
 
+.el_priceCatChildList_item_lower_txt {
+    color: rgba(52, 49, 44, 0.60);
+    font-family: var(--mainFont);
+    font-size: rem(14);
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: calc(1.12 / 14 * 1em);
+    width: fit-content;
+    margin-left: auto;
+}
+
 .bl_priceWrapper {
     display: flex;
     flex-direction: column;
@@ -137,7 +148,6 @@
 
 
             .el_priceTable_item_lower_txt {
-                padding-top: rem(12);
                 color: rgba(52, 49, 44, 0.60);
                 font-family: var(--mainFont);
                 font-size: rem(14);
@@ -178,6 +188,10 @@
 
     .el_amountTable_pricetxt {
         grid-column: 1;
+
+        @include underSP {
+            text-align: left;
+        }
     }
 
     .el_amountTable_view {

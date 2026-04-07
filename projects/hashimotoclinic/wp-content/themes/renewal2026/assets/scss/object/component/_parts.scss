@@ -7,18 +7,22 @@
 .bl_commonlowerPage {
 
     .bl_commonlowerPage_inner {
-        padding-top: fluid(184, 'pc');
+        padding-top: rem(184);
         background-color: var(--gray);
 
         @include underSP {
-            padding-top: rem(100);
+            padding-top: rem(90);
         }
 
-        .bl_commonlowerPage_contents{
+        .bl_commonlowerPage_contents {
             padding-top: rem(100);
             background-color: #fff;
-            border-radius: rem(60) rem(60) 0 0;  
-          
+            border-radius: rem(60) rem(60) 0 0;
+
+            @include underSP {
+                border-radius: rem(30) rem(30) 0 0;
+            }
+
         }
     }
 }
@@ -33,12 +37,17 @@
 
     @include underSP {
         padding-inline: rem(24);
+        padding-bottom: rem(60);
     }
 
     .bl_commonlowerPage_ttl {
         display: flex;
         flex-direction: column;
         gap: rem(24);
+
+        @include underSP {
+            gap: rem(14);
+        }
 
         .bl_commonlowerPage_ttl_enTtl {
             color: var(--black);
@@ -47,6 +56,10 @@
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: calc(2.2 / 22 * 1em);
+
+            @include underSP {
+                font-size: rem(20);
+            }
         }
 
         .bl_commonlowerPage_ttl_jaTtl {
@@ -56,6 +69,14 @@
             font-weight: 600;
             line-height: 1.2;
             letter-spacing: calc(3.2 / 40 * 1em);
+
+            @include underSP {
+                font-size: rem(34);
+            }
+
+            @include underSP_s {
+                font-size: rem(24);
+            }
         }
     }
 }
@@ -71,6 +92,8 @@
         display: flex;
         flex-wrap: nowrap;
         gap: rem(8);
+        word-break: keep-all;
+        white-space: nowrap;
 
         .bl_breadcrumbs_list_item {
             display: flex;
@@ -115,12 +138,47 @@
     }
 }
 
+.bl_commonDownloadBtn {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto rem(18);
+    gap: rem(10);
+    align-items: center;
+    justify-content: center;
+    padding-block: rem(16);
+    padding-inline: rem(30);
+    border-radius: rem(4);
+    background-color: #F6F6F6;
+    color: var(--black-black, #34312C);
+    font-family: var(--subFontJa);
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: calc(1.28 / 16 * 1em);
+    transition: opacity 0.5s ease;
+
+    @media (any-hover: hover) {
+        &:hover {
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+    }
+
+    .is-sp {
+        display: none;
+
+        @include underSP_s {
+            display: block;
+        }
+    }
+}
+
 
 /* ------------------------------------------------------------------------------------------
 #2カラムレイアウト
 ------------------------------------------------------------------------------------------ */
 .ly_twoColumnContainer {
-    padding-inline: fluid(120, 'pc');
+    padding-inline: fluid(20, 'pc');
 
     @include underSP {
         padding-inline: rem(24);
@@ -128,8 +186,11 @@
 
     .ly_twoColumnContainer_inner {
         display: grid;
-        grid-template-columns: fluid(250, 'pc') 1fr;
-        gap: fluid(100, 'pc');
+        grid-template-columns: rem(250) 1fr;
+        gap: rem(100);
+        max-width: rem(1200);
+        width: 100%;
+        margin-inline: auto;
 
 
         @include underSP {
@@ -141,11 +202,15 @@
 }
 
 .bl_commonNavWrapper {
+    position: sticky;
+    top: rem(280);
     display: flex;
     flex-direction: column;
     gap: rem(24);
 
     @include underSP {
+        position: relative;
+        top: auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: fluid(20, 'pc');
@@ -193,12 +258,1313 @@
                 font-weight: 400;
                 line-height: 1.2;
                 letter-spacing: calc(1.12 / 14 * 1em);
-                padding-inline: rem(12);
+                padding-left: rem(12);
+                padding-right: rem(24);
                 padding-block: rem(13);
                 border-radius: rem(4);
                 border: 1px solid rgba(52, 49, 44, 0.30);
+                background-color: transparent;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
             }
         }
     }
 
+}
+
+
+/* ------------------------------------------------------------------------------------------
+#下層記事
+------------------------------------------------------------------------------------------ */
+.bl_commonArticlePage {
+    padding-top: rem(202);
+
+    @include underSP {
+        padding-top: rem(78);
+    }
+}
+
+
+.bl_commonArticle_content {
+
+    .bl_commonArticle_content_thumbnail {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: rem(24);
+        max-width: rem(380);
+        margin-inline: auto;
+        margin-bottom: rem(60);
+
+        .el_commonArticle_content_thumbnail_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    >h2 {
+        scroll-margin-top: rem(220);
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(28);
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: calc(2.24 / 28 * 1em);
+        padding-bottom: rem(10);
+
+        &:not(:first-child) {
+            margin-top: rem(60);
+        }
+
+        @include underSP {
+            scroll-margin-top: rem(110);
+            font-size: rem(26);
+        }
+    }
+
+
+    >h3 {
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(24);
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: calc(1.92 / 24 * 1em);
+        padding-block: rem(24);
+        padding-inline: rem(20);
+        border-top: 2px solid var(--black);
+        background-color: var(--gray);
+
+        @include underSP {
+            font-size: rem(22);
+        }
+
+        &:not(:first-child) {
+            margin-top: rem(60);
+        }
+    }
+
+    >h4 {
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(20);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: calc(1.6 / 20 * 1em);
+        padding-block: rem(5);
+        padding-left: rem(20);
+        border-left: 5px solid var(--black);
+
+        @include underSP {
+            font-size: rem(18);
+        }
+
+        &:not(:first-child) {
+            margin-top: rem(30);
+        }
+    }
+
+    >p {
+        color: var(--black);
+        font-family: var(--mainFont);
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.6;
+        letter-spacing: calc(1.28 / 16 * 1em);
+
+        &:not(:first-child) {
+            margin-top: rem(24);
+        }
+
+
+        a {
+            color: #0F8DA9;
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.7;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+    }
+
+    >mark {
+        background-color: transparent !important;
+        background-image: linear-gradient(var(--black), var(--black));
+        background-repeat: no-repeat;
+        background-size: 0 4px;
+    }
+
+
+    >ul {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        &:not(:first-child) {
+            margin-top: rem(24);
+        }
+
+        li {
+            position: relative;
+            color: var(--black);
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-weight: 400;
+            line-height: 1.8;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            padding-left: rem(20);
+
+            &::before {
+                content: '';
+                position: absolute;
+                display: block;
+                width: rem(6);
+                height: rem(6);
+                background-color: var(--black);
+                border-radius: 100%;
+                top: rem(12);
+                left: 0;
+            }
+        }
+    }
+
+    .wp-block-embed iframe {
+        max-width: 100%;
+        width: 100%;
+        display: block;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    >ol {
+        list-style: decimal;
+        padding-left: rem(20);
+    }
+
+
+    table {
+        th {
+            font-family: var(--subFontJa);
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: calc(1.28 / 16 * 1em);
+        }
+    }
+
+    .bl_commonAllBtnContainer {
+        max-width: rem(200);
+        margin-inline: auto;
+    }
+
+}
+
+
+
+/* 症例カード
+------------------------------------------------------------------------------------------ */
+
+.bl_commonCaseCard {
+    border-radius: rem(20);
+    background-color: var(--gray);
+
+    .bl_commonCaseCard_link {
+        display: block;
+        padding: rem(20);
+        transition: opacity 0.5s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        .bl_commonCaseCard_imgWrapper {
+            margin-bottom: rem(20);
+
+            .el_commonCaseCard_img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: 300/404;
+                margin-bottom: rem(20);
+                object-fit: cover;
+                border-radius: rem(4);
+            }
+        }
+
+        .bl_commonCaseCard_ttlWrapper {
+            margin-bottom: rem(14);
+
+            .bl_commonCaseCard_tagList {
+                display: flex;
+                flex-wrap: wrap;
+                gap: rem(10);
+                margin-bottom: rem(12);
+
+                .el_commonCaseCard_tagList_item {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(12);
+                    font-weight: 400;
+                    line-height: 1.2;
+                    letter-spacing: calc(0.96 / 12 * 1em);
+                    padding-inline: rem(8);
+                    padding-block: rem(6);
+                    border-radius: rem(4);
+                    border: 1px solid var(--black);
+                }
+            }
+
+            .el_commonCaseCard_ttl {
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(18);
+                font-weight: 600;
+                line-height: 1.2;
+                letter-spacing: calc(1.44 / 18 * 1em);
+            }
+        }
+
+        .bl_commonCaseCard_infoWrapper {
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
+            padding-top: rem(10);
+
+            .bl_commonCaseCard_infoWrapper_item {
+                display: grid;
+                grid-template-columns: rem(120) 1fr;
+                gap: rem(10);
+                align-items: flex-start;
+                border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+                padding-bottom: rem(10);
+
+                .el_commonCaseCard_infoWrapper_item_dt {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(10);
+                    font-weight: 500;
+                    line-height: 1;
+                    letter-spacing: calc(0.8 / 10 * 1em);
+                }
+
+                .el_commonCaseCard_infoWrapper_item_dd {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(10);
+                    font-weight: 400;
+                    line-height: 1.1;
+                    letter-spacing: calc(0.8 / 10 * 1em);
+
+                    .el_commonCaseCard_infoWrapper_item_dd_sub {
+                        display: block;
+                        margin-top: rem(5);
+                        color: rgba(52, 49, 44, 0.60);
+                        font-family: var(--mainFont);
+                        font-size: rem(10);
+                        font-weight: 400;
+                        line-height: 1.2;
+                        letter-spacing: calc(0.8 / 10 * 1em);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//共通ボタン
+.bl_commonAllBtnContainer {
+
+    .bl_commonAllBtn {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto rem(14);
+        align-items: center;
+        gap: rem(10);
+        padding-block: rem(16);
+        padding-inline: rem(20);
+        border-radius: rem(4);
+        background-color: var(--black);
+        color: #fff;
+        font-family: var(--subFontJa);
+        font-size: rem(18);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.44 / 18 * 1em);
+        margin-inline: auto;
+        transition: opacity 0.5s ease;
+
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+    }
+
+
+    .bl_commonSnsBtn {
+        display: grid;
+        grid-template-columns: rem(24) auto;
+        align-items: center;
+        gap: rem(10);
+
+        .el_commonSnsBtn_icon {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+        }
+    }
+}
+
+
+
+
+/* ------------------------------------------------------------------------------------------
+#よくある質問
+------------------------------------------------------------------------------------------ */
+.bl_commonFaqList {
+
+    .bl_commonFaqList_details {
+        border-top: 1px dashed rgba(52, 49, 44, 0.30);
+        border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+
+        &:not(:first-child) {
+            border-top: none;
+        }
+
+        .bl_commonFaqList_details_summary {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr rem(34);
+            align-items: center;
+            gap: rem(20);
+            padding-inline: rem(20);
+            padding-block: rem(20);
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: .6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+
+
+            .bl_commonFaqList_details_summary_txt {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: rem(12);
+                align-items: center;
+
+                .el_commonFaqList_details_summary_txt_en {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(18);
+                    font-weight: 500;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.6 / 20 * 1em);
+                }
+
+                .el_commonFaqList_details_summary_txt_ttl {
+                    color: var(--black);
+                    font-family: var(--subFontJa);
+                    font-size: rem(18);
+                    font-weight: 500;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.6 / 20 * 1em);
+                }
+            }
+
+            .el_commonFaqList_details_summary_icon {
+                position: relative;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1/1;
+                background-color: var(--black);
+                border-radius: rem(4);
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                    width: rem(17);
+                    height: rem(1);
+                    background-color: #fff;
+                    border-radius: rem(4);
+                    transform-origin: center center;
+                    transition: rotate 0.3s ease;
+                }
+
+                &::before {
+                    rotate: 90deg;
+                }
+            }
+        }
+
+
+        /* 閉じているときは高さ0（開閉アニメはJSのWeb Animations APIで制御） */
+        .bl_commonFaqList_details_content {
+            overflow: hidden;
+        }
+
+        &:not([open]) .bl_commonFaqList_details_content {
+            height: 0;
+        }
+
+        &[open] .el_commonFaqList_details_summary_icon::before {
+            rotate: 0deg;
+        }
+
+        .bl_commonFaqList_details_content {
+
+            .bl_commonFaqList_details_content_inner {
+                padding-top: rem(4);
+                padding-bottom: rem(24);
+                padding-left: rem(55);
+
+                .el_commonFaqList_details_content_inner_txt {
+                    color: var(--black);
+                    font-family: var(--mainFont);
+                    font-size: rem(16);
+                    font-weight: 400;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.28 / 16 * 1em);
+                }
+            }
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------
+#院長ブログスライド
+------------------------------------------------------------------------------------------ */
+
+.bl_commonBlogSwiperContainer {
+
+    .bl_commonBlogSwiperContainer_inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: rem(40) 1fr rem(40);
+        align-items: center;
+        gap: rem(20);
+        margin-bottom: rem(30);
+
+        @include underSP {
+            display: block;
+        }
+
+        &:not(:first-child) {
+            margin-top: rem(30);
+        }
+
+
+        .bl_commonBlogSwiper_prev,
+        .bl_commonBlogSwiper_next {
+            display: grid;
+            grid-template-columns: rem(8);
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            background-color: var(--black);
+            border-radius: 100%;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+
+            @include underSP {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: rem(40);
+                height: rem(40);
+            }
+        }
+
+
+        .swiper-button-lock {
+            display: none;
+        }
+
+        .bl_commonBlogSwiper_next {
+            @include underSP {
+                right: 0;
+                left: auto;
+            }
+        }
+
+        .swiper-button-disabled {
+            opacity: 0.6;
+            pointer-events: none;
+            cursor: default;
+            transition: opacity 0.5s ease;
+        }
+
+        .bl_commonBlogSwiper {
+            width: 100%;
+            grid-column: 2;
+
+            @include underSP {
+                overflow: visible;
+                z-index: 0;
+            }
+
+            .swiper-slide {
+                width: 100%;
+            }
+        }
+    }
+
+    .bl_commonBlogSwiper_pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: rem(4);
+        margin-top: rem(30);
+
+        .swiper-pagination-bullet {
+            max-width: rem(18);
+            width: 100%;
+            height: rem(3);
+            background-color: #D9D9D9;
+            border-radius: rem(100);
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--black);
+            opacity: 1;
+        }
+    }
+}
+
+.bl_commonBlogSlideBtn {
+    width: 100%;
+    padding-bottom: rem(24);
+    border-bottom: 1px dashed rgba(52, 49, 44, 0.30);
+
+    .swiper-slide{
+        width: rem(222) !important;
+    }
+
+
+    .bl_commonBlogSlideBtn_imgContainer {
+        display: block;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        margin-bottom: rem(30);
+        transition: opacity 0.5s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        .el_commonBlogSlideBtn_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: rem(4);
+        }
+
+
+    }
+
+    .bl_commonBlogSlideBtn_lower {
+
+        .el_commonBlogSlideBtn_lower_time {
+            display: block;
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(14);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: calc(0.28 / 14 * 1em);
+            margin-bottom: rem(12);
+        }
+
+        .bl_commonBlogSlideBtn_lower_categoryList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(10);
+            margin-bottom: rem(24);
+
+            .el_commonBlogSlideBtn_lower_categoryList_item {
+                display: block;
+                color: #fff;
+                font-family: var(--mainFont);
+                font-size: rem(12);
+                font-weight: 400;
+                line-height: 1.2;
+                letter-spacing: calc(0.96 / 12 * 1em);
+                padding-block: rem(6);
+                padding-inline: rem(8);
+                border-radius: rem(4);
+                background-color: var(--black);
+                transition: opacity 0.5s ease;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        opacity: 0.6;
+                        transition: opacity 0.5s ease;
+                    }
+                }
+            }
+        }
+
+        .el_commonBlogSlideBtn_lower_ttl {
+
+
+
+            .el_commonBlogSlideBtn_lower_ttl_link {
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(18);
+                font-weight: 500;
+                line-height: 1.6;
+                letter-spacing: calc(1.44 / 18 * 1em);
+                transition: opacity 0.5s ease;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        opacity: 0.6;
+                        transition: opacity 0.5s ease;
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------
+#一覧へ戻るボタン
+------------------------------------------------------------------------------------------ */
+.bl_commonArticle_content_allBtnContainer {
+    width: 100%;
+    max-width: rem(200);
+    margin-inline: auto;
+    margin-top: rem(100);
+
+
+    .bl_commonArticle_content_allBtn {
+        display: block;
+        text-align: center;
+        width: 100%;
+        background-color: var(--black);
+        color: #fff;
+        border-radius: rem(4);
+        padding-block: rem(16);
+        padding-inline: rem(20);
+        border: 1px solid var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(18);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.44 / 18 * 1em);
+        transition: opacity 0.5s ease;
+        margin-inline: auto;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------
+CTAボタン
+------------------------------------------------------------------------------------------ */
+.bl_commonCtaBtn {
+    display: block;
+    width: 100%;
+    padding: rem(4);
+    border-radius: rem(100);
+    border: 1px solid #8F8F8F;
+    transition: opacity 0.5s ease;
+
+    .bl_commonCtaBtn_inner {
+        padding: rem(16) rem(10);
+        background-color: var(--black);
+        border-radius: rem(100);
+
+
+        .el_commonCtaBtn_txt {
+            text-align: center;
+            color: #fff;
+            font-family: var(--subFontJa);
+            font-size: rem(14);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: calc(1.12 / 14 * 1em);
+        }
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+    }
+}
+
+.bl_commonCtaIconBtn {
+    .bl_commonCtaBtn_inner {
+        display: grid;
+        grid-template-columns: rem(15) auto;
+        gap: rem(10);
+        align-items: center;
+        justify-content: center;
+
+        .el_commonCtaIconBtn_icon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------
+ナビボタン
+------------------------------------------------------------------------------------------ */
+
+.bl_commonNavBtnList {
+    padding-inline: rem(50);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, rem(110)), 1fr));
+    row-gap: rem(34);
+    column-gap: rem(70);
+    margin-bottom: rem(14);
+
+    .bl_commonNavBtnList_item {
+        width: 100%;
+        display: grid;
+        grid-template-columns: max-content rem(8);
+        gap: rem(10);
+        align-items: center;
+        justify-content: space-between;
+
+        @media (any-hover: hover) {
+            &:hover {
+                .el_commonNavBtnList_item_txt {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+
+        .el_commonNavBtnList_item_txt {
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(16);
+            font-weight: 500;
+            line-height: 120%;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            transition: opacity 0.5s ease;
+        }
+
+        .el_commonNavBtnList_item_arrow {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+        }
+    }
+}
+
+
+.bl_commonSnsList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(10);
+    align-items: center;
+
+    .bl_commonSnsList_item {
+        height: auto;
+        aspect-ratio: 1/1;
+        background-color: #F6F6F6;
+        border-radius: rem(4);
+        display: grid;
+        grid-template-columns: rem(20);
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease;
+
+        .el_commonSnsList_item_icon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------
+#電話番号
+------------------------------------------------------------------------------------------ */
+
+.bl_common_telWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    margin-bottom: rem(24);
+
+    .el_common_telLink {
+        color: var(--black);
+        font-family: var(--subFontJa);
+        font-size: rem(26);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.04 / 26 * 1em);
+        pointer-events: none;
+        width: fit-content;
+        margin-inline: auto;
+
+        @include underSP {
+            pointer-events: auto;
+        }
+    }
+
+    .el_common_telHour {
+        width: fit-content;
+        margin-inline: auto;
+        color: var(--black);
+        font-family: var(--mainFont);
+        font-size: rem(14);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: calc(1.12 / 14 * 1em);
+
+        span {
+            @include underSP {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        .el_common_telHour_separator {
+            @include underSP {
+                display: none;
+            }
+        }
+
+    }
+}
+
+
+.bl_commonDownBtnContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: rem(50);
+    margin-bottom: rem(100);
+    margin-inline: auto;
+    max-width: rem(900);
+    width: 100%;
+
+    @include underSP {
+        gap: rem(20);
+    }
+
+    @media (max-width: rem(768)) {
+        grid-template-columns: 1fr;
+        gap: rem(20);
+        margin-bottom: rem(60);
+    }
+
+    .bl_commonDownBtnContainer_item {
+        display: grid;
+        max-width: rem(380);
+        width: 100%;
+        grid-template-columns: auto rem(10);
+        align-items: center;
+        gap: rem(10);
+        padding-block: rem(16);
+        padding-inline: rem(24);
+        border-radius: rem(4);
+        background-color: var(--gray);
+        box-shadow: 0 2px 5px 0 rgba(52, 49, 44, 0.20);
+        color: var(--black-black, #34312C);
+        font-family: var(--subFontJa);
+        font-size: rem(22);
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: calc(1.76 / 22 * 1em);
+        transition: opacity 0.5s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.6;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        @include underSP_s {
+            font-size: rem(18);
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------
+#ページネーション
+------------------------------------------------------------------------------------------ */
+
+.bl_commonPagination {
+    margin-top: rem(80);
+    display: grid;
+    grid-template-columns: rem(153) auto rem(153);
+    align-items: center;
+    gap: rem(20);
+
+    @include underSP {
+        grid-template-columns: repeat(2, rem(135));
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    @include underSP_s {
+        grid-template-columns: 1fr;
+    }
+
+    .bl_commonPagination_item {
+
+        .bl_commonPagination_item_link {
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+
+            .el_commonPagination_item_link_txt {
+                width: fit-content;
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(18);
+                font-weight: 500;
+                line-height: 1.2;
+                letter-spacing: calc(1.44 / 18 * 1em);
+
+                @include underSP {
+                    font-size: rem(16);
+                }
+            }
+        }
+
+        .bl_commonPagination_item_prev {
+            display: grid;
+            grid-template-columns: rem(14) auto;
+            align-items: center;
+            gap: rem(20);
+
+            @include underSP {
+                gap: rem(14);
+            }
+        }
+
+        .bl_commonPagination_item_next {
+            display: grid;
+            grid-template-columns: auto rem(14);
+            align-items: center;
+            justify-content: flex-end;
+            gap: rem(20);
+            width: fit-content;
+
+            @include underSP {
+                gap: rem(14);
+            }
+        }
+    }
+
+    .bl_commonPagination_item_prev {
+        grid-column: 1;
+    }
+
+    .bl_commonPagination_item_next {
+        grid-column: 3;
+
+        @include underSP {
+            grid-column: 2;
+        }
+    }
+
+    .bl_commonNumberList {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: rem(10);
+        grid-column: 2;
+
+        @include underSP {
+            grid-column: span 2;
+            grid-row: 1;
+        }
+
+        .bl_commonNumberList_item {
+            .bl_newsNumberList_item_ellipsis {
+                display: block;
+            }
+
+            .el_commonNumberList_item_number {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: auto;
+                aspect-ratio: 1/1;
+                width: 100%;
+                max-width: rem(40);
+                color: var(--black);
+                font-family: var(--subFontJa);
+                font-size: rem(16);
+                font-weight: 400;
+                line-height: 1;
+                letter-spacing: calc(0.32 / 16 * 1em);
+                border: 1px solid var(--black);
+                border-radius: rem(4);
+                padding-block: rem(14);
+                padding-inline: rem(16);
+                transition: opacity 0.5s ease;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        opacity: 0.6;
+                        transition: opacity 0.5s ease;
+                    }
+                }
+            }
+
+            .el_commonNumberList_item_number_current {
+                pointer-events: none;
+                background-color: var(--black);
+                color: #fff;
+            }
+        }
+
+    }
+}
+
+/* ------------------------------------------------------------------------------------------
+#記事ページ
+------------------------------------------------------------------------------------------ */
+
+.bl_commonArticle_header {
+    padding-top: rem(80);
+    padding-bottom: rem(90);
+    padding-inline: rem(120);
+
+    @include underSP {
+        padding-block: rem(60);
+        padding-inline: rem(20);
+    }
+
+    .bl_commonArticle_header_inner_upper {
+        margin-bottom: rem(24);
+
+        .el_commonArticle_header_date {
+            display: block;
+            color: var(--black);
+            font-family: var(--mainFont);
+            font-size: rem(14);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: calc(0.28 / 14 * 1em);
+            margin-bottom: rem(24);
+        }
+
+        .el_commonArticle_header_ttl {
+            color: var(--black);
+            font-family: var(--subFontJa);
+            font-size: rem(32);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: calc(2.56 / 32 * 1em);
+
+        }
+    }
+}
+
+
+.bl_common_noResults {
+    text-align: center;
+    color: var(--black);
+    font-family: var(--mainFont);
+    font-size: rem(24);
+    font-weight: 500;
+    line-height: 1.8;
+    margin-top: rem(40);
+    margin-bottom: rem(40);
+    letter-spacing: calc(1.92 / 24 * 1em);
+    font-feature-settings: 'palt' on;
+}
+
+
+
+.bl_404Container {
+    background-color: #fff;
+    padding-inline: rem(20);
+    padding-top: rem(40);
+
+    .bl_404Container_breadcrumbs {
+        padding-inline: rem(100);
+        margin-bottom: rem(160);
+
+        @include underSP {
+            padding-inline: 0;
+        }
+    }
+
+    .bl_404Container_inner {
+        max-width: rem(850);
+        width: 100%;
+        margin-inline: auto;
+
+        .el_thanksContainer_ttl {
+            color: var(--black-black, #34312C);
+            text-align: center;
+            font-family: var(--subFontJa);
+            font-size: rem(32);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: calc(2.56 / 32 * 1em);
+            margin-bottom: rem(50);
+
+            @include underSP {
+                font-size: rem(24);
+            }
+
+            @include underSP_m {
+                font-size: rem(18);
+            }
+        }
+
+
+        .el_404Container_txt {
+            color: var(--black-black, #34312C);
+            text-align: center;
+            font-family: var(--mainFont);
+            font-size: rem(16);
+            font-weight: 400;
+            line-height: 1.8;
+            letter-spacing: calc(1.28 / 16 * 1em);
+            margin-bottom: rem(80);
+
+            .is-sp {
+                display: none;
+
+                @include underSP {
+                    display: block;
+                }
+
+                @include underSP_m {
+                    display: none;
+                }
+            }
+
+            br {
+                @include underSP_m {
+                    display: none;
+                }
+            }
+
+            @include underSP_m {
+                text-align: left;
+            }
+        }
+
+        .el_404Container_btn {
+            display: block;
+            max-width: rem(200);
+            width: 100%;
+            margin-inline: auto;
+            background-color: var(--black);
+            color: #fff;
+            font-family: var(--subFontJa);
+            font-size: rem(18);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: calc(1.44 / 18 * 1em);
+            padding-block: rem(16);
+            padding-inline: rem(20);
+            border-radius: rem(4);
+            text-align: center;
+            transition: opacity 0.5s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.6;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+    }
 }
