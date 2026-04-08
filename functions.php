@@ -10,7 +10,8 @@ add_theme_support('post-thumbnails');
 //自動更新を無効化
 add_filter('automatic_updater_disabled', '__return_true');
 
-function remove_admin_selection_color() {
+function remove_admin_selection_color()
+{
     echo '<style>
         ::selection {
             background: auto !important;
@@ -151,13 +152,13 @@ function renewal2026_post_slug_metabox_callback($post)
 {
     $slug = $post->post_name;
     wp_nonce_field('renewal2026_post_slug', 'renewal2026_post_slug_nonce');
-    ?>
+?>
     <p>
         <label for="renewal2026_post_slug">スラッグ</label><br>
         <input type="text" id="renewal2026_post_slug" name="renewal2026_post_slug" value="<?php echo esc_attr($slug); ?>" class="widefat" />
     </p>
     <p class="description"><?php echo esc_html(home_url('/blog/' . $slug . '/')); ?></p>
-    <?php
+<?php
 }
 
 function renewal2026_post_slug_save($post_id)
@@ -638,22 +639,85 @@ add_action('wp_head', function () {
 $categories = get_the_category();
 
 // デフォルトのカテゴリー列を削除して再登録
-add_filter('manage_posts_columns', function($columns) {
+add_filter('manage_posts_columns', function ($columns) {
     unset($columns['categories']);
     $columns['categories'] = 'カテゴリー';
     return $columns;
 });
 
 // カスタム列の中身を出力
-add_action('manage_posts_custom_column', function($column, $post_id) {
+add_action('manage_posts_custom_column', function ($column, $post_id) {
     if ($column === 'categories') {
         $categories = get_the_category($post_id);
-        usort($categories, function($a, $b) {
+        usort($categories, function ($a, $b) {
             return $a->parent - $b->parent;
         });
-        $links = array_map(function($cat) use ($post_id) {
+        $links = array_map(function ($cat) use ($post_id) {
             return '<a href="' . esc_url(add_query_arg(['category_name' => $cat->slug], admin_url('edit.php'))) . '">' . esc_html($cat->name) . '</a>';
         }, $categories);
         echo implode('、', $links);
     }
 }, 10, 2);
+
+
+/**
+ * タクソノミー・日付アーカイブページ用 OGP 画像を直接出力
+ */
+add_action('wp_head', 'custom_taxonomy_ogp_image', 5);
+function custom_taxonomy_ogp_image()
+{
+
+    if (! is_tax() && ! is_category() && ! is_tag() && ! is_date()) {
+        return;
+    }
+
+    // ★ デフォルト OGP 画像の URL を変更してください
+    $default_ogp_image   = get_template_directory_uri() . '/assets/img/common/ogp.jpg';
+    $default_ogp_image_w = 1200;
+    $default_ogp_image_h = 630;
+
+    $ogp_image   = $default_ogp_image;
+    $ogp_image_w = $default_ogp_image_w;
+    $ogp_image_h = $default_ogp_image_h;
+
+    $ogp_title       = wp_get_document_title();
+    $ogp_description = '';
+    $ogp_url         = home_url(add_query_arg(null, null));
+
+    if (is_tax() || is_category() || is_tag()) {
+        $term = get_queried_object();
+        if ($term && ! is_wp_error($term)) {
+            $ogp_description = wp_strip_all_tags(term_description($term->term_id, $term->taxonomy));
+
+            $term_thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+            if ($term_thumbnail_id) {
+                $img = wp_get_attachment_image_src($term_thumbnail_id, 'full');
+                if ($img) {
+                    $ogp_image   = $img[0];
+                    $ogp_image_w = $img[1];
+                    $ogp_image_h = $img[2];
+                }
+            }
+        }
+    }
+
+    if (is_date()) {
+        $ogp_description = get_bloginfo('description');
+    }
+
+?>
+    <!-- Custom OGP for Taxonomy / Date Archive -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo esc_url($ogp_url); ?>" />
+    <meta property="og:title" content="<?php echo esc_attr($ogp_title); ?>" />
+    <meta property="og:description" content="<?php echo esc_attr($ogp_description); ?>" />
+    <meta property="og:image" content="<?php echo esc_url($ogp_image); ?>" />
+    <meta property="og:image:width" content="<?php echo esc_attr($ogp_image_w); ?>" />
+    <meta property="og:image:height" content="<?php echo esc_attr($ogp_image_h); ?>" />
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?php echo esc_attr($ogp_title); ?>" />
+    <meta name="twitter:description" content="<?php echo esc_attr($ogp_description); ?>" />
+    <meta name="twitter:image" content="<?php echo esc_url($ogp_image); ?>" />
+<?php
+}
