@@ -2312,6 +2312,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.25rem;
   margin-top: 1.875rem;
 }
