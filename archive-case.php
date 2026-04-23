@@ -152,7 +152,7 @@
                                                     <dl class="bl_commonCaseCard_infoWrapper_item">
                                                         <dt class="el_commonCaseCard_infoWrapper_item_dt">施術参考料金</dt>
                                                         <dd class="el_commonCaseCard_infoWrapper_item_dd">
-                                                            <?php echo esc_html(get_field('case-price')); ?>
+                                                            <?php echo get_field('case-price'); ?>
                                                             <?php if (get_field('case-price_sub')): ?>
                                                                 <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-price_sub'); ?></span>
                                                             <?php endif; ?>
