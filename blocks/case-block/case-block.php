@@ -56,7 +56,7 @@
                                         <?php if (get_field('case-menu', $relatedCasePost->ID)): ?>
                                             <dl class="bl_commonCaseCard_infoWrapper_item">
                                                 <dt class="el_commonCaseCard_infoWrapper_item_dt">施術名</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo esc_html(get_field('case-menu', $relatedCasePost->ID)); ?></dd>
+                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-menu', $relatedCasePost->ID); ?></dd>
                                             </dl>
                                         <?php endif; ?>
 
@@ -64,9 +64,9 @@
                                             <dl class="bl_commonCaseCard_infoWrapper_item">
                                                 <dt class="el_commonCaseCard_infoWrapper_item_dt">施術参考料金</dt>
                                                 <dd class="el_commonCaseCard_infoWrapper_item_dd">
-                                                    <?php echo esc_html(get_field('case-price', $relatedCasePost->ID)); ?>
+                                                    <?php echo get_field('case-price', $relatedCasePost->ID); ?>
                                                     <?php if (get_field('case-price_sub', $relatedCasePost->ID)): ?>
-                                                        <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo esc_html(get_field('case-price_sub', $relatedCasePost->ID)); ?></span>
+                                                        <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-price_sub', $relatedCasePost->ID); ?></span>
                                                     <?php endif; ?>
                                                 </dd>
                                             </dl>
@@ -75,28 +75,28 @@
                                         <?php if (get_field('case-time', $relatedCasePost->ID)): ?>
                                             <dl class="bl_commonCaseCard_infoWrapper_item">
                                                 <dt class="el_commonCaseCard_infoWrapper_item_dt">所要時間</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo esc_html(get_field('case-time', $relatedCasePost->ID)); ?></dd>
+                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-time', $relatedCasePost->ID); ?></dd>
                                             </dl>
                                         <?php endif; ?>
 
                                         <?php if (get_field('case-period', $relatedCasePost->ID)): ?>
                                             <dl class="bl_commonCaseCard_infoWrapper_item">
                                                 <dt class="el_commonCaseCard_infoWrapper_item_dt">治療期間</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo esc_html(get_field('case-period', $relatedCasePost->ID)); ?></dd>
+                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-period', $relatedCasePost->ID); ?></dd>
                                             </dl>
                                         <?php endif; ?>
 
                                         <?php if (get_field('case-num-times', $relatedCasePost->ID)): ?>
                                             <dl class="bl_commonCaseCard_infoWrapper_item">
                                                 <dt class="el_commonCaseCard_infoWrapper_item_dt">治療回数</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo esc_html(get_field('case-num-times', $relatedCasePost->ID)); ?></dd>
+                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-num-times', $relatedCasePost->ID); ?></dd>
                                             </dl>
                                         <?php endif; ?>
 
                                         <?php if (get_field('case-downtime', $relatedCasePost->ID)): ?>
                                             <dl class="bl_commonCaseCard_infoWrapper_item">
                                                 <dt class="el_commonCaseCard_infoWrapper_item_dt">ダウンタイム</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo esc_html(get_field('case-downtime', $relatedCasePost->ID)); ?></dd>
+                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-downtime', $relatedCasePost->ID); ?></dd>
                                             </dl>
                                         <?php endif; ?>
 
@@ -106,7 +106,7 @@
                                                 <dd class="el_commonCaseCard_infoWrapper_item_dd">
                                                     <?php echo esc_html(get_field('case-risk', $relatedCasePost->ID)); ?>
                                                     <?php if (get_field('case-risk_sub', $relatedCasePost->ID)): ?>
-                                                        <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo esc_html(get_field('case-risk_sub', $relatedCasePost->ID)); ?></span>
+                                                        <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-risk_sub', $relatedCasePost->ID); ?></span>
                                                     <?php endif; ?>
                                                 </dd>
                                             </dl>
