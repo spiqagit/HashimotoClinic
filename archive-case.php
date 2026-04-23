@@ -192,7 +192,7 @@
                                                     <dl class="bl_commonCaseCard_infoWrapper_item">
                                                         <dt class="el_commonCaseCard_infoWrapper_item_dt">副作用・リスク</dt>
                                                         <dd class="el_commonCaseCard_infoWrapper_item_dd">
-                                                            <?php echo esc_html(get_field('case-risk')); ?>
+                                                            <?php echo get_field('case-risk'); ?>
                                                             <?php if (get_field('case-risk_sub')): ?>
                                                                 <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-risk_sub'); ?></span>
                                                             <?php endif; ?>
