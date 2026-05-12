@@ -112,17 +112,16 @@
                         </div>
                     <?php endif; ?>
 
-                    <div class="bl_menuPartsCatContainer_tabContents">
 
+                    <div class="bl_menuPartsCatContainer_tabContents">
                         <?php
                         $j = 0;
-                        foreach ($partsParentCats as $partsParentCat): ?>
+                        foreach ($partsParentCats as $partsParentCat):?>
                             <?php if ($j == 0) {
                                 $isActive = 'is_active';
                             } else {
                                 $isActive = '';
                             } ?>
-
                             <div class="bl_menuPartsCatContainer_tabContents_item <?php echo $isActive; ?>" data-id="cat-<?php echo $partsParentCat->term_id; ?>">
                                 <div class="bl_menuPartsCatContainer_tabContents_item_inner">
                                     <?
@@ -152,7 +151,6 @@
                                                 <div class="bl_menuPartChildDetails_contents is-details-content">
                                                     <div class="bl_menuPartChildDetails_contents_inner">
                                                         <?php
-
                                                         $partsCatPosts = get_posts(array(
                                                             'post_type' => 'menu',
                                                             'posts_per_page' => -1,
@@ -176,7 +174,53 @@
                                                     </div>
                                                 </div>
                                             </details>
+
                                         <?php endforeach; ?>
+                                    <?php endif; ?>
+
+                                    <?php
+
+                                    if ($partsChildCat->slug == 'body'): ?>
+                                        <details class="bl_menuPartChildDetails js-details">
+                                            <summary class="bl_menuPartChildDetails_summary is-summary">
+                                                <span class="bl_menuPartChildDetails_summary_nameWrapper">
+                                                    <?php if (get_field('parts-cat-icon', $partsChildCat)): ?>
+                                                        <span class="el_menuPartChildDetails_summary_nameWrapper_iconWrapper">
+                                                            <img class="el_menuPartChildDetails_summary_nameWrapper_icon" src="<?php the_field('parts-cat-icon', $partsChildCat); ?>" alt="<?php echo $partsChildCat->name; ?>">
+                                                        </span>
+                                                    <?php endif; ?>
+                                                    <span class="el_menuPartChildDetails_summary_nameWrapper_name"></span>
+                                                </span>
+
+                                                <img class="el_menuPartChildDetails_summary_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/lang-arrow.svg" alt="">
+                                            </summary>
+
+                                            <div class="bl_menuPartChildDetails_contents is-details-content">
+                                                <div class="bl_menuPartChildDetails_contents_inner">
+                                                    <?php
+                                                    $partsCatPosts = get_posts(array(
+                                                        'post_type' => 'menu',
+                                                        'posts_per_page' => -1,
+                                                        'fields' => 'ids',
+                                                        'tax_query' => array(
+                                                            array(
+                                                                'taxonomy' => 'parts-cat',
+                                                                'terms' => $partsChildCat->term_id,
+                                                            ),
+                                                        ),
+                                                    ));
+                                                    ?>
+                                                    <?php if (!empty($partsCatPosts)): ?>
+                                                        <?php foreach ($partsCatPosts as $partsCatPost): ?>
+                                                            <a href="<?php echo get_the_permalink($partsCatPost); ?>" class="bl_menuPartChildDetails_contents_link">
+                                                                <p><?php echo get_the_title($partsCatPost); ?></p>
+                                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
+                                                            </a>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                        </details>
                                     <?php endif; ?>
                                 </div>
                             </div>
