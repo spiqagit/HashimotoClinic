@@ -3986,6 +3986,7 @@ CTAボタン
   display: flex;
   align-items: center;
   gap: 0.875rem;
+  min-height: 3.75rem;
 }
 .bl_menuPartChildDetails .bl_menuPartChildDetails_summary .bl_menuPartChildDetails_summary_nameWrapper .el_menuPartChildDetails_summary_nameWrapper_iconWrapper {
   display: grid;
