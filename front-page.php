@@ -203,7 +203,11 @@
                                                         <p>亀頭・陰茎増大</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/17.php" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php#a2" class="bl_menuPartChildDetails_contents_link">
+                                                        <p>シリコンボール</p>
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
+                                                    </a>
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">
                                                         <p>1dayED</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>

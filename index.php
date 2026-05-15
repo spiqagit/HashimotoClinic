@@ -116,7 +116,7 @@
                     <div class="bl_menuPartsCatContainer_tabContents">
                         <?php
                         $j = 0;
-                        foreach ($partsParentCats as $partsParentCat):?>
+                        foreach ($partsParentCats as $partsParentCat): ?>
                             <?php if ($j == 0) {
                                 $isActive = 'is_active';
                             } else {
@@ -230,7 +230,6 @@
 
                     <?php
                     $selectMenuPost = get_field('select-menupost', 'option');
-                    var_dump($selectMenuPost);
                     ?>
                     <?php if ($selectMenuPost): ?>
                         <div>
