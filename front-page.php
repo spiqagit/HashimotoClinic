@@ -178,11 +178,9 @@
                                         <details class="bl_menuPartChildDetails js-details">
                                             <summary class="bl_menuPartChildDetails_summary is-summary">
                                                 <span class="bl_menuPartChildDetails_summary_nameWrapper">
-                                                    <?php if (get_field('parts-cat-icon', $partsChildCat)): ?>
-                                                        <!-- <span class="el_menuPartChildDetails_summary_nameWrapper_iconWrapper">
-                                                            <img class="el_menuPartChildDetails_summary_nameWrapper_icon" src="" alt="">
-                                                        </span> -->
-                                                    <?php endif; ?>
+                                                    <span class="el_menuPartChildDetails_summary_nameWrapper_iconWrapper">
+                                                            <img class="el_menuPartChildDetails_summary_nameWrapper_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/7.png" alt="男性全般のお悩み">
+                                                        </span>
                                                     <span class="el_menuPartChildDetails_summary_nameWrapper_name">男性全般のお悩み</span>
                                                 </span>
 
