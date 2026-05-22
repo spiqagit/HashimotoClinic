@@ -199,6 +199,14 @@
                                                         <p>長茎手術</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/40.php" class="bl_menuPartChildDetails_contents_link">
+                                                        <p>糖尿病に伴う包皮炎治療</p>
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
+                                                    </a>
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/45.php" class="bl_menuPartChildDetails_contents_link">
+                                                        <p>亀頭ぶつぶつ除去</p>
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
+                                                    </a>
                                                     <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">
                                                         <p>亀頭・陰茎増大</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
