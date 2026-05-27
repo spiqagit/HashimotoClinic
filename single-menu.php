@@ -39,14 +39,14 @@
                     <div class="bl_menuArticle_contents_inner">
                         <div class="bl_menuArticle_navContainer bl_menuArticle_navContainer_pc">
                             <nav class="bl_commonIndexNav" id="js_commonIndexNav">
-                                <h2 class="el_commonIndexNav_ttl">Index</h2>
+                                <h2 class="el_commonIndexNav_ttl">目次</h2>
                                 <ul class="bl_commonIndexNav_list" id="js_commonIndexNav_list"></ul>
                             </nav>
                         </div>
 
                         <div class="bl_menuArticle_navContainer_sp" id="js_menuArticle_indexAccordion">
                             <button class="bl_menuArticle_navContainer_sp_btn" type="button" aria-expanded="false" aria-controls="js_menuArticle_indexAccordion_body">
-                                <span class="bl_menuArticle_navContainer_sp_btn_txt">Index</span>
+                                <span class="bl_menuArticle_navContainer_sp_btn_txt">目次</span>
                                 <span class="bl_menuArticle_navContainer_sp_btn_arrow">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/index-arrow.svg" alt="">
                                 </span>

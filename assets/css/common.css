@@ -4293,15 +4293,14 @@ CTAボタン
   background-color: #F6F6F6;
 }
 .bl_menuArticle_contents .bl_menuArticle_contents_inner .bl_menuArticle_navContainer .bl_commonIndexNav .el_commonIndexNav_ttl {
-  width: fit-content;
-  margin-inline: auto;
-  color: var(--black);
-  font-family: var(--subFontEn);
-  font-size: 1.375rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.375rem;
+  color: #34312C;
+  text-align: center;
+  font-family: var(--subFontJa);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
 }
 .bl_menuArticle_contents .bl_menuArticle_contents_inner .bl_menuArticle_navContainer .bl_commonIndexNav .bl_commonIndexNav_list {
   display: flex;
@@ -4396,11 +4395,10 @@ CTAボタン
 .bl_menuArticle_navContainer_sp .bl_menuArticle_navContainer_sp_btn .bl_menuArticle_navContainer_sp_btn_txt {
   color: var(--black);
   text-align: center;
-  font-family: var(--subFontEn);
+  font-family: var(--subFontJa);
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: 0.1em;
 }
 .bl_menuArticle_navContainer_sp .bl_menuArticle_navContainer_sp_btn .bl_menuArticle_navContainer_sp_btn_arrow {
   display: block;

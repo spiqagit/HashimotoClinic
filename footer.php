@@ -308,6 +308,29 @@ $clinicPostList = get_posts(array(
 
                     <?php endforeach; ?>
 
+
+                    <details class="bl_footerMenuPostList_item">
+
+                        <summary class="el_footerMenuPostList_item_ttl">
+                            <span class="el_footerMenuPostList_item_ttl_txt">メンズ治療</span>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/open-arrow.svg" alt="">
+                        </summary>
+
+                        <div class="bl_footerMenuPostList_item_contents">
+                            <div class="bl_footerMenuPostList_item_contents_inner">
+                                <div class="bl_footerMenuPostList_postList">
+                                    <a class="el_footerMenuPostList_postList_item" href="https://mens.hashimotoclinic.co.jp/service/15.php">包茎手術</a>
+                                    <a class="el_footerMenuPostList_postList_item" href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">長茎手術</a>
+                                    <a class="el_footerMenuPostList_postList_item" href="https://mens.hashimotoclinic.co.jp/service/40.php" class="bl_menuPartChildDetails_contents_link">糖尿病に伴う包皮炎治療</a>
+                                    <a class="el_footerMenuPostList_postList_item" href="https://mens.hashimotoclinic.co.jp/service/45.php" class="bl_menuPartChildDetails_contents_link">亀頭ぶつぶつ除去</a>
+                                    <a class="el_footerMenuPostList_postList_item" href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">亀頭・陰茎増大</a>
+                                    <a class="el_footerMenuPostList_postList_item" href="https://mens.hashimotoclinic.co.jp/service/15_2.php#a2" class="bl_menuPartChildDetails_contents_link">シリコンボール</a>
+                                    <a class="el_footerMenuPostList_postList_item" href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">1dayED</a>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
                 </div>
             <?php endif; ?>
 

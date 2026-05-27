@@ -475,15 +475,14 @@
                 background-color: #F6F6F6;
 
                 .el_commonIndexNav_ttl {
-                    width: fit-content;
-                    margin-inline: auto;
-                    color: var(--black);
-                    font-family: var(--subFontEn);
-                    font-size: rem(22);
-                    font-weight: 400;
-                    line-height: 1.2;
-                    letter-spacing: calc(2.2 / 22 * 1em);
-                    margin-bottom: rem(22);
+                    color: #34312C;
+                    text-align: center;
+                    font-family: var(--subFontJa);
+                    font-size: rem(20);
+                    font-weight: 500;
+                    line-height: 1.5;
+                    letter-spacing: calc(1.6 / 20 * 1em);
+                    margin-bottom: rem(12);
                 }
 
                 .bl_commonIndexNav_list {
@@ -594,11 +593,10 @@
         .bl_menuArticle_navContainer_sp_btn_txt {
             color: var(--black);
             text-align: center;
-            font-family: var(--subFontEn);
+            font-family: var(--subFontJa);
             font-size: rem(20);
             font-weight: 400;
             line-height: 1.2;
-            letter-spacing: 0.1em;
         }
 
         .bl_menuArticle_navContainer_sp_btn_arrow {
@@ -759,9 +757,7 @@
             z-index: 0;
         }
 
-        .swiper-slide {
-
-        }
+        .swiper-slide {}
 
     }
 }
