@@ -103,6 +103,14 @@
                 <p class="el_header_nav_item_txt">ドクター紹介</p>
                 <img class="el_header_nav_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
             </a>
+            <a href="<?php echo home_url(); ?>/menu/" class="bl_header_nav_item">
+                <p class="el_header_nav_item_txt">施術メニュー</p>
+                <img class="el_header_nav_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
+            </a>
+            <a href="<?php echo home_url(); ?>/price/" class="bl_header_nav_item">
+                <p class="el_header_nav_item_txt">料金表</p>
+                <img class="el_header_nav_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">
+            </a>
             <a href="<?php echo home_url(); ?>/access/" class="bl_header_nav_item">
                 <p class="el_header_nav_item_txt">アクセス</p>
                 <img class="el_header_nav_item_arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/btn-nav-arrow.svg" alt="">

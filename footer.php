@@ -231,10 +231,12 @@ $clinicPostList = get_posts(array(
 
                     <?php foreach ($menu_categories as $menu_category): ?>
 
-                        <div class="bl_footerMenuPostList_item">
-                            <h2 class="el_footerMenuPostList_item_ttl">
+                        <details class="bl_footerMenuPostList_item">
+
+                            <summary class="el_footerMenuPostList_item_ttl">
                                 <span class="el_footerMenuPostList_item_ttl_txt"><?php echo $menu_category->name; ?></span>
-                            </h2>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/open-arrow.svg" alt="">
+                            </summary>
 
                             <?php
                             $childrenMenuCategories = get_terms(array(
@@ -244,62 +246,65 @@ $clinicPostList = get_posts(array(
                                 'parent' => $menu_category->term_id,
                             ));
                             ?>
-                            <?php if (!empty($childrenMenuCategories)): ?>
+                            <div class="bl_footerMenuPostList_item_contents">
+                                <div class="bl_footerMenuPostList_item_contents_inner">
+                                    <?php if (!empty($childrenMenuCategories)): ?>
 
-                                <div class="bl_footerMenuPostList_childList">
+                                        <div class="bl_footerMenuPostList_childList">
 
-                                    <?php foreach ($childrenMenuCategories as $childrenMenuCategory): ?>
-                                        <div class="bl_footerMenuPostList_childList_item">
-                                            <h3 class="el_footerMenuPostList_item_child_ttl"><?php echo $childrenMenuCategory->name; ?></h3>
-                                            <?php
-                                            $childrenMenuPosts = get_posts(array(
-                                                'post_type' => 'menu',
-                                                'posts_per_page' => -1,
-                                                'fields' => 'ids',
-                                                'tax_query' => array(
-                                                    array(
-                                                        'taxonomy' => 'menu-cat',
-                                                        'terms' => $childrenMenuCategory->term_id,
-                                                    ),
-                                                ),
-                                            ));
-                                            ?>
-                                            <?php if (!empty($childrenMenuPosts)): ?>
-                                                <div class="bl_footerMenuPostList_postList">
-                                                    <?php foreach ($childrenMenuPosts as $childrenMenuPost): ?>
-                                                        <a class="el_footerMenuPostList_postList_item" href="<?php echo get_the_permalink($childrenMenuPost); ?>"><?php echo get_the_title($childrenMenuPost); ?></a>
-                                                    <?php endforeach; ?>
+                                            <?php foreach ($childrenMenuCategories as $childrenMenuCategory): ?>
+                                                <div class="bl_footerMenuPostList_childList_item">
+                                                    <h3 class="el_footerMenuPostList_item_child_ttl"><?php echo $childrenMenuCategory->name; ?></h3>
+                                                    <?php
+                                                    $childrenMenuPosts = get_posts(array(
+                                                        'post_type' => 'menu',
+                                                        'posts_per_page' => -1,
+                                                        'fields' => 'ids',
+                                                        'tax_query' => array(
+                                                            array(
+                                                                'taxonomy' => 'menu-cat',
+                                                                'terms' => $childrenMenuCategory->term_id,
+                                                            ),
+                                                        ),
+                                                    ));
+                                                    ?>
+                                                    <?php if (!empty($childrenMenuPosts)): ?>
+                                                        <div class="bl_footerMenuPostList_postList">
+                                                            <?php foreach ($childrenMenuPosts as $childrenMenuPost): ?>
+                                                                <a class="el_footerMenuPostList_postList_item" href="<?php echo get_the_permalink($childrenMenuPost); ?>"><?php echo get_the_title($childrenMenuPost); ?></a>
+                                                            <?php endforeach; ?>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 </div>
-                                            <?php endif; ?>
+                                            <?php endforeach; ?>
+
                                         </div>
-                                    <?php endforeach; ?>
 
+                                    <?php else: ?>
+                                        <?php
+                                        $menuPosts = get_posts(array(
+                                            'post_type' => 'menu',
+                                            'posts_per_page' => -1,
+                                            'fields' => 'ids',
+                                            'tax_query' => array(
+                                                array(
+                                                    'taxonomy' => 'menu-cat',
+                                                    'terms' => $menu_category->term_id,
+                                                ),
+                                            ),
+                                        ));
+                                        ?>
+                                        <?php if (!empty($menuPosts)): ?>
+                                            <div class="bl_footerMenuPostList_postList">
+                                                <?php foreach ($menuPosts as $menuPost): ?>
+                                                    <a class="el_footerMenuPostList_postList_item" href="<?php echo get_the_permalink($menuPost); ?>"><?php echo get_the_title($menuPost); ?></a>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
-
-                            <?php else: ?>
-                                <?php
-                                $menuPosts = get_posts(array(
-                                    'post_type' => 'menu',
-                                    'posts_per_page' => -1,
-                                    'fields' => 'ids',
-                                    'tax_query' => array(
-                                        array(
-                                            'taxonomy' => 'menu-cat',
-                                            'terms' => $menu_category->term_id,
-                                        ),
-                                    ),
-                                ));
-                                ?>
-                                <?php if (!empty($menuPosts)): ?>
-                                    <div class="bl_footerMenuPostList_postList">
-                                        <?php foreach ($menuPosts as $menuPost): ?>
-                                            <a class="el_footerMenuPostList_postList_item" href="<?php echo get_the_permalink($menuPost); ?>"><?php echo get_the_title($menuPost); ?></a>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endif; ?>
-
-                        </div>
+                            </div>
+                        </details>
 
                     <?php endforeach; ?>
 

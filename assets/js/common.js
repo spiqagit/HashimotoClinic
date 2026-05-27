@@ -52,6 +52,74 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    /* フッターメニュー投稿リスト（アコーディオン） */
+    document.querySelectorAll('.bl_footerMenuPostList_item').forEach(function (details) {
+        const summary = details.querySelector('.el_footerMenuPostList_item_ttl');
+        const content = details.querySelector('.bl_footerMenuPostList_item_contents');
+        const arrow = summary ? summary.querySelector('img') : null;
+
+        if (!summary || !content) return;
+
+        if (details.open) {
+            summary.classList.add('is-open');
+            if (arrow) gsap.set(arrow, { rotate: 180 });
+        }
+
+        summary.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            if (details.open) {
+                summary.classList.remove('is-open');
+                gsap.to(content, {
+                    height: 0,
+                    overflow: 'hidden',
+                    duration: duration,
+                    ease: ease,
+                    onComplete: function () {
+                        details.removeAttribute('open');
+                        gsap.set(content, { clearProps: 'height,overflow' });
+                    },
+                });
+                if (arrow) {
+                    gsap.to(arrow, {
+                        rotate: 0,
+                        duration: duration,
+                        ease: ease,
+                    });
+                }
+            } else {
+                details.setAttribute('open', '');
+                summary.classList.add('is-open');
+
+                const endHeight = content.scrollHeight;
+                gsap.fromTo(
+                    content,
+                    { height: 0, overflow: 'hidden' },
+                    {
+                        height: endHeight,
+                        overflow: 'hidden',
+                        duration: duration,
+                        ease: ease,
+                        onComplete: function () {
+                            gsap.set(content, { height: 'auto', overflow: '' });
+                        },
+                    },
+                );
+                if (arrow) {
+                    gsap.fromTo(
+                        arrow,
+                        { rotate: 0 },
+                        {
+                            rotate: 180,
+                            duration: duration,
+                            ease: ease,
+                        },
+                    );
+                }
+            }
+        });
+    });
+
 
     /* ページ最上部へスクロール */
     const topScrollBtn = document.querySelector('.bl_commonTopScrollBtn');
@@ -338,4 +406,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
+
+
+    
 });

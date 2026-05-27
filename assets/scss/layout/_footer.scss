@@ -13,9 +13,11 @@
         margin-inline: auto;
         padding-inline: rem(120);
         margin-bottom: rem(-5);
+
         @include underSP {
             padding-inline: rem(12);
         }
+
         img {
             width: 100%;
         }
@@ -331,7 +333,7 @@
                             }
                         }
 
-                        .swiper-button-disabled{
+                        .swiper-button-disabled {
                             opacity: 0.6;
                             transition: opacity 0.5s ease;
                             pointer-events: none;
@@ -502,7 +504,7 @@
                 }
             }
 
-            .bl_footerClinicBranchWrapper_infoWrapper_btnList{
+            .bl_footerClinicBranchWrapper_infoWrapper_btnList {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: rem(26);
@@ -548,7 +550,7 @@
                 }
             }
 
-            .bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon{
+            .bl_footerClinicBranchWrapper_infoWrapper_noteLink_noIcon {
                 display: block;
                 text-align: center;
             }
@@ -581,86 +583,104 @@
         border-bottom: 1px dashed rgba(255, 255, 255, 0.70);
 
         .bl_footerMenuPostList_item {
+            border-radius: rem(20);
+            border: 1px solid #FFF;
+
 
             .el_footerMenuPostList_item_ttl {
                 display: grid;
-                grid-template-columns: auto 1fr;
+                grid-template-columns: rem(16) auto rem(16);
                 align-items: center;
-                gap: rem(20);
-                color: #FFF;
-                font-family: var(--subFontJa);
-                font-size: rem(28);
-                font-style: normal;
-                font-weight: 300;
-                line-height: 1.2;
-                letter-spacing: calc(2.24 / 28 * 1em);
-                margin-bottom: rem(50);
+                gap: rem(8);
+                width: 100%;
+                padding: rem(24);
+                border-radius: rem(20);
+                list-style-type: none;
+                cursor: pointer;
 
-
-                &::after {
+                &::before {
                     content: '';
                     position: relative;
-                    display: block;
-                    width: 100%;
-                    height: 1px;
-                    background-color: #FFF;
+                }
+
+                &::marker {
+                    content: "";
+                }
+
+                &::-webkit-details-marker {
+                    display: none;
                 }
 
                 .el_footerMenuPostList_item_ttl_txt {
                     display: block;
                     width: fit-content;
-                }
-            }
-
-
-            .bl_footerMenuPostList_childList {
-                display: flex;
-                flex-direction: column;
-                gap: rem(50);
-
-                .el_footerMenuPostList_item_child_ttl {
-                    padding-left: rem(20);
-                    border-left: 4px solid #FFF;
+                    margin-inline: auto;
                     color: #FFF;
-                    font-family: var(--mainFont);
-                    font-size: rem(20);
+                    font-family: var(--subFontJa);
+                    font-size: rem(28);
                     font-weight: 500;
                     line-height: 1.2;
-                    letter-spacing: calc(1.6 / 20 * 1em);
-                }
-
-                .bl_footerMenuPostList_childList_item {
-                    display: flex;
-                    flex-direction: column;
-                    gap: rem(30);
+                    letter-spacing: calc(2.24 / 28 * 1em);
                 }
             }
 
-            .bl_footerMenuPostList_postList {
-                display: flex;
-                flex-wrap: wrap;
-                gap: rem(30);
 
-                .el_footerMenuPostList_postList_item {
-                    color: #FFF;
-                    font-family: var(--mainFont);
-                    font-size: rem(16);
-                    font-weight: 400;
-                    line-height: 1.4;
-                    letter-spacing: calc(1.28 / 16 * 1em);
-                    text-decoration-line: underline;
-                    text-decoration-style: solid;
-                    text-decoration-skip-ink: auto;
-                    text-decoration-thickness: auto;
-                    text-underline-offset: auto;
-                    text-underline-position: from-font;
-                    transition: opacity 0.5s ease;
+            .bl_footerMenuPostList_item_contents {
 
+                .bl_footerMenuPostList_item_contents_inner {
+                    padding-inline: rem(24);
+                    padding-bottom: rem(24);
 
-                    @media (any-hover: hover) {
-                        &:hover {
-                            opacity: 0.6;
+                    .bl_footerMenuPostList_childList {
+                        display: flex;
+                        flex-direction: column;
+                        gap: rem(50);
+
+                        .el_footerMenuPostList_item_child_ttl {
+                            padding-left: rem(20);
+                            border-left: 4px solid #FFF;
+                            color: #FFF;
+                            font-family: var(--mainFont);
+                            font-size: rem(20);
+                            font-weight: 500;
+                            line-height: 1.2;
+                            letter-spacing: calc(1.6 / 20 * 1em);
+                        }
+
+                        .bl_footerMenuPostList_childList_item {
+                            display: flex;
+                            flex-direction: column;
+                            gap: rem(30);
+                        }
+                    }
+
+                    .bl_footerMenuPostList_postList {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: rem(30);
+
+                        .el_footerMenuPostList_postList_item {
+                            color: #FFF;
+                            font-family: var(--mainFont);
+                            font-size: rem(16);
+                            font-weight: 400;
+                            line-height: 1.4;
+                            letter-spacing: calc(1.28 / 16 * 1em);
+                            text-decoration-line: underline;
+                            text-decoration-style: solid;
+                            text-decoration-skip-ink: auto;
+                            text-decoration-thickness: auto;
+                            text-underline-offset: auto;
+                            text-underline-position: from-font;
                             transition: opacity 0.5s ease;
+
+
+                            @media (any-hover: hover) {
+                                &:hover {
+                                    opacity: 0.6;
+                                    transition: opacity 0.5s ease;
+                                }
+                            }
                         }
                     }
                 }

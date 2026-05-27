@@ -314,8 +314,8 @@
 
     .bl_header_nav_inner {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        max-width: rem(864);
+        grid-template-columns: repeat(5, 1fr);
+        max-width: rem(1100);
         margin-inline: auto;
 
         .bl_header_nav_item {
