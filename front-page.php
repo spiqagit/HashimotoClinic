@@ -189,31 +189,31 @@
 
                                             <div class="bl_menuPartChildDetails_contents is-details-content">
                                                 <div class="bl_menuPartChildDetails_contents_inner">
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15.php" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15.php" target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
                                                         <p>包茎手術</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
                                                         <p>長茎手術</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/40.php" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/40.php" target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
                                                         <p>糖尿病に伴う包皮炎治療</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/45.php" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/45.php" target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
                                                         <p>亀頭ぶつぶつ除去</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
                                                         <p>亀頭・陰茎増大</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php#a2" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php#a2" target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
                                                         <p>シリコンボール</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
-                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" class="bl_menuPartChildDetails_contents_link">
+                                                    <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php" target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
                                                         <p>1dayED</p>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
                                                     </a>
