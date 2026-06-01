@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             slidesPerView: 1,
             spaceBetween: 20,
             loopAdditionalSlides: 1,
+            initialSlide : 1,
             loop: false,
             navigation: {
                 nextEl: clinicSwiperContainer.querySelector('.bl_clinicSwiper_next'),
