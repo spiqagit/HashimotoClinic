@@ -187,23 +187,144 @@ function renewal2026_post_slug_save($post_id)
 add_action('add_meta_boxes_post', 'renewal2026_post_slug_metabox');
 add_action('save_post', 'renewal2026_post_slug_save');
 
-// 投稿（post）のURLを /blog/スラッグ にする（Custom Post Type Permalinks より後に登録）
+// 投稿（post）のURLを /blog/スラッグ/ にする
+function renewal2026_get_post_blog_base()
+{
+    $posts_page_id = (int) get_option('page_for_posts');
+    if ($posts_page_id) {
+        $posts_page = get_post($posts_page_id);
+        if ($posts_page && $posts_page->post_name !== '') {
+            return $posts_page->post_name;
+        }
+    }
+
+    return 'blog';
+}
+
+function renewal2026_get_post_blog_url($post)
+{
+    if (is_numeric($post)) {
+        $post = get_post($post);
+    }
+    if (!$post || $post->post_type !== 'post') {
+        return '';
+    }
+
+    $slug = $post->post_name;
+    if ($slug === '' && $post->post_status === 'auto-draft') {
+        $slug = sanitize_title($post->post_title);
+    }
+    if ($slug === '') {
+        $slug = (string) $post->ID;
+    }
+
+    return home_url(user_trailingslashit(renewal2026_get_post_blog_base() . '/' . $slug));
+}
+
+// Custom Post Type Permalinks より後に適用し、投稿URLを /blog/スラッグ/ に固定する
+function renewal2026_post_link_blog_prefix($permalink, $post, $leavename = false)
+{
+    if (!is_object($post) || $post->post_type !== 'post') {
+        return $permalink;
+    }
+
+    $base = renewal2026_get_post_blog_base();
+    if ($leavename) {
+        return home_url(user_trailingslashit($base . '/%postname%'));
+    }
+
+    return renewal2026_get_post_blog_url($post);
+}
+add_filter('post_link', 'renewal2026_post_link_blog_prefix', 999, 3);
+add_filter('post_type_link', 'renewal2026_post_link_blog_prefix', 999, 3);
+
+// ブロックエディターのURLプレビュー・「投稿を表示」用
+function renewal2026_get_sample_permalink($sample, $post_id, $title, $name, $post)
+{
+    if (!$post || $post->post_type !== 'post') {
+        return $sample;
+    }
+
+    // 公開済み・下書きは DB 保存済みスラッグを優先（タイトル由来スラッグで上書きしない）
+    if ($post->post_name !== '' && $post->post_status !== 'auto-draft') {
+        $slug = $post->post_name;
+    } elseif ($name !== null && $name !== '') {
+        $slug = $name;
+    } else {
+        $slug = sanitize_title($title ? $title : $post->post_title);
+    }
+
+    return array(
+        home_url(user_trailingslashit(renewal2026_get_post_blog_base() . '/%postname%')),
+        $slug,
+    );
+}
+add_filter('get_sample_permalink', 'renewal2026_get_sample_permalink', 999, 5);
+
+// ブログ一覧（固定ページ blog）のページネーション用
 function renewal2026_post_blog_rewrite_rules()
 {
     add_rewrite_rule('^blog/page/([0-9]+)/?$', 'index.php?pagename=blog&paged=$matches[1]', 'top');
-    add_rewrite_rule('^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top');
+    add_rewrite_rule('^blog/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top');
 }
 add_action('init', 'renewal2026_post_blog_rewrite_rules', 99);
 
-// Custom Post Type Permalinks より後に適用し「投稿を表示」リンクを /blog/スラッグ/ にする
-function renewal2026_post_link_blog_prefix($permalink, $post)
+/**
+ * /blog/スラッグ/ が固定ページ blog の子ページとして解釈され 404 になるのを防ぐ。
+ * 該当する子ページが存在しない場合は投稿（post）として解決する。
+ */
+function renewal2026_post_blog_request($query_vars)
+{
+    if (empty($query_vars['pagename']) || !preg_match('#^blog/([^/]+)$#', $query_vars['pagename'], $matches)) {
+        return $query_vars;
+    }
+
+    $slug = $matches[1];
+    if ($slug === 'page') {
+        return $query_vars;
+    }
+
+    if (get_page_by_path($query_vars['pagename'], OBJECT, 'page')) {
+        return $query_vars;
+    }
+
+    unset($query_vars['pagename']);
+    $query_vars['name'] = $slug;
+    $query_vars['post_type'] = 'post';
+
+    return $query_vars;
+}
+add_filter('request', 'renewal2026_post_blog_request');
+
+// ブロックエディターの「投稿を表示」リンクを正しいパーマリンクに揃える
+function renewal2026_post_rest_link($response, $post, $request)
 {
     if ($post->post_type !== 'post') {
-        return $permalink;
+        return $response;
     }
-    return home_url('/blog/' . $post->post_name . '/');
+
+    $fresh_post = get_post($post->ID);
+    if (!$fresh_post || $fresh_post->post_name === '') {
+        return $response;
+    }
+
+    $base = renewal2026_get_post_blog_base();
+    $url = renewal2026_get_post_blog_url($fresh_post);
+
+    // 「投稿を表示」は link ではなく permalink_template + slug から URL を組み立てる
+    $response->data['link'] = $url;
+    $response->data['slug'] = $fresh_post->post_name;
+
+    if (array_key_exists('permalink_template', $response->data)) {
+        $response->data['permalink_template'] = home_url(user_trailingslashit($base . '/%postname%'));
+    }
+    if (array_key_exists('generated_slug', $response->data)) {
+        $response->data['generated_slug'] = $fresh_post->post_name;
+    }
+
+    return $response;
 }
-add_filter('post_link', 'renewal2026_post_link_blog_prefix', 999, 2);
+add_filter('rest_prepare_post', 'renewal2026_post_rest_link', 99999, 3);
 
 function get_blog_pagenum_link($page)
 {
@@ -213,13 +334,29 @@ function get_blog_pagenum_link($page)
     return home_url('/blog/page/' . $page . '/');
 }
 
-// テーマ有効化時・リライト変更後にフラッシュ（管理画面「設定」→「パーマリンク」で「変更を保存」でも可）
-function renewal2026_flush_rewrite_on_activation()
+function renewal2026_flush_rewrite_rules()
 {
     renewal2026_post_blog_rewrite_rules();
     flush_rewrite_rules();
 }
+
+// テーマ有効化時・リライト変更後にフラッシュ（管理画面「設定」→「パーマリンク」で「変更を保存」でも可）
+function renewal2026_flush_rewrite_on_activation()
+{
+    renewal2026_flush_rewrite_rules();
+}
 add_action('after_switch_theme', 'renewal2026_flush_rewrite_on_activation');
+
+// リライトルール更新時に1回だけ自動フラッシュ
+function renewal2026_maybe_flush_rewrite_rules()
+{
+    if (get_option('renewal2026_rewrite_version') === '3') {
+        return;
+    }
+    renewal2026_flush_rewrite_rules();
+    update_option('renewal2026_rewrite_version', '3');
+}
+add_action('init', 'renewal2026_maybe_flush_rewrite_rules', 999);
 
 // アーカイブの表示条件
 function change_posts_per_page($query)

@@ -72,7 +72,6 @@
                                     'post_type'      => 'post',
                                     'posts_per_page' => 10,
                                     'paged'          => $currentPage,
-                                    'post_status'    => 'publish',
                                     'orderby'        => 'date',
                                     'order'          => 'DESC',
                                 ]);
