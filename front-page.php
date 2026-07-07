@@ -21,7 +21,7 @@
                                     </a>
                                 <?php else: ?>
                                     <div class="bl_fvSlideSwiper_item">
-                                        <img src="<?php the_sub_field('fvslide-img'); ?>" alt="<?php the_sub_field('tifvslide-alttle'); ?>">
+                                        <img src="<?php the_sub_field('fvslide-img'); ?>" width="276" height="276"  alt="<?php the_sub_field('tifvslide-alttle'); ?>">
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="bl_fvSlideSwiper_pageNationContainer">
-                        <button class="bl_fvSlideSwiper_playBtn" type="button"></button>
+                        <button class="bl_fvSlideSwiper_playBtn" type="button" aria-label="再生/一時停止"></button>
                         <div class="bl_fvSlideSwiper_pagination"></div>
                     </div>
 

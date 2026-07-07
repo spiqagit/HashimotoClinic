@@ -1,3 +1,7 @@
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZ4WGHC9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <header class="ly_header">
     <div class="ly_header_inner">
         <div class="bl_header_logoWrapper">
@@ -82,7 +86,7 @@
                         <?php echo do_shortcode('[gtranslate]'); ?>
                     </div>
 
-                    <button class="bl_header_toggleBtn" type="button">
+                    <button class="bl_header_toggleBtn" type="button" aria-label="メニューを開く">
                         <span class="el_header_toggleBtn_line"></span>
                         <span class="el_header_toggleBtn_line"></span>
                         <span class="el_header_toggleBtn_line"></span>
@@ -123,7 +127,7 @@
 <div class="bl_commonToggleNavOuter"></div>
 <nav class="bl_commonToggleNav">
     <div class="bl_commonToggleNav_inner">
-        <button class="bl_commonToggleNav_closeBtn" type="button">
+        <button class="bl_commonToggleNav_closeBtn" type="button" aria-label="メニューを閉じる">
             <span class="el_commonToggleNav_closeBtn_line"></span>
             <span class="el_commonToggleNav_closeBtn_line"></span>
         </button>
@@ -131,7 +135,7 @@
         <form action="<?php echo home_url(); ?>/" class="bl_header_searchWrapper">
             <input class="el_header_searchWrapper_input" type="text" name="s" placeholder="サイト内検索">
             <input type="hidden" name="type" value="site">
-            <button class="el_header_searchWrapper_button" type="submit">
+            <button class="el_header_searchWrapper_button" aria-label="検索ボタン" type="submit">
                 <img class="el_header_searchWrapper_button_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/search.svg" alt="">
             </button>
         </form>
@@ -228,7 +232,7 @@
 
                             <a href="<?php the_sub_field('mypage-login'); ?>" target="_blank" class="bl_commonCtaBtn bl_commonCtaIconBtn">
                                 <div class="bl_commonCtaBtn_inner">
-                                    <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon.svg" alt="マイページ">
+                                    <img class="el_commonCtaIconBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/mypage-icon.svg" width="15" height="15" alt="マイページ">
                                     <p class="el_commonCtaBtn_txt">マイページログイン</p>
                                 </div>
                             </a>

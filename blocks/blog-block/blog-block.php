@@ -1,7 +1,8 @@
 <?php if (is_singular('menu')): ?>
     <?php
-    $relatedBlogList = get_field('related-blog-list'); ?>
-    <?php if (!empty($relatedBlogPosts)): ?>
+    $relatedBlogList = get_field('related-blog-list'); 
+    ?>
+    <?php if (!empty($relatedBlogList)): ?>
         <div class="bl_commonBlogSwiperContainer bl_menuBlogSwiperContainer">
             <div class="bl_commonBlogSwiperContainer_inner">
                 <button class="bl_commonBlogSwiper_prev" type="button">

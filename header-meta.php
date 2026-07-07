@@ -2,6 +2,24 @@
 <html lang="ja">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NZ4WGHC9');
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
@@ -24,14 +42,14 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/common.css?<?php echo date_i18n("YmdHis"); ?>" type="text/css" />
 
     <!-- js -->
-    <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>
 
     <?php if (is_front_page()): ?>
-        <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/top.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/top.js"></script>
     <?php endif; ?>
-    
+
     <?php if (is_post_type_archive('menu') || is_singular('menu') || is_single()): ?>
-        <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/service.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/service.js"></script>
     <?php endif; ?>
 
     <?php if (is_post_type_archive('doctor')): ?>
@@ -39,11 +57,11 @@
     <?php endif; ?>
 
     <?php if (is_page('information')): ?>
-        <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/info.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/info.js"></script>
     <?php endif; ?>
 
     <?php if (is_page('access')): ?>
-        <script  src="<?php echo get_template_directory_uri(); ?>/assets/js/access.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/access.js"></script>
     <?php endif; ?>
 
     <?php if (is_single() && !is_singular('menu')): ?>

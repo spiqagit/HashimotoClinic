@@ -95,7 +95,7 @@
                                             <div class="swiper-wrapper">
                                                 <?php while (have_rows('schedule-list', $clinicPost->ID)): the_row(); ?>
                                                     <div class="swiper-slide" data-date="<?php the_sub_field('schedule-list-m'); ?>">
-                                                        <img src="<?php the_sub_field('schedule-list-img'); ?>" alt="<?php the_sub_field('schedule-list-m'); ?>">
+                                                        <img src="<?php the_sub_field('schedule-list-img'); ?>" width="430" height="242" alt="<?php the_sub_field('schedule-list-m'); ?>">
                                                     </div>
                                                 <?php endwhile; ?>
                                             </div>
@@ -357,19 +357,19 @@ $clinicPostList = get_posts(array(
                         <div class="bl_footerSnsList">
                             <?php if (get_field('instagram', 'option')): ?>
                                 <a href="<?php the_sub_field('clinic-snslist-link'); ?>" class="bl_footerSnsList_item" target="_blank">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-instagram-black.svg" alt="">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-instagram-black.svg" alt="Instagram">
                                 </a>
                             <?php endif; ?>
 
                             <?php if (get_field('tiktok', 'option')): ?>
                                 <a href="<?php echo get_field('tiktok', 'option'); ?>" class="bl_footerSnsList_item" target="_blank">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-tiktok-black.svg" alt="">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-tiktok-black.svg" alt="TikTok">
                                 </a>
                             <?php endif; ?>
 
                             <?php if (get_field('instagram', 'option')): ?>
                                 <a href="<?php echo get_field('youtube', 'option'); ?>" class="bl_footerSnsList_item" target="_blank">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-youtube-black.svg" alt="">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-youtube-black.svg" alt="YouTube">
                                 </a>
                             <?php endif; ?>
                         </div>

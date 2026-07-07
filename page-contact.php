@@ -48,7 +48,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
+
             const privacy = document.getElementById("privacy");
             const privacyInput = privacy?.querySelector("input[name='privacy[]']");
             const submit = document.querySelector(".bl_submit");
@@ -117,7 +117,14 @@
             /* CF7 送信成功時にサンクスページへ遷移 */
             document.addEventListener("wpcf7mailsent", function(ev) {
                 if (ev.detail && ev.detail.contactFormId) {
-                    window.location.href = "<?php echo esc_url( home_url( '/thanks/' ) ); ?>";
+
+                    if (window.location.pathname.includes("/contact/")) {
+                        window.location.href = "<?php echo esc_url(home_url('/contact/thanks/')); ?>";
+                    } else if (window.location.pathname.includes("/contact2/")) {
+                        window.location.href = "<?php echo esc_url(home_url('/contact2/thanks2/')); ?>";
+                    } else if (window.location.pathname.includes("/contact3/")) {
+                        window.location.href = "<?php echo esc_url(home_url('/contact3/thanks3/')); ?>";
+                    }
                 }
             }, false);
         });
