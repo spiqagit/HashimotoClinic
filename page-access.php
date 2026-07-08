@@ -178,7 +178,7 @@
                                             $clinicTitle = trim($clinicTitle, " \t\n\r\0\x0B　");
                                             if ($clinicTitle == '静岡院'): ?>
                                                 <div class="bl_accessParkingInfoWrapper" id="post<?php echo $clinicPost->ID; ?>" style="scroll-margin-top: 100px;">
-                                                    <h3 class="el_accessParkingInfoWrapper_ttl">定型駐車場のご案内</h3>
+                                                    <h3 class="el_accessParkingInfoWrapper_ttl">提携駐車場のご案内</h3>
                                                     <div class="bl_accessParkingInfoWrapper_contents">
                                                         <p class="el_accessParkingInfoWrapper_contents_txt">当院ではクリニック近隣に提携駐車場をご用意しております。<br>お車でご来院の方は提携駐車場をご利用ください。</p>
 
