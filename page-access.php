@@ -251,14 +251,14 @@
                                                                 </div>
 
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_details">
-                                                                    <a href="https://times-info.net/P22-shizuoka/C206/park-detail-BUK0042887/" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
+                                                                    <a href="https://times-info.net/P22-shizuoka/C206/" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
                                                                         <p>タイムズ三島一番町について</p>
                                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon.svg" alt="">
                                                                     </a>
 
                                                                     <ul class="bl_accessParkingInfoWrapper_detailsWrapper_details_noteList">
-                                                                        <li class="bl_accessParkingInfoWrapper_detailsWrapper_details_noteList_item">｢タイムズ三島南口寿町｣｢タイムズ三島一番町第2｣をご利用の場合は、精算機にて利用証明書の発券が必要となります。発券方法につきましては、現地精算機上部に案内が掲示されておりますので、ご確認ください。<br>
-                                                                        なお、｢タイムズ三島一番町第3｣｢第4｣につきましては利用証明書の発券ができませんので、受付にてお申し出ください。</li>
+                                                                        <li class="bl_accessParkingInfoWrapper_detailsWrapper_details_noteList_item">｢タイムズ三島南口寿町｣をご利用の場合は、精算機にて利用証明書の発券が必要となります。発券方法につきましては、現地精算機上部に案内が掲示されておりますので、ご確認ください。
+                                                                        なお、｢タイムズ三島一番町｢第2｣[第3｣｢第4｣につきましては利用証明書の発券ができませんので、受付にてお申し出ください。</li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
