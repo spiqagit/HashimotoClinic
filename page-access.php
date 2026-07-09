@@ -252,7 +252,7 @@
 
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_details">
                                                                     <a href="https://times-info.net/P22-shizuoka/C206/" target="_blank" rel="noopener noreferrer" class="bl_accessParkingInfoWrapper_detailsWrapper_details_link">
-                                                                        <p>タイムズ三島一番町について</p>
+                                                                        <p>タイムズ三島エリアについて</p>
                                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tab-icon.svg" alt="">
                                                                     </a>
 
