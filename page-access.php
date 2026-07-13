@@ -259,7 +259,7 @@
 
                                                                     <ul class="bl_accessParkingInfoWrapper_detailsWrapper_details_noteList">
                                                                         <li class="bl_accessParkingInfoWrapper_detailsWrapper_details_noteList_item">｢タイムズ三島南口寿町｣をご利用の場合は、精算機にて利用証明書の発券が必要となります。発券方法につきましては、現地精算機上部に案内が掲示されておりますので、ご確認ください。
-                                                                        なお、｢タイムズ三島一番町｢第2｣[第3｣｢第4｣につきましては利用証明書の発券ができませんので、受付にてお申し出ください。</li>
+                                                                        なお、「タイムズ三島駅南口寿町第2」、タイムズ三島一番町｢第2｣[第3｣｢第4｣につきましては利用証明書の発券ができませんので、受付にてお申し出ください。</li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
