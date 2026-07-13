@@ -341,7 +341,7 @@
                         </div>
                         <?php if (get_field('tiktok', 'option')): ?>
                             <div class="bl_commonAllBtnContainer">
-                                <a href="<?php echo get_field('youtube', 'option'); ?>" target="_blank" class="bl_commonAllBtn bl_commonSnsBtn">
+                                <a href="<?php echo get_field('tiktok', 'option'); ?>" target="_blank" class="bl_commonAllBtn bl_commonSnsBtn">
                                     <img class="el_commonSnsBtn_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-tiktok-white.svg" alt="YouTube">
                                     <p class="bl_commonAllBtn_txt">TikTokでフォロー</p>
                                 </a>
