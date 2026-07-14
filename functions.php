@@ -221,10 +221,23 @@ function renewal2026_get_post_blog_url($post)
     return home_url(user_trailingslashit(renewal2026_get_post_blog_base() . '/' . $slug));
 }
 
+/**
+ * 下書き等はコア同様 ?p=ID のままにする（/blog/スラッグ/ だと name 解決できずプレビューが 404 になる）
+ */
+function renewal2026_post_needs_plain_permalink($post)
+{
+    return in_array($post->post_status, array('draft', 'pending', 'auto-draft', 'future'), true);
+}
+
 // Custom Post Type Permalinks より後に適用し、投稿URLを /blog/スラッグ/ に固定する
 function renewal2026_post_link_blog_prefix($permalink, $post, $leavename = false)
 {
     if (!is_object($post) || $post->post_type !== 'post') {
+        return $permalink;
+    }
+
+    // 下書き・予約などのプレビューはコアの ?p=ID 形式を維持する
+    if (!$leavename && renewal2026_post_needs_plain_permalink($post)) {
         return $permalink;
     }
 
@@ -309,18 +322,22 @@ function renewal2026_post_rest_link($response, $post, $request)
     }
 
     $base = renewal2026_get_post_blog_base();
-    $url = renewal2026_get_post_blog_url($fresh_post);
 
-    // 「投稿を表示」は link ではなく permalink_template + slug から URL を組み立てる
-    $response->data['link'] = $url;
-    $response->data['slug'] = $fresh_post->post_name;
-
+    // permalink_template は下書きでも公開後の形を見せる（スラッグ編集UI用）
     if (array_key_exists('permalink_template', $response->data)) {
         $response->data['permalink_template'] = home_url(user_trailingslashit($base . '/%postname%'));
     }
     if (array_key_exists('generated_slug', $response->data)) {
         $response->data['generated_slug'] = $fresh_post->post_name;
     }
+    $response->data['slug'] = $fresh_post->post_name;
+
+    // link（プレビュー／表示）は未公開時は ?p=ID を維持する
+    if (renewal2026_post_needs_plain_permalink($fresh_post)) {
+        return $response;
+    }
+
+    $response->data['link'] = renewal2026_get_post_blog_url($fresh_post);
 
     return $response;
 }
