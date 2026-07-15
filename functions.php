@@ -574,6 +574,7 @@ function my_custom_search($search, $wp_query)
                         SELECT distinct post_id
                         FROM {$wpdb->postmeta}
                         WHERE meta_value LIKE '{$search_word}'
+                        AND meta_key NOT LIKE '\\_%'
                     )
                 ) ";
             }

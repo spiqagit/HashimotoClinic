@@ -16,7 +16,6 @@ $site_search_query = new WP_Query([
     'orderby'        => 'date',
     'order'          => 'DESC',
     's'              => $search_keyword,
-    'search_title_only' => true,
 ]);
 ?>
 
