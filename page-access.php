@@ -60,6 +60,12 @@
                                     <div class="bl_accessArchiveContainer_item" id="clinic-<?php echo $clinicPost->ID; ?>">
                                         <h2 class="el_accessArchiveContainer_item_ttl"><?php echo get_the_title($clinicPost); ?></h2>
 
+                                        <?php if (get_field('access_subtxt', $clinicPost->ID)): ?>
+                                            <div class="bl_accessArchiveContainer_item_subtxtWrapper">
+                                                <p class="el_accessArchiveContainer_item_subtxtWrapper_txt"><?php echo get_field('access_subtxt', $clinicPost->ID); ?></p>
+                                            </div>
+                                        <?php endif; ?>
+
 
                                         <div class="bl_accessArchiveContainer_infoWrapper">
                                             <?php if (get_field('googlemap-code', $clinicPost->ID)): ?>
@@ -211,14 +217,14 @@
                                                             <div class="bl_accessParkingInfoWrapper_detailsWrapper_item">
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl">
                                                                     <h4 class="el_accessParkingInfoWrapper_detailsWrapper_ttl_ttl">名鉄協商パーキング</h5>
-                                                                    
-                                                                    <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList">
-                                                                        <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣2か所にございます。</p>
-                                                                        <ol class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list">
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9312;名鉄協商パーキング三島駅前第二</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9313;名鉄協商パーキング三島駅前</li>
-                                                                        </ol>
-                                                                    </div>
+
+                                                                        <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList">
+                                                                            <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣2か所にございます。</p>
+                                                                            <ol class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list">
+                                                                                <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9312;名鉄協商パーキング三島駅前第二</li>
+                                                                                <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">&#9313;名鉄協商パーキング三島駅前</li>
+                                                                            </ol>
+                                                                        </div>
                                                                 </div>
 
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_details">
@@ -238,17 +244,17 @@
                                                             <div class="bl_accessParkingInfoWrapper_detailsWrapper_item">
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl">
                                                                     <h4 class="el_accessParkingInfoWrapper_detailsWrapper_ttl_ttl">タイムズ三島一番町</h5>
-                                                                    
-                                                                    <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList">
-                                                                        <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣5か所にございます。</p>
-                                                                        <ol class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list">
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">①タイムズ三島南口寿町</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">②タイムズ三島駅南口寿町第2</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">③タイムズ三島一番町第2</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">④タイムズ三島一番町第3</li>
-                                                                            <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">⑤タイムズ三島一番町第4</li>
-                                                                        </ol>
-                                                                    </div>
+
+                                                                        <div class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList">
+                                                                            <p class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_txt">クリニック近隣5か所にございます。</p>
+                                                                            <ol class="bl_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list">
+                                                                                <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">①タイムズ三島南口寿町</li>
+                                                                                <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">②タイムズ三島駅南口寿町第2</li>
+                                                                                <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">③タイムズ三島一番町第2</li>
+                                                                                <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">④タイムズ三島一番町第3</li>
+                                                                                <li class="el_accessParkingInfoWrapper_detailsWrapper_ttl_parkingLinkList_list_item">⑤タイムズ三島一番町第4</li>
+                                                                            </ol>
+                                                                        </div>
                                                                 </div>
 
                                                                 <div class="bl_accessParkingInfoWrapper_detailsWrapper_details">
@@ -259,7 +265,7 @@
 
                                                                     <ul class="bl_accessParkingInfoWrapper_detailsWrapper_details_noteList">
                                                                         <li class="bl_accessParkingInfoWrapper_detailsWrapper_details_noteList_item">｢タイムズ三島南口寿町｣をご利用の場合は、精算機にて利用証明書の発券が必要となります。発券方法につきましては、現地精算機上部に案内が掲示されておりますので、ご確認ください。
-                                                                        なお、「タイムズ三島駅南口寿町第2」、タイムズ三島一番町｢第2｣[第3｣｢第4｣につきましては利用証明書の発券ができませんので、受付にてお申し出ください。</li>
+                                                                            なお、「タイムズ三島駅南口寿町第2」、タイムズ三島一番町｢第2｣[第3｣｢第4｣につきましては利用証明書の発券ができませんので、受付にてお申し出ください。</li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
