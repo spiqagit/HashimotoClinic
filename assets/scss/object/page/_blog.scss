@@ -109,6 +109,11 @@
 
         @include underSP {
             grid-template-columns: 1fr;
+            gap: rem(80);
+
+            .bl_blogArchiveListContainer_navContainer{
+                 grid-row: 2;
+            }
         }
 
 
