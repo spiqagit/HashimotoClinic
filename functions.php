@@ -155,6 +155,7 @@ function renewal2026_post_slug_metabox_callback($post)
 ?>
     <p>
         <label for="renewal2026_post_slug">スラッグ</label><br>
+        <input type="hidden" name="renewal2026_post_slug_original" value="<?php echo esc_attr($slug); ?>" />
         <input type="text" id="renewal2026_post_slug" name="renewal2026_post_slug" value="<?php echo esc_attr($slug); ?>" class="widefat" />
     </p>
     <p class="description"><?php echo esc_html(home_url('/blog/' . $slug . '/')); ?></p>
@@ -172,17 +173,34 @@ function renewal2026_post_slug_save($post_id)
     if (!current_user_can('edit_post', $post_id)) {
         return;
     }
-    if (isset($_POST['renewal2026_post_slug']) && get_post_type($post_id) === 'post') {
-        $new_slug = sanitize_title($_POST['renewal2026_post_slug']);
-        if ($new_slug !== '') {
-            remove_action('save_post', 'renewal2026_post_slug_save');
-            wp_update_post(array(
-                'ID'        => $post_id,
-                'post_name' => $new_slug,
-            ));
-            add_action('save_post', 'renewal2026_post_slug_save', 10, 1);
-        }
+    if (!isset($_POST['renewal2026_post_slug']) || get_post_type($post_id) !== 'post') {
+        return;
     }
+
+    $new_slug = sanitize_title(wp_unslash($_POST['renewal2026_post_slug']));
+    if ($new_slug === '') {
+        return;
+    }
+
+    // メタボックス未変更なら何もしない（ブロックエディター側のスラッグ保存を上書きしない）
+    $original_slug = isset($_POST['renewal2026_post_slug_original'])
+        ? sanitize_title(wp_unslash($_POST['renewal2026_post_slug_original']))
+        : '';
+    if ($new_slug === $original_slug) {
+        return;
+    }
+
+    $current = get_post($post_id);
+    if (!$current || $current->post_name === $new_slug) {
+        return;
+    }
+
+    remove_action('save_post', 'renewal2026_post_slug_save');
+    wp_update_post(array(
+        'ID'        => $post_id,
+        'post_name' => $new_slug,
+    ));
+    add_action('save_post', 'renewal2026_post_slug_save', 10, 1);
 }
 add_action('add_meta_boxes_post', 'renewal2026_post_slug_metabox');
 add_action('save_post', 'renewal2026_post_slug_save');
@@ -258,13 +276,18 @@ function renewal2026_get_sample_permalink($sample, $post_id, $title, $name, $pos
         return $sample;
     }
 
-    // 公開済み・下書きは DB 保存済みスラッグを優先（タイトル由来スラッグで上書きしない）
-    if ($post->post_name !== '' && $post->post_status !== 'auto-draft') {
+    // 手動指定のスラッグを最優先（任意変更を許可）
+    if ($name !== null && $name !== '') {
+        $slug = sanitize_title($name);
+    } elseif ($post->post_name !== '' && $post->post_status !== 'auto-draft') {
+        // 既存スラッグを維持（タイトル変更で勝手に変わらないように）
         $slug = $post->post_name;
-    } elseif ($name !== null && $name !== '') {
-        $slug = $name;
     } else {
         $slug = sanitize_title($title ? $title : $post->post_title);
+    }
+
+    if ($slug === '') {
+        $slug = (string) $post->ID;
     }
 
     return array(
@@ -310,6 +333,7 @@ function renewal2026_post_blog_request($query_vars)
 add_filter('request', 'renewal2026_post_blog_request');
 
 // ブロックエディターの「投稿を表示」リンクを正しいパーマリンクに揃える
+// ※ slug / generated_slug は上書きしない（任意のスラッグ変更を妨げない）
 function renewal2026_post_rest_link($response, $post, $request)
 {
     if ($post->post_type !== 'post') {
@@ -317,7 +341,7 @@ function renewal2026_post_rest_link($response, $post, $request)
     }
 
     $fresh_post = get_post($post->ID);
-    if (!$fresh_post || $fresh_post->post_name === '') {
+    if (!$fresh_post) {
         return $response;
     }
 
@@ -327,13 +351,9 @@ function renewal2026_post_rest_link($response, $post, $request)
     if (array_key_exists('permalink_template', $response->data)) {
         $response->data['permalink_template'] = home_url(user_trailingslashit($base . '/%postname%'));
     }
-    if (array_key_exists('generated_slug', $response->data)) {
-        $response->data['generated_slug'] = $fresh_post->post_name;
-    }
-    $response->data['slug'] = $fresh_post->post_name;
 
     // link（プレビュー／表示）は未公開時は ?p=ID を維持する
-    if (renewal2026_post_needs_plain_permalink($fresh_post)) {
+    if (renewal2026_post_needs_plain_permalink($fresh_post) || $fresh_post->post_name === '') {
         return $response;
     }
 
