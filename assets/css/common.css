@@ -5258,6 +5258,10 @@ CTAボタン
 @media screen and (width <= 1024px) {
   .bl_blogArchiveListContainer .bl_blogArchiveListContainer_inner {
     grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+  .bl_blogArchiveListContainer .bl_blogArchiveListContainer_inner .bl_blogArchiveListContainer_navContainer {
+    grid-row: 2;
   }
 }
 
