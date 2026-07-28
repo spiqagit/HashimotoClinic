@@ -279,40 +279,6 @@
                                             <?php endif; ?>
                                         <?php endforeach; ?>
 
-                                        <div class="bl_menuCatContainer_lowerItem">
-                                            <h3 class="el_menuCatContainer_catTtl">メンズ治療</h3>
-
-                                            <div class="bl_menuCatContainer_lowerItem_postList">
-                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                    <p>包茎手術</p>
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                </a>
-                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                    <p>長茎手術</p>
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                </a>
-                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                    <p>糖尿病に伴う包皮炎治療</p>
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                </a>
-                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                    <p>亀頭ぶつぶつ除去</p>
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                </a>
-                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                    <p>亀頭・陰茎増大</p>
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                </a>
-                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                    <p>シリコンボール</p>
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                </a>
-                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuCatContainer_lowerItem_postList_item">
-                                                    <p>1dayED</p>
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
                                     </div>
 
                                 </div>
