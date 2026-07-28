@@ -104,11 +104,12 @@
                         <?php
                         $currentPage = max(1, (int) get_query_var('paged'));
                         $args = array(
-                            'post_type'      => 'case',
-                            'posts_per_page' => 10,
-                            'paged'          => $currentPage,
-                            'orderby'        => 'case_number',
-                            'order'          => 'DESC',
+                            'post_type'                      => 'case',
+                            'posts_per_page'                 => 10,
+                            'paged'                          => $currentPage,
+                            'orderby'                        => 'case_number',
+                            'order'                          => 'DESC',
+                            '_renewal2026_case_number_order' => 1,
                         );
                         $query = new WP_Query($args);
                         ?>

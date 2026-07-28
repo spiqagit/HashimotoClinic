@@ -37,35 +37,67 @@ add_action("admin_head", "remove_admin_selection_color");
 
 /* ---------- 症例（case）：タイトル先頭の #数字 で並び替え ---------- */
 /**
- * orderby=case_number のとき、タイトル内 # の直後の数字を数値として並べる。
- * 例: #259 → #254 → #9（大きい順）
- * Intuitive Custom Post Order 等が order=ASC にしても、大きい順を維持する。
+ * タイトルから症例番号を数値抽出し、大きい順（230 → 229 → 9）に並べる。
+ * orderby=case_number または _renewal2026_case_number_order=1 のとき適用。
  */
-function renewal2026_is_case_number_orderby($query)
+function renewal2026_wants_case_number_order($query)
 {
+    if ((int) $query->get('_renewal2026_case_number_order') === 1) {
+        return true;
+    }
+
     $orderby = $query->get('orderby');
     if ($orderby === 'case_number') {
         return true;
     }
-    // WP_Query の args 直指定も拾う
     if (isset($query->query['orderby']) && $query->query['orderby'] === 'case_number') {
         return true;
     }
+
     return false;
+}
+
+/** # / 全角＃ を除いた先頭を数値化（"229 (60代…" → 229） */
+function renewal2026_case_number_orderby_sql()
+{
+    global $wpdb;
+    $title = "{$wpdb->posts}.post_title";
+
+    return "CAST(TRIM(LEADING '#' FROM TRIM(LEADING '＃' FROM TRIM({$title}))) AS UNSIGNED) DESC, {$wpdb->posts}.ID DESC";
 }
 
 function renewal2026_case_number_posts_orderby($orderby, $query)
 {
-    if (!renewal2026_is_case_number_orderby($query)) {
+    if (!renewal2026_wants_case_number_order($query)) {
         return $orderby;
     }
 
-    global $wpdb;
-
-    // 常に #数字の大きい順（DESC）。query の order は参照しない
-    return "CAST(SUBSTRING({$wpdb->posts}.post_title, LOCATE('#', {$wpdb->posts}.post_title) + 1) AS UNSIGNED) DESC, {$wpdb->posts}.ID DESC";
+    return renewal2026_case_number_orderby_sql();
 }
 add_filter('posts_orderby', 'renewal2026_case_number_posts_orderby', 9999, 2);
+add_filter('posts_orderby_request', 'renewal2026_case_number_posts_orderby', 9999, 2);
+
+function renewal2026_case_number_posts_clauses($clauses, $query)
+{
+    if (!renewal2026_wants_case_number_order($query)) {
+        return $clauses;
+    }
+
+    $clauses['orderby'] = renewal2026_case_number_orderby_sql();
+    return $clauses;
+}
+add_filter('posts_clauses', 'renewal2026_case_number_posts_clauses', 9999, 2);
+add_filter('posts_clauses_request', 'renewal2026_case_number_posts_clauses', 9999, 2);
+
+// orderby=case_number をフラグに変換（WP が未知の orderby を無視しても効くように）
+function renewal2026_case_number_flag_query($query)
+{
+    if (!renewal2026_wants_case_number_order($query)) {
+        return;
+    }
+    $query->set('_renewal2026_case_number_order', 1);
+}
+add_action('pre_get_posts', 'renewal2026_case_number_flag_query', 9998);
 
 // 管理画面の症例一覧：デフォルトを #数字の大きい順（列クリック時の並び替えは尊重）
 function renewal2026_case_admin_default_order($query)
@@ -82,6 +114,7 @@ function renewal2026_case_admin_default_order($query)
 
     $query->set('orderby', 'case_number');
     $query->set('order', 'DESC');
+    $query->set('_renewal2026_case_number_order', 1);
 }
 add_action('pre_get_posts', 'renewal2026_case_admin_default_order', 999);
 

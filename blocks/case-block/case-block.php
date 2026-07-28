@@ -3,12 +3,13 @@
 
     <?php
     $relatedCasePosts = get_posts(array(
-        'post_type'        => 'case',
-        'posts_per_page'   => -1,
-        'orderby'          => 'case_number',
-        'order'            => 'DESC',
-        'suppress_filters' => false,
-        'meta_query'       => array(
+        'post_type'                      => 'case',
+        'posts_per_page'                 => -1,
+        'orderby'                        => 'case_number',
+        'order'                          => 'DESC',
+        'suppress_filters'               => false,
+        '_renewal2026_case_number_order' => 1,
+        'meta_query'                     => array(
             array(
                 'key'     => 'menu_select',
                 'value'   => '"' . get_the_ID() . '"',
