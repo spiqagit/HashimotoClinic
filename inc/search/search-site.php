@@ -1,7 +1,7 @@
 <?php
 
 /**
- * サイト内検索：全投稿タイプのタイトルから検索結果を表示
+ * サイト内検索：全投稿タイプのタイトル・本文などから検索結果を表示
  */
 $currentPage    = max(1, (int) get_query_var('paged'));
 $search_keyword = get_search_query(false);

@@ -110,6 +110,8 @@
                             'post_type'      => 'case',
                             'posts_per_page' => 10,
                             'paged'          => $currentPage,
+                            'orderby'        => 'case_number',
+                            'order'          => 'DESC',
                         );
                         if ($selected_menu_id > 0) {
                             $args['meta_query'] = array(

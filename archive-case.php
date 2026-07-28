@@ -107,6 +107,8 @@
                             'post_type'      => 'case',
                             'posts_per_page' => 10,
                             'paged'          => $currentPage,
+                            'orderby'        => 'case_number',
+                            'order'          => 'DESC',
                         );
                         $query = new WP_Query($args);
                         ?>
