@@ -160,48 +160,6 @@
                                                         </details>
                                                     <?php endforeach; ?>
                                                 <?php endif; ?>
-
-                                                <?php if ($partsParentCat->slug == 'body'): ?>
-                                                    <details class="bl_menuPartChildDetails js-details">
-                                                        <summary class="bl_menuPartChildDetails_summary is-summary">
-                                                            <span class="bl_menuPartChildDetails_summary_nameWrapper">
-                                                                <?php if (get_field('parts-cat-icon', $partsChildCat)): ?>
-                                                                    <!-- <span class="el_menuPartChildDetails_summary_nameWrapper_iconWrapper">
-                                                            <img class="el_menuPartChildDetails_summary_nameWrapper_icon" src="" alt="">
-                                                        </span> -->
-                                                                <?php endif; ?>
-                                                                <span class="el_menuPartChildDetails_summary_nameWrapper_name">男性全般のお悩み</span>
-                                                            </span>
-
-                                                            <img class="el_menuPartChildDetails_summary_icon" src="<?php echo get_template_directory_uri(); ?>/assets/img/common/lang-arrow.svg" alt="">
-                                                        </summary>
-
-                                                        <div class="bl_menuPartChildDetails_contents is-details-content">
-                                                            <div class="bl_menuPartChildDetails_contents_inner">
-                                                                <a href="https://mens.hashimotoclinic.co.jp/service/15.php"  target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
-                                                                    <p>包茎手術</p>
-                                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                </a>
-                                                                <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php"  target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
-                                                                    <p>長茎手術</p>
-                                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                </a>
-                                                                <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php"  target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
-                                                                    <p>亀頭・陰茎増大</p>
-                                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                </a>
-                                                                <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php#a2"  target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
-                                                                    <p>シリコンボール</p>
-                                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                </a>
-                                                                <a href="https://mens.hashimotoclinic.co.jp/service/15_2.php"  target="_blank" rel="noopener noreferrer" class="bl_menuPartChildDetails_contents_link">
-                                                                    <p>1dayED</p>
-                                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/close-arrow.svg" alt="">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </details>
-                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     <?php $j++;
