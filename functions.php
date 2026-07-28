@@ -39,19 +39,33 @@ add_action("admin_head", "remove_admin_selection_color");
 /**
  * orderby=case_number のとき、タイトル内 # の直後の数字を数値として並べる。
  * 例: #259 → #254 → #9（大きい順）
+ * Intuitive Custom Post Order 等が order=ASC にしても、大きい順を維持する。
  */
+function renewal2026_is_case_number_orderby($query)
+{
+    $orderby = $query->get('orderby');
+    if ($orderby === 'case_number') {
+        return true;
+    }
+    // WP_Query の args 直指定も拾う
+    if (isset($query->query['orderby']) && $query->query['orderby'] === 'case_number') {
+        return true;
+    }
+    return false;
+}
+
 function renewal2026_case_number_posts_orderby($orderby, $query)
 {
-    if ($query->get('orderby') !== 'case_number') {
+    if (!renewal2026_is_case_number_orderby($query)) {
         return $orderby;
     }
 
     global $wpdb;
-    $order = strtoupper((string) $query->get('order')) === 'ASC' ? 'ASC' : 'DESC';
 
-    return "CAST(SUBSTRING({$wpdb->posts}.post_title, LOCATE('#', {$wpdb->posts}.post_title) + 1) AS UNSIGNED) {$order}";
+    // 常に #数字の大きい順（DESC）。query の order は参照しない
+    return "CAST(SUBSTRING({$wpdb->posts}.post_title, LOCATE('#', {$wpdb->posts}.post_title) + 1) AS UNSIGNED) DESC, {$wpdb->posts}.ID DESC";
 }
-add_filter('posts_orderby', 'renewal2026_case_number_posts_orderby', 10, 2);
+add_filter('posts_orderby', 'renewal2026_case_number_posts_orderby', 9999, 2);
 
 // 管理画面の症例一覧：デフォルトを #数字の大きい順（列クリック時の並び替えは尊重）
 function renewal2026_case_admin_default_order($query)
