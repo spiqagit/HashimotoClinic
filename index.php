@@ -274,10 +274,11 @@
 
                 <?php
                 $relatedCasePosts = get_posts(array(
-                    'post_type' => 'case',
-                    'posts_per_page' => 20,
-                    'orderby' => 'date',
-                    'order' => 'DESC',
+                    'post_type'        => 'case',
+                    'posts_per_page'   => 20,
+                    'orderby'          => 'case_number',
+                    'order'            => 'DESC',
+                    'suppress_filters' => false,
                 ));
                 ?>
                 <?php if (!empty($relatedCasePosts)): ?>

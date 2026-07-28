@@ -35,6 +35,42 @@ add_action("admin_head", "remove_admin_selection_color");
 // }
 // add_filter('theme_page_templates', 'renewal2026_ensure_page_templates');
 
+/* ---------- 症例（case）：タイトル先頭の #数字 で並び替え ---------- */
+/**
+ * orderby=case_number のとき、タイトル内 # の直後の数字を数値として並べる。
+ * 例: #259 → #254 → #9（大きい順）
+ */
+function renewal2026_case_number_posts_orderby($orderby, $query)
+{
+    if ($query->get('orderby') !== 'case_number') {
+        return $orderby;
+    }
+
+    global $wpdb;
+    $order = strtoupper((string) $query->get('order')) === 'ASC' ? 'ASC' : 'DESC';
+
+    return "CAST(SUBSTRING({$wpdb->posts}.post_title, LOCATE('#', {$wpdb->posts}.post_title) + 1) AS UNSIGNED) {$order}";
+}
+add_filter('posts_orderby', 'renewal2026_case_number_posts_orderby', 10, 2);
+
+// 管理画面の症例一覧：デフォルトを #数字の大きい順（列クリック時の並び替えは尊重）
+function renewal2026_case_admin_default_order($query)
+{
+    if (!is_admin() || !$query->is_main_query()) {
+        return;
+    }
+    if ($query->get('post_type') !== 'case') {
+        return;
+    }
+    if (isset($_GET['orderby'])) {
+        return;
+    }
+
+    $query->set('orderby', 'case_number');
+    $query->set('order', 'DESC');
+}
+add_action('pre_get_posts', 'renewal2026_case_admin_default_order', 999);
+
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示
 
@@ -565,40 +601,67 @@ add_filter('template_include', 'load_custom_search_case_template');
 
 
 
+/**
+ * サイト内検索（type=site）はタイトル・本文・抜粋・タクソノミー・カスタムフィールドを対象。
+ * ブログ検索（type=post / search_title_only）はタイトルのみ。
+ */
+function renewal2026_is_title_only_search($wp_query)
+{
+    $type = isset($_GET['type']) ? (string) $_GET['type'] : (string) $wp_query->get('type');
+    // サイト内検索は search_title_only が残っていても本文を対象にする
+    if ($type === 'site') {
+        return false;
+    }
+    if ($type === 'post' || $wp_query->get('search_title_only')) {
+        return true;
+    }
+    return false;
+}
+
 function my_custom_search($search, $wp_query)
 {
     global $wpdb;
-    if (!$wp_query->is_search)
+    if (!isset($wp_query->query_vars)) {
         return $search;
-    if (!isset($wp_query->query_vars))
+    }
+    $keyword = isset($wp_query->query_vars['s']) ? $wp_query->query_vars['s'] : '';
+    if ($keyword === '' || $keyword === null) {
         return $search;
-    $search_words = explode(' ', isset($wp_query->query_vars['s']) ? $wp_query->query_vars['s'] : '');
-    if (count($search_words) > 0) {
-        $search = '';
-        foreach ($search_words as $word) {
-            if (!empty($word)) {
-                $search_word = '%' . esc_sql($word) . '%';
-                $search .= " AND (
-                    {$wpdb->posts}.post_title LIKE '{$search_word}'
-                    OR {$wpdb->posts}.post_content LIKE '{$search_word}'
-                    OR {$wpdb->posts}.ID IN (
-                        SELECT distinct tr.object_id
-                        FROM {$wpdb->term_relationships} AS tr
-                        INNER JOIN {$wpdb->term_taxonomy} AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-                        INNER JOIN {$wpdb->terms} AS t ON tt.term_id = t.term_id
-                        WHERE t.name LIKE '{$search_word}'
-                        OR t.slug LIKE '{$search_word}'
-                        OR tt.description LIKE '{$search_word}'
-                    )
-                    OR {$wpdb->posts}.ID IN (
-                        SELECT distinct post_id
-                        FROM {$wpdb->postmeta}
-                        WHERE meta_value LIKE '{$search_word}'
-                        AND meta_key NOT LIKE '\\_%'
-                    )
-                ) ";
-            }
+    }
+
+    $search_words = explode(' ', $keyword);
+    $search = '';
+    $title_only = renewal2026_is_title_only_search($wp_query);
+
+    foreach ($search_words as $word) {
+        if ($word === '' || $word === null) {
+            continue;
         }
+        $search_word = '%' . esc_sql($word) . '%';
+        if ($title_only) {
+            $search .= " AND {$wpdb->posts}.post_title LIKE '{$search_word}' ";
+            continue;
+        }
+        $search .= " AND (
+            {$wpdb->posts}.post_title LIKE '{$search_word}'
+            OR {$wpdb->posts}.post_excerpt LIKE '{$search_word}'
+            OR {$wpdb->posts}.post_content LIKE '{$search_word}'
+            OR {$wpdb->posts}.ID IN (
+                SELECT distinct tr.object_id
+                FROM {$wpdb->term_relationships} AS tr
+                INNER JOIN {$wpdb->term_taxonomy} AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+                INNER JOIN {$wpdb->terms} AS t ON tt.term_id = t.term_id
+                WHERE t.name LIKE '{$search_word}'
+                OR t.slug LIKE '{$search_word}'
+                OR tt.description LIKE '{$search_word}'
+            )
+            OR {$wpdb->posts}.ID IN (
+                SELECT distinct post_id
+                FROM {$wpdb->postmeta}
+                WHERE meta_value LIKE '{$search_word}'
+                AND meta_key NOT LIKE '\\_%'
+            )
+        ) ";
     }
     return $search;
 }
@@ -691,23 +754,7 @@ function renewal2026_disable_doctor_block_editor($use_block_editor, $post_type)
 add_filter('use_block_editor_for_post_type', 'renewal2026_disable_doctor_block_editor', 10, 2);
 
 
-// タイトルのみ検索
-add_filter('posts_where', function ($where, $query) {
-    global $wpdb;
-
-    // 管理画面では適用しない
-    if (is_admin()) return $where;
-
-    // タイトル検索のみのフラグがあるときに適用
-    if ($query->get('search_title_only')) {
-        $search = esc_sql($query->get('s'));
-        if ($search !== '') {
-            $where .= " AND {$wpdb->posts}.post_title LIKE '%{$search}%'";
-        }
-    }
-
-    return $where;
-}, 10, 2);
+// タイトルのみ検索は my_custom_search / renewal2026_is_title_only_search に集約
 
 
 // functions.phpに追加
