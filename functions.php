@@ -37,7 +37,9 @@ add_action("admin_head", "remove_admin_selection_color");
 
 /* ---------- 症例（case）：タイトル先頭の #数字 で並び替え ---------- */
 /**
- * タイトルから症例番号を数値抽出し、大きい順（230 → 229 → 9）に並べる。
+ * タイトルから症例番号を数値抽出し並べる。
+ * 1. #数字なし → 先頭
+ * 2. #数字あり → 大きい順（230 → 229 → 9）
  * orderby=case_number または _renewal2026_case_number_order=1 のとき適用。
  */
 function renewal2026_wants_case_number_order($query)
@@ -57,13 +59,18 @@ function renewal2026_wants_case_number_order($query)
     return false;
 }
 
-/** # / 全角＃ を除いた先頭を数値化（"229 (60代…" → 229） */
+/**
+ * # / 全角＃ を除いた先頭を数値化（"229 (60代…" → 229）。
+ * 番号なし（抽出結果 0）は先頭、番号ありは大きい順。
+ */
 function renewal2026_case_number_orderby_sql()
 {
     global $wpdb;
     $title = "{$wpdb->posts}.post_title";
+    $num = "CAST(TRIM(LEADING '#' FROM TRIM(LEADING '＃' FROM TRIM({$title}))) AS UNSIGNED)";
 
-    return "CAST(TRIM(LEADING '#' FROM TRIM(LEADING '＃' FROM TRIM({$title}))) AS UNSIGNED) DESC, {$wpdb->posts}.ID DESC";
+    // 番号なし(0)を先に、その後番号の大きい順
+    return "({$num} = 0) DESC, {$num} DESC, {$wpdb->posts}.ID DESC";
 }
 
 function renewal2026_case_number_posts_orderby($orderby, $query)
