@@ -130,7 +130,7 @@
         </div>
 
         <div class="bl_commonAllBtnContainer">
-            <a href="<?php echo home_url('/case/'); ?>" class="bl_commonAllBtn">
+            <a href="<?php echo home_url('/search-case/'); ?>?menu=<?php echo get_the_ID(); ?>" class="bl_commonAllBtn">
                 <p class="bl_commonAllBtn_txt">もっと見る</p>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow.svg" alt="">
             </a>
