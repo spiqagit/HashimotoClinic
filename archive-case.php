@@ -108,7 +108,7 @@
                             'posts_per_page'                 => 10,
                             'paged'                          => $currentPage,
                             'orderby'                        => 'case_number',
-                            'order'                          => 'DESC',
+                            'order'                          => 'ASC',
                             '_renewal2026_case_number_order' => 1,
                         );
                         $query = new WP_Query($args);

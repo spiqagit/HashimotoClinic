@@ -6,7 +6,7 @@
         'post_type'                      => 'case',
         'posts_per_page'                 => -1,
         'orderby'                        => 'case_number',
-        'order'                          => 'DESC',
+        'order'                          => 'ASC',
         'suppress_filters'               => false,
         '_renewal2026_case_number_order' => 1,
         'meta_query'                     => array(

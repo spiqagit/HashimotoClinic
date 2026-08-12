@@ -38,8 +38,8 @@ add_action("admin_head", "remove_admin_selection_color");
 /* ---------- 症例（case）：タイトル先頭の #数字 で並び替え ---------- */
 /**
  * タイトルから症例番号を数値抽出し並べる。
- * 1. #数字なし → 先頭
- * 2. #数字あり → 大きい順（230 → 229 → 9）
+ * 1. #数字あり → 小さい順（#100 → #101 → … → 最新）
+ * 2. #数字なし → 末尾
  * orderby=case_number または _renewal2026_case_number_order=1 のとき適用。
  */
 function renewal2026_wants_case_number_order($query)
@@ -61,7 +61,7 @@ function renewal2026_wants_case_number_order($query)
 
 /**
  * # / 全角＃ を除いた先頭を数値化（"229 (60代…" → 229）。
- * 番号なし（抽出結果 0）は先頭、番号ありは大きい順。
+ * 番号ありは小さい順、番号なし（抽出結果 0）は末尾。
  */
 function renewal2026_case_number_orderby_sql()
 {
@@ -69,8 +69,8 @@ function renewal2026_case_number_orderby_sql()
     $title = "{$wpdb->posts}.post_title";
     $num = "CAST(TRIM(LEADING '#' FROM TRIM(LEADING '＃' FROM TRIM({$title}))) AS UNSIGNED)";
 
-    // 番号なし(0)を先に、その後番号の大きい順
-    return "({$num} = 0) DESC, {$num} DESC, {$wpdb->posts}.ID DESC";
+    // 番号ありを小さい順、番号なし(0)は末尾
+    return "({$num} = 0) ASC, {$num} ASC, {$wpdb->posts}.ID ASC";
 }
 
 function renewal2026_case_number_posts_orderby($orderby, $query)
@@ -106,7 +106,7 @@ function renewal2026_case_number_flag_query($query)
 }
 add_action('pre_get_posts', 'renewal2026_case_number_flag_query', 9998);
 
-// 管理画面の症例一覧：デフォルトを #数字の大きい順（列クリック時の並び替えは尊重）
+// 管理画面の症例一覧：デフォルトを #数字の小さい順（列クリック時の並び替えは尊重）
 function renewal2026_case_admin_default_order($query)
 {
     if (!is_admin() || !$query->is_main_query()) {
@@ -120,7 +120,7 @@ function renewal2026_case_admin_default_order($query)
     }
 
     $query->set('orderby', 'case_number');
-    $query->set('order', 'DESC');
+    $query->set('order', 'ASC');
     $query->set('_renewal2026_case_number_order', 1);
 }
 add_action('pre_get_posts', 'renewal2026_case_admin_default_order', 999);

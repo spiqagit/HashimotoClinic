@@ -277,7 +277,7 @@
                     'post_type'                      => 'case',
                     'posts_per_page'                 => 20,
                     'orderby'                        => 'case_number',
-                    'order'                          => 'DESC',
+                    'order'                          => 'ASC',
                     'suppress_filters'               => false,
                     '_renewal2026_case_number_order' => 1,
                 ));
