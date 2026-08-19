@@ -38,9 +38,10 @@ add_action("admin_head", "remove_admin_selection_color");
 /* ---------- 症例（case）：タイトル先頭の #数字 で並び替え ---------- */
 /**
  * タイトルから症例番号を数値抽出し並べる。
- * 1. #数字あり → 小さい順（#100 → #101 → … → 最新）
+ * 1. #数字あり → 小さい順（#00 → #100 → … → 最新）
  * 2. #数字なし → 末尾
- * orderby=case_number または _renewal2026_case_number_order=1 のとき適用。
+ * サイト表示（orderby=case_number / _renewal2026_case_number_order=1）のみ適用。
+ * 管理画面は WP 標準の並び替えを使う。
  */
 function renewal2026_wants_case_number_order($query)
 {
@@ -106,24 +107,8 @@ function renewal2026_case_number_flag_query($query)
 }
 add_action('pre_get_posts', 'renewal2026_case_number_flag_query', 9998);
 
-// 管理画面の症例一覧：デフォルトを #数字の小さい順（列クリック時の並び替えは尊重）
-function renewal2026_case_admin_default_order($query)
-{
-    if (!is_admin() || !$query->is_main_query()) {
-        return;
-    }
-    if ($query->get('post_type') !== 'case') {
-        return;
-    }
-    if (isset($_GET['orderby'])) {
-        return;
-    }
-
-    $query->set('orderby', 'case_number');
-    $query->set('order', 'ASC');
-    $query->set('_renewal2026_case_number_order', 1);
-}
-add_action('pre_get_posts', 'renewal2026_case_admin_default_order', 999);
+// 管理画面の症例一覧は WP 標準（日付・タイトル列など）で任意に並べ替え可能。
+// 番号順はサイト表示側のみ適用する。
 
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示

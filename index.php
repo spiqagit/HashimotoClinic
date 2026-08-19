@@ -274,8 +274,8 @@
 
                 <?php
                 $relatedCasePosts = get_posts(array(
-                    'post_type'                      => 'case',
-                    'posts_per_page'                 => 20,
+                    'post_type'        => 'case',
+                    'posts_per_page'   => 20,
                     'orderby'                        => 'case_number',
                     'order'                          => 'ASC',
                     'suppress_filters'               => false,
