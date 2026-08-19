@@ -110,8 +110,9 @@
                             'post_type'      => 'case',
                             'posts_per_page' => 10,
                             'paged'          => $currentPage,
-                            'orderby'        => 'case_number',
-                            'order'          => 'DESC',
+                            'orderby'                        => 'case_number',
+                            'order'                          => 'ASC',
+                            '_renewal2026_case_number_order' => 1,
                         );
                         if ($selected_menu_id > 0) {
                             $args['meta_query'] = array(

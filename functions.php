@@ -37,53 +37,78 @@ add_action("admin_head", "remove_admin_selection_color");
 
 /* ---------- 症例（case）：タイトル先頭の #数字 で並び替え ---------- */
 /**
- * orderby=case_number のとき、タイトル内 # の直後の数字を数値として並べる。
- * 例: #259 → #254 → #9（大きい順）
- * Intuitive Custom Post Order 等が order=ASC にしても、大きい順を維持する。
+ * タイトルから症例番号を数値抽出し並べる。
+ * 1. #数字あり → 小さい順（#00 → #100 → … → 最新）
+ * 2. #数字なし → 末尾
+ * サイト表示（orderby=case_number / _renewal2026_case_number_order=1）のみ適用。
+ * 管理画面は WP 標準の並び替えを使う。
  */
-function renewal2026_is_case_number_orderby($query)
+function renewal2026_wants_case_number_order($query)
 {
+    if ((int) $query->get('_renewal2026_case_number_order') === 1) {
+        return true;
+    }
+
     $orderby = $query->get('orderby');
     if ($orderby === 'case_number') {
         return true;
     }
-    // WP_Query の args 直指定も拾う
     if (isset($query->query['orderby']) && $query->query['orderby'] === 'case_number') {
         return true;
     }
+
     return false;
+}
+
+/**
+ * # / 全角＃ を除いた先頭を数値化（"229 (60代…" → 229）。
+ * 番号ありは小さい順、番号なし（抽出結果 0）は末尾。
+ */
+function renewal2026_case_number_orderby_sql()
+{
+    global $wpdb;
+    $title = "{$wpdb->posts}.post_title";
+    $num = "CAST(TRIM(LEADING '#' FROM TRIM(LEADING '＃' FROM TRIM({$title}))) AS UNSIGNED)";
+
+    // 番号ありを小さい順、番号なし(0)は末尾
+    return "({$num} = 0) ASC, {$num} ASC, {$wpdb->posts}.ID ASC";
 }
 
 function renewal2026_case_number_posts_orderby($orderby, $query)
 {
-    if (!renewal2026_is_case_number_orderby($query)) {
+    if (!renewal2026_wants_case_number_order($query)) {
         return $orderby;
     }
 
-    global $wpdb;
-
-    // 常に #数字の大きい順（DESC）。query の order は参照しない
-    return "CAST(SUBSTRING({$wpdb->posts}.post_title, LOCATE('#', {$wpdb->posts}.post_title) + 1) AS UNSIGNED) DESC, {$wpdb->posts}.ID DESC";
+    return renewal2026_case_number_orderby_sql();
 }
 add_filter('posts_orderby', 'renewal2026_case_number_posts_orderby', 9999, 2);
+add_filter('posts_orderby_request', 'renewal2026_case_number_posts_orderby', 9999, 2);
 
-// 管理画面の症例一覧：デフォルトを #数字の大きい順（列クリック時の並び替えは尊重）
-function renewal2026_case_admin_default_order($query)
+function renewal2026_case_number_posts_clauses($clauses, $query)
 {
-    if (!is_admin() || !$query->is_main_query()) {
-        return;
-    }
-    if ($query->get('post_type') !== 'case') {
-        return;
-    }
-    if (isset($_GET['orderby'])) {
-        return;
+    if (!renewal2026_wants_case_number_order($query)) {
+        return $clauses;
     }
 
-    $query->set('orderby', 'case_number');
-    $query->set('order', 'DESC');
+    $clauses['orderby'] = renewal2026_case_number_orderby_sql();
+    return $clauses;
 }
-add_action('pre_get_posts', 'renewal2026_case_admin_default_order', 999);
+add_filter('posts_clauses', 'renewal2026_case_number_posts_clauses', 9999, 2);
+add_filter('posts_clauses_request', 'renewal2026_case_number_posts_clauses', 9999, 2);
+
+// orderby=case_number をフラグに変換（WP が未知の orderby を無視しても効くように）
+function renewal2026_case_number_flag_query($query)
+{
+    if (!renewal2026_wants_case_number_order($query)) {
+        return;
+    }
+    $query->set('_renewal2026_case_number_order', 1);
+}
+add_action('pre_get_posts', 'renewal2026_case_number_flag_query', 9998);
+
+// 管理画面の症例一覧は WP 標準（日付・タイトル列など）で任意に並べ替え可能。
+// 番号順はサイト表示側のみ適用する。
 
 /* ---------- 管理画面 ---------- */
 // サイドメニューを非表示
