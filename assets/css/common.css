@@ -2006,13 +2006,20 @@ html {
 /* 症例カード
 ------------------------------------------------------------------------------------------ */
 .bl_commonCaseCard {
+  position: relative;
   border-radius: 1.25rem;
   background-color: var(--gray);
+  padding: 1.25rem;
 }
 .bl_commonCaseCard .bl_commonCaseCard_link {
   display: block;
-  padding: 1.25rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   transition: opacity 0.5s ease;
+  z-index: 1;
 }
 @media (any-hover: hover) {
   .bl_commonCaseCard .bl_commonCaseCard_link:hover {
@@ -2020,10 +2027,15 @@ html {
     transition: opacity 0.5s ease;
   }
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_imgWrapper {
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper {
+  position: relative;
   margin-bottom: 1.25rem;
+  z-index: 0;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_imgWrapper .el_commonCaseCard_img {
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper.is-sensitive {
+  z-index: 2;
+}
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .el_commonCaseCard_img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2032,16 +2044,72 @@ html {
   object-fit: cover;
   border-radius: 0.25rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper {
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: rgba(68, 68, 68, 0.2);
+  backdrop-filter: blur(15px);
+  padding: 0.625rem;
+  z-index: 1;
+}
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea:before {
+  content: "";
+  display: block;
+  position: relative;
+}
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_txt {
+  color: #FFF8F6;
+  font-feature-settings: "palt" on;
+  font-family: var(--subFontJa);
+  font-family: "Noto Sans JP", sans-serif;
+}
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_txt .el_commonCaseCard_imgWrapper_sensitiveArea_txt_ttl {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_txt .el_commonCaseCard_imgWrapper_sensitiveArea_txt_sub {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_btn {
+  display: block;
+  color: var(--white-white, #FFF);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding-inline: 1.25rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.75rem;
+  cursor: pointer;
+}
+.bl_commonCaseCard .bl_commonCaseCard_ttlWrapper {
   margin-bottom: 0.875rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper .bl_commonCaseCard_tagList {
+.bl_commonCaseCard .bl_commonCaseCard_ttlWrapper .bl_commonCaseCard_tagList {
   display: flex;
   flex-wrap: wrap;
   gap: 0.625rem;
   margin-bottom: 0.75rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper .bl_commonCaseCard_tagList .el_commonCaseCard_tagList_item {
+.bl_commonCaseCard .bl_commonCaseCard_ttlWrapper .bl_commonCaseCard_tagList .el_commonCaseCard_tagList_item {
   color: var(--black);
   font-family: var(--mainFont);
   font-size: 0.75rem;
@@ -2053,7 +2121,7 @@ html {
   border-radius: 0.25rem;
   border: 1px solid var(--black);
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_ttlWrapper .el_commonCaseCard_ttl {
+.bl_commonCaseCard .bl_commonCaseCard_ttlWrapper .el_commonCaseCard_ttl {
   color: var(--black);
   font-family: var(--subFontJa);
   font-size: 1.125rem;
@@ -2061,13 +2129,13 @@ html {
   line-height: 1.2;
   letter-spacing: 0.08em;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper {
+.bl_commonCaseCard .bl_commonCaseCard_infoWrapper {
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
   padding-top: 0.625rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item {
+.bl_commonCaseCard .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item {
   display: grid;
   grid-template-columns: 7.5rem 1fr;
   gap: 0.625rem;
@@ -2075,7 +2143,7 @@ html {
   border-bottom: 1px dashed rgba(52, 49, 44, 0.3);
   padding-bottom: 0.625rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dt {
+.bl_commonCaseCard .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dt {
   color: var(--black);
   font-family: var(--mainFont);
   font-size: 0.625rem;
@@ -2083,7 +2151,7 @@ html {
   line-height: 1;
   letter-spacing: 0.08em;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dd {
+.bl_commonCaseCard .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dd {
   color: var(--black);
   font-family: var(--mainFont);
   font-size: 0.625rem;
@@ -2091,7 +2159,7 @@ html {
   line-height: 1.1;
   letter-spacing: 0.08em;
 }
-.bl_commonCaseCard .bl_commonCaseCard_link .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dd .el_commonCaseCard_infoWrapper_item_dd_sub {
+.bl_commonCaseCard .bl_commonCaseCard_infoWrapper .bl_commonCaseCard_infoWrapper_item .el_commonCaseCard_infoWrapper_item_dd .el_commonCaseCard_infoWrapper_item_dd_sub {
   display: block;
   margin-top: 0.3125rem;
   color: rgba(52, 49, 44, 0.6);

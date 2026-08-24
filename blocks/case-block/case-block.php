@@ -30,8 +30,21 @@
                     <?php foreach ($relatedCasePosts as $relatedCasePost): ?>
                         <div class="swiper-slide">
                             <article class="bl_commonCaseCard">
-                                <a href="<?php echo esc_url(get_permalink($relatedCasePost->ID)); ?>" class="bl_commonCaseCard_link">
+                                <a href="<?php echo esc_url(get_permalink($relatedCasePost->ID)); ?>" class="bl_commonCaseCard_link" aria-label="<?php echo esc_html(get_the_title($relatedCasePost->ID)); ?>の症例詳細ページへ遷移する"></a>
                                     <div class="bl_commonCaseCard_imgWrapper">
+                                        
+                                        <?php
+                                        $mosaic = get_field('mosaic' , $relatedCasePost->ID);
+                                        if ($mosaic[0] == "mosaic"): ?>
+                                            <div class="bl_commonCaseCard_imgWrapper_sensitiveArea">
+                                                <div class="bl_commonCaseCard_imgWrapper_sensitiveArea_txt">
+                                                    <p class="el_commonCaseCard_imgWrapper_sensitiveArea_txt_ttl">デリケートゾーンの症例写真</p>
+                                                    <p class="el_commonCaseCard_imgWrapper_sensitiveArea_txt_sub">※センシティブな内容が含まれます</p>
+                                                </div>
+                                                <button class="bl_commonCaseCard_imgWrapper_sensitiveArea_btn" type="button">表示する</button>
+                                            </div>
+                                        <?php endif; ?>
+
                                         <?php
                                         $i = 0;
                                         if (have_rows('slide', $relatedCasePost->ID)): ?>
@@ -116,7 +129,6 @@
                                             </dl>
                                         <?php endif; ?>
                                     </div>
-                                </a>
                             </article>
                         </div>
                     <?php endforeach; ?>

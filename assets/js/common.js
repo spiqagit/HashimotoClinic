@@ -121,6 +121,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    /* 症例カード：センシティブエリアの表示 */
+    document.querySelectorAll('.bl_commonCaseCard_imgWrapper_sensitiveArea').forEach(function (sensitiveArea) {
+        const imgWrapper = sensitiveArea.closest('.bl_commonCaseCard_imgWrapper');
+        if (imgWrapper) imgWrapper.classList.add('is-sensitive');
+
+        const btn = sensitiveArea.querySelector('.bl_commonCaseCard_imgWrapper_sensitiveArea_btn');
+        if (!btn) return;
+
+        btn.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            gsap.to(sensitiveArea, {
+                opacity: 0,
+                duration: 0.4,
+                ease: 'power2.out',
+                onComplete: function () {
+                    gsap.set(sensitiveArea, { display: 'none' });
+                    if (imgWrapper) imgWrapper.classList.remove('is-sensitive');
+                },
+            });
+        });
+    });
+
     /* ページ最上部へスクロール */
     const topScrollBtn = document.querySelector('.bl_commonTopScrollBtn');
     if (topScrollBtn) {
