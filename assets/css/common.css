@@ -2021,12 +2021,6 @@ html {
   transition: opacity 0.5s ease;
   z-index: 1;
 }
-@media (any-hover: hover) {
-  .bl_commonCaseCard .bl_commonCaseCard_link:hover {
-    opacity: 0.6;
-    transition: opacity 0.5s ease;
-  }
-}
 .bl_commonCaseCard .bl_commonCaseCard_imgWrapper {
   position: relative;
   margin-bottom: 1.25rem;
@@ -2168,6 +2162,16 @@ html {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.08em;
+}
+
+.bl_commonCaseCard {
+  transition: opacity 0.5s ease;
+}
+@media (any-hover: hover) {
+  .bl_commonCaseCard:has(.bl_commonCaseCard_link:hover) {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
 }
 
 .bl_commonAllBtnContainer .bl_commonAllBtn {
