@@ -503,13 +503,6 @@
         height: 100%;
         transition: opacity 0.5s ease;
         z-index: 1;
-
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.6;
-                transition: opacity 0.5s ease;
-            }
-        }
     }
 
     .bl_commonCaseCard_imgWrapper {
@@ -673,6 +666,18 @@
         }
     }
 }
+
+.bl_commonCaseCard{
+    transition: opacity 0.5s ease;
+    
+    @media (any-hover: hover) {
+        &:has(.bl_commonCaseCard_link:hover) {
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+    }
+}
+
 
 
 //共通ボタン
