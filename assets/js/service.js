@@ -154,15 +154,13 @@ document.addEventListener('DOMContentLoaded', function () {
         new Swiper(swiper, {            
             slidesPerView: 1, // 一度に表示する枚数
             spaceBetween: 20,
-            centeredSlides: true,
-            initialSlide: 1, 
             breakpoints: {
                 1100: {
                     slidesPerView: 2,
-                    spaceBetween: 40,
+                    spaceBetween: 24,
                 },
                 768: {
-                    slidesPerView: 1.5,
+                    slidesPerView: 2,
                 },
             },
             navigation: {
