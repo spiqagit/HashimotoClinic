@@ -47,7 +47,7 @@
                                                     <div class="swiper-slide">
                                                         <div class="bl_caseSingleSwiper_imgWrapper">
                                                             <?php
-                                                            $mosaic = get_field('mosaic');
+                                                            $mosaic = get_sub_field('mosaic');
                                                             if ($mosaic[0] == "mosaic"): ?>
                                                                 <div class="bl_commonSensitiveArea">
                                                                     <div class="bl_commonSensitiveArea_txt">
