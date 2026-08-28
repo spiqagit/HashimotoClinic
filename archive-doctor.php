@@ -74,8 +74,8 @@
                                     <div class="bl_doctorContainer">
                                         <?php foreach ($relatedDoctorPosts as $relatedDoctorPost): ?>
 
-                                            <?php 
-                                            $doctorClass = "";    
+                                            <?php
+                                            $doctorClass = "";
                                             if ($job_category->slug != "director") {
                                                 $doctorClass = "is-doctor";
                                             }
@@ -125,6 +125,20 @@
                                                                         <li class="bl_doctorContainer_profileList_item">
                                                                             <p class="el_doctorContainer_profileList_item_year"><?php the_sub_field('career-list-year', $relatedDoctorPost->ID); ?></p>
                                                                             <p class="el_doctorContainer_profileList_item_txt"><?php the_sub_field('career-list-txt', $relatedDoctorPost->ID); ?></p>
+                                                                        </li>
+                                                                    <?php endwhile; ?>
+                                                                </ul>
+                                                            </div>
+                                                        <?php endif; ?>
+
+                                                        <?php if (have_rows('license-list', $relatedDoctorPost->ID)): ?>
+                                                            <div class="bl_doctorContainer_profileListContainer">
+                                                                <h2 class="el_doctorContainer_profileList_ttl">資格</h2>
+
+                                                                <ul class="bl_doctorContainer_profileList bl_doctorContainer_profileList_license">
+                                                                    <?php while (have_rows('license-list', $relatedDoctorPost->ID)): the_row(); ?>
+                                                                        <li class="bl_doctorContainer_profileList_item">
+                                                                            <p class="el_doctorContainer_profileList_item_txt"><?php the_sub_field('license-list-txt', $relatedDoctorPost->ID); ?></p>
                                                                         </li>
                                                                     <?php endwhile; ?>
                                                                 </ul>
