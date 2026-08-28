@@ -31,104 +31,104 @@
                         <div class="swiper-slide">
                             <article class="bl_commonCaseCard">
                                 <a href="<?php echo esc_url(get_permalink($relatedCasePost->ID)); ?>" class="bl_commonCaseCard_link" aria-label="<?php echo esc_html(get_the_title($relatedCasePost->ID)); ?>の症例詳細ページへ遷移する"></a>
-                                    <div class="bl_commonCaseCard_imgWrapper">
-                                        
-                                        <?php
-                                        $mosaic = get_field('mosaic' , $relatedCasePost->ID);
-                                        if ($mosaic[0] == "mosaic"): ?>
-                                            <div class="bl_commonCaseCard_imgWrapper_sensitiveArea">
-                                                <div class="bl_commonCaseCard_imgWrapper_sensitiveArea_txt">
-                                                    <p class="el_commonCaseCard_imgWrapper_sensitiveArea_txt_ttl">デリケートゾーンの症例写真</p>
-                                                    <p class="el_commonCaseCard_imgWrapper_sensitiveArea_txt_sub">※センシティブな内容が含まれます</p>
-                                                </div>
-                                                <button class="bl_commonCaseCard_imgWrapper_sensitiveArea_btn" type="button">表示する</button>
-                                            </div>
-                                        <?php endif; ?>
+                                <div class="bl_commonCaseCard_imgWrapper">
 
-                                        <?php
-                                        $i = 0;
-                                        if (have_rows('slide', $relatedCasePost->ID)): ?>
-                                            <?php while (have_rows('slide', $relatedCasePost->ID)): the_row(); ?>
-                                                <?php if ($i == 0): ?>
-                                                    <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php echo esc_attr(get_the_title($relatedCasePost->ID)); ?>">
+                                    <?php
+                                    $i = 0;
+                                    if (have_rows('slide', $relatedCasePost->ID)): ?>
+                                        <?php while (have_rows('slide', $relatedCasePost->ID)): the_row(); ?>
+                                            <?php if ($i == 0): ?>
+                                                <?php
+                                                $mosaic = get_field('mosaic', $relatedCasePost->ID);
+                                                if ($mosaic[0] == "mosaic"): ?>
+                                                    <div class="bl_commonSensitiveArea">
+                                                        <div class="bl_commonSensitiveArea_txt">
+                                                            <p class="el_commonSensitiveArea_txt_ttl">デリケートゾーンの症例写真</p>
+                                                            <p class="el_commonSensitiveArea_txt_sub">※センシティブな内容が含まれます</p>
+                                                        </div>
+                                                        <button class="bl_commonSensitiveArea_btn" type="button">表示する</button>
+                                                    </div>
                                                 <?php endif; ?>
-                                                <?php $i++; ?>
-                                            <?php endwhile; ?>
-                                        <?php endif; ?>
-                                    </div>
+                                                
+                                                <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" alt="<?php echo esc_attr(get_the_title($relatedCasePost->ID)); ?>">
+                                            <?php endif; ?>
+                                            <?php $i++; ?>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </div>
 
-                                    <div class="bl_commonCaseCard_ttlWrapper">
-                                        <?php $menuSelect = get_field('menu_select', $relatedCasePost->ID); ?>
-                                        <?php if ($menuSelect): ?>
-                                            <div class="bl_commonCaseCard_tagList">
-                                                <?php foreach ($menuSelect as $menuSelectPost): ?>
-                                                    <h3 class="el_commonCaseCard_tagList_item"><?php echo esc_html(get_the_title($menuSelectPost)); ?></h3>
-                                                <?php endforeach; ?>
-                                            </div>
-                                        <?php endif; ?>
-                                        <p class="el_commonCaseCard_ttl"><?php echo esc_html(get_the_title($relatedCasePost->ID)); ?></p>
-                                    </div>
+                                <div class="bl_commonCaseCard_ttlWrapper">
+                                    <?php $menuSelect = get_field('menu_select', $relatedCasePost->ID); ?>
+                                    <?php if ($menuSelect): ?>
+                                        <div class="bl_commonCaseCard_tagList">
+                                            <?php foreach ($menuSelect as $menuSelectPost): ?>
+                                                <h3 class="el_commonCaseCard_tagList_item"><?php echo esc_html(get_the_title($menuSelectPost)); ?></h3>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <p class="el_commonCaseCard_ttl"><?php echo esc_html(get_the_title($relatedCasePost->ID)); ?></p>
+                                </div>
 
-                                    <div class="bl_commonCaseCard_infoWrapper">
-                                        <?php if (get_field('case-menu', $relatedCasePost->ID)): ?>
-                                            <dl class="bl_commonCaseCard_infoWrapper_item">
-                                                <dt class="el_commonCaseCard_infoWrapper_item_dt">施術名</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-menu', $relatedCasePost->ID); ?></dd>
-                                            </dl>
-                                        <?php endif; ?>
+                                <div class="bl_commonCaseCard_infoWrapper">
+                                    <?php if (get_field('case-menu', $relatedCasePost->ID)): ?>
+                                        <dl class="bl_commonCaseCard_infoWrapper_item">
+                                            <dt class="el_commonCaseCard_infoWrapper_item_dt">施術名</dt>
+                                            <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-menu', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
 
-                                        <?php if (get_field('case-price', $relatedCasePost->ID)): ?>
-                                            <dl class="bl_commonCaseCard_infoWrapper_item">
-                                                <dt class="el_commonCaseCard_infoWrapper_item_dt">施術参考料金</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd">
-                                                    <?php echo get_field('case-price', $relatedCasePost->ID); ?>
-                                                    <?php if (get_field('case-price_sub', $relatedCasePost->ID)): ?>
-                                                        <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-price_sub', $relatedCasePost->ID); ?></span>
-                                                    <?php endif; ?>
-                                                </dd>
-                                            </dl>
-                                        <?php endif; ?>
+                                    <?php if (get_field('case-price', $relatedCasePost->ID)): ?>
+                                        <dl class="bl_commonCaseCard_infoWrapper_item">
+                                            <dt class="el_commonCaseCard_infoWrapper_item_dt">施術参考料金</dt>
+                                            <dd class="el_commonCaseCard_infoWrapper_item_dd">
+                                                <?php echo get_field('case-price', $relatedCasePost->ID); ?>
+                                                <?php if (get_field('case-price_sub', $relatedCasePost->ID)): ?>
+                                                    <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-price_sub', $relatedCasePost->ID); ?></span>
+                                                <?php endif; ?>
+                                            </dd>
+                                        </dl>
+                                    <?php endif; ?>
 
-                                        <?php if (get_field('case-time', $relatedCasePost->ID)): ?>
-                                            <dl class="bl_commonCaseCard_infoWrapper_item">
-                                                <dt class="el_commonCaseCard_infoWrapper_item_dt">所要時間</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-time', $relatedCasePost->ID); ?></dd>
-                                            </dl>
-                                        <?php endif; ?>
+                                    <?php if (get_field('case-time', $relatedCasePost->ID)): ?>
+                                        <dl class="bl_commonCaseCard_infoWrapper_item">
+                                            <dt class="el_commonCaseCard_infoWrapper_item_dt">所要時間</dt>
+                                            <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-time', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
 
-                                        <?php if (get_field('case-period', $relatedCasePost->ID)): ?>
-                                            <dl class="bl_commonCaseCard_infoWrapper_item">
-                                                <dt class="el_commonCaseCard_infoWrapper_item_dt">治療期間</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-period', $relatedCasePost->ID); ?></dd>
-                                            </dl>
-                                        <?php endif; ?>
+                                    <?php if (get_field('case-period', $relatedCasePost->ID)): ?>
+                                        <dl class="bl_commonCaseCard_infoWrapper_item">
+                                            <dt class="el_commonCaseCard_infoWrapper_item_dt">治療期間</dt>
+                                            <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-period', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
 
-                                        <?php if (get_field('case-num-times', $relatedCasePost->ID)): ?>
-                                            <dl class="bl_commonCaseCard_infoWrapper_item">
-                                                <dt class="el_commonCaseCard_infoWrapper_item_dt">治療回数</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-num-times', $relatedCasePost->ID); ?></dd>
-                                            </dl>
-                                        <?php endif; ?>
+                                    <?php if (get_field('case-num-times', $relatedCasePost->ID)): ?>
+                                        <dl class="bl_commonCaseCard_infoWrapper_item">
+                                            <dt class="el_commonCaseCard_infoWrapper_item_dt">治療回数</dt>
+                                            <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-num-times', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
 
-                                        <?php if (get_field('case-downtime', $relatedCasePost->ID)): ?>
-                                            <dl class="bl_commonCaseCard_infoWrapper_item">
-                                                <dt class="el_commonCaseCard_infoWrapper_item_dt">ダウンタイム</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-downtime', $relatedCasePost->ID); ?></dd>
-                                            </dl>
-                                        <?php endif; ?>
+                                    <?php if (get_field('case-downtime', $relatedCasePost->ID)): ?>
+                                        <dl class="bl_commonCaseCard_infoWrapper_item">
+                                            <dt class="el_commonCaseCard_infoWrapper_item_dt">ダウンタイム</dt>
+                                            <dd class="el_commonCaseCard_infoWrapper_item_dd"><?php echo get_field('case-downtime', $relatedCasePost->ID); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
 
-                                        <?php if (get_field('case-risk', $relatedCasePost->ID)): ?>
-                                            <dl class="bl_commonCaseCard_infoWrapper_item">
-                                                <dt class="el_commonCaseCard_infoWrapper_item_dt">副作用・リスク</dt>
-                                                <dd class="el_commonCaseCard_infoWrapper_item_dd">
-                                                    <?php echo esc_html(get_field('case-risk', $relatedCasePost->ID)); ?>
-                                                    <?php if (get_field('case-risk_sub', $relatedCasePost->ID)): ?>
-                                                        <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-risk_sub', $relatedCasePost->ID); ?></span>
-                                                    <?php endif; ?>
-                                                </dd>
-                                            </dl>
-                                        <?php endif; ?>
-                                    </div>
+                                    <?php if (get_field('case-risk', $relatedCasePost->ID)): ?>
+                                        <dl class="bl_commonCaseCard_infoWrapper_item">
+                                            <dt class="el_commonCaseCard_infoWrapper_item_dt">副作用・リスク</dt>
+                                            <dd class="el_commonCaseCard_infoWrapper_item_dd">
+                                                <?php echo esc_html(get_field('case-risk', $relatedCasePost->ID)); ?>
+                                                <?php if (get_field('case-risk_sub', $relatedCasePost->ID)): ?>
+                                                    <span class="el_commonCaseCard_infoWrapper_item_dd_sub"><?php echo get_field('case-risk_sub', $relatedCasePost->ID); ?></span>
+                                                <?php endif; ?>
+                                            </dd>
+                                        </dl>
+                                    <?php endif; ?>
+                                </div>
                             </article>
                         </div>
                     <?php endforeach; ?>

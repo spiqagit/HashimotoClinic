@@ -2038,62 +2038,6 @@ html {
   object-fit: cover;
   border-radius: 0.25rem;
 }
-.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  background: rgba(68, 68, 68, 0.2);
-  backdrop-filter: blur(15px);
-  padding: 0.625rem;
-  z-index: 1;
-}
-.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea:before {
-  content: "";
-  display: block;
-  position: relative;
-}
-.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_txt {
-  color: #FFF8F6;
-  font-feature-settings: "palt" on;
-  font-family: var(--subFontJa);
-  font-family: "Noto Sans JP", sans-serif;
-}
-.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_txt .el_commonCaseCard_imgWrapper_sensitiveArea_txt_ttl {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: 0.06em;
-}
-.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_txt .el_commonCaseCard_imgWrapper_sensitiveArea_txt_sub {
-  font-size: 0.8125rem;
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: 0.06em;
-}
-.bl_commonCaseCard .bl_commonCaseCard_imgWrapper .bl_commonCaseCard_imgWrapper_sensitiveArea .bl_commonCaseCard_imgWrapper_sensitiveArea_btn {
-  display: block;
-  color: var(--white-white, #FFF);
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  border-radius: 0.25rem;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  padding-inline: 1.25rem;
-  padding-top: 0.625rem;
-  padding-bottom: 0.75rem;
-  cursor: pointer;
-}
 .bl_commonCaseCard .bl_commonCaseCard_ttlWrapper {
   margin-bottom: 0.875rem;
 }
@@ -2172,6 +2116,63 @@ html {
     opacity: 0.6;
     transition: opacity 0.5s ease;
   }
+}
+
+.bl_commonSensitiveArea {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: rgba(68, 68, 68, 0.2);
+  backdrop-filter: blur(15px);
+  padding: 0.625rem;
+  z-index: 1;
+}
+.bl_commonSensitiveArea:before {
+  content: "";
+  display: block;
+  position: relative;
+}
+.bl_commonSensitiveArea .bl_commonSensitiveArea_txt {
+  color: #FFF8F6;
+  font-feature-settings: "palt" on;
+  font-family: var(--subFontJa);
+  font-family: "Noto Sans JP", sans-serif;
+}
+.bl_commonSensitiveArea .bl_commonSensitiveArea_txt .el_commonSensitiveArea_txt_ttl {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+.bl_commonSensitiveArea .bl_commonSensitiveArea_txt .el_commonSensitiveArea_txt_sub {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+.bl_commonSensitiveArea .bl_commonSensitiveArea_btn {
+  display: block;
+  color: var(--white-white, #FFF);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding-inline: 1.25rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.75rem;
+  cursor: pointer;
 }
 
 .bl_commonAllBtnContainer .bl_commonAllBtn {
