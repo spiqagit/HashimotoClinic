@@ -4977,6 +4977,7 @@ CTAボタン
   }
 }
 .bl_caseArticle_contents .bl_caseArticle_contents_inner .bl_caseArticl_imgSlider .bl_caseSingleSwiperContainer .bl_caseSingleSwiper_imgWrapper {
+  position: relative;
   height: auto;
   width: 100%;
   aspect-ratio: 400/541;
