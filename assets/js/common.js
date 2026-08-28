@@ -122,11 +122,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /* 症例カード：センシティブエリアの表示 */
-    document.querySelectorAll('.bl_commonCaseCard_imgWrapper_sensitiveArea').forEach(function (sensitiveArea) {
+    document.querySelectorAll('.bl_commonSensitiveArea').forEach(function (sensitiveArea) {
         const imgWrapper = sensitiveArea.closest('.bl_commonCaseCard_imgWrapper');
         if (imgWrapper) imgWrapper.classList.add('is-sensitive');
 
-        const btn = sensitiveArea.querySelector('.bl_commonCaseCard_imgWrapper_sensitiveArea_btn');
+        const btn = sensitiveArea.querySelector('.bl_commonSensitiveArea_btn');
         if (!btn) return;
 
         btn.addEventListener('click', function (event) {

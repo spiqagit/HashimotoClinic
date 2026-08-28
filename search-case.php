@@ -132,21 +132,21 @@
                                         <a href="<?php the_permalink(); ?>/" class="bl_commonCaseCard_link"></a>
                                         <div class="bl_commonCaseCard_imgWrapper">
                                             <?php
-                                            $mosaic = get_field('mosaic');
-                                            if ($mosaic[0] == "mosaic"): ?>
-                                                <div class="bl_commonCaseCard_imgWrapper_sensitiveArea">
-                                                    <div class="bl_commonCaseCard_imgWrapper_sensitiveArea_txt">
-                                                        <p class="el_commonCaseCard_imgWrapper_sensitiveArea_txt_ttl">デリケートゾーンの症例写真</p>
-                                                        <p class="el_commonCaseCard_imgWrapper_sensitiveArea_txt_sub">※センシティブな内容が含まれます</p>
-                                                    </div>
-                                                    <button class="bl_commonCaseCard_imgWrapper_sensitiveArea_btn" type="button">表示する</button>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php
                                             $i = 0;
                                             if (have_rows('slide')): ?>
                                                 <?php while (have_rows('slide')): the_row(); ?>
                                                     <?php if ($i == 0): ?>
+                                                        <?php
+                                                        $mosaic = get_sub_field('mosaic');
+                                                        if ($mosaic[0] == "mosaic"): ?>
+                                                            <div class="bl_commonSensitiveArea">
+                                                                <div class="bl_commonSensitiveArea_txt">
+                                                                    <p class="el_commonSensitiveArea_txt_ttl">デリケートゾーンの症例写真</p>
+                                                                    <p class="el_commonSensitiveArea_txt_sub">※センシティブな内容が含まれます</p>
+                                                                </div>
+                                                                <button class="bl_commonSensitiveArea_btn" type="button">表示する</button>
+                                                            </div>
+                                                        <?php endif; ?>
                                                         <img class="el_commonCaseCard_img" src="<?php the_sub_field('img'); ?>" width="360" height="485" alt="<?php the_title_attribute(); ?>">
                                                     <?php endif; ?>
                                                     <?php $i++; ?>
